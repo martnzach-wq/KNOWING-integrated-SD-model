@@ -36,6 +36,7 @@ Emission components (ParentModel_Energy_corrected.mdl):
   Accumulated emissions = INTEG(Total Emissions, 0)
 """
 
+import json
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
@@ -47,6 +48,12 @@ from pathlib import Path
 
 OUTPUT_DIR = Path(__file__).parent
 XLSX       = OUTPUT_DIR / "EN_MEADCityInput_0527_v6.xlsx"
+
+with open(OUTPUT_DIR / "config.json") as _f:
+    CFG = json.load(_f)
+SCENARIO    = CFG["scenario_name"]
+PI_FLAGS    = CFG["policies"]
+PV_2050_MWP = CFG["pv_capacity_2050_mwp"]
 YEARS      = np.arange(2019, 2051, dtype=float)
 NT         = len(YEARS)
 # Growing population from XLSX row 35 (consistent with non-transport demand rows)
@@ -69,7 +76,7 @@ def lup(row):
 # STEP 1 — MOBILITY SUBMODEL  (granollers_pi_vensim__1_.py, PI=1)
 # ═══════════════════════════════════════════════════════════════════════════════
 print("=" * 74)
-print("GRANOLLERS INTEGRATED MODEL  v8  |  PI=1 scenario  |  2019–2050")
+print(f"GRANOLLERS INTEGRATED MODEL  v8  |  {SCENARIO} scenario  |  2019–2050")
 print("=" * 74)
 print("\n[MOB] Running mobility submodel (updated, PMUS-calibrated)…")
 
@@ -217,8 +224,7 @@ def run_mob(PI_dict, ev_arr):
         ev=ev_arr, pop=POP_GROWING,
     )
 
-PI_ON = {k: RP for k in ["parking","area_toll","road_pricing","pt_time",
-                           "ev","cycling","car_pass","capacity","street_green"]}
+PI_ON = {k: (RP if PI_FLAGS.get(k, 1) else np.zeros(NT)) for k in PI_FLAGS}
 mob = run_mob(PI_ON, EV_PI)
 
 # Verify against standalone output
@@ -327,7 +333,7 @@ GRID_EF = np.interp(YEARS,[2019.,2030.,2050.],[0.190,0.060,0.005])
 # (7.7 MWp non-urbanised land + 4.4 MWp infrastructure + 67.8 MWp buildings).
 # Supersedes the earlier 250 MWp "technical potential" assumption, which was
 # ~3.1x more ambitious than the PLATER planning-grounded target.
-IC_PV    = np.interp(YEARS,[2019.,2050.],[2.,  79.9])
+IC_PV    = np.interp(YEARS,[2019.,2050.],[2.,  PV_2050_MWP])
 IC_GasCHP= np.interp(YEARS,[2019.,2050.],[15., 2.  ])
 PV_YIELD = 1.5
 DH_DEMAND= np.interp(YEARS,[2019,2025,2027,2030,2035,2040,2045,2050],
@@ -379,7 +385,7 @@ def ann(ax,yr,y,txt,**kw):
 
 fig=plt.figure(figsize=(18,26),facecolor="#FAFAFA")
 fig.suptitle(
-    "Granollers — Integrated Model v8  |  PI=1 Scenario  |  2019–2050\n"
+    f"Granollers — Integrated Model v8  |  {SCENARIO} Scenario  |  2019–2050\n"
     "Mobility (updated, PMUS-calibrated) → Energy Demand (mob×EI + XLSX) "
     "→ Energy Supply → Emissions",
     fontsize=12,fontweight="bold",y=0.998)
@@ -548,7 +554,8 @@ for row in rows:
     trow(ax,y_,row[1],row[2],fmt,bold,col)
 
 plt.tight_layout(rect=[0,0,1,0.996])
-out=OUTPUT_DIR/"granollers_integrated_v8_results.png"
+_slug = SCENARIO.replace("=","").replace(" ","_").replace("/","_")
+out=OUTPUT_DIR/f"granollers_integrated_v8_results_{_slug}.png"
 plt.savefig(out,dpi=150,bbox_inches="tight",facecolor=fig.get_facecolor())
 print(f"✓ Plot saved → {out}")
 plt.close()

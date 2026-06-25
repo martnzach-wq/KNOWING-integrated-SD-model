@@ -1,0 +1,15 @@
+{
+  "scenario_name": "PI=1",
+  "policies": {
+    "parking":      1,
+    "area_toll":    1,
+    "road_pricing": 1,
+    "pt_time":      1,
+    "ev":           1,
+    "cycling":      1,
+    "car_pass":     1,
+    "capacity":     1,
+    "street_green": 1
+  },
+  "pv_capacity_2050_mwp": 79.9
+}
