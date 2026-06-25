@@ -26,6 +26,46 @@ Couples three submodels into one annual Euler-integrated simulation, 2019–2050
 
 **Emission reduction 2019→2050: 93%**
 
+## Scenario configuration
+
+Scenarios are controlled via `config.json` in the project root — no code changes needed.
+
+```json
+{
+  "scenario_name": "PI=1",
+  "policies": {
+    "parking":      1,
+    "area_toll":    1,
+    "road_pricing": 1,
+    "pt_time":      1,
+    "ev":           1,
+    "cycling":      1,
+    "car_pass":     1,
+    "capacity":     1,
+    "street_green": 1
+  },
+  "pv_capacity_2050_mwp": 79.9
+}
+```
+
+**Policy values** range from `0` (intervention inactive, BAU) to `1` (fully active by 2050). Intermediate values (e.g. `0.5`) represent partial implementation. Each policy scales the ramp trajectory `RP = [0, 0.5, 0.75, 1.0]` at years `[2019, 2030, 2040, 2050]`.
+
+| Policy key | Description |
+|---|---|
+| `parking` | Parking cost reform |
+| `area_toll` | Area/congestion toll |
+| `road_pricing` | Road pricing per km |
+| `pt_time` | PT travel time improvement |
+| `ev` | EV fleet uptake support |
+| `cycling` | Cycling infrastructure |
+| `car_pass` | Car-passenger incentives |
+| `capacity` | Road capacity management |
+| `street_green` | Street greening (active mode attractiveness) |
+
+**`pv_capacity_2050_mwp`** sets the local PV installed capacity target for 2050 (linearly interpolated from 2 MWp in 2019). The current value of 79.9 MWp follows the Catalonia PLATER plan.
+
+Each run saves its output chart as `granollers_integrated_v8_results_<scenario_name>.png`, so multiple scenarios can be compared without overwriting.
+
 ## Requirements
 
 ```
