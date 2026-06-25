@@ -686,8 +686,9 @@ NAPLES = CityConfig(
             2030: 16.5, 2040: 65.0, 2050: 85.0,
         },
         ev_bau_damping_pivot_year=2026,  # same structure as Tallinn; BAU ~half PI=1 from 2026
-        mode_change_damping=1.0,  # UNCALIBRATED -- run grid search once real mode-share
-                                   # checkpoints are available from KNOWING survey data.
+        mode_change_damping=0.0376,  # calibrated by bisection: car distance share = 35%
+                                     # in 2050 under PI=1 (target set by user; replace
+                                     # with survey-validated checkpoint once available).
     ),
     energy_demand=EnergyDemandConfig(
         # PLACEHOLDER: Naples MAED-City XLSX does not yet exist.
