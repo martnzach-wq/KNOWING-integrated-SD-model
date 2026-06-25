@@ -508,3 +508,222 @@ GRANOLLERS = CityConfig(
         },
     ),
 )
+
+
+# ---------------------------------------------------------------------------
+# NAPLES -- Mediterranean large-city case, populated from public sources.
+#
+# DATA SOURCES (per field):
+#   Population     : ISTAT 2019 permanent census (comune.napoli.it / istat.it)
+#   Mode shares    : ISFORT Audimob 2019 national report + Naples-context
+#                    adjustment (Naples PUMS PDFs not machine-readable;
+#                    car share lowered vs. national 62.5% due to Naples'
+#                    dense urban fabric and metro/funicular network;
+#                    PT raised accordingly). FLAG for replacement once the
+#                    Comune di Napoli PUMS 2021 technical annex is accessible.
+#   Trip rates     : Derived from ISFORT 2019 (1.76 trips/cap/day Italy
+#                    national) distributed across modes using estimated
+#                    mode shares, then split by zone/length following the
+#                    same structural logic as Granollers.
+#   Travel speeds  : Naples-specific estimates; car speeds reflect severe
+#                    urban congestion (TomTom Traffic Index 2019: Naples
+#                    ranked among Italy's most congested cities, ~50-55%
+#                    congestion level); PT speeds reflect mixed bus/metro
+#                    network.
+#   EV trajectory  : EAFO 2019 fleet share (0.3% BEV); 2030 PNIEC 2023
+#                    Policy Driven scenario (6.6M BEV+PHEV / ~40M fleet =
+#                    16.5%); 2050 extrapolated to 85% (EU full-fleet target
+#                    trajectory, consistent with Italian PNIEC decarbonisation
+#                    goal). BAU uses same damping structure as Tallinn
+#                    (pivot 2026).
+#   Grid EF        : Nowtricity/Terna 2019 actual (0.362 kg/kWh); PNIEC 2023
+#                    2030 milestone (~0.150 kg/kWh, 65% renewable target);
+#                    2050 near-zero (0.010 kg/kWh, full decarbonisation).
+#   PV capacity    : GSE 2019 report: Campania total 751 MWp. Naples city
+#                    share estimated by population ratio (905k / 5.7M ×
+#                    751) ≈ 119 MWp, corrected downward (~40%) for urban
+#                    density vs. rural Campania → 70 MWp 2019 baseline.
+#                    2050 target: Campania 2030 target 873 MWp (Clean
+#                    Cities / ScienceDirect 2050 study), Naples urban share
+#                    ~130 MWp.
+#   Coping types   : PLACEHOLDER -- must be replaced with KNOWING Naples
+#                    survey data. Using Mediterranean profile similar to
+#                    Granollers as best available proxy.
+#   Energy demand  : PLACEHOLDER xlsx_path -- a Naples-specific MAED-City
+#                    XLSX does not yet exist. Energy demand submodel cannot
+#                    run until this file is provided by KNOWING partners.
+#   Policy levers  : Adapted from Naples PUMS 2021 strategy documents
+#                    (Clean Cities summary + ambientenonsolo.com coverage):
+#                    ZTL expansion (area toll: YES, city already has ZTL),
+#                    PT travel-time targets (-25% by 2030), cycling
+#                    infrastructure programme (12 new routes planned),
+#                    parking cost increases. Magnitudes calibrated to be
+#                    consistent with Granollers / Tallinn PI=1 ranges.
+# ---------------------------------------------------------------------------
+
+_naples_trip_rate_internal = {
+    # trips/person/day, mode order = [car, car passenger, PT, bicycle, walk]
+    # Short trips (~1 km): dominated by walking in dense historic centre
+    "short":  [0.030, 0.010, 0.030, 0.008, 0.420],
+    # Medium trips (~4 km): car and PT competitive; some cycling
+    "medium": [0.180, 0.070, 0.120, 0.015, 0.080],
+    # Long trips (~12 km): car and PT dominant
+    "long":   [0.140, 0.055, 0.100, 0.003, 0.005],
+}
+_naples_trip_rate_od = {
+    # OD zone: commuters from metropolitan hinterland (~250k people)
+    "short":  [0.005, 0.002, 0.008, 0.002, 0.040],
+    "medium": [0.180, 0.060, 0.120, 0.008, 0.025],
+    "long":   [0.280, 0.090, 0.160, 0.002, 0.002],
+}
+
+# TR_InitialTravelSpeed[zone, trip_length, mode] -- km/h
+# Naples urban speeds: severe congestion (TomTom 2019: ~50-55% congestion)
+_naples_speed_internal = {
+    "short":  [10.0, 10.0,  8.0, 12.0, 4.5],
+    "medium": [14.0, 14.0, 12.0, 11.5, 4.3],
+    "long":   [18.0, 18.0, 16.0, 10.5, 4.1],
+}
+_naples_speed_od = {
+    "short":  [14.0, 14.0, 12.0, 13.0, 4.5],
+    "medium": [25.0, 25.0, 18.0, 12.0, 4.3],
+    "long":   [45.0, 45.0, 35.0, 11.0, 4.2],
+}
+
+NAPLES = CityConfig(
+    name="Naples",
+    country="Italy (Campania)",
+    mobility=MobilityConfig(
+        # ISTAT 2019 permanent census: Naples comune ~905,000; metropolitan
+        # commuter inflow estimated at ~250,000 (hinterland to city-proper flows
+        # not yet available from ISTAT OD microdata -- FLAG for update).
+        population_internal=905_000,
+        population_od=250_000,
+        # Centroid distances: Naples is denser than Granollers; shorter trip
+        # lengths consistent with compact Mediterranean city fabric.
+        initial_trip_length_internal=(0.80, 3.50, 11.00),
+        initial_trip_length_od=(1.00, 5.50, 18.00),
+        initial_trip_rate={
+            "internal": _naples_trip_rate_internal,
+            "origin destination": _naples_trip_rate_od,
+        },
+        initial_travel_speed={
+            "internal": _naples_speed_internal,
+            "origin destination": _naples_speed_od,
+        },
+        # Mode-specific empirical trip lengths (estimated; FLAG for replacement
+        # with survey-derived values from KNOWING data or PUMS technical annex).
+        mode_specific_trip_length={
+            "internal": {
+                "car": 4.2, "car passenger": 4.0,
+                "public transport": 3.5, "bicycle": 2.2, "walk": 0.8,
+            },
+            "origin destination": {
+                "car": 16.0, "car passenger": 16.0,
+                "public transport": 15.0, "bicycle": 4.5, "walk": 1.2,
+            },
+        },
+        # PLACEHOLDER: must be replaced with KNOWING Naples survey data.
+        # Using Mediterranean coping-type profile similar to Granollers
+        # as the closest available proxy for a Southern European city.
+        coping_type_distribution=(0.04, 0.08, 0.11, 0.36, 0.30, 0.11),
+        # Naples: Mediterranean climate, ~120 CDD (higher than Tallinn,
+        # lower than Granollers' 380; PVGIS data for Campania).
+        cooling_degree_days=120,
+        apply_cdd_baseattr_compensation=False,  # BaseAttr hand-tuned below; same logic as Granollers
+        # Base attractiveness by mode and zone: calibrated so 2019 logit
+        # equilibrium reproduces estimated Naples mode split (car ~50%,
+        # PT ~25%, walk ~22%, bicycle ~2%, car_pass ~15% rough target).
+        # Values are provisional estimates; recalibrate once real mode-share
+        # data from PUMS or KNOWING survey is available.
+        base_attr_by_mode_and_zone={
+            "car":              (2.10, 3.30),
+            "car passenger":    (1.80, 3.00),
+            "public transport": (2.90, 3.90),   # higher than Granollers: metro/funicular network
+            "bicycle":          (3.80, 6.50),   # lower than Granollers: hillier terrain, less cycle culture
+            "walk":             (5.50, 12.00),
+        },
+        # Generalised-cost formula: Southern Italian city, similar VoT to
+        # Granollers; attr_distinction estimated, needs KNOWING survey data.
+        attr_distinction=0.22,
+        value_of_time_base=5.5,    # EUR/h; slightly above Granollers (higher Naples income level)
+        value_of_time_dist=0.1,
+        value_of_time_profile=(3.0, -2.0, 2.0, -3.0, -1.0, 1.0),
+        # Naples road network: estimated ~3.5M car trips/day capacity
+        # (vs. Granollers 440k for 105k pop; Naples is ~15x larger).
+        network_capacity=3_500_000.0,
+        pt_cost_by_zone=(0.0, 1.10),  # Naples ANM/EAV flat fare ~1.10 EUR (2019)
+        car_cost_per_km_fuel_constant=0.12,   # Italy avg fuel cost/km 2019 (ACI data)
+        car_cost_per_km_ev_constant=0.05,
+        parking_cost_base=1.0,   # EUR/trip; Naples urban parking ~0.5-2 EUR/h
+        access_time_by_mode={
+            "car":              (0.15, 0.15),
+            "car passenger":    (0.10, 0.10),
+            "public transport": (0.25, 0.25),   # longer PT access: infrequent buses, station distance
+            "bicycle":          (0.0,  0.0),
+            "walk":             (0.0,  0.0),
+        },
+        # Policy levers (PI=1 strength), based on Naples PUMS 2021 strategy:
+        policy_car_costs_fuel={},   # constant (car_cost_per_km_fuel_constant used instead)
+        policy_car_costs_ev={},
+        policy_capacity_adaptation={2019: 1, 2030: 0.95, 2040: 0.85, 2050: 0.80},  # ZTL expansion
+        policy_parking_cost_adaptation={2019: 1, 2030: 1.15, 2040: 1.30, 2050: 1.40},
+        policy_area_toll={2019: 5, 2030: 12, 2040: 18, 2050: 25},  # ZTL already exists; expanded
+        policy_road_pricing={2019: 0, 2030: 0.08, 2040: 0.20, 2050: 0.35},
+        policy_cycling_attractiveness={2019: 0, 2030: 0.4, 2040: 1.2, 2050: 2.0},  # 12 new routes PUMS target
+        policy_pt_traveltime_adaptation={2019: 1, 2030: 0.90, 2040: 0.80, 2050: 0.75},  # metro line completions
+        policy_distance_adaptation={},
+        policy_car_passenger_attractiveness={2019: 0, 2030: 0.4, 2040: 1.2, 2050: 2.0},
+        policy_ev_adoption_adaptation={},
+        policy_street_green={},     # not a Naples PUMS lever
+        pop_net_increase_internal={},  # ISTAT projects Campania slight population decline; using zero
+        pop_net_increase_od={},
+        area_toll_applicable=True,  # Naples ZTL already in place; model its expansion
+        # EV trajectory (PI=1): EAFO 2019 baseline + PNIEC 2023 Policy Driven
+        # 2030 target (6.6M / ~40M Italian fleet = 16.5%) + EU 2050 trajectory.
+        ev_pi_trajectory={
+            2019: 0.3, 2022: 1.0, 2025: 4.0,
+            2030: 16.5, 2040: 65.0, 2050: 85.0,
+        },
+        ev_bau_damping_pivot_year=2026,  # same structure as Tallinn; BAU ~half PI=1 from 2026
+        mode_change_damping=1.0,  # UNCALIBRATED -- run grid search once real mode-share
+                                   # checkpoints are available from KNOWING survey data.
+    ),
+    energy_demand=EnergyDemandConfig(
+        # PLACEHOLDER: Naples MAED-City XLSX does not yet exist.
+        # Energy demand submodel will fail until this file is provided
+        # by KNOWING energy partners and placed in the project directory.
+        xlsx_path=_resolve_data_path("EN_MEADCityInput_Naples.xlsx"),
+        sheet_name="CETS",
+        detailed_heating_breakdown=False,  # Naples has minimal DH; aggregate heating likely sufficient
+    ),
+    energy_supply=EnergySupplyConfig(
+        xlsx_path=None,
+        has_district_heating=False,  # no DH network in Naples (Mediterranean climate)
+        # Italy grid EF trajectory:
+        #   2019: 0.362 kg/kWh (Nowtricity/Terna actual)
+        #   2030: 0.150 kg/kWh (PNIEC 2023 target: 65% renewable in electricity)
+        #   2050: 0.010 kg/kWh (PNIEC full decarbonisation goal)
+        grid_emission_factor={2019: 0.362, 2030: 0.150, 2050: 0.010},
+        # Naples city PV target 2050: estimated from GSE 2019 Campania data
+        # (751 MWp regional, Naples urban share ~70 MWp in 2019) scaled to
+        # Campania 2030 target (873 MWp, ScienceDirect 2050 study) →
+        # Naples city ~130 MWp by 2050.
+        plater_pv_target_2050=130.0,
+        fossil_power_dispatch_mode="fixed_schedule",  # Naples has Gas CHP / cogeneration plants
+        fossil_power_phases_out_after_10y=False,
+        fossil_power_emission_factor=0.45,  # natural gas, same as Granollers CHP
+        synthetic_supply_data=lambda: {
+            "ES ElectricityCapacity": {
+                "PV": (70.0, 130.0),           # MWp; 2019 estimated, 2050 target (see above)
+                "Natural Gas CHP el": (50.0, 10.0),  # Naples has industrial cogeneration
+            },
+            "ES ElectrictitySupply": {
+                "PV": (70.0 * 1.4, 130.0 * 1.4),       # yield ratio 1.4 (higher irradiance than Granollers)
+                "Natural Gas CHP el": (50.0 * 2.0, 10.0 * 2.0),
+            },
+            "ES HeatCapacity": {},
+            "ES HeatSupply": {},
+        },
+    ),
+)
