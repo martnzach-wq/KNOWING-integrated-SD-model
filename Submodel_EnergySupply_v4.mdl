@@ -1,0 +1,851 @@
+{UTF-8}
+ES ElectricityCapacity[electricityType]:INTERPOLATE:
+	~	
+	~		|
+
+ES InstalledCapacity BiomassCHP= INTEG (
+	ES new biomass,
+		ES HeatCapacity[Biomass CHP])
+	~	
+	~		|
+
+ES InstalledCapacity DHHeatPump= INTEG (
+	ES new heatpumps,
+		ES HeatCapacity[DH Heat Pump])
+	~	
+	~		|
+
+ES InstalledCapacity ElectricBoiler= INTEG (
+	ES new electrboilers,
+		ES HeatCapacity[DH Electric Boiler])
+	~	
+	~		|
+
+ES HeatSupply[heatType]:INTERPOLATE:
+	~	
+	~		|
+
+ES InstalledCapacity GasBoiler= INTEG (
+	ES new gasboilers-ES phase out gasboilers,
+		ES HeatCapacity[DH Natural Gas Boiler])
+	~	
+	~		|
+
+CL PVProductivity=
+	ES ElectrictitySupply[PV] / ES ElectricityCapacity[PV]
+	~	
+	~		|
+
+ED CoreElectricityDemand:INTERPOLATE:
+	~	
+	~		|
+
+ED CoreHeatDemand:INTERPOLATE:
+	~	
+	~		|
+
+ED CoreHeatDemandIncrease=
+	ED CoreHeatDemand - ED CoreHeatDemandOfPreviousTimestep
+	~	
+	~		|
+
+ED CoreHeatDemandOfPreviousTimestep=
+	DELAY FIXED(ED CoreHeatDemand, 1 , ED CoreElectricityDemand )
+	~	
+	~		|
+
+ED DHElectricityDemand=
+	ES HeatSupply heatpump * GET DATA AT TIME( ES ElDemand DH HP, 2050) / GET DATA AT TIME\
+		(ES HeatSupply[DH Heat Pump], 2050) +
+	ES HeatSupply electric * GET DATA AT TIME( ES ElDemand DH EB, 2050) / GET DATA AT TIME\
+		(ES HeatSupply[DH Electric Boiler], 2050)
+	~	
+	~	depending on the supply (downscaled from 2050 data)
+	|
+
+ES new biomass=
+	(GET DATA AT TIME( ES HeatCapacity[Biomass CHP], 2050) - GET DATA AT TIME( ES HeatCapacity\
+		[Biomass CHP], 2019)) / 31
+	~	
+	~		|
+
+ES new electrboilers=
+	(GET DATA AT TIME( ES HeatCapacity[DH Electric Boiler], 2050) - GET DATA AT TIME( ES HeatCapacity\
+		[DH Electric Boiler], 2019)) / 31
+	~	
+	~		|
+
+ES phase out oilboilers=
+	(GET DATA AT TIME( ES HeatCapacity[DH Fuel Oil Boiler], 2019) - GET DATA AT TIME( ES HeatCapacity\
+		[DH Fuel Oil Boiler], 2050)) / 31
+	~	
+	~		|
+
+ES new gasboilers=
+	0
+	~	
+	~		|
+
+electricityType:
+	PV,
+	Biomass CHP el,
+	Waste CHP el,
+	Grid Connection,
+	Biomethane CHP el,
+	Battery,
+	Fuel Cell el,
+	Fuel Oil PP,
+	Biogas PP,
+	Natural Gas CHP el,
+	Peat CHP el
+	~	
+	~		|
+
+ES ElDemand DH EB:INTERPOLATE:
+	~	
+	~		|
+
+ES ElDemand DH HP:INTERPOLATE:
+	~	
+	~		|
+
+ES new wasteCHP=
+	(GET DATA AT TIME( ES HeatCapacity[Waste CHP], 2050) - GET DATA AT TIME( ES HeatCapacity\
+		[Waste CHP], 2019)) / 31
+	~	
+	~		|
+
+ES HeatSupply total=
+	ES HeatSupply biomass + ES HeatSupply gas + ES HeatSupply heatpump + ES HeatSupply oil\
+		 + ES HeatSupply waste
+	~	
+	~		|
+
+ES ElectrictitySupply[electricityType]:INTERPOLATE:
+	~	
+	~		|
+
+ES HeatCapacity[heatType]:INTERPOLATE:
+	~	
+	~		|
+
+ES phase out gasboilers=
+	(GET DATA AT TIME( ES HeatCapacity[DH Natural Gas Boiler], 2019) - GET DATA AT TIME(\
+		 ES HeatCapacity[DH Natural Gas Boiler], 2050)) / 31
+	~	
+	~	assumed linear
+	|
+
+ES HeatSupply biomass=
+	MIN( ES InstalledCapacity BiomassCHP * GET DATA AT TIME( ES HeatSupply[Biomass CHP],\
+		 2019) /
+	GET DATA AT TIME( ES HeatCapacity[Biomass CHP], 2019), ES HeatSupply[Biomass CHP])
+	~	
+	~	limited by
+		- the capacity
+		- the PI (ramp down)
+		not yet considered: use for gaps if heat demand cannot be covered \
+		otherwise?
+	|
+
+ES HeatSupply electric=
+	ES InstalledCapacity ElectricBoiler * GET DATA AT TIME( ES HeatSupply[DH Electric Boiler\
+		], 2050) /
+	GET DATA AT TIME( ES HeatCapacity[DH Electric Boiler], 2050) + ES HeatSupplyGap
+	~	
+	~	Assumption: scaled against data, but gap covered by electric boilers
+	|
+
+ES HeatSupply gas=
+	ES InstalledCapacity GasBoiler * GET DATA AT TIME( ES HeatSupply[DH Natural Gas Boiler\
+		], 2019) /
+	GET DATA AT TIME( ES HeatCapacity[DH Natural Gas Boiler], 2019)
+	~	
+	~		|
+
+ES HeatSupply heatpump=
+	ES InstalledCapacity DHHeatPump * GET DATA AT TIME( ES HeatSupply[DH Heat Pump], 2050\
+		) /
+	GET DATA AT TIME( ES HeatCapacity[DH Heat Pump], 2050)
+	~	
+	~		|
+
+ES HeatSupply oil=
+	ES InstalledCapacity OilBoiler * GET DATA AT TIME( ES HeatSupply[DH Fuel Oil Boiler]\
+		, 2019) /
+	GET DATA AT TIME( ES HeatCapacity[DH Fuel Oil Boiler], 2019)
+	~	
+	~	use all installed capacity during phase out
+	|
+
+ES InstalledCapacity WasteCHP= INTEG (
+	ES new wasteCHP,
+		ES HeatCapacity[Waste CHP])
+	~	
+	~		|
+
+ES HeatSupply waste=
+	MIN( ES InstalledCapacity WasteCHP * GET DATA AT TIME( ES HeatSupply[Waste CHP], 2019\
+		) /
+	GET DATA AT TIME( ES HeatCapacity[Waste CHP], 2019), ES HeatSupply[Waste CHP])
+	~	
+	~		|
+
+ES HeatSupplyGap=
+	IF THEN ELSE(ED CoreHeatDemand - ES HeatSupply total > 0, ED CoreHeatDemand - ES HeatSupply total\
+		, 0)
+	~	
+	~		|
+
+ES InstalledCapacity OilBoiler= INTEG (
+	ES new oilboilers-ES phase out oilboilers,
+		ES HeatCapacity[DH Fuel Oil Boiler])
+	~	
+	~		|
+
+ES InitialInstalledCapacity PV=
+	GET DATA AT TIME( ES ElectricityCapacity[PV], 2019)
+	~	
+	~		|
+
+fossile electr:
+	Fuel Oil PP,Biogas PP,Natural Gas CHP el,Peat CHP el
+	~	
+	~		|
+
+ES InitialInstalledCapacity fossile=
+	ES ElectricityCapacity[Fuel Oil PP] + ES ElectricityCapacity[Biogas PP] + 
+	ES ElectricityCapacity[Natural Gas CHP el] + ES ElectricityCapacity[Peat CHP el]
+	~	
+	~		|
+
+ES new oilboilers=
+	0
+	~	
+	~		|
+
+ES new heatpumps=
+	(GET DATA AT TIME( ES HeatCapacity[DH Heat Pump], 2050) - GET DATA AT TIME( ES HeatCapacity\
+		[DH Heat Pump], 2019)) / 31
+	~	
+	~		|
+
+ES PowerProduction PV=
+	ES InstalledCapacity PV * CL PVProductivity
+	~	
+	~		|
+
+heatType:
+	Waste CHP,
+	DH Biomass Boiler,
+	DH Electric Boiler,
+	Electrolyzer,
+	Biomass CHP,
+	Fuel Cell,
+	DH Heat Pump,
+	Heat Storage,
+	Natural Gas CHP,
+	Peat CHP,
+	DH Natural Gas Boiler,
+	Biomethane CHP,
+	DH Fuel Oil Boiler
+	~	
+	~		|
+
+ED TotalElectricityDemand=
+	ED CoreElectricityDemand + ED DHElectricityDemand
+	~	
+	~		|
+
+ES PowerProduction total=
+	ES PowerProduction fossile+ES PowerProduction hydro+ES PowerProduction PV+ES PowerProduction wind\
+		 +
+	ES ElectrictitySupply[Biomass CHP el] + ES ElectrictitySupply[Waste CHP el]
+	~	
+	~	el.supply from CHP driven from data only (=PI determined)
+		dependencies on heat supply and el. prices still to be implemented
+	|
+
+ES PowerProduction fossile=
+	MIN(ED TotalElectricityDemand - ES PowerProduction PV - ES PowerProduction wind - ES PowerProduction hydro\
+		, ES InstalledCapacity fossile * SUM(GET DATA AT TIME(ES ElectrictitySupply[fossile electr\
+		!], 2019)) / SUM(GET DATA AT TIME(ES ElectricityCapacity[fossile electr!], 2019)))
+	~	
+	~	Assumption: Prefernce over importing; but anyway zero after 10y
+	|
+
+CL AverageHydroInflow=
+	100
+	~	
+	~		|
+
+CL AverageSolarIrradiance=
+	CL DNI + CL GHI
+	~	
+	~	to be completed
+	|
+
+CL AverageWindSpeed=
+	4
+	~	
+	~		|
+
+CL DNI=
+	1
+	~	
+	~		|
+
+CL GHI=
+	1
+	~	
+	~		|
+
+ES InitialInstalledCapacity hydro=
+	0
+	~	
+	~		|
+
+ES InitialInstalledCapacity wind=
+	0
+	~	
+	~		|
+
+ES WindFLH=
+	CL AverageWindSpeed * ES WindCal
+	~	
+	~	only first approximation; might rather be  v^3?
+	|
+
+ES PowerProduction hydro=
+	ES InstalledCapacity hydro * ES HydroFLH / 8760
+	~	
+	~	Dependency on ED TotalElectricityDemand?
+	|
+
+ES HydroCal=
+	1
+	~	
+	~		|
+
+ES HydroFLH=
+	CL AverageHydroInflow * ES HydroCal
+	~	
+	~		|
+
+ES PowerProduction wind=
+	ES InstalledCapacity wind * ES WindFLH / 8760
+	~	
+	~	Dependency on ED TotalElectricityDemand?
+	|
+
+ES WindCal=
+	1
+	~	
+	~		|
+
+ES PVCal=
+	1
+	~	
+	~		|
+
+ES Policy=
+	PI PV * PI Capacity
+	~	
+	~		|
+
+ES InstalledCapacity fossile= INTEG (
+	ES new fossile-ES phase out fosssile,
+		ES InitialInstalledCapacity fossile)
+	~	
+	~	0.99 * 0.2 * ED TotalElectricityDemand
+	|
+
+ES InstalledCapacity PV= INTEG (
+	ES PV increase,
+		ES InitialInstalledCapacity PV)
+	~	
+	~	0.01 * 0.2 * ED TotalElectricityDemand
+	|
+
+PI Capacity=
+	0.2
+	~	
+	~		|
+
+PI PV=
+	0
+	~	 [0,1,0.5]
+	~		|
+
+ES PV increase=
+	(GET DATA AT TIME( ES ElectricityCapacity[PV], 2050) - GET DATA AT TIME(ES ElectricityCapacity\
+		[PV], 2019)) / 31
+	~	
+	~		|
+
+CL AverageAirTemperature=
+	20 + Time / 120
+	~	
+	~	initial assumption
+	|
+
+ES new fossile=
+	0
+	~	
+	~		|
+
+ES new hydro=
+	0
+	~	
+	~		|
+
+ED TotalElectricityDemand OfPreviousTimestep=
+	DELAY FIXED(ED TotalElectricityDemand, TIME STEP , ED TotalElectricityDemand)
+	~	
+	~		|
+
+ED TotalElectricityDemandIncrease=
+	ED TotalElectricityDemand - ED TotalElectricityDemand OfPreviousTimestep
+	~	
+	~		|
+
+ES ElectricityGenTotalEmissions=
+	ES PowerProduction fossile * 0.55 +
+	ES NetImportedElectricity * ES ImportedElectricityMixFactor
+	~	
+	~	EU average: 0.23kg CO2 per kWh
+		Fossile average (coal, gas, oil): 0.5-0.6 kg CO2 per kWh (to be replaced vy \
+		calibration variable)
+		Average for Estonia:  0.4, going linear towards zero until 2050
+	|
+
+ES NetImportedElectricity=
+	ED TotalElectricityDemand - ES PowerProduction total
+	~	
+	~	NetImportedElectricity = ImportedElectricity - ExportedElectricity
+		(to be clarified if this simplification is acceptable)
+	|
+
+ES ImportedElectricityMixFactor=
+	0.4 - 0.4 / 31 * (Time-2019)
+	~	
+	~		|
+
+ES InstalledCapacity hydro= INTEG (
+	ES new hydro,
+		ES InitialInstalledCapacity hydro)
+	~	
+	~		|
+
+ES InstalledCapacity wind= INTEG (
+	ES new wind,
+		ES InitialInstalledCapacity wind)
+	~	
+	~		|
+
+ES new wind=
+	0
+	~	
+	~		|
+
+ES phase out fosssile=
+	ES InstalledCapacity fossile / 10
+	~	
+	~	reduce 10% per year (slowly approaches zero)
+	|
+
+ED Electricity PeakDemand=
+	ED TotalElectricityDemand / 365 / 24 * 1.5
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 2050
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 2019
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*ES_Electricity_Supply
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,65,0
+12,1,0,952,566,330,129,3,71,0,0,5,0,0,0,0,0,0,0,0,0
+From energy demand model
+10,2,ED TotalElectricityDemand,1090,478,101,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,ED TotalElectricityDemandIncrease,837,492,101,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,4,2,3,1,0,0,0,0,192,0,-1--1--1,,1|(910,510)|
+1,5,2,64,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,6,TIME STEP,702,597,52,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,7,6,64,1,0,0,0,0,64,0,-1--1--1,,1|(728,589)|
+1,8,64,3,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,9,CL AverageAirTemperature,1483,673,75,30,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,10,ES ElectricityGenTotalEmissions,1797,351,141,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,11,ES InstalledCapacity fossile,982,142,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,12,ES InstalledCapacity hydro,981,208,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,13,ES InstalledCapacity wind,982,275,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,14,ES InstalledCapacity PV,981,346,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,15,48,816,139,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,16,18,15,100,0,0,22,0,192,0,-1--1--1,,1|(844,139)|
+1,17,18,11,4,0,0,22,0,192,0,-1--1--1,,1|(893,139)|
+11,18,0,869,139,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,19,ES new fossile,869,169,58,22,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+12,20,48,1155,142,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,21,23,11,100,0,0,22,0,192,0,-1--1--1,,1|(1072,138)|
+1,22,23,20,4,0,0,22,0,192,0,-1--1--1,,1|(1124,138)|
+11,23,0,1098,138,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,24,ES phase out fosssile,1098,168,50,22,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+12,25,48,831,205,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,26,28,25,100,0,0,22,0,192,0,-1--1--1,,1|(855,205)|
+1,27,28,12,4,0,0,22,0,192,0,-1--1--1,,1|(896,205)|
+11,28,0,876,205,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,29,ES new hydro,876,235,50,22,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+12,30,48,829,269,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,31,33,30,100,0,0,22,0,192,0,-1--1--1,,1|(854,269)|
+1,32,33,13,4,0,0,22,0,192,0,-1--1--1,,1|(896,269)|
+11,33,0,875,269,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,34,ES new wind,875,299,46,22,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+12,35,48,848,344,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,36,38,35,100,0,0,22,0,192,0,-1--1--1,,1|(868,344)|
+1,37,38,14,4,0,0,22,0,192,0,-1--1--1,,1|(900,344)|
+11,38,0,884,344,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,39,ES PV increase,884,374,58,22,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+10,40,ES NetImportedElectricity,1631,166,78,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,41,ES Policy,633,243,42,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+10,42,ES PowerProduction fossile,1262,139,74,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,43,ES PowerProduction hydro,1254,208,71,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,44,ES PowerProduction wind,1260,274,74,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,45,ES PowerProduction PV,1261,348,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,46,2,42,1,0,0,0,0,192,0,-1--1--1,,1|(1160,301)|
+1,47,11,42,1,0,0,0,0,192,0,-1--1--1,,1|(1111,96)|
+1,48,12,43,1,0,0,0,0,192,0,-1--1--1,,1|(1120,188)|
+1,49,13,44,1,0,0,0,0,192,0,-1--1--1,,1|(1123,245)|
+1,50,14,45,1,0,0,0,0,192,0,-1--1--1,,1|(1124,303)|
+10,51,ES PowerProduction total,1459,66,74,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,52,42,51,1,0,0,0,0,192,0,-1--1--1,,1|(1349,116)|
+1,53,43,51,1,0,0,0,0,192,0,-1--1--1,,1|(1348,151)|
+1,54,44,51,1,0,0,0,0,192,0,-1--1--1,,1|(1367,194)|
+1,55,45,51,1,0,0,0,0,192,0,-1--1--1,,1|(1379,244)|
+1,56,2,40,1,0,0,0,0,192,0,-1--1--1,,1|(1375,355)|
+1,57,51,40,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,58,42,10,1,0,0,0,1,192,0,128-0-64,|||0-0-0,1|(1526,170)|
+1,59,40,10,1,0,0,0,0,192,0,-1--1--1,,1|(1732,255)|
+10,60,ES ImportedElectricityMixFactor,1831,125,86,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,61,60,10,1,0,0,0,0,192,0,-1--1--1,,1|(1790,227)|
+12,62,0,584,32,30,30,8,0,0,0,-1,0,0,0,0,0,0,0,0,0
+12,63,0,1585,596,263,99,3,71,0,0,5,0,0,0,0,0,0,0,0,0
+Climate related impacts on generation
+10,64,ED TotalElectricityDemand OfPreviousTimestep,798,542,75,30,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,65,11,24,1,0,0,0,0,192,0,-1--1--1,,1|(1095,65)|
+1,66,44,42,1,0,0,0,0,192,0,-1--1--1,,1|(1345,213)|
+1,67,45,42,1,0,0,0,0,192,0,-1--1--1,,1|(1396,258)|
+10,68,Time,1385,727,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,69,68,9,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,70,PI PV,617,773,37,37,2,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+1,71,70,41,1,0,0,0,0,192,0,-1--1--1,,1|(587,505)|
+10,72,PI Capacity,548,156,39,39,2,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+1,73,72,41,1,0,0,0,0,192,0,-1--1--1,,1|(566,229)|
+10,74,CL DNI,1628,669,42,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,75,CL GHI,1722,675,42,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,76,74,98,1,0,0,0,1,192,0,128-0-64,|||0-0-0,1|(1636,624)|
+1,77,75,98,1,0,0,0,1,192,0,128-0-64,|||0-0-0,1|(1684,659)|
+10,78,CL AverageWindSpeed,1794,642,69,21,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,79,CL AverageHydroInflow,1808,563,77,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,80,78,94,1,0,0,0,1,192,0,128-0-64,|||0-0-0,1|(1478,500)|
+1,81,79,91,1,0,0,0,1,192,0,128-0-64,|||0-0-0,1|(1520,386)|
+10,82,ES InitialInstalledCapacity fossile,738,2,81,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,83,82,11,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,84,ES InitialInstalledCapacity hydro,658,52,81,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,85,84,12,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,86,ES InitialInstalledCapacity wind,930,-1,81,27,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,87,86,13,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,88,ES InitialInstalledCapacity PV,1117,-4,94,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,89,88,14,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,90,ES HydroCal,1626,429,46,22,8,3,0,42,-1,0,0,0,0-0-0,0-0-0,Arial|10||128-0-128,0,0,0,0,0,0
+10,91,ES HydroFLH,1510,364,60,20,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,92,90,91,1,0,0,0,0,192,0,-1--1--1,,1|(1564,412)|
+1,93,91,43,1,0,0,0,0,192,0,-1--1--1,,1|(1384,227)|
+10,94,ES WindFLH,1392,392,42,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,95,ES WindCal,1482,444,42,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-0-128,0,0,0,0,0,0
+1,96,95,94,1,0,0,0,0,192,0,-1--1--1,,1|(1426,433)|
+1,97,94,44,1,0,0,0,0,192,0,-1--1--1,,1|(1349,311)|
+10,98,CL AverageSolarIrradiance,1646,618,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,99,43,42,1,0,0,0,0,192,0,-1--1--1,,1|(1319,189)|
+10,100,ES PVCal,1337,443,42,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-0-128,0,0,0,0,0,0
+12,101,0,425,389,80,40,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+Input variables (exogeneous)
+12,102,0,440,453,80,40,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+Intervention related inputs
+12,103,0,446,514,80,40,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+Key output variables
+12,104,0,450,575,80,40,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-0-128,0,0,0,0,0,0
+Calibration Parameters
+10,105,ED CoreElectricityDemand,1032,568,86,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-64,0,0,0,0,0,0
+10,106,ED CoreHeatDemand,1017,608,80,20,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-64,0,0,0,0,0,0
+1,107,105,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,108,ES InstalledCapacity BiomassCHP,1007,790,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,109,ES InstalledCapacity WasteCHP,1010,848,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,110,ES InstalledCapacity GasBoiler,1007,902,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,111,ES InstalledCapacity OilBoiler,1005,955,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,112,ES InstalledCapacity ElectricBoiler,1005,1013,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,113,ES InstalledCapacity DHHeatPump,1007,1065,70,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,114,48,841,781,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,115,117,114,100,0,0,22,0,192,0,-1--1--1,,1|(869,781)|
+1,116,117,108,4,0,0,22,0,192,0,-1--1--1,,1|(918,781)|
+11,117,0,894,781,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,118,ES new biomass,894,811,58,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,119,48,829,846,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,120,122,119,100,0,0,22,0,192,0,-1--1--1,,1|(861,846)|
+1,121,122,109,4,0,0,22,0,192,0,-1--1--1,,1|(917,846)|
+11,122,0,889,846,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,123,ES new wasteCHP,889,876,62,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,124,48,777,894,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,125,127,124,100,0,0,22,0,192,0,-1--1--1,,1|(822,894)|
+1,126,127,110,4,0,0,22,0,192,0,-1--1--1,,1|(903,894)|
+11,127,0,864,894,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,128,ES new gasboilers,864,921,63,19,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,129,48,782,954,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,130,132,129,100,0,0,22,0,192,0,-1--1--1,,1|(825,954)|
+1,131,132,111,4,0,0,22,0,192,0,-1--1--1,,1|(903,954)|
+11,132,0,865,954,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,133,ES new oilboilers,865,983,63,21,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,134,48,806,1019,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,135,137,134,100,0,0,22,0,192,0,-1--1--1,,1|(806,1010)|
+1,136,137,112,4,0,0,22,0,192,0,-1--1--1,,1|(896,1010)|
+11,137,0,851,1010,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,138,ES new electrboilers,851,1038,81,20,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,139,48,762,1061,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,140,142,139,100,0,0,22,0,192,0,-1--1--1,,1|(811,1061)|
+1,141,142,113,4,0,0,22,0,192,0,-1--1--1,,1|(900,1061)|
+11,142,0,857,1061,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,143,ES new heatpumps,857,1084,68,15,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,144,48,1215,895,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,145,147,110,100,0,0,22,0,192,0,-1--1--1,,1|(1117,895)|
+1,146,147,144,4,0,0,22,0,192,0,-1--1--1,,1|(1187,895)|
+11,147,0,1163,895,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,148,ES phase out gasboilers,1163,918,99,15,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,149,48,1243,945,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,150,152,111,100,0,0,22,0,192,0,-1--1--1,,1|(1100,945)|
+1,151,152,149,4,0,0,22,0,192,0,-1--1--1,,1|(1185,945)|
+11,152,0,1131,945,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,153,ES phase out oilboilers,1131,970,104,17,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,154,ED CoreHeatDemandOfPreviousTimestep,756,647,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,155,ED CoreHeatDemandIncrease,976,664,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,156,106,155,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,157,154,155,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,158,ES HeatSupply biomass,1367,787,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,159,ES HeatSupply waste,1371,838,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,160,ES HeatSupply gas,1367,888,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,161,ES HeatSupply oil,1368,958,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,162,ES HeatSupply electric,1363,1011,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,163,ES HeatSupply heatpump,1357,1065,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,164,108,158,1,0,0,0,0,192,0,-1--1--1,,1|(1175,749)|
+1,165,109,159,1,0,0,0,0,192,0,-1--1--1,,1|(1225,818)|
+1,166,110,160,1,0,0,0,0,192,0,-1--1--1,,1|(1204,872)|
+1,167,111,161,1,0,0,0,0,192,0,-1--1--1,,1|(1211,933)|
+1,168,112,162,1,0,0,0,0,192,0,-1--1--1,,1|(1144,998)|
+1,169,113,163,1,0,0,0,0,192,0,-1--1--1,,1|(1241,1047)|
+10,170,ED DHElectricityDemand,1200,563,78,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,171,170,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,172,0,-178,9,63,28,8,7,0,0,-1,0,0,0,0,0,0,0,0,0
+Read in data:
+10,173,ES ElectricityCapacity,-233,51,78,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,174,ES ElectrictitySupply,-240,94,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,175,ES HeatSupply,-211,847,70,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,176,ES HeatCapacity,-205,797,62,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,177,173,88,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,178,173,82,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,179,CL PVProductivity,1423,544,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,180,173,179,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,181,174,179,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,182,179,45,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,183,173,39,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,184,176,118,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,185,176,123,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,186,176,138,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,187,176,143,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,188,176,148,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,189,176,153,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,190,176,109,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,191,176,110,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,192,176,111,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,193,176,112,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,194,176,113,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,195,173,42,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,196,174,42,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,197,176,163,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,198,175,163,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,199,176,162,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,200,175,162,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,201,176,161,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,202,175,161,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,203,176,160,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,204,175,160,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,205,176,158,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,206,175,158,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,207,176,159,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,208,175,159,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,209,ES ElDemand DH EB,-205,619,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,210,ES ElDemand DH HP,-203,670,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,211,210,170,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,212,175,170,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,213,163,170,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,214,209,170,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,215,162,170,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,216,105,154,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,217,106,154,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,218,174,51,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,219,176,108,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+10,220,Time,1896,201,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,221,220,60,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+12,222,0,-123,1401,431,303,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+Electricity_Supply
+12,223,0,802,1404,450,303,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+Heat_Supply
+10,224,ES HeatSupply total,1610,1024,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,225,158,224,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,226,159,224,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,227,160,224,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,228,161,224,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,229,163,224,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,230,ES HeatSupplyGap,1721,886,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,231,224,230,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,232,106,230,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,233,230,162,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+///---\\\
+:GRAPH Electricity_Supply
+:TITLE Electricity Supply
+:X-DIV 3
+:X-MIN 2020
+:X-MAX 2050
+:STACK-FILL 0
+:FONT Arial|20||0-0-0
+:SCALE
+:VAR ES PowerProduction fossile
+:DATASET 
+:LINE-COLOR 255-0-0
+:LINE-WIDTH 1
+:VAR ES ElectrictitySupply[Biomass CHP el]
+:DATASET 
+:LINE-COLOR 255-128-0
+:LINE-WIDTH 1
+:VAR ES ElectrictitySupply[Waste CHP el]
+:DATASET 
+:LINE-COLOR 128-0-0
+:LINE-WIDTH 1
+:VAR ES PowerProduction PV
+:DATASET 
+:LINE-COLOR 0-255-0
+:LINE-WIDTH 1
+:VAR ES NetImportedElectricity
+:Y-MAX 4700
+:DATASET 
+:LINE-COLOR 0-128-255
+:LINE-WIDTH 1
+
+:GRAPH Heat_Supply
+:TITLE Heat Supply
+:X-DIV 3
+:X-MIN 2020
+:X-MAX 2050
+:STACK-FILL 0
+:FONT Arial|20||0-0-0
+:SCALE
+:VAR ES HeatSupply waste
+:DATASET 
+:LINE-COLOR 128-0-0
+:LINE-WIDTH 1
+:VAR ES HeatSupply biomass
+:DATASET 
+:LINE-COLOR 255-128-0
+:LINE-WIDTH 1
+:VAR ES HeatSupply gas
+:DATASET 
+:LINE-COLOR 255-0-0
+:LINE-WIDTH 1
+:VAR ES HeatSupply electric
+:DATASET 
+:LINE-COLOR 0-128-192
+:LINE-WIDTH 1
+:VAR ES HeatSupply heatpump
+:DATASET 
+:LINE-COLOR 0-255-255
+:LINE-WIDTH 1
+:L<%^E!@
+1:es4.vdfx
+4:Time
+5:ES ElectricityGenTotalEmissions
+6:Battery
+6:Biogas PP
+6:Biomass CHP
+6:Biomass CHP el
+6:Biomethane CHP
+6:Biomethane CHP el
+6:DH Biomass Boiler
+6:DH Electric Boiler
+6:DH Fuel Oil Boiler
+6:DH Heat Pump
+6:DH Natural Gas Boiler
+6:Electrolyzer
+6:Fuel Cell
+6:Fuel Cell el
+6:Fuel Oil PP
+6:Grid Connection
+6:Heat Storage
+6:Natural Gas CHP
+6:Natural Gas CHP el
+6:Peat CHP
+6:Peat CHP el
+6:PV
+6:Waste CHP
+6:Waste CHP el
+9:es4
+19:65,0
+24:2019
+25:2050
+26:2050
+13:ES_inputs.vdfx
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Courier|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1

@@ -1,0 +1,1335 @@
+{UTF-8}
+CTChange[coping type]=
+	CopingTypesDistribution[coping type] -CopingTypeDistrOfPreviousTimestep[coping type]
+	~	
+	~		|
+
+CopingTypeDistrOfPreviousTimestep[coping type]=
+	DELAY FIXED(CopingTypesDistribution[coping type], TIME STEP, CopingTypesDistribution\
+		[coping type])
+	~	
+	~		|
+
+TR Trips[mode,short,traffic type,coping type]= INTEG (
+	TR DemandChangeRate[mode,short,traffic type,coping type] + TR DemandIncreasePop[short\
+		,traffic type,mode,coping type] - 
+	SUM( TR ModeChangeRate[mode,mode2!,short,traffic type
+	,coping type]) + TR ShorterTrips[mode,medium,short,traffic type,coping type] + TR DemandIncreaseCT\
+		[mode,short,traffic type,coping type],
+		TR InitialTrips[mode,short,traffic type] * CopingTypesDistribution[coping type]) ~~|
+TR Trips[mode,medium,traffic type,coping type]= INTEG (
+	TR DemandChangeRate[mode,medium,traffic type,coping type] + TR DemandIncreasePop[medium\
+		,traffic type,mode,coping type
+	] - SUM( TR ModeChangeRate[mode,mode2!,medium,traffic type
+	,coping type]) + TR ShorterTrips[mode,long,medium,traffic type,coping type] - TR ShorterTrips\
+		[mode,medium,short,traffic type,coping type] + TR DemandIncreaseCT[mode,medium,traffic type\
+		,coping type],
+		TR InitialTrips[mode,medium,traffic type] * CopingTypesDistribution[coping type]) ~~|
+TR Trips[mode,long,traffic type,coping type]= INTEG (
+	TR DemandChangeRate[mode,long,traffic type,coping type] + TR DemandIncreasePop[long,\
+		traffic type,mode,coping type
+	] - SUM( TR ModeChangeRate[mode,mode2!,long,traffic type
+	,coping type]) - TR ShorterTrips[mode,long,medium,traffic type,coping type] + TR DemandIncreaseCT\
+		[mode,long,traffic type,coping type],
+		TR InitialTrips[mode,long,traffic type] * CopingTypesDistribution[coping type])
+	~	 [0,?]
+	~		|
+
+TR TripsPerCT[coping type]=
+	SUM(TR Trips[mode!,trip length!,traffic type!,coping type])
+	~	
+	~		|
+
+TR DemandIncreaseCT[mode,trip length,traffic type,coping type]=
+	TR Trips[mode,trip length,traffic type,coping type] *
+	(CopingTypesDistribution[coping type] - CopingTypeDistrOfPreviousTimestep[coping type\
+		]) /
+	(CopingTypeDistrOfPreviousTimestep[coping type] +1e-05)
+	~	
+	~		|
+
+TR dist publ Tr electr=
+	SUM( TR TotalDistancePerModePerYearPerPerson[public transport,traffic type!])
+	~	
+	~		|
+
+TR dist cars electr=
+	SUM (TR TotalDistancePerModePerYearPerPerson[car,traffic type!]) * TR PercentageOfEVs\
+		 / 100
+	~	
+	~		|
+
+TR dist cars fuels=
+	SUM (TR TotalDistancePerModePerYearPerPerson[car,traffic type!]) * (100 - TR PercentageOfEVs\
+		) / 100
+	~	
+	~		|
+
+TR dist other Tr=
+	0
+	~	
+	~		|
+
+TR EVChangeRate=
+	(200-TR PercentageOfEVs) / 2 / 12 * 0.018 * TR PI EVAdoptionAdaptation * TR EVAdoptionAdaptation\
+		 * TR Cal EVAdoptionAdaptation
+	 *
+	IF THEN ELSE(Time > 120, 1 , 0 )
+	~	
+	~		|
+
+TR ModalSplit[mode, traffic type]=
+	SUM( TR Trips[mode,trip length!,traffic type,coping type!] * TR InitialTripLength[traffic type\
+		,trip length!]) / TR TotalDistanceTravelled[traffic type]
+	~	
+	~		|
+
+TR TotalDistanceTravelled[traffic type]=
+	SUM( TR Trips[mode!,trip length!,traffic type,coping type!] * TR InitialTripLength[traffic type\
+		,trip length!])
+	~	
+	~		|
+
+HB Population[traffic type]= INTEG (
+	HB PopNetIncrease[traffic type],
+		HB InitialPopulation[traffic type])
+	~	
+	~		|
+
+TR PercentageOfEVs= INTEG (
+	TR EVChangeRate,
+		0)
+	~	
+	~		|
+
+TR TotalDistancePerModePerYearPerPerson[mode,traffic type]=
+	TR TotalDistanceTravelled[traffic type] * TR ModalSplit[mode,traffic type] * 365 / 
+	HB Population[internal]
+	~	
+	~		|
+
+SimYear=
+	Time
+	~	
+	~	was:
+		2009 + Time / 12
+	|
+
+TR CarCostsPerKm=
+	TR CarCostsPerKmFuel * (1 - TR PercentageOfEVs/100) + TR CarCostsPerKmEV * TR PercentageOfEVs\
+		/100
+	~	
+	~		|
+
+TR PI EVAdoptionAdaptation=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR CarCostsPerKmFuel:INTERPOLATE:
+	~	
+	~		|
+
+TR Cal EVAdoptionAdaptation=
+	1
+	~	
+	~		|
+
+TR EVAdoptionAdaptation:INTERPOLATE:
+	~	
+	~		|
+
+TR CarCostsPerKmEV:INTERPOLATE:
+	~	
+	~		|
+
+TR Attractiveness[active modes,trip length,traffic type,coping type]=
+	TR BaseAtttractiveness[active modes,trip length] + TR AttractivenessDistinction * TR AttractivenessProfile\
+		[active modes
+	,coping type] - CL Cooling degree days / 100 + PI StreetGreening * 2 +
+	IF THEN ELSE(active modes = bicycle, TR PI CyclingAddedAttractiveness*TR CyclingAddedAttractiveness\
+		*TR Cal CyclingAddedAttractiveness[traffic type], 0 ) ~~|
+TR Attractiveness[public transport,trip length,traffic type,coping type]=
+	TR BaseAtttractiveness[public transport,trip length] + TR AttractivenessDistinction \
+		* TR AttractivenessProfile[public transport
+	,coping type] - CL Cooling degree days / 200 + PI StreetGreening * 1 ~~|
+TR Attractiveness[car modes,trip length,traffic type,coping type]=
+	TR BaseAtttractiveness[car modes,trip length] + TR AttractivenessDistinction * TR AttractivenessProfile\
+		[car modes,coping type
+	] - PI StreetGreening * 2 +
+	IF THEN ELSE( car modes = car passenger, TR PI CarPassengerAddedAttractiveness
+	*TR CarPassengerAddedAttractiveness*TR Cal CarPassengerAddedAttractiveness[trip length\
+		,traffic type], 0 )
+	~	
+	~	Assumption: CDD = 100 decreases average attractiveness for active modes by \
+		1, for PT by 0.5
+	|
+
+TR PI CyclingAddedAttractiveness=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR GeneralisedCost[mode,trip length,traffic type,coping type]=
+	TR Cost[mode,trip length,traffic type,coping type] + TR TravelTime[mode,trip length,\
+		traffic type] * TR ValueOfTime[coping type
+	] - TR Attractiveness[mode,trip length,traffic type,coping type]
+	~	
+	~		|
+
+TR Cal CyclingAddedAttractiveness[traffic type]=
+	1
+	~	
+	~		|
+
+TR PI PTTravelTimeAdaptation=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR PI RoadPricing=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR Cal AreaToll[trip length,traffic type,car modes]=
+	1
+	~	
+	~		|
+
+TR RoadPricing:INTERPOLATE:
+	~	
+	~		|
+
+TR Cal CarPassengerAddedAttractiveness[trip length,traffic type]=
+	1
+	~	
+	~		|
+
+TR ModalSplitPerTripLength[mode,trip length,traffic type]=
+	SUM( TR Trips[mode,trip length,traffic type,coping type!]) / 
+	SUM( TR Trips[mode!,trip length,traffic type,coping type!])
+	~	
+	~		|
+
+TR ModalSplit Data[mode,traffic type]:RAW::=
+	SUM( TR Trips Data[mode,trip length!,traffic type] * TR InitialTripLength[traffic type\
+		,trip length!]) / 
+	SUM( TR Trips Data[mode!,trip length!,traffic type] * TR InitialTripLength[traffic type\
+		,trip length!])
+	~	
+	~		|
+
+TR Cost[car modes,trip length,traffic type,coping type]=
+	(TR CarCostsPerKm + TR AdaptedRoadPricing[traffic type]) * TR InitialTripLength[traffic type\
+		,trip length] + TR AdaptedParkingCost + TR AdaptedAreaToll[trip length
+	,traffic type,car modes] ~~|
+TR Cost[public transport,short,internal,coping type]=
+	0 ~~|
+TR Cost[bicycle,trip length,traffic type,coping type]=
+	0 ~~|
+TR Cost[walk,trip length,traffic type,coping type]=
+	0 ~~|
+TR Cost[public transport,medium,internal,coping type]=
+	0 ~~|
+TR Cost[public transport,long,internal,coping type]=
+	0 ~~|
+TR Cost[public transport,short,origin destination,coping type]=
+	0.72 ~~|
+TR Cost[public transport,medium, origin destination,coping type]=
+	0.72 ~~|
+TR Cost[public transport,long,origin destination,coping type]=
+	0.72
+	~	
+	~		|
+
+TR Cal RoadPricing[traffic type]=
+	1
+	~	
+	~		|
+
+TR PI DistanceAdaptation=
+	0
+	~	
+	~		|
+
+TR PI CarPassengerAddedAttractiveness=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR Cal DistanceAdaptation[trip length,traffic type]=
+	1
+	~	
+	~		|
+
+TR AdaptedAreaToll[trip length,traffic type,car modes]=
+	TR PI AreaToll * TR AreaToll * TR Cal AreaToll[trip length,traffic type,car modes]
+	~	
+	~		|
+
+TR PTTravelTimeAdaptation:INTERPOLATE:
+	~	
+	~		|
+
+TR CyclingAddedAttractiveness:INTERPOLATE:
+	~	
+	~		|
+
+TR AdaptedRoadPricing[traffic type]=
+	TR PI RoadPricing * TR RoadPricing * TR Cal RoadPricing[traffic type]
+	~	
+	~		|
+
+TR Cal PTTravelTimeAdaptation[traffic type]=
+	1
+	~	
+	~		|
+
+TR DistanceAdaptation:LOOK FORWARD:
+	~	
+	~		|
+
+TR ShorterTrips[mode,medium,short,traffic type,coping type]=
+	TR PI DistanceAdaptation*TR DistanceAdaptation/10*TR Cal DistanceAdaptation[medium,traffic type\
+		]*TR Trips[mode,medium,traffic type,coping type] ~~|
+TR ShorterTrips[mode,long,medium,traffic type,coping type]=
+	TR PI DistanceAdaptation*TR DistanceAdaptation/10*TR Cal DistanceAdaptation[long,traffic type\
+		]*TR Trips[mode,long,traffic type,coping type]
+	~	
+	~		|
+
+TR CarPassengerAddedAttractiveness:INTERPOLATE:
+	~	
+	~		|
+
+TR TravelTime[mode,trip length,traffic type]=
+	TR InitialTripLength[traffic type,trip length] / TR AverageSpeed[mode,traffic type,trip length\
+		] +
+	TR AccessTime[traffic type, mode] *
+	IF THEN ELSE(mode = public transport, ((1-TR PI PTTravelTimeAdaptation) + TR PI PTTravelTimeAdaptation\
+		*TR PTTravelTimeAdaptation*TR Cal PTTravelTimeAdaptation[traffic type]), 1)
+	~	
+	~		|
+
+TR PI AreaToll=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR AreaToll:INTERPOLATE:
+	~	
+	~		|
+
+TR PI ParkingCostAdaptation=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR ParkingCostAdaptation:INTERPOLATE:
+	~	
+	~		|
+
+TR Cal ParkingCostAdaptation=
+	1
+	~	
+	~		|
+
+TR AdaptedParkingCost=
+	TR ParkingCost * (1-TR PI ParkingCostAdaptation) +
+	TR ParkingCost * TR PI ParkingCostAdaptation * TR ParkingCostAdaptation * TR Cal ParkingCostAdaptation
+	~	
+	~		|
+
+TR PI CapacityAdaptation=
+	0
+	~	 [0,2,0.2]
+	~		|
+
+TR CapacityAdaptation:INTERPOLATE:
+	~	
+	~		|
+
+TR InitialTotalTravelTime[traffic type]=
+	SUM(TR Trips Data[mode!,trip length!,traffic type] * TR InitialTripLength[traffic type\
+		,trip length!] / TR TravelSpeed Data[mode!,trip length!,traffic type]) / SUM(TR Trips Data\
+		[mode!,trip length!,traffic type])
+	~	
+	~		|
+
+ComparisonOfSpeed[mode,trip length,traffic type]=
+	(TR TotalTravelSpeed[mode,trip length,traffic type] - TR TravelSpeed Data[mode,trip length\
+		,traffic type]) /
+	TR TravelSpeed Data[mode,trip length,traffic type]
+	~	
+	~		|
+
+TR AverageSpeed["non-car modes", internal, trip length]=
+	TR NonCarVelocity["non-car modes",trip length] ~~|
+TR AverageSpeed[car modes, traffic type, trip length]=
+	TR FreeCarVelocity[traffic type] * ( 1 - SUM(TR Trips[car,trip length!,traffic type!\
+		,coping type!]) / TR AdaptedNetworkCapacity) ~~|
+TR AverageSpeed["non-car modes", origin destination, trip length]=
+	TR NonCarVelocity["non-car modes",trip length]
+	~	
+	~		|
+
+TR ParkingCost=
+	1.5
+	~	
+	~		|
+
+TR InitialTravelSpeed[trip length,mode,internal]=
+	GET DIRECT CONSTANTS( 'mob_inputs.csv', 'mob_inputs' , 'B10' ) ~~|
+TR InitialTravelSpeed[trip length,mode,origin destination]=
+	GET DIRECT CONSTANTS( 'mob_inputs.csv', 'mob_inputs' , 'B13' )
+	~	
+	~		|
+
+TR Cal CapacityAdaptation=
+	1
+	~	
+	~		|
+
+TR TripsWeight[mode,trip length,traffic type]=
+	1/ SQRT(TR TotalTrips[mode,trip length,traffic type]+1)
+	~	
+	~		|
+
+TR AdaptedNetworkCapacity=
+	TR NetworkCapacity * (1-TR PI CapacityAdaptation) + 
+	TR NetworkCapacity * TR PI CapacityAdaptation * TR CapacityAdaptation * TR Cal CapacityAdaptation
+	~	
+	~		|
+
+TR TotalTravelTime[traffic type]=
+	SUM(TR Trips[mode!,trip length!,traffic type,coping type!] * TR TravelTime[mode!,trip length\
+		!,traffic type]) / SUM(TR Trips[mode!,trip length!,traffic type,coping type!])
+	~	
+	~		|
+
+ComparisonOfTrips[mode,trip length,traffic type]=
+	(TR TotalTrips[mode,trip length,traffic type] - TR Trips Data[mode,trip length,traffic type\
+		]) /
+	TR Trips Data[mode,trip length,traffic type]
+	~	
+	~		|
+
+TR DemandIncreasePop[trip length,traffic type,mode,coping type]=
+	TR InitialTripRate[trip length,traffic type,mode] * HB PopNetIncrease[traffic type] \
+		* 12 * CopingTypesDistribution[coping type]
+	~	
+	~		|
+
+HB PopNetIncrease[traffic type]:HOLD BACKWARD:
+	~	
+	~		|
+
+TR ModalSplitPerCT[mode,traffic type,coping type]=
+	SUM( TR Trips[mode,trip length!,traffic type,coping type] * TR InitialTripLength[traffic type\
+		,trip length!]) / TR TotalDistanceTravelledPerCT[traffic type, coping type]
+	~	
+	~		|
+
+TR Trips Data[mode,trip length,traffic type]:RAW:
+	~	
+	~		|
+
+TR BaseAtttractiveness[bicycle,trip length]=
+	3 ~~|
+TR BaseAtttractiveness[car,trip length]=
+	2 ~~|
+TR BaseAtttractiveness[public transport,trip length]=
+	2.5 ~~|
+TR BaseAtttractiveness[walk,trip length]=
+	5 ~~|
+TR BaseAtttractiveness[car passenger,trip length]=
+	3
+	~	
+	~		|
+
+PI StreetGreening=
+	0
+	~	 [0,1,0.1]
+	~		|
+
+active modes:
+	bicycle, walk
+	~	
+	~		|
+
+TR StreetNetworkLoad=
+	SUM(TR Trips[car,trip length!,traffic type!,coping type!]) / TR AdaptedNetworkCapacity
+	~	
+	~		|
+
+TR AttractivenessProfile[mode,coping type]=
+	3, 2, 1, -1, -2, -3;
+	3, 2, 1, 0, -1, -2;
+	-3, -2, -1, 1, 3, 2;
+	-3, -2, -1, 0, 2, 3;
+	-3, -2, -1, 1, 3, 2;
+	~	
+	~		|
+
+TR BaseValueOfTime=
+	15
+	~	
+	~		|
+
+TR TotalDistanceTravelledPerCT[traffic type,coping type]=
+	SUM( TR Trips[mode!,trip length!,traffic type,coping type] * TR InitialTripLength[traffic type\
+		,trip length!])
+	~	
+	~		|
+
+TR ValueOfTimeDistinction=
+	1
+	~	
+	~		|
+
+TR ValueOfTimeProfile[coping type]=
+	3, -2, 2, -3, -1, 1
+	~	
+	~		|
+
+TR ValueOfTime[coping type]=
+	TR BaseValueOfTime + TR ValueOfTimeDistinction * TR ValueOfTimeProfile[coping type]
+	~	
+	~		|
+
+TR AttractivenessDistinction=
+	1
+	~	
+	~	how the coping types distinguish from each other
+	|
+
+TR InitialTrips[mode,trip length,traffic type]=
+	HB InitialPopulation[traffic type] * TR InitialTripRate[trip length,traffic type, mode\
+		]
+	~	
+	~		|
+
+TR TotalTrips[mode,trip length,traffic type]=
+	SUM(TR Trips[mode,trip length,traffic type,coping type!])
+	~	
+	~		|
+
+TR TotalTravelSpeed[mode,trip length,traffic type]=
+	TR InitialTripLength[traffic type,trip length] / TR TravelTime[mode,trip length,traffic type\
+		]
+	~	
+	~		|
+
+TR DemandChangeRate[mode,trip length,traffic type,coping type]=
+	- TR DemandElasticity * (TR GeneralisedCost[mode,trip length,traffic type,coping type\
+		] - TR GeneralisedCostOfPreviousTimeStep[mode,trip length,traffic type,coping type]\
+		) / 10 * TR Trips[mode,trip length,traffic type,coping type]
+	~	
+	~	No dividing by 12 since we are comparing to previous month (i.e. only small change \
+		in generalised costs).
+		!!! problematic if GC is around zero (changes sign)! Dividing by 10 \
+		instead ...
+	|
+
+TR GeneralisedCostOfPreviousTimeStep[mode,trip length,traffic type,coping type]= DELAY FIXED\
+		 (
+	TR GeneralisedCost[mode,trip length,traffic type,coping type], TIME STEP, TR GeneralisedCost\
+		[mode,trip length,traffic type,coping type])
+	~	
+	~		|
+
+coping type:
+	Active Antagonists, Beneficent Believers, Concerned Compliers, Doubting Distressed, \
+		Empathic Engagers, Fierce Forerunners
+	~	
+	~		|
+
+CopingTypesDistribution[coping type]:INTERPOLATE:
+	~	
+	~	corrected in v9 (sum=1)
+		inial values were: 0.12, 0.16, 0.33, 0.14, 0.12, 0.13
+	|
+
+HB InitialPopulation[traffic type]=
+	GET DIRECT CONSTANTS('mob_inputs.csv', ';' , 'B1' )
+	~	
+	~		|
+
+TR ModeChangeRate[mode,mode2,trip length,traffic type,coping type]=
+	TR ModeChangeElasticity * (TR GeneralisedCost[mode,trip length,traffic type,coping type\
+		] - TR GeneralisedCost[mode2,trip length,traffic type,coping type]) * 
+	IF THEN ELSE( (TR GeneralisedCost[mode2,trip length,traffic type,coping type] - TR GeneralisedCost\
+		[mode,trip length,traffic type,coping type]) <0,
+	MAX( TR Trips[mode,trip length,traffic type,coping type], 0),
+	MAX( TR Trips[mode2,trip length,traffic type,coping type], 0))
+	~	
+	~		|
+
+TR AverageTravelTime[trip length,traffic type]=
+	SUM(TR Trips[mode!,trip length,traffic type,coping type!]*TR TravelTime[mode!,trip length\
+		,traffic type]) /
+	SUM(TR Trips[mode!,trip length,traffic type,coping type!])
+	~	
+	~		|
+
+TR TravelSpeed Data[mode,trip length,traffic type]:RAW:
+	~	
+	~	GET VDF DATA('mob7.vdfx', 'TR InitialTravelSpeed[trip length,mode,traffic \
+		type]' , 120, 1)
+	|
+
+TR AccessTime[traffic type, mode]=
+	0.15, 0.1, 0.2, 0, 0;
+	0.15, 0.1, 0.2, 0, 0;
+	~	
+	~		|
+
+TR NonCarVelocity["non-car modes",trip length]=
+	20, 20, 20;
+	12, 12, 12;
+	4.5, 4.5, 4.5;
+	~	
+	~		|
+
+"non-car modes":
+	public transport,bicycle,walk
+	~	
+	~		|
+
+TR NetworkCapacity=
+	1e+06
+	~	
+	~	All Car trips (not car-passenger)   500k
+		assume that max. capacity is double (1M)
+	|
+
+TR FreeCarVelocity[traffic type]=
+	40, 60
+	~	
+	~		|
+
+traffic type:
+	internal, origin destination
+	~	
+	~		|
+
+car modes:
+	car, car passenger
+	~	
+	~		|
+
+TR TrafficDependency[mode]=
+	1e-08, 1e-08, 0, 0, 0
+	~	
+	~		|
+
+TR InitialTripRate[trip length, internal, mode]=
+	GET DIRECT CONSTANTS( 'mob_inputs.csv', 'mob_inputs' , 'B4' ) ~~|
+TR InitialTripRate[trip length, origin destination, mode]=
+	GET DIRECT CONSTANTS( 'mob_inputs.csv', 'mob_inputs' , 'B7' )
+	~	
+	~		|
+
+CL Cooling degree days=
+	100
+	~	
+	~		|
+
+TR PercentageOfCarOwnership= INTEG (
+	TR CarOwnershipChangeRate,
+		70)
+	~	
+	~		|
+
+TR PercentageOfAnnualPTTickets= INTEG (
+	TR AnnualPTTicketsChangeRate,
+		40)
+	~	
+	~		|
+
+TR AnnualPTTicketsChangeRate=
+	0
+	~	
+	~		|
+
+TR CarOwnershipChangeRate=
+	0
+	~	
+	~		|
+
+mode:
+	car, car passenger, public transport, bicycle, walk
+	~	
+	~		|
+
+mode2:
+	car, car passenger, public transport, bicycle, walk
+	~	
+	~		|
+
+TR DemandElasticity=
+	0.01
+	~	
+	~	means: If generalised cost is raised / decreased by 10 %, there will be 1% less / \
+		more trips.
+		!!! decrease value to avoid fluctuations
+	|
+
+TR InitialTripLength[traffic type,trip length]=
+	GET DIRECT CONSTANTS( 'mob_inputs.csv', 'mob_inputs' , 'B2' )
+	~	
+	~		|
+
+TR ModeChangeElasticity=
+	0.01
+	~	 [0.005,0.03]
+	~	Meaning: If trip with mode2 is "cheaper" by 1 EUR (generalised costs), 10% \
+		will change from mode to mode2 in one year.
+	|
+
+trip length:
+	short, medium, long
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 2050
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 2009
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP 
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*TR Demand & Modal Split
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,75,0
+12,1,48,93,-816,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,2,0,1777,-814,242,271,3,7,0,0,5,0,0,0,0,0,0,0,0,0
+For Calibration only:
+10,3,HB InitialPopulation,-446,-863,84,11,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,4,TR InitialTripRate,-448,-735,65,30,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,5,TR Trips,76,-834,42,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,6,48,-164,-832,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,7,9,6,100,0,0,22,0,192,0,-1--1--1,,1|(-105,-832)|
+1,8,9,5,4,0,0,22,0,192,0,-1--1--1,,1|(-13,-832)|
+11,9,0,-65,-832,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,10,TR DemandChangeRate,-65,-799,70,25,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,11,13,5,100,0,0,22,0,192,0,-1--1--1,,3|(218,-828)|(203,-828)|(160,-828)|
+1,12,13,1,4,0,0,22,0,192,0,-1--1--1,,4|(218,-735)|(203,-735)|(93,-735)|(93,-768)|
+11,13,0,218,-794,6,8,34,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,14,TR ModeChangeRate,286,-794,60,26,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,15,TR ModeChangeElasticity,316,-677,60,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-128-255,0,0,0,0,0,0
+1,16,15,14,1,0,0,0,0,192,0,-1--1--1,,1|(291,-732)|
+10,17,TR InitialTripLength,-439,-613,84,35,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,18,TR TotalDistanceTravelled,228,-988,60,26,8,2,0,2,-1,0,0,0,-1--1--1,-1--1--1,|||255-0-0,0,0,0,0,0,0
+10,19,TR ModalSplit,384,-913,60,10,8,2,0,2,-1,0,0,0,-1--1--1,-1--1--1,|||255-0-0,0,0,0,0,0,0
+10,20,TR GeneralisedCost,-7,-540,60,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,21,TR Cost,-179,-397,33,10,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+10,22,TR TravelTime,13,-401,60,10,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,23,TR ValueOfTime,442,-196,51,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,24,TR BaseAtttractiveness,627,-388,60,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+1,25,21,20,1,0,0,0,0,192,0,-1--1--1,,1|(-124,-487)|
+1,26,22,20,1,0,0,0,0,192,0,-1--1--1,,1|(4,-478)|
+1,27,23,20,1,0,0,0,0,192,0,-1--1--1,,1|(252,-382)|
+1,28,24,81,1,0,0,0,0,192,0,-1--1--1,,1|(435,-466)|
+10,29,TR GeneralisedCostOfPreviousTimeStep,297,-561,83,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,30,20,14,1,0,0,0,0,192,0,-1--1--1,,1|(130,-695)|
+1,31,20,10,1,0,0,0,0,192,0,-1--1--1,,1|(-94,-692)|
+1,32,29,10,1,0,0,0,0,192,0,-1--1--1,,1|(11,-661)|
+1,33,20,29,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,34,TIME STEP,341,-504,51,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,35,34,29,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,36,TR DemandElasticity,-205,-713,60,26,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-128-255,0,0,0,0,0,0
+1,37,36,10,1,0,0,0,0,192,0,-1--1--1,,1|(-166,-771)|
+1,38,5,14,1,0,0,0,0,192,0,-1--1--1,,1|(260,-829)|
+1,39,17,21,1,0,0,0,0,192,0,-1--1--1,,1|(-356,-406)|
+1,40,17,22,1,0,0,0,0,192,0,-1--1--1,,1|(-259,-283)|
+1,41,5,10,1,0,0,0,0,192,0,-1--1--1,,1|(-58,-868)|
+10,42,Time,-179,-353,29,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,43,CL Cooling degree days,630,-299,51,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,44,TR AverageSpeed,-91,-204,56,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+1,45,44,22,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,46,TR CarCostsPerKm,-276,-227,61,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-64,0,0,0,0,0,0
+1,47,46,21,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+12,48,0,1857,-691,117,29,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||0-128-0,0,0,0,0,0,0
+Input variables (Domain Model)
+12,49,0,1864,-653,129,30,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+Calibration variables (parameters)
+12,50,0,1885,-613,129,23,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+Main ouput variables used for calibration
+12,51,0,1851,-578,173,36,8,7,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-128-255,0,0,0,0,0,0
+No calibration against Domain Model Possible
+12,52,0,1807,-734,80,40,8,7,0,0,-1,0,0,0,0,0,0,0,0,0
+Colour Legend:
+10,53,TR AverageTravelTime,526,-956,70,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,54,5,53,1,0,0,0,0,192,0,-1--1--1,,1|(336,-963)|
+1,55,22,53,1,0,0,0,0,192,0,-1--1--1,,1|(240,-693)|
+1,56,5,44,1,0,0,0,0,192,0,-1--1--1,,1|(-102,-545)|
+10,57,TR FreeCarVelocity,-196,-98,74,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-64,0,0,0,0,0,0
+1,58,57,44,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,59,TR NetworkCapacity,-100,15,74,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-64,0,0,0,0,0,0
+10,60,TR NonCarVelocity,-138,-56,58,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-64,0,0,0,0,0,0
+1,61,60,44,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,62,TR AccessTime,91,-258,58,10,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-64,0,0,0,0,0,0
+1,63,62,22,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,64,TR InitialTrips,-219,-966,62,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,65,3,64,1,0,0,0,0,64,0,-1--1--1,,1|(-361,-937)|
+1,66,4,64,1,0,0,0,0,64,0,-1--1--1,,1|(-352,-880)|
+1,67,64,5,1,0,0,0,0,64,1,-1--1--1,,1|(-80,-928)|
+10,68,TR InitialTrips,1646,-966,54,15,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,69,TR TravelSpeed Data,1839,-762,70,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,70,CopingTypesDistribution,-320,-1139,102,20,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,71,70,5,1,0,0,0,0,192,1,-1--1--1,,1|(-160,-1049)|
+10,72,TR TotalTravelSpeed,286,-255,65,18,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,73,17,72,1,0,0,0,0,64,0,-1--1--1,,1|(-96,-379)|
+1,74,22,72,1,0,0,0,0,64,0,-1--1--1,,1|(130,-324)|
+10,75,ComparisonOfSpeed,1600,-575,79,9,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,76,72,75,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,77,ComparisonOfTrips,1619,-1052,72,9,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,78,TR TotalTrips,638,-906,54,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,79,5,78,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,80,78,77,1,0,0,0,0,192,0,-1--1--1,,1|(1223,-1060)|
+10,81,TR Attractiveness,294,-443,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,82,TR AttractivenessProfile,472,-389,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,83,TR AttractivenessDistinction,345,-364,86,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+1,84,83,81,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,85,82,81,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,86,81,20,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,87,TR BaseValueOfTime,736,-82,74,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+10,88,TR ValueOfTimeProfile,545,-83,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,89,TR ValueOfTimeDistinction,367,-86,86,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+1,90,87,23,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,91,88,23,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,92,89,23,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,93,TR ModalSplitPerCT,449,-1108,74,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,94,17,93,1,0,0,0,0,64,0,-1--1--1,,1|(-72,-1002)|
+10,95,TR TotalDistanceTravelledPerCT,182,-1150,108,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,96,95,93,1,0,0,0,0,64,0,-1--1--1,,1|(311,-1145)|
+1,97,5,93,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,98,17,95,1,0,0,0,0,64,0,-1--1--1,,1|(-176,-995)|
+1,99,5,95,1,0,0,0,0,64,0,-1--1--1,,1|(92,-991)|
+10,100,TR StreetNetworkLoad,734,-1021,70,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,101,5,100,1,0,0,0,0,64,0,-1--1--1,,1|(384,-952)|
+1,102,43,81,1,0,0,0,0,192,0,-1--1--1,,1|(436,-433)|
+12,103,0,2185,476,450,331,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+ModalSplit_Car
+10,104,PI StreetGreening,797,-167,54,54,2,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,105,104,81,1,0,0,0,0,192,0,-1--1--1,,1|(773,-301)|
+10,106,TR Trips Data,1779,-959,62,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,107,TR TripsWeight,1682,-879,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,108,106,77,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,109,TR TotalTravelTime,767,-573,74,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,110,22,109,1,0,0,0,0,192,0,-1--1--1,,1|(430,-558)|
+1,111,5,109,1,0,0,0,0,192,0,-1--1--1,,1|(502,-769)|
+10,112,TR InitialTotalTravelTime,2140,-854,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,113,106,112,1,0,0,0,0,192,0,-1--1--1,,1|(2089,-902)|
+1,114,69,112,1,0,0,0,0,192,0,-1--1--1,,1|(2088,-795)|
+1,115,17,112,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,116,48,66,-686,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,117,119,116,100,0,0,22,0,192,0,-1--1--1,,1|(66,-703)|
+1,118,119,5,4,0,0,22,0,192,0,-1--1--1,,1|(66,-765)|
+11,119,0,66,-711,8,6,33,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,120,TR DemandIncreasePop,144,-711,70,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,121,4,120,1,0,0,0,0,192,0,-1--1--1,,1|(-140,-759)|
+10,122,HB PopNetIncrease,-153,-623,62,15,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,123,122,120,1,0,0,0,0,192,0,-1--1--1,,1|(-84,-669)|
+10,124,TR InitialTravelSpeed,1553,-780,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,125,69,75,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,126,78,107,1,0,0,0,0,192,0,-1--1--1,,1|(1298,-942)|
+1,127,70,120,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,128,TR ParkingCost,-607,-198,58,10,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||64-128-128,0,0,0,0,0,0
+1,129,128,140,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,130,TR AdaptedNetworkCapacity,88,-133,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,131,130,44,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,132,130,100,1,0,0,0,0,64,0,-1--1--1,,1|(503,-530)|
+1,133,59,130,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,134,TR PI CapacityAdaptation,-7,63,74,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-0,|||0-0-0,0,0,0,0,0,0
+10,135,TR Cal CapacityAdaptation,294,58,74,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-0,|||0-0-0,0,0,0,0,0,0
+10,136,TR CapacityAdaptation,146,67,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-0,|||0-0-0,0,0,0,0,0,0
+1,137,134,130,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,138,136,130,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,139,135,130,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,140,TR AdaptedParkingCost,-485,-257,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,141,140,21,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,142,TR PI ParkingCostAdaptation,-596,-138,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,143,TR ParkingCostAdaptation,-461,-158,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,144,TR Cal ParkingCostAdaptation,-362,-123,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,145,142,140,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,146,143,140,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,147,144,140,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,148,TR AdaptedAreaToll,-432,-371,74,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,149,TR PI AreaToll,-593,-412,58,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,150,TR AreaToll,-605,-375,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,151,TR Cal AreaToll,-581,-341,62,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,152,149,148,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,153,150,148,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,154,151,148,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,155,148,21,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,156,TR ModalSplit Data,2097,-1049,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,157,17,156,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,158,106,156,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+12,159,0,3079,475,430,333,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+ModalSplit_OD
+12,160,0,2187,1073,449,258,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+ModalSplit_PT
+12,161,0,3079,1073,431,259,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+ModalSplit_PT_OD
+10,162,TR AdaptedRoadPricing,-365,-470,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,163,TR RoadPricing,-555,-525,58,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,164,TR PI RoadPricing,-557,-562,46,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,165,TR Cal RoadPricing,-557,-496,46,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,166,164,162,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,167,165,162,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,168,163,162,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,169,162,21,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,170,TR CyclingAddedAttractiveness,692,-497,100,23,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,171,TR PI CyclingAddedAttractiveness,652,-532,94,23,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,172,TR Cal CyclingAddedAttractiveness,722,-461,94,27,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,173,171,81,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,174,170,81,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,175,172,81,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,176,TR PI PTTravelTimeAdaptation,496,30,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,177,TR PTTravelTimeAdaptation,626,55,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,178,TR Cal PTTravelTimeAdaptation,734,24,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,179,176,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,180,177,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,181,178,22,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,182,48,54,-852,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,183,185,5,100,0,0,22,0,192,0,-1--1--1,,1|(-8,-834)|
+1,184,185,182,4,0,0,22,0,192,0,-1--1--1,,1|(54,-925)|
+11,185,0,-8,-925,8,6,33,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,186,TR ShorterTrips,62,-925,62,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,187,TR PI DistanceAdaptation,-425,-1063,74,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,188,TR DistanceAdaptation,-433,-1034,86,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,189,TR Cal DistanceAdaptation,-409,-1001,74,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,190,187,186,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,191,188,186,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,192,189,186,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,193,5,186,1,0,0,0,0,192,0,-1--1--1,,1|(119,-913)|
+10,194,TR ModalSplitPerTripLength,470,-846,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,195,5,194,1,0,0,0,0,64,0,-1--1--1,,1|(241,-856)|
+10,196,TR CarPassengerAddedAttractiveness,909,-573,130,18,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,197,196,81,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,198,TR PI CarPassengerAddedAttractiveness,924,-620,130,18,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,199,198,81,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,200,TR Cal CarPassengerAddedAttractiveness,993,-527,130,18,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,201,200,81,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,202,TR CarCostsPerKmEV,-299,63,73,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,203,202,46,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,204,TR CarCostsPerKmFuel,-263,111,77,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,205,204,46,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,206,TR PercentageOfEVs,-151,159,66,15,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,207,206,46,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,208,SimYear,-139,-1266,42,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,209,0,-206,782,711,452,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+modalSplt_Car_PIs
+10,210,Time,-275,-1215,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,211,210,208,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+12,212,48,96,-948,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,213,215,212,100,0,0,22,0,192,0,-1--1--1,,1|(96,-923)|
+1,214,215,5,4,0,0,22,0,192,0,-1--1--1,,1|(96,-878)|
+11,215,0,96,-906,8,6,33,3,0,0,4,0,0,0,0,0,0,0,0,0
+10,216,TR DemandIncreaseCT,170,-906,66,25,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,217,5,216,1,0,0,0,0,192,0,-1--1--1,,1|(175,-860)|
+1,218,70,216,1,0,0,0,0,192,0,-1--1--1,,1|(52,-1018)|
+10,219,CopingTypeDistrOfPreviousTimestep,-123,-1149,60,26,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,220,219,216,1,0,0,0,0,192,0,-1--1--1,,1|(70,-1030)|
+10,221,TR TripsPerCT,535,-1051,60,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,222,5,221,1,0,0,0,0,192,0,-1--1--1,,1|(409,-1008)|
+10,223,HB Population,157,-1060,51,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,224,CTChange,39,-1216,42,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,225,70,224,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,226,219,224,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*Coping Typologies
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+10,1,TR PercentageOfCarOwnership,351,61,123,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,TR PercentageOfEVs,338,194,69,22,3,2,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,TR PercentageOfAnnualPTTickets,358,286,123,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,4,48,73,63,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,5,7,4,100,0,0,22,0,192,0,-1--1--1,,1|(126,63)|
+1,6,7,1,4,0,0,22,0,192,0,-1--1--1,,1|(197,63)|
+11,7,0,161,63,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,8,TR CarOwnershipChangeRate,161,93,60,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,9,48,69,190,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,10,11,9,100,0,0,22,0,192,0,-1--1--1,,1|(134,190)|
+11,11,0,181,190,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,12,TR EVChangeRate,181,220,56,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,13,48,64,285,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,14,16,13,100,0,0,22,0,192,0,-1--1--1,,1|(114,285)|
+1,15,16,3,4,0,0,22,0,192,0,-1--1--1,,1|(193,285)|
+11,16,0,146,285,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,17,TR AnnualPTTicketsChangeRate,146,315,114,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,18,2,12,1,0,0,0,0,192,0,-1--1--1,,1|(274,246)|
+10,19,Time,37,245,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,20,19,12,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,21,TR PI EVAdoptionAdaptation,462,591,82,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,22,TR EVAdoptionAdaptation,563,633,82,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+10,23,TR Cal EVAdoptionAdaptation,648,589,82,22,3,3,0,4,-1,0,0,0,0-0-0,255-128-64,|||0-0-0,0,0,0,0,0,0
+1,24,21,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,25,22,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,26,23,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,27,HB Population,758,189,54,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,28,48,562,183,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+11,29,0,648,183,6,8,2,3,0,0,1,0,0,0,0,0,0,0,0,0
+1,30,29,28,100,0,0,22,0,192,0,-1--1--1,,1|(614,183)|
+1,31,29,27,4,0,0,22,0,192,0,-1--1--1,,1|(679,183)|
+10,32,HB PopNetIncrease,639,207,58,15,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,33,HB InitialPopulation,753,296,62,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,34,33,27,0,0,0,0,0,64,1,-1--1--1,,1|(0,0)|
+1,35,32,27,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,36,CopingTypesDistribution,1169,98,60,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,37,CopingTypeDistrOfPreviousTimestep,1225,187,73,25,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,38,36,37,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,39,TIME STEP,1103,260,52,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,40,39,37,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*ED Inputs
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+10,1,TR PercentageOfEVs,735,127,74,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,2,36,1,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+10,3,TR TotalDistanceTravelled,1193,357,91,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,TR InitialTripLength,1191,522,62,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,5,TR Trips,998,502,41,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,6,TR ModalSplit,1423,149,58,10,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,TR TotalDistancePerModePerYearPerPerson,1622,339,154,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,8,3,7,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,9,6,7,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,10,HB Population,1642,171,44,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,11,10,7,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,12,TR dist cars fuels,1397,699,44,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,13,TR dist cars electr,1500,701,44,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,14,TR dist publ Tr electr,1678,706,53,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,15,1,12,1,0,0,0,0,192,0,-1--1--1,,1|(848,621)|
+1,16,1,13,1,0,0,0,0,192,0,-1--1--1,,1|(875,703)|
+1,17,7,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,18,7,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,19,7,14,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,20,TR dist other Tr,1862,699,55,10,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,21,0,1619,691,348,101,3,7,0,0,5,0,0,0,0,0,0,0,0,0
+Inputs to ED submodel
+10,22,TR InitialTripLength,1260,478,62,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,23,22,3,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,24,TR Trips,1076,461,41,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,25,24,3,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,26,TR InitialTripLength,1230,83,62,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,27,26,6,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,28,3,6,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,29,TR Trips,1257,39,41,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,30,29,6,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,31,TR InitialTripLength,985,354,62,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,32,31,3,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+10,33,TR Trips,971,372,41,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,34,33,3,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+1,35,3,6,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+10,36,TR EVChangeRate,546,297,62,8,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,37,Time,419,262,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,38,37,36,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+10,39,TR Cal EVAdoptionAdaptation,388,318,90,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,40,39,36,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+10,41,TR EVAdoptionAdaptation,414,371,90,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,42,41,36,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+1,43,1,36,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+10,44,TR PI EVAdoptionAdaptation,646,570,90,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,45,44,36,0,0,0,0,0,0,0,-1--1--1,,1|(0,0)|
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*PI_Control
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+10,1,TR PI CapacityAdaptation,156,158,74,15,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,TR PI ParkingCostAdaptation,270,63,86,15,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,TR PI RoadPricing,411,142,46,15,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,4,TR PI AreaToll,536,69,58,8,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,5,TR PI CyclingAddedAttractiveness,684,147,109,21,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,6,TR PI PTTravelTimeAdaptation,896,73,97,19,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,TR PI CarPassengerAddedAttractiveness,1078,180,72,21,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,8,TR PI EVAdoptionAdaptation,1228,95,82,15,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,9,0,669,416,300,200,0,15,0,0,1,0,0,0,0,0,0,0,0,0
+ModalSplit_all
+///---\\\
+:GRAPH ModalSplit_Car
+:TITLE Modal Split Car
+:X-AXIS Time
+:X-MIN 2009
+:X-MAX 2050
+:SCALE
+:VAR TR ModalSplit[car,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[car,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit[car passenger,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[car passenger,internal]
+:DATASET *
+:LINE-WIDTH 1
+
+:GRAPH ModalSplitPerCT
+:TITLE ModalSplitPerCT
+:X-AXIS Time
+:SCALE
+:VAR TR ModalSplitPerCT[mode,traffic type,coping type]
+:DATASET 
+:LINE-WIDTH 1
+
+:GRAPH ModalSplit_OD
+:TITLE Modal Split Car Origin Dest
+:X-AXIS Time
+:SCALE
+:VAR TR ModalSplit[car,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[car,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit[car passenger,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[car passenger,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+
+:GRAPH ModalSplit_PT
+:TITLE Modal Split PT
+:X-AXIS Time
+:SCALE
+:VAR TR ModalSplit[public transport,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[public transport,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit[walk,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[walk,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit[bicycle,internal]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[bicycle,internal]
+:DATASET *
+:LINE-WIDTH 1
+
+:GRAPH ModalSplit_PT_OD
+:TITLE Modal Split PT Origin Dest
+:X-AXIS Time
+:SCALE
+:VAR TR ModalSplit[public transport,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[public transport,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit[walk,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[walk,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit[bicycle,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+:VAR TR ModalSplit Data[bicycle,origin destination]
+:DATASET *
+:LINE-WIDTH 1
+
+:GRAPH modalSplt_Car_PIs
+:TITLE Modal split - Car
+:X-AXIS SimYear
+:X-LABEL Year
+:Y-DIV 5
+:X-MIN 2020
+:NO-LEGEND 4
+:FONT Arial|20||0-0-0
+:SCALE
+:VAR TR ModalSplit[car,internal]|Reference / BAU
+:Y-MIN 0
+:Y-MAX 0.5
+:DATASET Reference.vdfx
+:LINE-COLOR 128-128-128
+:LINE-WIDTH 2
+:VAR TR ModalSplit[car,internal]|Parking Cost
+:DATASET PI_parkingCost.vdfx
+:LINE-COLOR 0-0-255
+:LINE-WIDTH 2
+:VAR TR ModalSplit[car,internal]|Area Toll gradual
+:DATASET PI_areaToll.vdfx
+:LINE-COLOR 255-128-0
+:LINE-WIDTH 2
+:VAR TR ModalSplit[car,internal]|Area Toll step
+:DATASET PI_areaToll_mod.vdfx
+:LINE-COLOR 255-128-0
+:LINE-STYLE DASH
+:LINE-WIDTH 2
+:VAR TR ModalSplit[car,internal]|All Measures
+:DATASET PI_all.vdfx
+:LINE-COLOR 0-255-0
+:LINE-WIDTH 2
+:VAR TR ModalSplit[car,internal]|Urban greening
+:DATASET PI_greening.vdfx
+:LINE-COLOR 0-128-0
+:LINE-WIDTH 2
+:VAR TR ModalSplit[car,internal]|All + Change of CT
+:DATASET mob9ct1.vdfx
+:LINE-COLOR 0-255-0
+:LINE-STYLE DASHDOT
+:LINE-WIDTH 2
+
+:GRAPH PIs
+:TITLE Interventions (examples)
+:X-AXIS SimYear
+:X-LABEL Year
+:Y-DIV 3
+:X-MIN 2020
+:NO-LEGEND 4
+:FONT Arial|20||0-0-0
+:SCALE
+:VAR TR AdaptedParkingCost|Parking Cost
+:UNITS EUR (avg.)
+:Y-MIN 0
+:Y-MAX 3
+:DATASET PI_parkingCost.vdfx
+:LINE-COLOR 0-0-255
+:LINE-WIDTH 2
+:VAR TR AdaptedAreaToll[long,internal,car]|Area Toll gradual
+:DATASET PI_areaToll.vdfx
+:LINE-COLOR 255-128-0
+:LINE-WIDTH 2
+:VAR TR AdaptedAreaToll[long,internal,car]|Area Toll step
+:DATASET PI_areaToll_mod.vdfx
+:LINE-COLOR 255-128-0
+:LINE-STYLE DASH
+:LINE-WIDTH 2
+
+:TABLE ED_Output
+:TITLE ED_Output
+:X-MIN 120
+:X-MAX 492
+:FONT Arial Unicode MS|12||0-0-0
+:VAR SimYear
+:DATASET 
+:VAR TR dist cars fuels
+:DATASET 
+:VAR TR dist cars electr
+:DATASET 
+:VAR TR dist publ Tr electr
+:DATASET 
+
+:GRAPH ModalSplit_all
+:TITLE Modal Split
+:X-AXIS SimYear
+:X-MIN 2020
+:FONT Arial|20||0-0-0
+:SCALE
+:VAR TR ModalSplit[public transport,internal]|Publ. Transport
+:DATASET *
+:LINE-WIDTH 3
+:VAR TR ModalSplit[car,internal]|Car
+:DATASET *
+:LINE-WIDTH 3
+:VAR TR ModalSplit[walk,internal]|Walk
+:DATASET *
+:LINE-WIDTH 3
+:VAR TR ModalSplit[bicycle,internal]|Bicycle
+:DATASET *
+:LINE-WIDTH 3
+:L<%^E!@
+1:mob10.vdfx
+4:Time
+5:TR ModalSplit[mode,traffic type]
+6:Active Antagonists
+6:Beneficent Believers
+6:bicycle
+6:car
+6:Concerned Compliers
+6:Doubting Distressed
+6:Empathic Engagers
+6:Fierce Forerunners
+6:internal
+6:long
+6:medium
+6:public transport
+6:short
+6:walk
+9:mob10
+19:75,0
+24:2009
+25:2050
+26:2050
+57:1
+54:0
+55:0
+82:1
+86:0
+59:0
+56:0
+58:0
+71:0
+110:0
+111:0
+44:0
+46:0
+45:7
+49:0
+50:1
+51:110
+52:119
+53:
+43:C:\Data\projects\KNOWING\WP2\models\mob7.xlsx
+47:
+48:
+10:mob7a.cin,mob7PI.cin
+11:mob8_cal.voc
+12:mobility7_cal.vpd
+13:mob_inp.vdfx,Cal_data_all_measures.vdfx
+23:0
+15:0,0,0,1,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:1
+95:0
+96:0
+97:0
+77:0
+78:0
+102:0
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:C:\Data\projects\KNOWING\WP2\models\mob7.xlsx
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Courier|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1
