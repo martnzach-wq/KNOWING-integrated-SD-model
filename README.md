@@ -1,6 +1,6 @@
 # Granollers Integrated Model
 
-Python integrated System Dynamics model for Granollers (Catalonia, Spain), developed for the [KNOWING](https://knowing-project.eu/) EU Horizon research project (Work Package 2).
+Python integrated System Dynamics model for Granollers (Catalonia, Spain), developed for the [KNOWING](https://knowing-climate.eu/) EU Horizon research project (Work Package 2).
 
 ## What it does
 
