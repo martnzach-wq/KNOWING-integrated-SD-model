@@ -451,7 +451,8 @@ class MobilityModel:
                         net = np.zeros(N_MODE)
                         if weighted:
                             total = max(trip_slice.sum(), 1e-12)
-                            dest_weight = N_MODE * np.maximum(trip_slice, 0) / total
+                            a = self.m.mode_change_destination_blend
+                            dest_weight = 1 - a + a * N_MODE * np.maximum(trip_slice, 0) / total
                         for i in range(N_MODE):
                             for j in range(N_MODE):
                                 if i == j:
