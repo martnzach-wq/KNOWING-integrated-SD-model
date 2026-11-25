@@ -238,7 +238,7 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
         ed.get("transport_car_fossil", np.zeros(n))
         + ed.get("transport_other", np.zeros(n))
         + ed.get("freight_fossil", np.zeros(n))
-    ) * FUEL_EF_T_PER_GWH / 1000.0
+    ) * esc.fuel_ef_transport_t_per_gwh / 1000.0
 
     # 2) em_other -- direct combustion, buildings + industry + services fossil
     #    (household heating fossil + household other fossil + industry fossil
@@ -248,7 +248,7 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
         + ed.get("hh_other_fossil", np.zeros(n))
         + ed.get("industry_fossil", np.zeros(n))
         + ed.get("service_fossil", np.zeros(n))
-    ) * FUEL_EF_T_PER_GWH / 1000.0
+    ) * esc.fuel_ef_other_t_per_gwh / 1000.0
 
     # 3) em_elec_prod -- LOCAL fossil-fuelled electricity production.
     #    Granollers has one technology (Gas CHP, flat 0.45 kt/GWh factor).
@@ -279,7 +279,7 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
     #    still operating, phasing out over the projection -- this is the
     #    main genuinely Tallinn-specific emissions component with no
     #    Granollers equivalent.
-    em_dh = (heat_gas + heat_oil) * FUEL_EF_T_PER_GWH / 1000.0
+    em_dh = (heat_gas + heat_oil) * esc.fuel_ef_other_t_per_gwh / 1000.0
 
     # --- TALLINN-SPECIFIC EXTENSION: biomass/waste CHP heat & power are
     # reported separately as an explicit zero-emission line (rather than

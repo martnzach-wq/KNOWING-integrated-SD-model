@@ -262,6 +262,11 @@ class EnergySupplyConfig:
     # 0.45 kt/GWh specifically for its single Gas CHP technology (the
     # units are equivalent: 0.45 kt/GWh = 0.45 kg/kWh).
     fossil_power_emission_factor: float = 0.55
+    # direct CO2 of fossil fuels (t/GWh): weighted IPCC 2006 defaults over the fuels of the city's
+    # MAED-City energy balance (gas 202, gas oil/diesel 267, gasoline 250, jet 257, LPG 227, coal 341);
+    # 270 for both is the former uniform value
+    fuel_ef_transport_t_per_gwh: float = 270.0
+    fuel_ef_other_t_per_gwh: float = 270.0
 
 
 @dataclass
@@ -393,6 +398,8 @@ TALLINN = CityConfig(
         # Spain-specific REE/PNIEC/PROENCAT path.
         grid_emission_factor={2019: 0.78, 2024: 0.42, 2030: 0.20, 2050: 0.02},
         plater_pv_target_2050=None,
+        fuel_ef_transport_t_per_gwh=258.0,  # weighted over the fuels of D3.3 Table 3
+        fuel_ef_other_t_per_gwh=211.0,
     ),
     microclimate=MicroclimateConfig(calibration_csv=_resolve_data_path("mc4_cal_tallinn.csv")),
     # Estonian fleet 0.749 kWh/vkm (energy_demand.TallinnConversionFactors); load factor 1.23 (D3.3 MAED-City key measures)
@@ -755,6 +762,8 @@ NAPLES = CityConfig(
         fossil_power_dispatch_mode="fixed_schedule",
         fossil_power_phases_out_after_10y=False,
         fossil_power_emission_factor=0.45,
+        fuel_ef_transport_t_per_gwh=254.0,  # weighted over the fuels of D3.4a Table A-13
+        fuel_ef_other_t_per_gwh=205.0,
     ),
 
     # Italian fleet about 7 l/100 km (0.65 kWh/vkm), EV 0.17 kWh/vkm (estimates); load factor 1.11 (D3.4a Table A-15)
@@ -873,6 +882,8 @@ SOUTH_WESTPHALIA = CityConfig(
         fossil_power_dispatch_mode="demand_filling",
         fossil_power_phases_out_after_10y=True,
         fossil_power_emission_factor=0.55,
+        fuel_ef_transport_t_per_gwh=256.0,  # weighted over the fuels of D3.5 Table 9
+        fuel_ef_other_t_per_gwh=241.0,
     ),
     # German fleet about 7.4 l/100 km (0.69 kWh/vkm), EV 0.19 kWh/vkm (estimates); load factor 1.13 (D3.5 Table 11)
     transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.69, car_electric_kwh_per_vkm=0.19, load_factor=1.13, od_energy_share=0.5),

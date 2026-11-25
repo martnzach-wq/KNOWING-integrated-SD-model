@@ -58,6 +58,7 @@ CETS_ROWS = {
     "service_fossil": "EN_finEN_Service fossil",
     "industry_fossil": "EN_finEN_Industry fossil",
     # optional carrier rows (South Westphalia); zero where a city file lacks them
+    "transport_other": "EN_Other fuels",
     "service_biofuel": "EN_finEN_Service biofuel",
     "service_solar": "EN_finEN_Service solar",
     "industry_biofuel": "EN_finEN_Industry biofuel",
@@ -207,7 +208,8 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
     # breakdown if a finer split is later required).
     pt_factor_blended = 0.6 * cf.pt_internal_kwh_per_pkm + 0.4 * cf.pt_od_kwh_per_pkm
     out["transport_pt_electric"] = pt_km_cap * pop * pt_factor_blended / 1e6
-    out["transport_other"] = (out["freight_other"] * 0)  # placeholder, "other Tr" not separately modelled
+    # other passenger transport fuels (aviation, buses, LPG; MAED-City "EN_Other fuels"), exogenous like freight
+    out["transport_other"] = series("transport_other")
 
     out["transport_active_km_cap"] = active_km_cap  # informational, zero energy
 

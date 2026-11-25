@@ -134,6 +134,9 @@ def build_cets():
             "EN_finEN_Industry fossil": mm["fossil"] * manuf + am["fossil"] * acm,
             "EN_finEN_Industry biofuel": mm["bio"] * manuf + am["bio"] * acm,
             "EN_finEN_Industry H2": mm["h2"] * manuf + am["h2"] * acm,
+            # other passenger transport fuels (A13 transport 3,719.5 GWh minus cars about 2,493, freight 137
+            # and electricity 74): aviation (498 GWh), CNG buses, LPG and other diesel; 2050 aviation and remainder
+            "EN_Other fuels": _interp({2019: 1015.0, 2050: 520.0}, y),
             "EN_finEN_Total (T12)": fe[y],
             "EN_finEN_Passenger transport (residual)": sh[0] * fe[y],
             "Electricity total (T12)": _interp(EL_CAP, y) * pop[y] / 1000,

@@ -206,6 +206,9 @@ def build_cets() -> tuple[dict, list]:
             "EN_finEN_Industry fossil": mm["fossil"] * manuf + am["fossil"] * acm,
             "EN_finEN_Industry biofuel": mm["bio"] * manuf + am["bio"] * acm,
             "EN_finEN_Industry H2": mm["h2"] * manuf + am["h2"] * acm,
+            # other passenger transport fuels (T9: passenger 14,636 GWh minus cars about 13,750 and
+            # rail/PT electricity 178): aviation (140 GWh), buses; 2050 aviation and a small remainder
+            "EN_Other fuels": _interp({2019: 708.0, 2050: 180.0}, y),
             "EN_finEN_Total (T12)": fe[y],
             "EN_finEN_Passenger transport (residual)": fe[y]
             - serv
@@ -253,6 +256,7 @@ ROW_LABELS = [
     "EN_finEN_Industry fossil",
     "EN_finEN_Industry biofuel",
     "EN_finEN_Industry H2",
+    "EN_Other fuels",
     "EN_finEN_Total (T12)",
     "EN_finEN_Passenger transport (residual)",
     "Electricity total (T12)",
