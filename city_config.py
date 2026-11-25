@@ -373,12 +373,12 @@ TALLINN = CityConfig(
         area_toll_applicable=True,
         ev_pi_trajectory=None,  # uses native TR EVChangeRate dynamics
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
-        # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0344)
-        mode_change_damping=0.0332,
-        attr_offset={"car passenger": -3.759, "public transport": 15.000, "bicycle": -15.000, "walk": -15.000},
-        # TR Cal per intervention, fitted to the ABM light single-measure effects 2040 (decision D38)
-        lever_calibration={"capacity": 7.074, "parking": 18.358, "area_toll": 2.559, "road_pricing": 3.098, "cycling": 24.882, "pt_traveltime": 100.000, "distance": 20.094, "car_passenger": 1.769},
+        # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
+        # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
+        # 0.0057, effects 0.0021)
+        mode_change_damping=0.7077,
+        attr_offset={"car passenger": -3.036, "public transport": 0.437, "bicycle": -3.112, "walk": -3.116},
+        lever_calibration={"capacity": 2.260, "parking": 1.493, "area_toll": 0.187, "road_pricing": 0.233, "cycling": 0.013, "pt_traveltime": 2.707, "distance": 35.665, "car_passenger": 0.777},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
@@ -757,12 +757,12 @@ NAPLES = CityConfig(
             2030: 18.0, 2040: 51.0, 2050: 85.0,  # ZEV share, D3.4a Table A-27
         },
         ev_bau_damping_pivot_year=2026,  # same structure as Tallinn; BAU ~half PI=1 from 2026
-        # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0185)
-        mode_change_damping=0.0133,
-        attr_offset={"car passenger": 4.121, "public transport": 15.000, "bicycle": -15.000, "walk": -15.000},
-        # TR Cal per intervention, fitted to the ABM light single-measure effects 2040 (decision D38)
-        lever_calibration={"capacity": 100.000, "parking": 48.001, "area_toll": 0.753, "road_pricing": 5.342, "cycling": 13.260, "pt_traveltime": 100.000, "distance": 4.752, "car_passenger": 13.624},
+        # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
+        # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
+        # 0.0009, effects 0.0010)
+        mode_change_damping=0.2795,
+        attr_offset={"car passenger": -0.372, "public transport": -3.025, "bicycle": -9.194, "walk": -15.000},
+        lever_calibration={"capacity": 2.233, "parking": 2.179, "area_toll": 0.099, "road_pricing": 0.767, "cycling": 0.010, "pt_traveltime": 12.808, "distance": 19.268, "car_passenger": 1.404},
     ),
     energy_demand=EnergyDemandConfig(
         # reconstructed from D3.4a (build_naples_d34a_xlsx.py); replaces the estimate of build_naples_xlsx.py
@@ -889,12 +889,12 @@ SOUTH_WESTPHALIA = CityConfig(
         area_toll_applicable=False,
         ev_pi_trajectory={2019: 0.2, 2030: 19.0, 2040: 64.0, 2050: 91.0},
         ev_bau_damping_pivot_year=2026,
-        # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0077)
-        mode_change_damping=0.0366,
-        attr_offset={"car passenger": -5.188, "public transport": -0.920, "bicycle": -15.000, "walk": -15.000},
-        # TR Cal per intervention, fitted to the ABM light single-measure effects 2040 (decision D38)
-        lever_calibration={"capacity": 2.339, "parking": 17.751, "road_pricing": 3.788, "cycling": 4.238, "pt_traveltime": 100.000, "distance": 12.330, "car_passenger": 0.010},
+        # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
+        # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
+        # 0.0069, effects 0.0015)
+        mode_change_damping=0.2089,
+        attr_offset={"car passenger": -2.144, "public transport": -0.856, "bicycle": -6.105, "walk": -15.000},
+        lever_calibration={"capacity": 0.030, "parking": 1.213, "road_pricing": 1.682, "cycling": 0.010, "pt_traveltime": 23.060, "distance": 29.123, "car_passenger": 1.828},
     ),
     energy_demand=EnergyDemandConfig(
         xlsx_path=_resolve_data_path("EN_MEADCityInput_SouthWestphalia.xlsx"),
