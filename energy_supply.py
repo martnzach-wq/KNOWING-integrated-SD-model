@@ -149,6 +149,9 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
                if eb_2050_capacity else np.zeros(n))
     # electric boiler explicitly absorbs any residual gap per .mdl comment
     # ("Assumption: scaled against data, but gap covered by electric boilers")
+    # the gap is what remains after the heat pumps and the scaled electric-boiler output; it was
+    # computed before the heat pumps, so the boilers also delivered the heat-pump heat a second time
+    heat_supply_gap = np.maximum(ed_core_heat - heat_supply_so_far - heat_hp - heat_eb, 0)
     heat_eb = heat_eb + heat_supply_gap
 
     total_heat_supply = heat_biomass_chp + heat_waste_chp + heat_gas + heat_oil + heat_other + heat_hp + heat_eb
@@ -161,7 +164,9 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
         + heat_eb * (el_demand_dh_eb_2050 / eb_2050_supply if eb_2050_supply else 0)
     )
 
-    total_elec_demand = ed_core_elec + dh_elec_demand
+    # electrolysers for the hydrogen demand (IESopt; zero where a city table has no such row)
+    el_demand_electrolyser = _lin_interp_2pt(*raw.get("ES ElDemand Electrolyser", {}).get("_scalar", (0, 0)))
+    total_elec_demand = ed_core_elec + dh_elec_demand + el_demand_electrolyser
 
     # --- Electricity production ---
     pv_capacity_now = elec_capacity.get("PV", np.zeros(n))
@@ -314,6 +319,7 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
         "heat_pump": heat_hp,
         "heat_electric_boiler": heat_eb,
         "dh_electricity_demand": dh_elec_demand,
+        "electrolyser_electricity_demand": el_demand_electrolyser,
         "grid_emission_factor": grid_ef,
         # Granollers-matched 5-component breakdown (directly comparable)
         "em_transport": em_transport,
