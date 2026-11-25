@@ -199,6 +199,10 @@ class MobilityConfig:
     # mode-share dynamics collapse too aggressively when every policy
     # lever applies at full simultaneous strength.
     mode_change_damping: float = 1.0
+    # weight each pairwise mode change by N x share of the destination mode within its length
+    # class, zone and coping type (linearised logit cross-elasticity, D43); False keeps the
+    # unweighted Vensim flow
+    mode_change_destination_weighting: bool = False
     # class-R calibration offsets on the attractiveness per mode, fitted to the ABM light
     # reference and optimised trajectories (regsim: sd_knowing.recalibrate_class_r)
     attr_offset: dict = field(default_factory=dict)
@@ -390,6 +394,7 @@ TALLINN = CityConfig(
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
         # 0.0058, effects 0.0021)
+        mode_change_destination_weighting=True,  # D43
         mode_change_damping=0.6887,
         attr_offset={"car passenger": -3.015, "public transport": 0.458, "bicycle": -3.395, "walk": -3.960},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.3 Table 1: core network -25/-75/-90 %, citywide -5/-15/-25 %, mean),
@@ -779,6 +784,7 @@ NAPLES = CityConfig(
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
         # 0.0010, effects 0.0010)
+        mode_change_destination_weighting=True,  # D43
         mode_change_damping=0.3044,
         attr_offset={"car passenger": -0.353, "public transport": -3.047, "bicycle": -8.978, "walk": -15.000},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.4a Table A-27: citywide -5/-15/-25 %),
@@ -916,6 +922,7 @@ SOUTH_WESTPHALIA = CityConfig(
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
         # 0.0073, effects 0.0015)
+        mode_change_destination_weighting=True,  # D43
         mode_change_damping=0.2167,
         attr_offset={"car passenger": -2.063, "public transport": -0.840, "bicycle": -6.044, "walk": -15.000},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.5 Table 23: network -25/-75/-90 %, local -5/-15/-25 %, mean),

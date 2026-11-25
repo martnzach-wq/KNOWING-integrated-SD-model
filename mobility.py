@@ -442,19 +442,26 @@ class MobilityModel:
 
             # --- Mode-change (inter-mode shifts driven by GC differences) ---
             mode_change = np.zeros_like(prev)
+            weighted = self.m.mode_change_destination_weighting
             for tl in range(N_TL):
                 for tt in range(N_TT):
                     for ci in range(N_CT):
                         gc_slice = gc[:, tl, tt, ci]
                         trip_slice = prev[:, tl, tt, ci]
                         net = np.zeros(N_MODE)
+                        if weighted:
+                            total = max(trip_slice.sum(), 1e-12)
+                            dest_weight = N_MODE * np.maximum(trip_slice, 0) / total
                         for i in range(N_MODE):
                             for j in range(N_MODE):
                                 if i == j:
                                     continue
                                 diff = gc_slice[i] - gc_slice[j]
-                                source = trip_slice[i] if (gc_slice[j] - gc_slice[i]) < 0 else trip_slice[j]
+                                i_worse = (gc_slice[j] - gc_slice[i]) < 0
+                                source = trip_slice[i] if i_worse else trip_slice[j]
                                 rate = mode_change_elasticity * diff * max(source, 0)
+                                if weighted:
+                                    rate *= dest_weight[j if i_worse else i]
                                 net[i] -= rate
                         mode_change[:, tl, tt, ci] = net
 
