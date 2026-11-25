@@ -407,18 +407,18 @@ TALLINN = CityConfig(
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
-        # 0.0065, effects 0.0014)
+        # 0.0067, effects 0.0022)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
-        mode_change_damping=0.5088,
-        attr_offset={"car passenger": -2.603, "public transport": 0.505, "bicycle": -3.345, "walk": -4.030},
+        mode_change_damping=0.6386,
+        attr_offset={"car passenger": -4.254, "public transport": 0.495, "bicycle": -3.714, "walk": -3.965},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.3 Table 1: core network -25/-75/-90 %, citywide -5/-15/-25 %, mean),
         # traffic calming walk/cycling bonus, 15-minute city bonus for short trips
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 2.201, "parking": 1.579, "area_toll": 0.189, "road_pricing": 0.233, "cycling": 1.852, "pt_traveltime": 2.154, "distance": 36.709, "car_passenger": 0.728},
+        lever_calibration={"capacity": 2.008, "parking": 1.659, "area_toll": 0.173, "road_pricing": 0.218, "cycling": 1.684, "pt_traveltime": 1.082, "distance": 33.644, "car_passenger": 1.570},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
@@ -802,14 +802,14 @@ NAPLES = CityConfig(
         # 0.0005, effects 0.0007)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
-        mode_change_damping=0.1827,
-        attr_offset={"car passenger": 0.072, "public transport": -3.109, "bicycle": -7.470, "walk": -15.000},
+        mode_change_damping=0.2092,
+        attr_offset={"car passenger": 0.080, "public transport": -3.147, "bicycle": -7.907, "walk": -15.000},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.4a Table A-27: citywide -5/-15/-25 %),
         # traffic calming walk/cycling bonus, 15-minute city bonus for short trips
         cycling_resistance_reduction={2019: 0.0, 2030: 0.05, 2040: 0.15, 2050: 0.25},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 1.788, "parking": 2.035, "area_toll": 0.069, "road_pricing": 0.508, "cycling": 10.654, "pt_traveltime": 8.396, "distance": 16.474, "car_passenger": 1.881},
+        lever_calibration={"capacity": 1.653, "parking": 1.890, "area_toll": 0.063, "road_pricing": 0.458, "cycling": 9.917, "pt_traveltime": 7.565, "distance": 15.365, "car_passenger": 1.639},
     ),
     energy_demand=EnergyDemandConfig(
         # reconstructed from D3.4a (build_naples_d34a_xlsx.py); replaces the estimate of build_naples_xlsx.py
@@ -938,17 +938,17 @@ SOUTH_WESTPHALIA = CityConfig(
         ev_bau_damping_pivot_year=2026,
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
-        # 0.0082, effects 0.0011)
+        # 0.0078, effects 0.0009)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
-        mode_change_damping=0.1945,
-        attr_offset={"car passenger": 0.239, "public transport": 0.467, "bicycle": -4.925, "walk": -15.000},
+        mode_change_damping=0.2682,
+        attr_offset={"car passenger": 0.405, "public transport": 0.069, "bicycle": -6.544, "walk": -15.000},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.5 Table 23: network -25/-75/-90 %, local -5/-15/-25 %, mean),
         # traffic calming walk/cycling bonus, 15-minute city bonus for short trips
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 0.324, "parking": 1.430, "road_pricing": 1.041, "cycling": 0.748, "pt_traveltime": 13.606, "distance": 30.545, "car_passenger": 0.687},
+        lever_calibration={"capacity": 0.257, "parking": 1.527, "road_pricing": 0.772, "cycling": 0.614, "pt_traveltime": 12.002, "distance": 30.687, "car_passenger": 0.461},
     ),
     energy_demand=EnergyDemandConfig(
         xlsx_path=_resolve_data_path("EN_MEADCityInput_SouthWestphalia.xlsx"),
