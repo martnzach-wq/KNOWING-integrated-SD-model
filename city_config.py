@@ -402,16 +402,17 @@ TALLINN = CityConfig(
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
-        # 0.0058, effects 0.0021)
+        # 0.0065, effects 0.0014)
         mode_change_destination_weighting=True,  # D43
-        mode_change_damping=0.6887,
-        attr_offset={"car passenger": -3.015, "public transport": 0.458, "bicycle": -3.395, "walk": -3.960},
+        mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
+        mode_change_damping=0.5088,
+        attr_offset={"car passenger": -2.603, "public transport": 0.505, "bicycle": -3.345, "walk": -4.030},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.3 Table 1: core network -25/-75/-90 %, citywide -5/-15/-25 %, mean),
         # traffic calming walk/cycling bonus, 15-minute city bonus for short trips
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 2.270, "parking": 1.540, "area_toll": 0.194, "road_pricing": 0.243, "cycling": 0.010, "pt_traveltime": 2.693, "distance": 36.890, "car_passenger": 0.802},
+        lever_calibration={"capacity": 2.201, "parking": 1.579, "area_toll": 0.189, "road_pricing": 0.233, "cycling": 1.852, "pt_traveltime": 2.154, "distance": 36.709, "car_passenger": 0.728},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
