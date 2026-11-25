@@ -355,9 +355,9 @@ TALLINN = CityConfig(
         ev_pi_trajectory=None,  # uses native TR EVChangeRate dynamics
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
         # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decision D32; loss 0.0118)
-        mode_change_damping=0.0988,
-        attr_offset={"car passenger": -1.865, "public transport": 5.525, "bicycle": 0.495, "walk": -3.192},
+        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0106)
+        mode_change_damping=0.1008,
+        attr_offset={"car passenger": -2.244, "public transport": 5.453, "bicycle": 0.544, "walk": 10.694},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
@@ -506,7 +506,10 @@ GRANOLLERS = CityConfig(
             "bicycle": (0.0, 0.0),
             "walk": (0.0, 0.0),
         },
-        mode_change_damping=0.84,  # calibrated against REF_MOB checkpoints from granollers_integrated_model.py
+        # class R, fitted to the previous model trajectories (legacy -CDD attractiveness terms)
+        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0000)
+        mode_change_damping=0.8400,
+        attr_offset={"car passenger": -0.000, "public transport": -1.900, "bicycle": -3.800, "walk": -3.800},
     ),
     energy_demand=EnergyDemandConfig(
         xlsx_path=_resolve_data_path("EN_MEADCityInput_0527_v6.xlsx"),
@@ -730,9 +733,9 @@ NAPLES = CityConfig(
         },
         ev_bau_damping_pivot_year=2026,  # same structure as Tallinn; BAU ~half PI=1 from 2026
         # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decision D32; loss 0.0047)
-        mode_change_damping=0.0846,
-        attr_offset={"car passenger": 0.326, "public transport": -1.289, "bicycle": -14.852, "walk": -15.806},
+        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0057)
+        mode_change_damping=0.0800,
+        attr_offset={"car passenger": 0.514, "public transport": -1.223, "bicycle": -15.000, "walk": -15.000},
     ),
     energy_demand=EnergyDemandConfig(
         # reconstructed from D3.4a (build_naples_d34a_xlsx.py); replaces the estimate of build_naples_xlsx.py
@@ -853,9 +856,9 @@ SOUTH_WESTPHALIA = CityConfig(
         ev_pi_trajectory={2019: 0.2, 2030: 19.0, 2040: 64.0, 2050: 91.0},
         ev_bau_damping_pivot_year=2026,
         # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decision D32; loss 0.0153)
-        mode_change_damping=0.4791,
-        attr_offset={"car passenger": -1.400, "public transport": 7.929, "bicycle": 1.099, "walk": 3.574},
+        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0080)
+        mode_change_damping=0.4658,
+        attr_offset={"car passenger": -1.076, "public transport": 2.679, "bicycle": -0.675, "walk": -3.567},
     ),
     energy_demand=EnergyDemandConfig(
         xlsx_path=_resolve_data_path("EN_MEADCityInput_SouthWestphalia.xlsx"),
