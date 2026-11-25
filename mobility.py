@@ -467,9 +467,12 @@ class MobilityModel:
                         mode_change[:, tl, tt, ci] = net
 
             # --- Coping-type re-weighting (DemandIncreaseCT) ---
-            ct_now = coping_dist
-            ct_prev = coping_dist  # static distribution -> term vanishes
-            demand_increase_ct = np.zeros_like(prev)
+            # trips of each coping type scale with its population share; the term vanishes
+            # for a static distribution
+            ct_now = self.coping_dist_t[t]
+            ct_prev = self.coping_dist_t[t - 1]
+            ratio = np.divide(ct_now, ct_prev, out=np.ones_like(ct_now), where=ct_prev > 0)
+            demand_increase_ct = prev * (ratio - 1)[None, None, None, :]
 
             new_trips = prev + demand_change + mode_change + demand_increase_ct
             new_trips = np.maximum(new_trips, 0)

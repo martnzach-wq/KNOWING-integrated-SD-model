@@ -358,6 +358,13 @@ _tallinn_speed_od = {
     "long":   [29.15371155, 29.0770918,  18.14241815, 11.70668359,  4.227508913],
 }
 
+# Coping-type sensitivity for Tallinn 2050 (D44): half-way from the 2019 distribution to the
+# mean of Naples and Granollers. D1.3 relates the larger shares of engaging types in southern
+# countries to climate impacts already experienced; Tallinn's CDD stay far below southern levels,
+# hence half-way as upper bound. Not part of the main pathway: set
+# mobility.coping_type_distribution_2050 to this value for the sensitivity run.
+TALLINN_COPING_2050_SENSITIVITY = (0.055, 0.1225, 0.2175, 0.23, 0.24, 0.145)
+
 TALLINN = CityConfig(
     name="Tallinn",
     country="Estonia",
