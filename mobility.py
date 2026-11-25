@@ -621,6 +621,9 @@ class MobilityModel:
                             elif mode == "car passenger":
                                 attr += car_pass_attr_term
                         attr += correction[mode]
+                        if baseattr_correction == "use_calibrated":
+                            # class-R offsets act on top of the GC-neutral correction (not absorbed by it)
+                            attr += m.attr_offset.get(mode, 0.0)
 
                         gc[mi, tli, tti, ci] = (cost + travel_time * value_of_time[ci] - attr)
 
@@ -663,6 +666,9 @@ class MobilityModel:
             dist_pt_total = np.zeros(n)
             dist_active_total = np.zeros(n)
             modal_split = {mode: np.zeros(n) for mode in MODES}
+            # car + passenger km of the OD zone (trips crossing the city boundary), per resident
+            dist_cars_od = np.zeros(n)
+            dist_pt_od = np.zeros(n)
 
             for t in range(n):
                 total_dist = 0.0
@@ -681,12 +687,18 @@ class MobilityModel:
                             d = trips_sum * dist
                             mode_dist[mode] += d
                             total_dist += d
+                            if tt_name == "origin destination" and mode in ("car", "car passenger"):
+                                dist_cars_od[t] += d
+                            elif tt_name == "origin destination" and mode == "public transport":
+                                dist_pt_od[t] += d
                 for mode in MODES:
                     modal_split[mode][t] = mode_dist[mode] / total_dist if total_dist > 0 else 0
                 pop_internal = self.population["internal"][t]
                 dist_cars_total[t] = (mode_dist["car"] + mode_dist["car passenger"]) * 365 / pop_internal
                 dist_pt_total[t] = mode_dist["public transport"] * 365 / pop_internal
                 dist_active_total[t] = (mode_dist["bicycle"] + mode_dist["walk"]) * 365 / pop_internal
+                dist_cars_od[t] *= 365 / pop_internal
+                dist_pt_od[t] *= 365 / pop_internal
 
             ev_frac = self.ev_share / 100
             out[method] = {
@@ -694,6 +706,8 @@ class MobilityModel:
                 "dist_car_electric_km_cap_yr": dist_cars_total * ev_frac,
                 "dist_pt_km_cap_yr": dist_pt_total,
                 "dist_active_km_cap_yr": dist_active_total,
+                "dist_car_od_share": np.divide(dist_cars_od, dist_cars_total, out=np.zeros(n), where=dist_cars_total > 0),
+                "dist_pt_od_share": np.divide(dist_pt_od, dist_pt_total, out=np.zeros(n), where=dist_pt_total > 0),
                 "modal_split": modal_split,
             }
         return out

@@ -199,6 +199,9 @@ class MobilityConfig:
     # mode-share dynamics collapse too aggressively when every policy
     # lever applies at full simultaneous strength.
     mode_change_damping: float = 1.0
+    # class-R calibration offsets on the attractiveness per mode, fitted to the ABM light
+    # reference and optimised trajectories (regsim: sd_knowing.recalibrate_class_r)
+    attr_offset: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -266,6 +269,9 @@ class TransportEnergyConfig:
     load_factor: float
     pt_internal_kwh_per_pkm: float = 0.040
     pt_od_kwh_per_pkm: float = 0.050
+    # share of trips crossing the city boundary counted in the city's energy balance
+    # (GPC induced-activity method: 0.5; 1.0 counts all OD traffic)
+    od_energy_share: float = 1.0
 
 
 @dataclass
@@ -383,7 +389,7 @@ TALLINN = CityConfig(
     ),
     microclimate=MicroclimateConfig(calibration_csv=_resolve_data_path("mc4_cal_tallinn.csv")),
     # Estonian fleet 0.749 kWh/vkm (energy_demand.TallinnConversionFactors); load factor 1.23 (D3.3 MAED-City key measures)
-    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.749, car_electric_kwh_per_vkm=0.222, load_factor=1.23),
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.749, car_electric_kwh_per_vkm=0.222, load_factor=1.23, od_energy_share=0.5),
 )
 
 
@@ -741,7 +747,7 @@ NAPLES = CityConfig(
     ),
 
     # Italian fleet about 7 l/100 km (0.65 kWh/vkm), EV 0.17 kWh/vkm (estimates); load factor 1.11 (D3.4a Table A-15)
-    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.65, car_electric_kwh_per_vkm=0.17, load_factor=1.11),
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.65, car_electric_kwh_per_vkm=0.17, load_factor=1.11, od_energy_share=0.5),
 )
 
 
@@ -855,5 +861,5 @@ SOUTH_WESTPHALIA = CityConfig(
         fossil_power_emission_factor=0.55,
     ),
     # German fleet about 7.4 l/100 km (0.69 kWh/vkm), EV 0.19 kWh/vkm (estimates); load factor 1.13 (D3.5 Table 11)
-    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.69, car_electric_kwh_per_vkm=0.19, load_factor=1.13),
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.69, car_electric_kwh_per_vkm=0.19, load_factor=1.13, od_energy_share=0.5),
 )

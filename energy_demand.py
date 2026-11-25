@@ -186,6 +186,12 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
 
     cf = conversion_factors
     te = getattr(city, "transport_energy", None)
+    if te is not None and "dist_car_od_share" in mob:  # GPC induced activity: OD trips counted with od_energy_share
+        car_scale = 1 - (1 - te.od_energy_share) * mob["dist_car_od_share"]
+        pt_scale = 1 - (1 - te.od_energy_share) * mob["dist_pt_od_share"]
+        car_fossil_km_cap = car_fossil_km_cap * car_scale
+        car_electric_km_cap = car_electric_km_cap * car_scale
+        pt_km_cap = pt_km_cap * pt_scale
     if te is not None:  # city-specific: car + passenger km -> vehicle km -> energy
         out["transport_car_fossil"] = car_fossil_km_cap * pop * te.car_fossil_kwh_per_vkm / te.load_factor / 1e6
         out["transport_car_electric"] = car_electric_km_cap * pop * te.car_electric_kwh_per_vkm / te.load_factor / 1e6
@@ -213,13 +219,11 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
                               + out["hh_other_dh"] + out["hh_other_electric"]
                               + out["hh_other_fossil"])
     out["total_households"] = out["total_hh_heating"] + out["total_hh_other"] + out["hh_cooling_electric"]
-    # The Industry_* rows split manufacturing by carrier (in the Granollers file they
-    # sum exactly to EN_finEN_Manufacturing), so manufacturing is counted once: by its
-    # carrier rows where present, otherwise by the manufacturing row.
-    industry_carriers = (out["industry_electric"] + out["industry_dh"] + out["industry_fossil"]
-                         + out["industry_biofuel"] + out["industry_h2"])
-    manufacturing = np.where(industry_carriers > 0, industry_carriers, out["manufacturing"])
-    out["total_industry"] = manufacturing + out["agriculture"] + out["construction"]
+    # MAED convention (IAEA MAED-2 manual): the industry sector is agriculture, construction,
+    # mining and manufacturing; the sector rows hold the totals and the Industry_* rows the
+    # carrier split used for electricity demand and fossil emissions. The total therefore
+    # counts the sector rows only (adding the carrier rows counted industry twice).
+    out["total_industry"] = out["manufacturing"] + out["agriculture"] + out["construction"]
     out["total_services"] = (out["service_electric"] + out["service_dh"] + out["service_fossil"]
                              + out["service_biofuel"] + out["service_solar"])
     out["total_transport"] = (out["transport_car_fossil"] + out["transport_car_electric"]

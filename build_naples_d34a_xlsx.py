@@ -60,6 +60,8 @@ HH_2019 = {"fossil": 1295.4 + 72.7, "dh": 0.0, "el": 920.8, "solar": 2.1, "bio":
 SERV_2019 = {"fossil": 498.0, "dh": 0.0, "el": 1269.2, "solar": 1.16, "bio": 10.06 + 2.5}
 MANUF_2019 = {"fossil": 151.5 + 4.3, "dh": 0.0, "el": 224.7, "bio": 8.2 + 3.4, "h2": 0.0}
 ACM_2019 = 15.4 + 3.6 + 30 + 24.9 + 1.77 + 0.9  # agriculture, construction, mining
+ACM_MIX_2019 = {"fossil": 49.0, "dh": 0.0, "el": 24.9, "bio": 2.67, "h2": 0.0}
+ACM_MIX_2050 = {"fossil": 0.0, "dh": 0.0, "el": 0.6, "bio": 0.4, "h2": 0.0}  # A15 agriculture/construction shares
 
 
 def _interp(points: dict, year: float) -> float:
@@ -99,6 +101,8 @@ def build_cets():
         other = {k: nonel[k] - sp[k] for k in ("dh", "bio", "solar", "fossil")}
         other["el"] = hh_el[y] - sh_el - cool
         sm, mm = _mix(SERV_2019, serv_2050, y), _mix(MANUF_2019, manuf_2050, y)
+        am = _mix(ACM_MIX_2019, ACM_MIX_2050, y)
+        acm = ACM_2019 if y == 2019 else (sh[5] + sh[6]) * fe[y]
         vals = {
             "EN_freight_tr_fuels": freight * _interp({2019: 0.90, 2050: 0.15}, y),
             "EN_freight Tr electr": freight * _interp({2019: 0.01, 2050: 0.60}, y),
@@ -124,11 +128,12 @@ def build_cets():
             "EN_finEN_Service fossil": sm["fossil"] * serv,
             "EN_finEN_Service biofuel": sm["bio"] * serv,
             "EN_finEN_Service solar": sm.get("solar", 0.0) * serv,
-            "EN_finEN_Industry_elctr": mm["el"] * manuf,
-            "EN_finEN_Industry_DH": mm["dh"] * manuf,
-            "EN_finEN_Industry fossil": mm["fossil"] * manuf,
-            "EN_finEN_Industry biofuel": mm["bio"] * manuf,
-            "EN_finEN_Industry H2": mm["h2"] * manuf,
+            # MAED convention: Industry_* = carriers of manufacturing (incl. mining), agriculture and construction
+            "EN_finEN_Industry_elctr": mm["el"] * manuf + am["el"] * acm,
+            "EN_finEN_Industry_DH": mm["dh"] * manuf + am["dh"] * acm,
+            "EN_finEN_Industry fossil": mm["fossil"] * manuf + am["fossil"] * acm,
+            "EN_finEN_Industry biofuel": mm["bio"] * manuf + am["bio"] * acm,
+            "EN_finEN_Industry H2": mm["h2"] * manuf + am["h2"] * acm,
             "EN_finEN_Total (T12)": fe[y],
             "EN_finEN_Passenger transport (residual)": sh[0] * fe[y],
             "Electricity total (T12)": _interp(EL_CAP, y) * pop[y] / 1000,

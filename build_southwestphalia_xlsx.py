@@ -110,6 +110,11 @@ SERV_2050["el"] = SERV_2050_TOTAL - sum(SERV_2050.values())
 MANUF_2050 = {"el": 7213.0, "dh": 1467.0, "h2": 1048.0, "fossil": 0.0}
 MANUF_2050["bio"] = 0.29 * MANUF_SHARE[2050] * FE_CAP[-1] * POP[-1] * 1000
 
+# agriculture + construction carriers (T9 2019; T11 2050: electricity and biofuel shares of thermal demand)
+ACM_2019 = {"fossil": 75.6 + 300.3 + 9.1 + 18.4 + 0.2 + 13.1 + 0.2 + 106.2, "dh": 0.9, "el": 71.2 + 29.2,
+            "bio": 0.2 + 123.9 + 1.0, "h2": 0.0}  # fmt: skip
+ACM_2050 = {"fossil": 0.0, "dh": 0.0, "el": 0.55, "bio": 0.45, "h2": 0.0}
+
 # household end-use split (fractions of each carrier going to space heating)
 HH_SH_FRACTION_2019 = {"el": 220 / HH_2019["el"], "dh": 442 / HH_2019["dh"], "bio": 1.0, "solar": 0.3}
 HH_COOLING_2019, HH_COOLING_2050 = 7.9, 12.0  # T16
@@ -168,6 +173,8 @@ def build_cets() -> tuple[dict, list]:
         other["el"] = hh_el[y] - sh_el - cool
         sm = _mix(SERV_2019, SERV_2050, y)
         mm = _mix(MANUF_2019, MANUF_2050, y)
+        am = _mix(ACM_2019, ACM_2050, y)
+        acm = _interp(AGRI_GWH, y) + _interp(CONSTR_GWH, y)
         vals = {
             "EN_freight_tr_fuels": _interp(FREIGHT_GWH, y) * _interp({2019: 0.95, 2050: 0.03}, y),
             "EN_freight Tr electr": _interp(FREIGHT_GWH, y) * _interp({2019: 0.01, 2050: 0.56}, y),
@@ -193,11 +200,12 @@ def build_cets() -> tuple[dict, list]:
             "EN_finEN_Service fossil": sm["fossil"] * serv,
             "EN_finEN_Service biofuel": sm["bio"] * serv,
             "EN_finEN_Service solar": sm.get("solar", 0.0) * serv,
-            "EN_finEN_Industry_elctr": mm["el"] * manuf,
-            "EN_finEN_Industry_DH": mm["dh"] * manuf,
-            "EN_finEN_Industry fossil": mm["fossil"] * manuf,
-            "EN_finEN_Industry biofuel": mm["bio"] * manuf,
-            "EN_finEN_Industry H2": mm["h2"] * manuf,
+            # MAED convention: Industry_* = carriers of manufacturing (incl. mining), agriculture and construction
+            "EN_finEN_Industry_elctr": mm["el"] * manuf + am["el"] * acm,
+            "EN_finEN_Industry_DH": mm["dh"] * manuf + am["dh"] * acm,
+            "EN_finEN_Industry fossil": mm["fossil"] * manuf + am["fossil"] * acm,
+            "EN_finEN_Industry biofuel": mm["bio"] * manuf + am["bio"] * acm,
+            "EN_finEN_Industry H2": mm["h2"] * manuf + am["h2"] * acm,
             "EN_finEN_Total (T12)": fe[y],
             "EN_finEN_Passenger transport (residual)": fe[y]
             - serv
