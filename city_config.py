@@ -590,19 +590,14 @@ GRANOLLERS = CityConfig(
 # ---------------------------------------------------------------------------
 
 _naples_trip_rate_internal = {
-    # trips/person/day, mode order = [car, car passenger, PT, bicycle, walk]
-    # Short trips (~1 km): dominated by walking in dense historic centre
-    "short":  [0.030, 0.010, 0.030, 0.008, 0.420],
-    # Medium trips (~4 km): car and PT competitive; some cycling
-    "medium": [0.180, 0.070, 0.120, 0.015, 0.080],
-    # Long trips (~12 km): car and PT dominant
-    "long":   [0.140, 0.055, 0.100, 0.003, 0.005],
+    "short":  [0.18054, 0.06195, 0.19247, 0.05737, 0.24278],
+    "medium":  [0.44669, 0.14694, 0.43439, 0.06521, 0.03703],
+    "long":  [0.35839, 0.10332, 0.26327, 0.00695, 1e-05],
 }
 _naples_trip_rate_od = {
-    # OD zone: commuters from metropolitan hinterland (~250k people)
-    "short":  [0.005, 0.002, 0.008, 0.002, 0.040],
-    "medium": [0.180, 0.060, 0.120, 0.008, 0.025],
-    "long":   [0.280, 0.090, 0.160, 0.002, 0.002],
+    "short":  [0.18054, 0.06195, 0.19247, 0.05737, 0.24278],
+    "medium":  [0.44669, 0.14694, 0.43439, 0.06521, 0.03703],
+    "long":  [0.35839, 0.10332, 0.26327, 0.00695, 1e-05],
 }
 
 # TR_InitialTravelSpeed[zone, trip_length, mode] -- km/h
@@ -625,12 +620,13 @@ NAPLES = CityConfig(
         # ISTAT 2019 permanent census: Naples comune ~905,000; metropolitan
         # commuter inflow estimated at ~250,000 (hinterland to city-proper flows
         # not yet available from ISTAT OD microdata -- FLAG for update).
-        population_internal=905_000,
+        population_internal=954_318,  # D3.4a Table A-15 (MAED-City); was 905,000 (ISTAT)
         population_od=250_000,
         # Centroid distances: Naples is denser than Granollers; shorter trip
         # lengths consistent with compact Mediterranean city fabric.
-        initial_trip_length_internal=(0.80, 3.50, 11.00),
-        initial_trip_length_od=(1.00, 5.50, 18.00),
+        # class centroids and trip rates from ABM light base year (D3.4a Fig. A-87/A-88; estimate_trip_classes.py)
+        initial_trip_length_internal=(1.3, 7.93, 28.65),
+        initial_trip_length_od=(1.3, 7.93, 28.65),
         initial_trip_rate={
             "internal": _naples_trip_rate_internal,
             "origin destination": _naples_trip_rate_od,
@@ -761,13 +757,10 @@ NAPLES = CityConfig(
 #                    The OD-zone population is not published; 437,000 is a
 #                    placeholder giving the OD zone the same per-capita trip
 #                    rate as residents (24 % of trips assumed OD).
-#   Trip rates     : ABM light base year (D3.5 Fig. 47): 5.603 Mio trips/day,
-#                    car 2.917, car passenger 0.595, PT 0.872, bicycle 0.460,
-#                    walk 0.759; split into length classes with the
-#                    Granollers class profile per mode (no SWF data published).
-#   Trip lengths   : centroids fitted to ABM light passenger-km by mode
-#                    (D3.5 Fig. 48) under the Granollers class profile;
-#                    bicycle pkm is underestimated, walk overestimated.
+#   Trip rates     : ABM light base year (D3.5 Fig. 47/48), split into length
+#                    classes (<3, 3-15, >15 km) assuming exponential trip-length
+#                    distributions with the ABM mean per mode
+#                    (estimate_trip_classes.py).
 #   Speeds         : Granollers values (regional structure), provisional.
 #   Coping types   : D3.5 Fig. 56, rural Germany (Table 25 lists the same
 #                    values in reverse order).
@@ -787,14 +780,14 @@ NAPLES = CityConfig(
 # ---------------------------------------------------------------------------
 
 _swf_trip_rate_internal = {
-    "short":  [0.16044, 0.03927, 0.09592, 0.10120, 0.37572],
-    "medium": [0.80221, 0.17018, 0.26379, 0.13916, 0.03757],
-    "long":   [0.64177, 0.11782, 0.11991, 0.01265, 0.00417],
+    "short":  [0.17597, 0.04197, 0.06876, 0.05996, 0.40118],
+    "medium":  [0.53085, 0.12052, 0.18958, 0.12759, 0.01614],
+    "long":  [0.89703, 0.16466, 0.22111, 0.06537, 0.0],
 }
 _swf_trip_rate_od = {
-    "short":  [0.01602, 0.00327, 0.01437, 0.07579, 0.33347],
-    "medium": [0.78499, 0.16012, 0.27297, 0.16422, 0.07920],
-    "long":   [0.80101, 0.16338, 0.19156, 0.01263, 0.00417],
+    "short":  [0.17597, 0.04197, 0.06876, 0.05996, 0.40118],
+    "medium":  [0.53085, 0.12052, 0.18958, 0.12759, 0.01614],
+    "long":  [0.89703, 0.16466, 0.22111, 0.06537, 0.0],
 }
 
 SOUTH_WESTPHALIA = CityConfig(
@@ -803,8 +796,9 @@ SOUTH_WESTPHALIA = CityConfig(
     mobility=MobilityConfig(
         population_internal=1_381_751,
         population_od=437_000,
-        initial_trip_length_internal=(0.80, 4.0, 43.0),
-        initial_trip_length_od=(1.30, 6.4, 69.0),
+        # class centroids from ABM light mean trip lengths (estimate_trip_classes.py)
+        initial_trip_length_internal=(1.11, 8.34, 38.56),
+        initial_trip_length_od=(1.11, 8.34, 38.56),
         initial_trip_rate={"internal": _swf_trip_rate_internal, "origin destination": _swf_trip_rate_od},
         initial_travel_speed={"internal": _granollers_speed_internal, "origin destination": _granollers_speed_od},
         coping_type_distribution=(0.12, 0.21, 0.27, 0.12, 0.14, 0.15),
