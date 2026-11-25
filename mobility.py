@@ -37,6 +37,55 @@ N_CT = len(COPING_TYPES)
 
 MODE_IDX = {m: i for i, m in enumerate(MODES)}
 TL_IDX = {t: i for i, t in enumerate(TRIP_LENGTHS)}
+
+# TR AttractivenessProfile[mode, coping type]: modes car, car passenger, PT, bicycle, walk
+PROFILE_GENERIC = np.array([
+    [3, 2, 1, -1, -2, -3],
+    [3, 2, 1, -1, -2, -3],
+    [3, 2, 1, 0, -1, -2],
+    [-3, -2, -1, 1, 3, 2],
+    [-3, -2, -1, 1, 3, 2],
+])
+PROFILE_TALLINN = np.array([
+    [3, 2, 1, -1, -2, -3],
+    [-3, -2, -1, 1, 3, 2],
+    [3, 2, 1, 0, -1, -2],
+    [-3, -2, -1, 0, 2, 3],
+    [-3, -2, -1, 1, 3, 2],
+])
+
+
+def _rake(seed: np.ndarray, row_tot: np.ndarray, col_tot: np.ndarray, iters: int = 200) -> np.ndarray:
+    """Iterative proportional fitting of ``seed`` (mode x coping type) to row and column totals."""
+    x = seed.copy()
+    for _ in range(iters):
+        x *= (row_tot / np.maximum(x.sum(1), 1e-300))[:, None]
+        x *= (col_tot / np.maximum(x.sum(0), 1e-300))[None, :]
+    return x
+
+
+def split_by_coping_type(init_trips: np.ndarray, dist: np.ndarray, profile: np.ndarray, theta: float) -> np.ndarray:
+    """Initial trips [mode, length, zone, coping type]: per length class and zone, the mode totals
+    of ``init_trips`` and the coping-type shares ``dist`` are kept, and the type deviations follow
+    exp(theta * profile) (D45)."""
+    out = np.zeros(init_trips.shape + (len(dist),))
+    w = np.exp(theta * profile)
+    for tl in range(init_trips.shape[1]):
+        for tt in range(init_trips.shape[2]):
+            rows = init_trips[:, tl, tt]
+            if rows.sum() <= 0:
+                continue
+            seed = rows[:, None] * dist[None, :] * w
+            out[:, tl, tt, :] = _rake(seed, rows, dist / dist.sum() * rows.sum())
+    return out
+
+
+def car_odds_ratio_type_a(trips0: np.ndarray) -> float:
+    """Odds of car (driver) use of coping type A over the odds of the whole population."""
+    a = trips0[..., 0].sum(axis=(1, 2))
+    tot = trips0.sum(axis=(1, 2, 3))
+    pa, p = a[0] / a.sum(), tot[0] / tot.sum()
+    return (pa / (1 - pa)) / (p / (1 - p))
 TT_IDX = {t: i for i, t in enumerate(TRAFFIC_TYPES)}
 
 
@@ -347,9 +396,21 @@ class MobilityModel:
                 rates = np.array(m.initial_trip_rate[tt][tl])  # 5 modes
                 init_trips[:, tli, tti] = pop0 * rates
 
-        # initial condition: TR Trips = InitialTrips * CopingTypesDistribution
-        for ci in range(N_CT):
-            trips[0, :, :, :, ci] = init_trips * coping_dist[ci]
+        # initial condition: TR Trips = InitialTrips * CopingTypesDistribution; with
+        # initial_split_by_coping_type the types start from their own mode split (D45)
+        if m.initial_split_by_coping_type:
+            profile = PROFILE_GENERIC if m.base_attr_by_mode_and_zone is not None else PROFILE_TALLINN
+            target = m.coping_car_odds_ratio_type_a
+            lo, hi = 0.0, 2.0
+            for _ in range(50):
+                theta = (lo + hi) / 2
+                split = split_by_coping_type(init_trips, coping_dist, profile, theta)
+                lo, hi = (theta, hi) if car_odds_ratio_type_a(split) < target else (lo, theta)
+            self.coping_theta = theta
+            trips[0] = split
+        else:
+            for ci in range(N_CT):
+                trips[0, :, :, :, ci] = init_trips * coping_dist[ci]
 
         # --- EV adoption: evidence-anchored trajectory (see
         # _ev_share_target_curve docstring), replacing the original Vensim
@@ -508,13 +569,7 @@ class MobilityModel:
             # coping-type profile.
             base_attr_2d = m.base_attr_by_mode_and_zone
             attr_distinction = m.attr_distinction
-            attr_profile = np.array([
-                [3, 2, 1, -1, -2, -3],   # car
-                [3, 2, 1, -1, -2, -3],   # car passenger
-                [3, 2, 1, 0, -1, -2],    # public transport
-                [-3, -2, -1, 1, 3, 2],   # bicycle
-                [-3, -2, -1, 1, 3, 2],   # walk
-            ])
+            attr_profile = PROFILE_GENERIC
             value_of_time = m.value_of_time_base + m.value_of_time_dist * np.array(m.value_of_time_profile)
             parking_cost_base = m.parking_cost_base
             pt_cost_internal, pt_cost_od = m.pt_cost_by_zone
@@ -524,13 +579,7 @@ class MobilityModel:
             # dimension), attr_distinction implicitly 1.0.
             base_attr = {"car": 2, "car passenger": 3, "public transport": 2.5,
                          "bicycle": 5, "walk": 5}
-            attr_profile = np.array([
-                [3, 2, 1, -1, -2, -3],   # car
-                [-3, -2, -1, 1, 3, 2],   # car passenger
-                [3, 2, 1, 0, -1, -2],    # public transport
-                [-3, -2, -1, 0, 2, 3],   # bicycle
-                [-3, -2, -1, 1, 3, 2],   # walk
-            ])
+            attr_profile = PROFILE_TALLINN
             # NOTE: TR AttractivenessProfile[mode, coping type] rows in the
             # .mdl are given in the order: active modes (bicycle,walk share one
             # row group), public transport, car modes (car,car passenger) --

@@ -205,6 +205,11 @@ class MobilityConfig:
     mode_change_destination_weighting: bool = False
     # blend of the weighted (1) and unweighted (0) flow: weight = 1 - a + a * N * share
     mode_change_destination_blend: float = 1.0
+    # coping types start from their own mode split, exp(theta * attractiveness profile) raked to
+    # the city totals; theta from the odds ratio of car use of type A (D1.3: 62 % against 45.7 %
+    # mean of the six survey countries) (D45)
+    initial_split_by_coping_type: bool = False
+    coping_car_odds_ratio_type_a: float = 1.93
     # class-R calibration offsets on the attractiveness per mode, fitted to the ABM light
     # reference and optimised trajectories (regsim: sd_knowing.recalibrate_class_r)
     attr_offset: dict = field(default_factory=dict)
@@ -404,6 +409,7 @@ TALLINN = CityConfig(
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
         # 0.0065, effects 0.0014)
         mode_change_destination_weighting=True,  # D43
+        initial_split_by_coping_type=True,  # D45
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
         mode_change_damping=0.5088,
         attr_offset={"car passenger": -2.603, "public transport": 0.505, "bicycle": -3.345, "walk": -4.030},
@@ -795,6 +801,7 @@ NAPLES = CityConfig(
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
         # 0.0005, effects 0.0007)
         mode_change_destination_weighting=True,  # D43
+        initial_split_by_coping_type=True,  # D45
         mode_change_damping=0.1827,
         attr_offset={"car passenger": 0.072, "public transport": -3.109, "bicycle": -7.470, "walk": -15.000},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.4a Table A-27: citywide -5/-15/-25 %),
@@ -933,6 +940,7 @@ SOUTH_WESTPHALIA = CityConfig(
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
         # 0.0082, effects 0.0011)
         mode_change_destination_weighting=True,  # D43
+        initial_split_by_coping_type=True,  # D45
         mode_change_damping=0.1945,
         attr_offset={"car passenger": 0.239, "public transport": 0.467, "bicycle": -4.925, "walk": -15.000},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.5 Table 23: network -25/-75/-90 %, local -5/-15/-25 %, mean),
