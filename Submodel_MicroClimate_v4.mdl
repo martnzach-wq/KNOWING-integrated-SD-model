@@ -1,0 +1,634 @@
+{UTF-8}
+CL TempShiftByUrbanFeature[temperature outputs,urban features,land cover class]=
+	CL Lambda UF[temperature outputs,urban features]*LU UrbanFeature[urban features,land cover class\
+		]
+	~	
+	~		|
+
+SimYear=
+	2009 + Time / 12
+	~	
+	~		|
+
+CL TempChangeContribution[temperature outputs,urban features]=
+	SUM(CL Lambda UF[temperature outputs,urban features]*LU UrbanFeature[urban features,\
+		land cover class!]*LU Percentage of city area[land cover class!]) /
+	SUM(LU Percentage of city area[land cover class!])
+	~	
+	~		|
+
+LU Sealed area stock[land cover class]= INTEG (
+	-PI LU Unseal[land cover class],
+		LU Sealed area percentage[land cover class])
+	~	
+	~		|
+
+LU Unsealed area stock[land cover class]= INTEG (
+	PI LU Unseal[land cover class],
+		100 - LU Sealed area stock[land cover class])
+	~	
+	~		|
+
+LU MatureTreeCO2PerYear=
+	0.02
+	~	t / year
+	~	20kg
+	|
+
+LU Sealed area percentage of prev timestep[land cover class]=
+	DELAY FIXED(LU Sealed area percentage[land cover class], TIME STEP , LU Sealed area percentage\
+		[land cover class] )
+	~	
+	~		|
+
+LU NetCO2capturedByTrees=
+	SUM( LU YoungTreesStock[land cover class!]*LU YoungTreeCO2PerYear + LU MatureTreesStock\
+		[land cover class!]*LU MatureTreeCO2PerYear)
+	~	
+	~		|
+
+PI LU Unseal[land cover class]=
+	(LU Sealed area percentage of prev timestep[land cover class] - LU Sealed area percentage\
+		[land cover class]) * 0
+	~	
+	~		|
+
+PH Hospitalisation rate=
+	CL Heatwave Duration*CL Heatwave Frequency*CL PeakSummerTemp
+	~	
+	~	Dummy calculation that only depends on climate impacts, not on policy \
+		interventions
+	|
+
+CL CalibrationWeight[temperature outputs, land cover class]=
+	LU Percentage of city area[land cover class]
+	~	
+	~		|
+
+LU Mature Trees[land cover class]:LOOK FORWARD:
+	~	
+	~		|
+
+LU MatureTreesStock[land cover class]= INTEG (
+	LU TreesMature[land cover class],
+		GET DATA AT TIME(LU Mature Trees[land cover class], 120))
+	~	
+	~		|
+
+CL ChangeCalc[temperature outputs,land cover class]=
+	CL TempOutputCalc[temperature outputs,land cover class] - CL PeakSummerTemp - CL TempShift\
+		[temperature outputs]
+	~	
+	~		|
+
+CL ChangeData[temperature outputs,land cover class]=
+	CL TempOutput[temperature outputs,land cover class] - CL PeakSummerTemp - CL TempShift\
+		[temperature outputs]
+	~	
+	~		|
+
+LU Percentage of city area[land cover class]:INTERPOLATE:
+	~	
+	~		|
+
+LU TreesMature[land cover class]=
+	DELAY FIXED(PI LU PlantTrees[land cover class], 120 , PI LU PlantTrees[land cover class\
+		] )
+	~	
+	~		|
+
+CL TempOutput[temperature outputs,land cover class]:RAW:
+	~	
+	~		|
+
+LU YoungTreesStock[land cover class]= INTEG (
+	PI LU PlantTrees[land cover class]-LU TreesMature[land cover class],
+		GET DATA AT TIME(LU Young Trees[land cover class], 120))
+	~	
+	~		|
+
+LU UrbanFeature[Sealed area percentage,land cover class]=
+	LU Sealed area percentage[land cover class] ~~|
+LU UrbanFeature[Buildings height,land cover class]=
+	LU Buildings area percentage[land cover class] * LU Buildings height[land cover class\
+		] / 10 ~~|
+LU UrbanFeature[Young Trees,land cover class]=
+	LU YoungTreesStock[land cover class] / LU Percentage of city area[land cover class] ~~|
+LU UrbanFeature[Mature Trees,land cover class]=
+	LU MatureTreesStock[land cover class] / LU Percentage of city area[land cover class]\
+		 / 100
+	~	
+	~		|
+
+LU Sealed area percentage[land cover class]:INTERPOLATE:
+	~	
+	~		|
+
+LU Young Trees[land cover class]:LOOK FORWARD:
+	~	
+	~		|
+
+LU Buildings height[land cover class]:INTERPOLATE:
+	~	
+	~		|
+
+LU Buildings area percentage[land cover class]:INTERPOLATE:
+	~	
+	~		|
+
+PI LU PlantTrees[land cover class]=
+	LU Young Trees[land cover class] / 120 * 0
+	~	
+	~		|
+
+CL TempOutputCalc[temperature outputs,land cover class]=
+	CL PeakSummerTemp + CL TempShift[temperature outputs] + SUM(CL Lambda UF[temperature outputs\
+		,urban features!]*LU UrbanFeature[urban features!,land cover class])
+	~	
+	~		|
+
+CL TMax Compare[temperature outputs,land cover class]=
+	CL TempOutputCalc[temperature outputs,land cover class] - CL TempOutput[temperature outputs\
+		,land cover class]
+	~	
+	~		|
+
+temperature outputs:
+	tmax, tmin
+	~	
+	~		|
+
+urban features:
+	Sealed area percentage,
+	Buildings height,
+	Young Trees,
+	Mature Trees
+	~	
+	~		|
+
+land cover class:
+	continuous urban fabric,
+	Discontinuous dense urban fabric,
+	Discontinuous medium density urban fabric,
+	Discontinuous low density urban fabric,
+	Discontinuous very low density urban fabric,
+	Industrial commercial public military and private units,
+	Railways and associated land,
+	Airports,
+	Mineral extraction and dump sites,
+	Construction sites,
+	Land without current use,
+	green urban areas,
+	Sports and leisure facilities,
+	Forests,
+	Herbaceous vegetation associations,
+	Open spaces with little or no vegetation,
+	Remaining class added,
+	Pastures and arable land,
+	Port areas and other roads with associated land
+	~	
+	~		|
+
+CL Lambda UF[temperature outputs,urban features]=
+	0
+	~	
+	~		|
+
+CL TempShift[temperature outputs]=
+	1
+	~	
+	~		|
+
+PI StreetGreening=
+	0
+	~	 [0,1,0.1]
+	~		|
+
+LU StreetGreening=
+	LU Streets * 0.02 / 12 * PI StreetGreening
+	~	
+	~	convert max. 2% per year (PI_Attr = 1)
+	|
+
+LU InitialBuildings=
+	1-LU InitialForestArea-LU InitialGreenArea-LU InitialStreets-LU InitialUnsealedParkingSpace\
+		-LU InitialWaterArea
+	~	
+	~		|
+
+CL UTCI Threshold=
+	38
+	~	
+	~		|
+
+CL Hotspot Area=
+	IF THEN ELSE(CL PeakSummerTemp > CL UTCI Threshold-5, (CL PeakSummerTemp-CL UTCI Threshold\
+		+5)/10*LU Streets*(1-0.5*LU TreeDensityStreets) , 0) +
+	0*LU Buildings+
+	0*LU ForestArea+
+	0*LU GreenArea+
+	0*LU Unsealed Parking Spaces+
+	0*LU WaterArea
+	~	
+	~		|
+
+LU YoungTreeCO2PerYear=
+	0.01
+	~	t / year
+	~	10kg
+	|
+
+CL AverageSummerTemperature=
+	CL MeteorologicalAverageTemperature + 8
+	~	
+	~		|
+
+CL Cooling degree days=
+	(CL PeakSummerTemp - HO CoolingThreshold) * CL Heatwave Duration * CL Heatwave Frequency
+	~	
+	~		|
+
+CL Heatwave Duration=
+	7 + (CL AverageSummerTemperature - 16)
+	~	
+	~		|
+
+CL Heatwave Frequency=
+	3 + (CL AverageSummerTemperature - 16)
+	~	
+	~		|
+
+CL MeteorologicalAverageTemperature=
+	10 + 0*1 / 10 * Time /12
+	~	
+	~		|
+
+CL PeakSummerTemp=
+	CL AverageSummerTemperature + 12 + 1.6 * Time / 492
+	~	
+	~		|
+
+LU UnsealParkingSpaces=
+	0
+	~	
+	~		|
+
+HO CoolingThreshold=
+	24
+	~	
+	~		|
+
+LU Unsealed Parking Spaces= INTEG (
+	LU UnsealParkingSpaces,
+		LU InitialUnsealedParkingSpace)
+	~	
+	~		|
+
+LU Streets= INTEG (
+	LU NewStreets-LU StreetGreening-LU UnsealParkingSpaces,
+		LU InitialStreets)
+	~	
+	~		|
+
+LU InitialUnsealedParkingSpace=
+	0
+	~	
+	~		|
+
+LU Afforestation=
+	0
+	~	
+	~		|
+
+LU Buildings= INTEG (
+	LU NewBuildings,
+		LU InitialBuildings)
+	~	
+	~		|
+
+LU ForestArea= INTEG (
+	LU Afforestation,
+		LU InitialForestArea)
+	~	
+	~		|
+
+LU GreenArea= INTEG (
+	LU StreetGreening-LU Afforestation-LU GreenToWater-LU NewBuildings-LU NewStreets,
+		LU InitialGreenArea)
+	~	
+	~		|
+
+LU GreenToWater=
+	0
+	~	
+	~		|
+
+LU InitialForestArea=
+	0.1
+	~	
+	~		|
+
+LU InitialGreenArea=
+	0.24
+	~	
+	~		|
+
+LU InitialStreets=
+	0.2
+	~	
+	~		|
+
+LU InitialWaterArea=
+	0.1
+	~	
+	~		|
+
+LU NewBuildings=
+	0
+	~	
+	~		|
+
+LU NewStreets=
+	0
+	~	
+	~		|
+
+LU TreeDensityForest=
+	1
+	~	
+	~		|
+
+LU TreeDensityStreets=
+	0
+	~	
+	~		|
+
+LU WaterArea= INTEG (
+	LU GreenToWater,
+		LU InitialWaterArea)
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 492
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,56,0
+10,1,CL TempOutput,1047,576,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,2,CL ChangeData,786,713,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,3,1,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,4,1,5,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,5,CL TMax Compare,797,537,62,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,6,0,-537,881,156,298,3,7,0,0,3,0,0,0,0,0,0,0,0,0
+scope of WRF
+10,7,CL MeteorologicalAverageTemperature,-542,649,60,26,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,8,Time,-623,550,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,9,8,7,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,10,CL AverageSummerTemperature,-556,747,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,11,CL PeakSummerTemp,-604,918,70,21,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,12,CL Heatwave Duration,-450,886,46,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,13,CL Heatwave Frequency,-502,978,42,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,14,10,11,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,15,10,12,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,16,10,13,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,17,7,10,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,18,CL Cooling degree days,-464,1125,46,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,19,11,18,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,20,13,18,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,21,12,18,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,22,23,18,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,23,HO CoolingThreshold,-621,1214,66,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,24,LU NetCO2capturedByTrees,1668,186,86,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+10,25,LU YoungTreeCO2PerYear,1268,91,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,26,25,24,1,0,0,0,0,192,0,-1--1--1,,1|(1446,114)|
+10,27,PH Hospitalisation rate,794,1194,74,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,28,13,27,1,0,0,0,0,192,0,-1--1--1,,1|(628,1213)|
+1,29,12,27,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,30,0,-660,328,30,30,8,0,0,0,-1,0,0,0,0,0,0,0,0,0
+10,31,CL TempOutputCalc,252,427,42,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-0-0,0,0,0,0,0,0
+1,32,11,31,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,33,LU UrbanFeature,1189,380,62,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,34,33,31,1,0,0,0,0,192,0,-1--1--1,,1|(717,355)|
+10,35,CL TempShift,132,617,50,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-0-128,0,0,0,0,0,0
+10,36,CL Lambda UF,293,613,50,22,8,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||128-0-128,0,0,0,0,0,0
+1,37,35,31,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,38,36,31,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,39,31,5,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,40,LU Sealed area percentage,721,11,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,41,LU Buildings area percentage,732,68,70,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,42,LU Buildings height,712,124,50,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,43,LU Young Trees,721,181,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,44,LU Mature Trees,725,234,62,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,45,LU Percentage of city area,716,291,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,46,40,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,47,41,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,48,42,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,49,45,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,50,LU YoungTreesStock,1192,197,74,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,51,LU MatureTreesStock,1402,196,66,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,52,48,1054,199,25,15,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,53,55,52,100,0,0,22,0,192,0,-1--1--1,,1|(1084,199)|
+1,54,55,50,4,0,0,22,0,192,0,-1--1--1,,1|(1110,199)|
+11,55,0,1096,199,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,56,PI LU PlantTrees,1096,229,42,22,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+1,57,59,50,100,0,0,22,0,192,0,-1--1--1,,1|(1274,198)|
+1,58,59,51,4,0,0,22,0,192,0,-1--1--1,,1|(1315,198)|
+11,59,0,1288,198,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,60,LU TreesMature,1288,228,58,22,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,61,43,50,1,0,0,0,0,192,1,-1--1--1,,1|(1109,126)|
+1,62,43,56,1,0,0,0,0,192,0,-1--1--1,,1|(909,191)|
+1,63,56,60,1,0,0,0,0,192,0,-1--1--1,,1|(1197,269)|
+1,64,44,51,1,0,0,0,0,192,1,-1--1--1,,1|(1260,278)|
+1,65,50,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,66,51,33,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,67,CL ChangeCalc,487,728,54,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,68,35,67,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,69,31,67,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,70,11,67,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,71,11,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,72,35,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+12,73,0,1793,1246,785,502,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+Temp_Output_Compare
+10,74,PI StreetGreening,60,589,61,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,75,LU InitialUnsealedParkingSpace,-390,473,110,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,76,LU InitialBuildings,-238,522,57,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,77,LU Buildings,351,572,55,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,78,LU Streets,351,572,48,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,79,LU ForestArea,195,637,47,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,80,LU GreenArea,195,637,46,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,81,LU Streets,195,637,48,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,82,LU TreeDensityForest,195,637,73,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,83,LU MatureTreeCO2PerYear,1422,60,82,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,84,83,24,1,0,0,0,0,192,0,-1--1--1,,1|(1543,102)|
+1,85,50,24,1,0,0,0,0,192,0,-1--1--1,,1|(1490,163)|
+1,86,51,24,1,0,0,0,0,192,0,-1--1--1,,1|(1523,218)|
+10,87,LU Buildings,865,933,55,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,88,LU ForestArea,865,933,47,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,89,LU GreenArea,865,933,46,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,90,LU Streets,865,933,48,10,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,91,LU TreeDensityStreets,865,933,75,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,92,LU Unsealed Parking Spaces,865,933,64,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,93,LU WaterArea,865,933,45,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,94,CL Hotspot Area,794,1234,47,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+10,95,CL UTCI Threshold,794,1234,41,18,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,96,11,27,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,97,LU Sealed area percentage of prev timestep,537,-50,58,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,98,40,97,1,0,0,0,0,192,0,-1--1--1,,1|(634,-43)|
+10,99,TIME STEP,359,-87,52,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,100,99,97,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,101,LU Sealed area stock,160,52,58,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,102,LU Unsealed area stock,421,56,46,22,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,103,105,101,100,0,0,22,0,192,0,-1--1--1,,1|(253,52)|
+1,104,105,102,4,0,0,22,0,192,0,-1--1--1,,1|(337,52)|
+11,105,0,294,52,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,106,PI LU Unseal,294,82,50,22,40,3,0,2,-1,0,0,0,0-0-0,0-0-0,|||255-128-0,0,0,0,0,0,0
+1,107,40,101,1,0,0,0,0,64,1,-1--1--1,,1|(447,11)|
+1,108,40,106,1,0,0,0,0,64,0,-1--1--1,,1|(464,-7)|
+1,109,97,106,1,0,0,0,0,64,0,-1--1--1,,1|(381,-7)|
+1,110,101,102,1,0,0,0,0,64,1,-1--1--1,,1|(288,124)|
+10,111,CL TempChangeContribution,1335,504,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,112,36,111,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,113,45,111,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,114,33,111,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,115,CL TempShiftByUrbanFeature,2186,537,86,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,116,36,115,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,117,33,115,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,118,SimYear,2039,192,42,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,119,Time,1938,245,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,120,119,118,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+12,121,0,3245,768,628,426,8,15,0,0,1,0,0,0,0,0,0,0,0,0
+TempShift_discont_dense
+10,122,Time,-742,1013,29,10,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,123,122,11,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+///---\\\
+:GRAPH Temp_Output_Compare
+:TITLE Temp Output Compare
+:SCALE
+:VAR CL ChangeCalc[temperature outputs,land cover class]
+:DATASET 
+:LINE-WIDTH 1
+:VAR CL ChangeData[temperature outputs,land cover class]
+:DATASET 
+:LINE-WIDTH 1
+
+:GRAPH TempShift_discont_dense
+:TITLE Temp shift (°C) by urban features
+:X-AXIS SimYear
+:X-DIV 3
+:X-MIN 2020
+:X-MAX 2050
+:NO-LEGEND 6
+:FONT Arial|16||0-0-0
+:SCALE
+:VAR CL TempShiftByUrbanFeature[tmin,urban features,Discontinuous dense urban fabric]
+:DATASET *
+:LINE-WIDTH 3
+
+:GRAPH TempShift_ind_commercial
+:TITLE Temp shift (°C) by urban features
+:X-AXIS SimYear
+:X-DIV 3
+:X-MIN 2020
+:X-MAX 2050
+:NO-LEGEND 6
+:FONT Arial|16||0-0-0
+:SCALE
+:VAR CL TempShiftByUrbanFeature[tmax,urban features,Industrial commercial public military and private units]
+:DATASET *
+:LINE-WIDTH 3
+
+:GRAPH Max_Day_temp_at_public_places
+:TITLE Max_Day_temp_at_public_places
+:X-AXIS SimYear
+:Y-DIV 6
+:X-MIN 2020
+:X-MAX 2050
+:SCALE
+:VAR CL TempOutputCalc[tmax,Industrial commercial public military and private units]|optimised
+:Y-MIN 28
+:Y-MAX 34
+:DATASET mc1
+:LINE-COLOR 0-255-0
+:LINE-WIDTH 3
+:VAR CL TempOutputCalc[tmax,Industrial commercial public military and private units]|BAU
+:DATASET mc0
+:LINE-COLOR 255-0-0
+:LINE-WIDTH 3
+:L<%^E!@
+1:mc0.vdfx
+1:mc1.vdfx
+4:Time
+5:CL TempOutputCalc[temperature outputs,land cover class]
+6:Buildings height
+6:Discontinuous dense urban fabric
+6:Discontinuous medium density urban fabric
+6:green urban areas
+6:Industrial commercial public military and private units
+6:Mature Trees
+6:Sealed area percentage
+6:tmax
+6:tmin
+6:Young Trees
+9:mc0
+19:56,0
+24:0
+25:492
+26:492
+22:kWh
+22:DegreeDays
+10:mc1.cin
+11:mc_cal.voc
+12:mc_cal.vpd
+13:mc_cal.vdfx
+23:0
+18:SensTest.vsc
+20:Varsens.lst
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:0
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Courier|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1

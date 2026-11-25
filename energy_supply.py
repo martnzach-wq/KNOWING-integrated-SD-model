@@ -128,7 +128,10 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
         heat_capacity.get("DH Fuel Oil Boiler", np.zeros(n)),
     )
 
-    heat_supply_so_far = heat_biomass_chp + heat_waste_chp + heat_gas + heat_oil
+    # zero-fuel or renewable DH sources listed only by some cities (Naples geothermal,
+    # South Westphalia biomethane CHP): supply interpolated between 2019 and 2050
+    heat_other = sum((heat_supply.get(k, np.zeros(n)) for k in ("DH Geothermal", "Biomethane CHP")), np.zeros(n))
+    heat_supply_so_far = heat_biomass_chp + heat_waste_chp + heat_gas + heat_oil + heat_other
     heat_supply_gap = np.maximum(ed_core_heat - heat_supply_so_far, 0)
 
     # Heat pump + electric boiler cover the gap, scaled toward their 2050 capacity
@@ -148,7 +151,7 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
     # ("Assumption: scaled against data, but gap covered by electric boilers")
     heat_eb = heat_eb + heat_supply_gap
 
-    total_heat_supply = heat_biomass_chp + heat_waste_chp + heat_gas + heat_oil + heat_hp + heat_eb
+    total_heat_supply = heat_biomass_chp + heat_waste_chp + heat_gas + heat_oil + heat_other + heat_hp + heat_eb
 
     # --- DH electricity demand (heat pump + electric boiler consumption) ---
     el_demand_dh_hp_2050 = raw.get("ES ElDemand DH HP", {}).get("_scalar", (0, 0))[1]

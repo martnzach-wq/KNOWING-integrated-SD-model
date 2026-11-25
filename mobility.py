@@ -107,6 +107,11 @@ class MobilityModel:
             else _interp_series(m.policy_car_costs_ev)
         )
         self.street_green = _interp_series(m.policy_street_green)
+        # cooling degree days per year (MAED-City trajectory, microclimate effect of greening)
+        from microclimate import run_microclimate
+
+        self.microclimate = run_microclimate(self.city, self.pi)
+        self.cdd = self.microclimate["cdd"]
         self.capacity_adapt = _interp_series(m.policy_capacity_adaptation)
         self.parking_adapt = _interp_series(m.policy_parking_cost_adaptation)
         self.area_toll = _interp_series(m.policy_area_toll)
@@ -512,7 +517,7 @@ class MobilityModel:
             pt_cost_internal, pt_cost_od = 0.0, 0.72
             street_green_term = 0.0
 
-        cdd = m.cooling_degree_days
+        cdd = self.cdd[t_idx] if hasattr(self, "cdd") else m.cooling_degree_days
 
         cal_areatoll = 1.0
         cal_carpassenger_attr = 1.0
@@ -649,7 +654,7 @@ class MobilityModel:
     def _summarise(self):
         """Compute distance outputs under BOTH pkm methods for comparison."""
         n = self.n_years
-        out = {"years": self.years, "ev_share": self.ev_share}
+        out = {"years": self.years, "ev_share": self.ev_share, "microclimate": self.microclimate}
 
         for method in ("centroid", "mode_specific"):
             if method == "mode_specific" and self.trip_length_mode_specific is None:

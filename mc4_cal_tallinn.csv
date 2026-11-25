@@ -1,0 +1,169 @@
+Time;;;;;;;120;252;372;492
+LU Sealed area percentage;Continuous urban fabric;;;;;;63,67237376;63,68399735;62,99322391;60,9840031
+LU Sealed area percentage;Discontinuous dense urban fabric;;;;;;44,85336517;44,85515932;44,56809491;44,21285271
+LU Sealed area percentage;Discontinuous medium density urban fabric;;;;;;34,98849324;34,98923143;34,93903485;34,79804151
+LU Sealed area percentage;Discontinuous low density urban fabric;;;;;;28,51551621;28,51551621;28,52632163;28,49390536
+LU Sealed area percentage;Discontinuous very low density urban fabric;;;;;;40,33769348;40,33769348;40,33769348;40,33769348
+LU Sealed area percentage;Industrial commercial  public  military and private units;;;;;;70,08286624;70,3311026;67,2754312;61,98605473
+LU Sealed area percentage;Railways and associated land;;;;;;52,68800462;52,76256852;52,33239213;51,38026838
+LU Sealed area percentage;Airports;;;;;;48,3027051;48,3027051;48,5761;47,79560166
+LU Sealed area percentage;Mineral extraction and dump sites;;;;;;4,439003439;4,439003439;4,265374522;3,737935737
+LU Sealed area percentage;Construction sites;;;;;;35,35002939;39,91772982;39,91772982;39,12334713
+LU Sealed area percentage;Land without current use;;;;;;29,38067926;30,01501195;29,65253612;28,97792834
+LU Sealed area percentage;Green urban areas;;;;;;9,094588957;9,158164798;9,12897181;8,917484828
+LU Sealed area percentage;Sports and leisure facilities;;;;;;39,88249618;40,86817232;40,21558674;38,97159546
+LU Sealed area percentage;Forests;;;;;;2,36664834;2,397882089;2,640240163;2,619285876
+LU Sealed area percentage;Herbaceous vegetation associations;;;;;;8,154660149;12,47878514;12,77076785;12,76381588
+LU Sealed area percentage;Open spaces with little or no vegetation;;;;;;2,108518469;2,108518469;2,108518469;2,108518469
+LU Sealed area percentage;Remaining class added;;;;;;33,46695461;33,78296911;33,74219305;32,62085128
+LU Sealed area percentage;Pastures and arable land;;;;;;7,711442292;9,36521103;10,66328393;10,57544441
+LU Sealed area percentage;Port areas and other roads with associated land;;;;;;78,38293555;78,52601339;76,91084059;75,5864142
+;;;;;;;;;;
+;;;;;;;;;;
+LU Buildings area percentage;Continuous urban fabric;;;;;;27,62263496;27,75713652;27,89994064;27,89994064
+LU Buildings area percentage;Discontinuous dense urban fabric;;;;;;17,70963127;17,71142542;17,73430086;17,73430086
+LU Buildings area percentage;Discontinuous medium density urban fabric;;;;;;13,70809569;13,70883388;13,72433576;13,72433576
+LU Buildings area percentage;Discontinuous low density urban fabric;;;;;;10,42723499;10,42723499;10,43804042;10,43804042
+LU Buildings area percentage;Discontinuous very low density urban fabric;;;;;;13,28558906;13,28558906;13,28558906;13,28558906
+LU Buildings area percentage;Industrial commercial  public  military and private units;;;;;;24,06921709;24,66785512;25,4931988;25,4931988
+LU Buildings area percentage;Railways and associated land;;;;;;1,818212221;1,955868667;2,282802726;2,282802726
+LU Buildings area percentage;Airports;;;;;;3,166089306;3,166089306;4,832916267;4,832916267
+LU Buildings area percentage;Mineral extraction and dump sites;;;;;;0,511058699;0,511058699;1,349719127;1,349719127
+LU Buildings area percentage;Construction sites;;;;;;10,32697488;14,8946753;14,8946753;14,8946753
+LU Buildings area percentage;Land without current use;;;;;;5,960713543;6,625252553;8,890726451;8,890726451
+LU Buildings area percentage;Green urban areas;;;;;;1,53230752;1,610804221;1,745091968;1,745091968
+LU Buildings area percentage;Sports and leisure facilities;;;;;;7,763049367;8,707938913;9,612041861;9,612041861
+LU Buildings area percentage;Forests;;;;;;0,365316249;0,396549997;0,625070335;0,625070335
+LU Buildings area percentage;Herbaceous vegetation associations;;;;;;1,96740735;5,693662968;5,985645685;5,985645685
+LU Buildings area percentage;Open spaces with little or no vegetation;;;;;;0;0;0;0
+LU Buildings area percentage;Remaining class added;;;;;;2,772772359;3,481256473;3,863532074;3,863532074
+LU Buildings area percentage;Pastures and arable land;;;;;;1,270961942;2,874846508;3,892049836;3,892049836
+LU Buildings area percentage;Port areas and other roads with associated land;;;;;;4,394096333;4,929681817;4,955695969;4,955695969
+;;;;;;;;;;
+;;;;;;;;;;
+LU Buildings height;Continuous urban fabric;;;;;;19,20844605;19,3115877;19,30261278;19,30261278
+LU Buildings height;Discontinuous dense urban fabric;;;;;;12,87680774;12,87297085;12,87337498;12,87337498
+LU Buildings height;Discontinuous medium density urban fabric;;;;;;9,434033387;9,434063863;9,435240964;9,435240964
+LU Buildings height;Discontinuous low density urban fabric;;;;;;9,031088083;9,031088083;9,032091097;9,032091097
+LU Buildings height;Discontinuous very low density urban fabric;;;;;;9,819004525;9,819004525;9,819004525;9,819004525
+LU Buildings height;Industrial commercial  public  military and private units;;;;;;14,05236525;14,30358029;14,36992846;14,36992846
+LU Buildings height;Railways and associated land;;;;;;11,65615142;12,06744868;11,54522613;11,54522613
+LU Buildings height;Airports;;;;;;16,18384401;16,18384401;13,22080292;13,22080292
+LU Buildings height;Mineral extraction and dump sites;;;;;;14,56730769;14,56730769;11,29854369;11,29854369
+LU Buildings height;Construction sites;;;;;;10,75320513;13,58888889;13,58888889;13,58888889
+LU Buildings height;Land without current use;;;;;;14,68327703;15,0949848;14,32899207;14,32899207
+LU Buildings height;Green urban areas;;;;;;11,98031329;12,42750705;12,29275093;12,29275093
+LU Buildings height;Sports and leisure facilities;;;;;;13,59457093;14,05542545;14,37411598;14,37411598
+LU Buildings height;Forests;;;;;;9,713203463;10,33399801;11,2112587;11,2112587
+LU Buildings height;Herbaceous vegetation associations;;;;;;13,23321555;13,27533578;13,33623693;13,33623693
+LU Buildings height;Open spaces with little or no vegetation;;;;;;0;0;0;0
+LU Buildings height;Remaining class added;;;;;;13,359375;15,38433382;14,85158311;14,85158311
+LU Buildings height;Pastures and arable land;;;;;;11,19453925;12,54620898;13,18194483;13,18194483
+LU Buildings height;Port areas and other roads with associated land;;;;;;14,41537524;14,68376533;14,6885132;14,6885132
+;;;;;;;;;;
+;;;;;;;;;;
+LU Young Trees;Continuous urban fabric;;;;;;0;166;143;256
+LU Young Trees;Discontinuous dense urban fabric;;;;;;0;17;116;403
+LU Young Trees;Discontinuous medium density urban fabric;;;;;;0;10;18;67
+LU Young Trees;Discontinuous low density urban fabric;;;;;;0;0;0;2
+LU Young Trees;Discontinuous very low density urban fabric;;;;;;0;0;0;6
+LU Young Trees;Industrial commercial  public  military and private units;;;;;;0;1585;2265;2160
+LU Young Trees;Railways and associated land;;;;;;0;60;65;25
+LU Young Trees;Airports;;;;;;0;0;15;16
+LU Young Trees;Mineral extraction and dump sites;;;;;;0;0;25;56
+LU Young Trees;Construction sites;;;;;;0;18;3;2
+LU Young Trees;Land without current use;;;;;;0;8;54;37
+LU Young Trees;Green urban areas;;;;;;0;15;68;140
+LU Young Trees;Sports and leisure facilities;;;;;;0;26;154;41
+LU Young Trees;Forests;;;;;;0;0;55;27
+LU Young Trees;Herbaceous vegetation associations;;;;;;0;148;3;14
+LU Young Trees;Open spaces with little or no vegetation;;;;;;0;0;0;0
+LU Young Trees;Remaining class added;;;;;;0;238;8;13
+LU Young Trees;Pastures and arable land;;;;;;0;511;96;20
+LU Young Trees;Port areas and other roads with associated land;;;;;;0;1050;438;611
+;;;;;;;;;;
+;;;;;;;;;;
+LU Mature Trees;Continuous urban fabric;;;;;;24894;24894;25060;25203
+LU Mature Trees;Discontinuous dense urban fabric;;;;;;111780;111780;111797;111913
+LU Mature Trees;Discontinuous medium density urban fabric;;;;;;67885;67885;67895;67913
+LU Mature Trees;Discontinuous low density urban fabric;;;;;;4292;4292;4292;4292
+LU Mature Trees;Discontinuous very low density urban fabric;;;;;;838;838;838;838
+LU Mature Trees;Industrial commercial  public  military and private units;;;;;;49988;49988;51573;53838
+LU Mature Trees;Railways and associated land;;;;;;3348;3348;3408;3473
+LU Mature Trees;Airports;;;;;;119;119;119;134
+LU Mature Trees;Mineral extraction and dump sites;;;;;;1758;1758;1758;1783
+LU Mature Trees;Construction sites;;;;;;299;299;317;320
+LU Mature Trees;Land without current use;;;;;;2604;2604;2612;2666
+LU Mature Trees;Green urban areas;;;;;;30677;30677;30692;30760
+LU Mature Trees;Sports and leisure facilities;;;;;;2797;2797;2823;2977
+LU Mature Trees;Forests;;;;;;27151;27151;27151;27206
+LU Mature Trees;Herbaceous vegetation associations;;;;;;4019;4019;4167;4170
+LU Mature Trees;Open spaces with little or no vegetation;;;;;;495;495;495;495
+LU Mature Trees;Remaining class added;;;;;;2782;2782;3020;3028
+LU Mature Trees;Pastures and arable land;;;;;;19648;19648;20159;20255
+LU Mature Trees;Port areas and other roads with associated land;;;;;;25662;25662;26712;27150
+;;;;;;;;;;
+;;;;;;;;;;
+LU Percentage of city area;Continuous urban fabric;;;;;;4,213706765;4,213706765;4,213706765;4,213706765
+LU Percentage of city area;Discontinuous dense urban fabric;;;;;;15,59937626;15,59937626;15,59937626;15,59937626
+LU Percentage of city area;Discontinuous medium density urban fabric;;;;;;9,478538638;9,478538638;9,478538638;9,478538638
+LU Percentage of city area;Discontinuous low density urban fabric;;;;;;0,647537256;0,647537256;0,647537256;0,647537256
+LU Percentage of city area;Discontinuous very low density urban fabric;;;;;;0,116390643;0,116390643;0,116390643;0,116390643
+LU Percentage of city area;Industrial commercial  public  military and private units;;;;;;16,57366431;16,57366431;16,57366431;16,57366431
+LU Percentage of city area;Railways and associated land;;;;;;1,219891761;1,219891761;1,219891761;1,219891761
+LU Percentage of city area;Airports;;;;;;1,586747752;1,586747752;1,586747752;1,586747752
+LU Percentage of city area;Mineral extraction and dump sites;;;;;;2,135799213;2,135799213;2,135799213;2,135799213
+LU Percentage of city area;Construction sites;;;;;;0,105695887;0,105695887;0,105695887;0,105695887
+LU Percentage of city area;Land without current use;;;;;;0,694912404;0,694912404;0,694912404;0,694912404
+LU Percentage of city area;Green urban areas;;;;;;10,7855071;10,7855071;10,7855071;10,7855071
+LU Percentage of city area;Sports and leisure facilities;;;;;;1,029296188;1,029296188;1,029296188;1,029296188
+LU Percentage of city area;Forests;;;;;;17,69740501;17,69740501;17,69740501;17,69740501
+LU Percentage of city area;Herbaceous vegetation associations;;;;;;1,00646518;1,00646518;1,00646518;1,00646518
+LU Percentage of city area;Open spaces with little or no vegetation;;;;;;0,139372949;0,139372949;0,139372949;0,139372949
+LU Percentage of city area;Remaining class added;;;;;;1,372749493;1,372749493;1,372749493;1,372749493
+LU Percentage of city area;Pastures and arable land;;;;;;6,45210868;6,45210868;6,45210868;6,45210868
+LU Percentage of city area;Port areas and other roads with associated land;;;;;;9,144834513;9,144834513;9,144834513;9,144834513
+;;;;;;;;;;
+;;;;;;;;;;
+CL TempOutput;tmax;Continuous urban fabric;;;;;28,80281936;28,70556079;28,67175776;28,51867333
+CL TempOutput;tmax;Discontinuous dense urban fabric;;;;;28,29634138;28,19473555;28,22377622;28,15809719
+CL TempOutput;tmax;Discontinuous medium density urban fabric;;;;;28,16476437;28,05649852;28,11329068;28,0633501
+CL TempOutput;tmax;Discontinuous low density urban fabric;;;;;27,78676792;27,70779517;27,75371986;27,72040614
+CL TempOutput;tmax;Discontinuous very low density urban fabric;;;;;27,07168431;26,92794897;26,97872016;26,96679416
+CL TempOutput;tmax;Industrial commercial  public  military and private units;;;;;30,75932012;30,67075467;30,46567636;30,1806345
+CL TempOutput;tmax;Railways and associated land;;;;;31,35969536;31,26954766;31,22817966;31,13764485
+CL TempOutput;tmax;Airports;;;;;33,01481304;32,94777861;32,94614656;32,89577251
+CL TempOutput;tmax;Mineral extraction and dump sites;;;;;31,82008498;31,73384901;31,69216385;31,6525487
+CL TempOutput;tmax;Construction sites;;;;;30,65557292;30,46711553;30,53237577;30,43009002
+CL TempOutput;tmax;Land without current use;;;;;31,00741066;30,91730183;30,75644654;30,62563599
+CL TempOutput;tmax;Green urban areas;;;;;29,49670678;29,40582772;29,39162774;29,34855346
+CL TempOutput;tmax;Sports and leisure facilities;;;;;30,51828774;30,45163258;30,16874581;30,10270713
+CL TempOutput;tmax;Forests;;;;;29,71508251;29,60917632;29,59607685;29,57125742
+CL TempOutput;tmax;Herbaceous vegetation associations;;;;;30,58748051;30,44075737;30,48296587;30,45706098
+CL TempOutput;tmax;Open spaces with little or no vegetation;;;;;29,64053232;29,65038372;29,55518636;29,66497153
+CL TempOutput;tmax;Remaining class added;;;;;28,29487649;28,25320589;28,19083246;28,17145985
+CL TempOutput;tmax;Pastures and arable land;;;;;30,56566483;30,48594343;30,46181675;30,4313333
+CL TempOutput;tmax;Port areas and other roads with associated land;;;;;30,18313003;30,09791694;30,04294335;29,96049598
+;;;;;;;;;;
+;;;;;;;;;;
+CL TempOutput;tmin;Continuous urban fabric;;;;;21,95437377;21,86866631;21,77630118;21,67854595
+CL TempOutput;tmin;Discontinuous dense urban fabric;;;;;21,42363449;21,35911951;21,30978157;21,26248508
+CL TempOutput;tmin;Discontinuous medium density urban fabric;;;;;21,01986187;20,96778753;20,92746026;20,89725231
+CL TempOutput;tmin;Discontinuous low density urban fabric;;;;;20,31760535;20,28183024;20,27061038;20,24732832
+CL TempOutput;tmin;Discontinuous very low density urban fabric;;;;;19,77566227;19,89605382;19,87380612;19,85018119
+CL TempOutput;tmin;Industrial commercial  public  military and private units;;;;;22,11670865;22,03947833;21,83941049;21,6401223
+CL TempOutput;tmin;Railways and associated land;;;;;21,98114224;21,88406658;21,76404942;21,68879119
+CL TempOutput;tmin;Airports;;;;;21,54413314;21,52046756;21,38344426;21,32634882
+CL TempOutput;tmin;Mineral extraction and dump sites;;;;;20,3812934;20,22194092;20,20824345;20,16618823
+CL TempOutput;tmin;Construction sites;;;;;20,57816262;20,57964969;20,5848321;20,52596848
+CL TempOutput;tmin;Land without current use;;;;;21,50639433;21,43691149;21,28916015;21,17766114
+CL TempOutput;tmin;Green urban areas;;;;;20,52891613;20,44452922;20,41957208;20,38975505
+CL TempOutput;tmin;Sports and leisure facilities;;;;;21,26964273;21,2068642;21,14448275;21,09324676
+CL TempOutput;tmin;Forests;;;;;20,42445643;20,37173083;20,35341142;20,32177286
+CL TempOutput;tmin;Herbaceous vegetation associations;;;;;20,56110038;20,43884899;20,38607478;20,33880607
+CL TempOutput;tmin;Open spaces with little or no vegetation;;;;;19,47010861;19,42401841;19,39067824;19,39982766
+CL TempOutput;tmin;Remaining class added;;;;;19,97771712;19,95743384;19,93549209;19,93197411
+CL TempOutput;tmin;Pastures and arable land;;;;;20,09528782;20,04276529;20,0154104;19,97208565
+CL TempOutput;tmin;Port areas and other roads with associated land;;;;;21,75352042;21,70710152;21,61301174;21,53812944
+;;;;;;;;;;
+;;;;;;;;;;

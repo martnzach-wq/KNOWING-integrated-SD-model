@@ -85,6 +85,8 @@ class MobilityConfig:
     # Baltic climate is far lower (Estonia ~15-40 CDD); Granollers used 380
     # (Mediterranean, PVGIS/Catalan climate data).
     cooling_degree_days: float
+    # CDD per year from MAED-City (CETS, including the full pathway); None: constant
+    cooling_degree_days_trajectory: Optional[dict] = None
 
     # Whether to apply the Granollers-style GC-neutral BaseAttr compensation
     # for the CDD term. Only relevant if cooling_degree_days is high enough
@@ -256,12 +258,32 @@ class EnergySupplyConfig:
 
 
 @dataclass
+class TransportEnergyConfig:
+    """Conversion of passenger-km to final energy (energy_demand.py). The mobility
+    submodel reports car + car-passenger kilometres; vehicle-km = pkm / load_factor."""
+    car_fossil_kwh_per_vkm: float
+    car_electric_kwh_per_vkm: float
+    load_factor: float
+    pt_internal_kwh_per_pkm: float = 0.040
+    pt_od_kwh_per_pkm: float = 0.050
+
+
+@dataclass
+class MicroclimateConfig:
+    """Microclimate submodel (Submodel_MicroClimate_v4.mdl), see microclimate.py."""
+    calibration_csv: Optional[str] = None  # PALM-4U class table; None: CDD from MAED-City only
+    beta: Optional[float] = None  # relative CDD change per K; None: cross-calibrated (Tallinn)
+
+
+@dataclass
 class CityConfig:
     name: str
     country: str
     mobility: MobilityConfig
     energy_demand: EnergyDemandConfig
     energy_supply: EnergySupplyConfig
+    transport_energy: Optional[TransportEnergyConfig] = None  # None: Tallinn factors per pkm (legacy)
+    microclimate: Optional[MicroclimateConfig] = None
 
 
 # ---------------------------------------------------------------------------
@@ -303,7 +325,8 @@ TALLINN = CityConfig(
         initial_travel_speed={"internal": _tallinn_speed_internal, "origin destination": _tallinn_speed_od},
         # D3.3 Table 28 / Fig. 73, metropolitan Estonia (KNOWING survey 2023); was national Estonia (D1.3)
         coping_type_distribution=(0.09, 0.17, 0.32, 0.13, 0.13, 0.17),
-        cooling_degree_days=100,  # original Vensim default; Estonia actual ~15-40
+        cooling_degree_days=8.6,  # MAED-City base year (D3.3 Table 7); was 100 (Vensim default)
+        cooling_degree_days_trajectory={2019: 8.6, 2050: 15.0},  # CETS 2050 (D3.3 Table 7)
         apply_cdd_baseattr_compensation=True,  # verified: produces stable near-2019-equilibrium behavior (65.7%->66.3%->65.0% oscillation) vs. monotonic drift when off (65.7%->67.9%); see mobility.py _compute_baseattr_calibration
         policy_car_costs_fuel={2019: 0.17, 2030: 0.185, 2040: 0.195, 2050: 0.2},
         policy_car_costs_ev={2019: 0.2, 2030: 0.15, 2040: 0.13, 2050: 0.12},
@@ -358,6 +381,9 @@ TALLINN = CityConfig(
         grid_emission_factor={2019: 0.78, 2024: 0.42, 2030: 0.20, 2050: 0.02},
         plater_pv_target_2050=None,
     ),
+    microclimate=MicroclimateConfig(calibration_csv=_resolve_data_path("mc4_cal_tallinn.csv")),
+    # Estonian fleet 0.749 kWh/vkm (energy_demand.TallinnConversionFactors); load factor 1.23 (D3.3 MAED-City key measures)
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.749, car_electric_kwh_per_vkm=0.222, load_factor=1.23),
 )
 
 
@@ -630,7 +656,8 @@ NAPLES = CityConfig(
         coping_type_distribution=(0.01, 0.06, 0.14, 0.29, 0.37, 0.14),
         # Naples: Mediterranean climate, ~120 CDD (higher than Tallinn,
         # lower than Granollers' 380; PVGIS data for Campania).
-        cooling_degree_days=120,
+        cooling_degree_days=326,  # MAED-City base year (D3.4a heat-wave table); was 120 (PVGIS estimate)
+        cooling_degree_days_trajectory={2019: 326.0, 2050: 610.0},  # CETS 2050
         apply_cdd_baseattr_compensation=False,  # BaseAttr hand-tuned below; same logic as Granollers
         # Base attractiveness by mode and zone: calibrated so 2019 logit
         # equilibrium reproduces estimated Naples mode split (car ~50%,
@@ -698,42 +725,27 @@ NAPLES = CityConfig(
                                      # with survey-validated checkpoint once available).
     ),
     energy_demand=EnergyDemandConfig(
-        # PLACEHOLDER: Naples MAED-City XLSX does not yet exist.
-        # Energy demand submodel will fail until this file is provided
-        # by KNOWING energy partners and placed in the project directory.
-        xlsx_path=_resolve_data_path("EN_MEADCityInput_Naples.xlsx"),
+        # reconstructed from D3.4a (build_naples_d34a_xlsx.py); replaces the estimate of build_naples_xlsx.py
+        xlsx_path=_resolve_data_path("EN_MEADCityInput_Naples_D34a.xlsx"),
         sheet_name="CETS",
-        detailed_heating_breakdown=False,  # Naples has minimal DH; aggregate heating likely sufficient
+        detailed_heating_breakdown=False,
     ),
     energy_supply=EnergySupplyConfig(
-        xlsx_path=None,
-        has_district_heating=False,  # no DH network in Naples (Mediterranean climate)
+        xlsx_path=_resolve_data_path("Supply_Data_Naples.xlsx"),  # IESopt Tables A-19, A-24, A-25 (D3.4a)
+        has_district_heating=True,  # DH from 2030 in the CETS (geothermal, heat pumps)
         # Italy grid EF trajectory:
         #   2019: 0.362 kg/kWh (Nowtricity/Terna actual)
         #   2030: 0.150 kg/kWh (PNIEC 2023 target: 65% renewable in electricity)
         #   2050: 0.010 kg/kWh (PNIEC full decarbonisation goal)
         grid_emission_factor={2019: 0.362, 2030: 0.150, 2050: 0.010},
-        # Naples city PV target 2050: estimated from GSE 2019 Campania data
-        # (751 MWp regional, Naples urban share ~70 MWp in 2019) scaled to
-        # Campania 2030 target (873 MWp, ScienceDirect 2050 study) →
-        # Naples city ~130 MWp by 2050.
-        plater_pv_target_2050=130.0,
-        fossil_power_dispatch_mode="fixed_schedule",  # Naples has Gas CHP / cogeneration plants
+        plater_pv_target_2050=899.0,  # A24
+        fossil_power_dispatch_mode="fixed_schedule",
         fossil_power_phases_out_after_10y=False,
-        fossil_power_emission_factor=0.45,  # natural gas, same as Granollers CHP
-        synthetic_supply_data=lambda: {
-            "ES ElectricityCapacity": {
-                "PV": (70.0, 130.0),           # MWp; 2019 estimated, 2050 target (see above)
-                "Natural Gas CHP el": (50.0, 10.0),  # Naples has industrial cogeneration
-            },
-            "ES ElectrictitySupply": {
-                "PV": (70.0 * 1.4, 130.0 * 1.4),       # yield ratio 1.4 (higher irradiance than Granollers)
-                "Natural Gas CHP el": (50.0 * 2.0, 10.0 * 2.0),
-            },
-            "ES HeatCapacity": {},
-            "ES HeatSupply": {},
-        },
+        fossil_power_emission_factor=0.45,
     ),
+
+    # Italian fleet about 7 l/100 km (0.65 kWh/vkm), EV 0.17 kWh/vkm (estimates); load factor 1.11 (D3.4a Table A-15)
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.65, car_electric_kwh_per_vkm=0.17, load_factor=1.11),
 )
 
 
@@ -797,6 +809,7 @@ SOUTH_WESTPHALIA = CityConfig(
         initial_travel_speed={"internal": _granollers_speed_internal, "origin destination": _granollers_speed_od},
         coping_type_distribution=(0.12, 0.21, 0.27, 0.12, 0.14, 0.15),
         cooling_degree_days=21,
+        cooling_degree_days_trajectory={2019: 21.0, 2050: 37.0},  # D3.5 Table 13 (CETS 2050)
         apply_cdd_baseattr_compensation=False,
         base_attr_by_mode_and_zone={  # start values from Granollers; class R, to be recalibrated
             "car":              (2.04, 3.30),
@@ -847,4 +860,6 @@ SOUTH_WESTPHALIA = CityConfig(
         fossil_power_phases_out_after_10y=True,
         fossil_power_emission_factor=0.55,
     ),
+    # German fleet about 7.4 l/100 km (0.69 kWh/vkm), EV 0.19 kWh/vkm (estimates); load factor 1.13 (D3.5 Table 11)
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.69, car_electric_kwh_per_vkm=0.19, load_factor=1.13),
 )

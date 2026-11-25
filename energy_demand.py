@@ -143,6 +143,11 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
     out["hh_heating_electric"] = series("hh_heating_electric")
     out["hh_heating_fossil"] = series("hh_heating_fossil")
     out["hh_cooling_electric"] = series("hh_cooling_electric")
+    # cooling scales with the CDD of the run relative to MAED-City's CETS CDD (full pathway)
+    mc = mobility_results.get("microclimate")
+    if mc is not None:
+        out["hh_cooling_electric"] = out["hh_cooling_electric"] * mc["cdd"] / mc["cdd_cets"]
+        out["cooling_degree_days"] = mc["cdd"]
     out["hh_other_biomass"] = series("hh_other_biomass")
     out["hh_other_solar"] = series("hh_other_solar")
     out["hh_other_dh"] = series("hh_other_dh")
@@ -180,8 +185,14 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
     active_km_cap = mob["dist_active_km_cap_yr"]
 
     cf = conversion_factors
-    out["transport_car_fossil"] = car_fossil_km_cap * pop * cf.car_fossil_kwh_per_km / 1e6  # GWh
-    out["transport_car_electric"] = car_electric_km_cap * pop * cf.car_electric_kwh_per_km / 1e6
+    te = getattr(city, "transport_energy", None)
+    if te is not None:  # city-specific: car + passenger km -> vehicle km -> energy
+        out["transport_car_fossil"] = car_fossil_km_cap * pop * te.car_fossil_kwh_per_vkm / te.load_factor / 1e6
+        out["transport_car_electric"] = car_electric_km_cap * pop * te.car_electric_kwh_per_vkm / te.load_factor / 1e6
+        cf = te
+    else:
+        out["transport_car_fossil"] = car_fossil_km_cap * pop * cf.car_fossil_kwh_per_km / 1e6  # GWh
+        out["transport_car_electric"] = car_electric_km_cap * pop * cf.car_electric_kwh_per_km / 1e6
     # PT: approximate split internal/OD by the mobility model's own internal/OD
     # PT mode share -- using a single blended factor for simplicity here,
     # weighted toward the internal (tram/bus) rate since the bulk of
