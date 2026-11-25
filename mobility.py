@@ -449,6 +449,7 @@ class MobilityModel:
 
             new_trips = prev + demand_change + mode_change + demand_increase_ct
             new_trips = np.maximum(new_trips, 0)
+            new_trips = self._heat_transfer(new_trips, t)
             trips[t] = new_trips
 
         self.trips = trips
@@ -607,17 +608,16 @@ class MobilityModel:
                             #   active modes: attr = base - CDD/100 + street_green*2 + (cycling if bike)
                             #   PT:           attr = base - CDD/200 + street_green
                             #   car/car-pass: attr = base - street_green*2 + (car_pass if car passenger)
+                            # climate (CDD) acts through _heat_transfer, not through the attractiveness
                             if mode in ACTIVE_MODES:
-                                attr += -cdd / 100 + street_green_term * 2 + (cycling_attr_term if mode == "bicycle" else 0)
+                                attr += street_green_term * 2 + (cycling_attr_term if mode == "bicycle" else 0)
                             elif mode == "public transport":
-                                attr += -cdd / 200 + street_green_term
+                                attr += street_green_term
                             else:  # car, car passenger
                                 attr += -street_green_term * 2 + (car_pass_attr_term if mode == "car passenger" else 0)
                         else:
-                            if mode in ACTIVE_MODES:
-                                attr += -cdd / 100 + cycling_attr_term if mode == "bicycle" else -cdd / 100
-                            elif mode == "public transport":
-                                attr += -cdd / 200
+                            if mode == "bicycle":
+                                attr += cycling_attr_term
                             elif mode == "car passenger":
                                 attr += car_pass_attr_term
                         attr += correction[mode]
@@ -628,6 +628,35 @@ class MobilityModel:
                         gc[mi, tli, tti, ci] = (cost + travel_time * value_of_time[ci] - attr)
 
         return gc
+
+    def _heat_transfer(self, trips_t, t):
+        """Heat effect on active modes and PT, replacing the former attractiveness terms
+        -CDD/100 (active) and -CDD/200 (PT).
+
+        Evidence: cycling rises with temperature up to about 20-25 degC and falls only
+        on hot days (Boecker et al. 2019, Transp. Res. D; Hogeweij et al. 2026, Environ.
+        Res.: decline above UTCI 32 degC); on very hot days walking and transit lose trips
+        to the car (Belloc et al. 2025, J. Reg. Sci.); total mobility falls by up to 10 %
+        on hot days (Renninger et al. 2026, PNAS Nexus). A hot day with about 5 degree
+        days above the CDD base and a 10 % loss of active trips gives 0.02 per degree
+        day; PT loses half of that. The base year already contains the 2019 climate, so
+        only the change of the CDD against the previous year moves trips: active and PT
+        trips go to car and car passenger in proportion to their trips."""
+        m = self.m
+        cdd_now, cdd_prev = self.cdd[t], self.cdd[t - 1]
+        if cdd_now == cdd_prev:
+            return trips_t
+        out = trips_t.copy()
+        car = [MODE_IDX[mo] for mo in CAR_MODES]
+        car_trips = out[car].sum(axis=0)
+        car_weight = np.divide(out[car], car_trips, out=np.full_like(out[car], 0.5), where=car_trips > 0)
+        for mo, beta in [(mo, m.heat_active_per_cdd) for mo in ACTIVE_MODES] + [("public transport", m.heat_pt_per_cdd)]:
+            i = MODE_IDX[mo]
+            keep = (1 - beta * cdd_now) / (1 - beta * cdd_prev)
+            moved = out[i] * (1 - keep)  # negative when the CDD falls: trips return
+            out[i] -= moved
+            out[car] += car_weight * moved
+        return np.maximum(out, 0)
 
     def _average_speed(self, mode, trip_length, traffic_type, t_idx, csf=1.0):
         """TR AverageSpeed. Tallinn-style: non-car modes use a FIXED speed

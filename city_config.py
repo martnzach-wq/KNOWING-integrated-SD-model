@@ -202,6 +202,10 @@ class MobilityConfig:
     # class-R calibration offsets on the attractiveness per mode, fitted to the ABM light
     # reference and optimised trajectories (regsim: sd_knowing.recalibrate_class_r)
     attr_offset: dict = field(default_factory=dict)
+    # heat effect on active modes and PT (mobility._heat_transfer): share of a mode's trips
+    # that move to motorised modes per cooling degree day of the year, relative to 2019
+    heat_active_per_cdd: float = 0.02 / 365
+    heat_pt_per_cdd: float = 0.01 / 365
 
 
 @dataclass
@@ -599,14 +603,14 @@ GRANOLLERS = CityConfig(
 # ---------------------------------------------------------------------------
 
 _naples_trip_rate_internal = {
-    "short":  [0.18054, 0.06195, 0.19247, 0.05737, 0.24278],
-    "medium":  [0.44669, 0.14694, 0.43439, 0.06521, 0.03703],
-    "long":  [0.35839, 0.10332, 0.26327, 0.00695, 1e-05],
+    "short":  [0.07237, 0.02483, 0.07715, 0.023, 0.09732],
+    "medium":  [0.17906, 0.0589, 0.17413, 0.02614, 0.01485],
+    "long":  [0.14367, 0.04142, 0.10554, 0.00279, 0.0],
 }
 _naples_trip_rate_od = {
-    "short":  [0.18054, 0.06195, 0.19247, 0.05737, 0.24278],
-    "medium":  [0.44669, 0.14694, 0.43439, 0.06521, 0.03703],
-    "long":  [0.35839, 0.10332, 0.26327, 0.00695, 1e-05],
+    "short":  [0.07237, 0.02483, 0.07715, 0.023, 0.09732],
+    "medium":  [0.17906, 0.0589, 0.17413, 0.02614, 0.01485],
+    "long":  [0.14367, 0.04142, 0.10554, 0.00279, 0.0],
 }
 
 # TR_InitialTravelSpeed[zone, trip_length, mode] -- km/h
@@ -630,7 +634,7 @@ NAPLES = CityConfig(
         # commuter inflow estimated at ~250,000 (hinterland to city-proper flows
         # not yet available from ISTAT OD microdata -- FLAG for update).
         population_internal=954_318,  # D3.4a Table A-15 (MAED-City); was 905,000 (ISTAT)
-        population_od=250_000,
+        population_od=2_050_000,  # derived: Citta metropolitana di Napoli (about 3.0 M) minus the city (D34)
         # Centroid distances: Naples is denser than Granollers; shorter trip
         # lengths consistent with compact Mediterranean city fabric.
         # class centroids and trip rates from ABM light base year (D3.4a Fig. A-87/A-88; estimate_trip_classes.py)
@@ -790,14 +794,14 @@ NAPLES = CityConfig(
 # ---------------------------------------------------------------------------
 
 _swf_trip_rate_internal = {
-    "short":  [0.17597, 0.04197, 0.06876, 0.05996, 0.40118],
-    "medium":  [0.53085, 0.12052, 0.18958, 0.12759, 0.01614],
-    "long":  [0.89703, 0.16466, 0.22111, 0.06537, 0.0],
+    "short":  [0.10259, 0.02447, 0.04008, 0.03496, 0.23388],
+    "medium":  [0.30948, 0.07026, 0.11052, 0.07438, 0.00941],
+    "long":  [0.52295, 0.09599, 0.1289, 0.03811, 0.0],
 }
 _swf_trip_rate_od = {
-    "short":  [0.17597, 0.04197, 0.06876, 0.05996, 0.40118],
-    "medium":  [0.53085, 0.12052, 0.18958, 0.12759, 0.01614],
-    "long":  [0.89703, 0.16466, 0.22111, 0.06537, 0.0],
+    "short":  [0.10259, 0.02447, 0.04008, 0.03496, 0.23388],
+    "medium":  [0.30948, 0.07026, 0.11052, 0.07438, 0.00941],
+    "long":  [0.52295, 0.09599, 0.1289, 0.03811, 0.0],
 }
 
 SOUTH_WESTPHALIA = CityConfig(
@@ -805,7 +809,7 @@ SOUTH_WESTPHALIA = CityConfig(
     country="Germany (North Rhine-Westphalia)",
     mobility=MobilityConfig(
         population_internal=1_381_751,
-        population_od=437_000,
+        population_od=1_738_000,  # derived: car energy 2019 = MAED-City under the 50 % OD rule (D34)
         # class centroids from ABM light mean trip lengths (estimate_trip_classes.py)
         initial_trip_length_internal=(1.11, 8.34, 38.56),
         initial_trip_length_od=(1.11, 8.34, 38.56),
