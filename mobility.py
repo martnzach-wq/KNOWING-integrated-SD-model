@@ -55,6 +55,9 @@ PROFILE_TALLINN = np.array([
 ])
 
 
+_THETA_CACHE: dict = {}
+
+
 def _rake(seed: np.ndarray, row_tot: np.ndarray, col_tot: np.ndarray, iters: int = 200) -> np.ndarray:
     """Iterative proportional fitting of ``seed`` (mode x coping type) to row and column totals."""
     x = seed.copy()
@@ -401,13 +404,16 @@ class MobilityModel:
         if m.initial_split_by_coping_type:
             profile = PROFILE_GENERIC if m.base_attr_by_mode_and_zone is not None else PROFILE_TALLINN
             target = m.coping_car_odds_ratio_type_a
-            lo, hi = 0.0, 2.0
-            for _ in range(50):
-                theta = (lo + hi) / 2
-                split = split_by_coping_type(init_trips, coping_dist, profile, theta)
-                lo, hi = (theta, hi) if car_odds_ratio_type_a(split) < target else (lo, theta)
-            self.coping_theta = theta
-            trips[0] = split
+            key = (init_trips.tobytes(), coping_dist.tobytes(), profile.tobytes(), target)
+            if key not in _THETA_CACHE:
+                lo, hi = 0.0, 2.0
+                for _ in range(40):
+                    theta = (lo + hi) / 2
+                    split = split_by_coping_type(init_trips, coping_dist, profile, theta)
+                    lo, hi = (theta, hi) if car_odds_ratio_type_a(split) < target else (lo, theta)
+                _THETA_CACHE[key] = (lo + hi) / 2
+            self.coping_theta = _THETA_CACHE[key]
+            trips[0] = split_by_coping_type(init_trips, coping_dist, profile, self.coping_theta)
         else:
             for ci in range(N_CT):
                 trips[0, :, :, :, ci] = init_trips * coping_dist[ci]
