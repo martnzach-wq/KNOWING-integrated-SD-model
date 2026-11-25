@@ -711,7 +711,7 @@ class MobilityModel:
         if mode in non_car_velocity:
             return non_car_velocity[mode]
         free_speed = {"internal": 40, "origin destination": 60}
-        return free_speed[traffic_type]
+        return free_speed[traffic_type] * (csf if mode in CAR_MODES else 1.0)
 
     # ------------------------------------------------------------------
     def _summarise(self):
