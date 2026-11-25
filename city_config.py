@@ -606,14 +606,14 @@ GRANOLLERS = CityConfig(
 # ---------------------------------------------------------------------------
 
 _naples_trip_rate_internal = {
-    "short":  [0.07237, 0.02483, 0.07715, 0.023, 0.09732],
-    "medium":  [0.17906, 0.0589, 0.17413, 0.02614, 0.01485],
-    "long":  [0.14367, 0.04142, 0.10554, 0.00279, 0.0],
+    "short":  [0.15459, 0.05274, 0.15526, 0.0448, 0.11069],
+    "medium":  [0.20748, 0.0643, 0.18104, 0.00712, 0.00148],
+    "long":  [0.03302, 0.00812, 0.02052, 0.0, 0.0],
 }
 _naples_trip_rate_od = {
-    "short":  [0.07237, 0.02483, 0.07715, 0.023, 0.09732],
-    "medium":  [0.17906, 0.0589, 0.17413, 0.02614, 0.01485],
-    "long":  [0.14367, 0.04142, 0.10554, 0.00279, 0.0],
+    "short":  [0.05794, 0.0199, 0.06242, 0.0185, 0.08998],
+    "medium":  [0.15837, 0.0526, 0.15798, 0.02769, 0.02216],
+    "long":  [0.17878, 0.05266, 0.13642, 0.00574, 3e-05],
 }
 
 # TR_InitialTravelSpeed[zone, trip_length, mode] -- km/h
@@ -641,8 +641,8 @@ NAPLES = CityConfig(
         # Centroid distances: Naples is denser than Granollers; shorter trip
         # lengths consistent with compact Mediterranean city fabric.
         # class centroids and trip rates from ABM light base year (D3.4a Fig. A-87/A-88; estimate_trip_classes.py)
-        initial_trip_length_internal=(1.3, 7.93, 28.65),
-        initial_trip_length_od=(1.3, 7.93, 28.65),
+        initial_trip_length_internal=(1.19, 6.96, 20.71),
+        initial_trip_length_od=(1.33, 8.06, 32.29),  # OD trips longer by the Tallinn ratio per mode
         initial_trip_rate={
             "internal": _naples_trip_rate_internal,
             "origin destination": _naples_trip_rate_od,
@@ -733,9 +733,9 @@ NAPLES = CityConfig(
         },
         ev_bau_damping_pivot_year=2026,  # same structure as Tallinn; BAU ~half PI=1 from 2026
         # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0057)
-        mode_change_damping=0.0800,
-        attr_offset={"car passenger": 0.514, "public transport": -1.223, "bicycle": -15.000, "walk": -15.000},
+        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0054)
+        mode_change_damping=0.0792,
+        attr_offset={"car passenger": 0.460, "public transport": -1.502, "bicycle": -15.000, "walk": -15.000},
     ),
     energy_demand=EnergyDemandConfig(
         # reconstructed from D3.4a (build_naples_d34a_xlsx.py); replaces the estimate of build_naples_xlsx.py
@@ -797,14 +797,14 @@ NAPLES = CityConfig(
 # ---------------------------------------------------------------------------
 
 _swf_trip_rate_internal = {
-    "short":  [0.10259, 0.02447, 0.04008, 0.03496, 0.23388],
-    "medium":  [0.30948, 0.07026, 0.11052, 0.07438, 0.00941],
-    "long":  [0.52295, 0.09599, 0.1289, 0.03811, 0.0],
+    "short":  [0.25714, 0.06125, 0.09688, 0.09949, 0.38948],
+    "medium":  [0.65896, 0.14507, 0.21957, 0.12262, 0.00323],
+    "long":  [0.59315, 0.10153, 0.13472, 0.01589, 0.0],
 }
 _swf_trip_rate_od = {
-    "short":  [0.10259, 0.02447, 0.04008, 0.03496, 0.23388],
-    "medium":  [0.30948, 0.07026, 0.11052, 0.07438, 0.00941],
-    "long":  [0.52295, 0.09599, 0.1289, 0.03811, 0.0],
+    "short":  [0.08743, 0.02087, 0.03527, 0.02692, 0.32768],
+    "medium":  [0.30192, 0.07027, 0.11557, 0.08049, 0.06497],
+    "long":  [1.11989, 0.21671, 0.30033, 0.1306, 5e-05],
 }
 
 SOUTH_WESTPHALIA = CityConfig(
@@ -812,10 +812,10 @@ SOUTH_WESTPHALIA = CityConfig(
     country="Germany (North Rhine-Westphalia)",
     mobility=MobilityConfig(
         population_internal=1_381_751,
-        population_od=1_738_000,  # derived: car energy 2019 = MAED-City under the 50 % OD rule (D34)
+        population_od=551_000,  # derived: car energy 2019 = MAED-City under the 50 % OD rule, OD trips longer (D34, D36)
         # class centroids from ABM light mean trip lengths (estimate_trip_classes.py)
-        initial_trip_length_internal=(1.11, 8.34, 38.56),
-        initial_trip_length_od=(1.11, 8.34, 38.56),
+        initial_trip_length_internal=(1.07, 8.05, 29.98),
+        initial_trip_length_od=(1.21, 8.29, 60.2),  # OD trips longer by the Tallinn ratio per mode
         initial_trip_rate={"internal": _swf_trip_rate_internal, "origin destination": _swf_trip_rate_od},
         initial_travel_speed={"internal": _granollers_speed_internal, "origin destination": _granollers_speed_od},
         coping_type_distribution=(0.12, 0.21, 0.27, 0.12, 0.14, 0.15),
@@ -856,9 +856,9 @@ SOUTH_WESTPHALIA = CityConfig(
         ev_pi_trajectory={2019: 0.2, 2030: 19.0, 2040: 64.0, 2050: 91.0},
         ev_bau_damping_pivot_year=2026,
         # class R, fitted to the ABM light reference and optimised pkm shares 2030/2040/2050
-        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0080)
-        mode_change_damping=0.4658,
-        attr_offset={"car passenger": -1.076, "public transport": 2.679, "bicycle": -0.675, "walk": -3.567},
+        # (regsim sd_knowing.recalibrate_class_r, decisions D32/D35; squared error 0.0076)
+        mode_change_damping=0.2785,
+        attr_offset={"car passenger": -1.326, "public transport": 1.811, "bicycle": 0.017, "walk": -4.665},
     ),
     energy_demand=EnergyDemandConfig(
         xlsx_path=_resolve_data_path("EN_MEADCityInput_SouthWestphalia.xlsx"),

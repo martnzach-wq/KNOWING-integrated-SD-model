@@ -43,24 +43,34 @@ def class_shares(mean: float) -> tuple[np.ndarray, np.ndarray]:
     return shares, means
 
 
-def estimate(city: str, pop_internal: float, pop_od: float) -> dict:
+# OD / internal mean trip length per mode in Tallinn (mob_inputs.csv: rates x centroids,
+# internal 7.8/7.7/7.8/4.1/1.7 km, OD 24.4/24.2/23.3/18.7/4.5 km), used as structural prior
+OD_LENGTH_RATIO = np.array([3.13, 3.16, 2.97, 4.51, 2.67])
+
+
+def estimate(city: str, pop_internal: float, pop_od: float, od_ratio=OD_LENGTH_RATIO) -> dict:
+    """Rates and centroids per zone: residents and the OD zone make trips at the same rate
+    per person; OD trips are longer by the Tallinn ratio per mode, with the trip-weighted
+    mean per mode equal to the ABM light mean."""
     trips, pkm = (np.array(v) * 1e6 for v in ABM[city])
-    shares, means = zip(*(class_shares(p / t) for t, p in zip(trips, pkm, strict=True)), strict=True)
-    shares, means = np.array(shares), np.array(means)  # [mode, class]
-    class_trips = shares * trips[:, None]
-    centroid = (class_trips * means).sum(0) / class_trips.sum(0)
-    od_share = pop_od / (pop_internal + pop_od)
-    rate_int = class_trips.T * (1 - od_share) / pop_internal  # [class, mode]
-    rate_od = class_trips.T * od_share / pop_od
-    fit = (class_trips * centroid[None, :]).sum(1) / pkm
-    return {"centroid": centroid, "rate_internal": rate_int, "rate_od": rate_od, "pkm_fit": fit}
+    s = pop_od / (pop_internal + pop_od)
+    mean = pkm / trips
+    mean_int = mean / (1 - s + s * od_ratio)
+    out = {}
+    for zone, zmean, share, pop in (("internal", mean_int, 1 - s, pop_internal), ("od", mean_int * od_ratio, s, pop_od)):
+        shares, means = zip(*(class_shares(m) for m in zmean), strict=True)
+        shares, means = np.array(shares), np.array(means)
+        class_trips = shares * trips[:, None] * share
+        out[f"centroid_{zone}"] = (class_trips * means).sum(0) / class_trips.sum(0)
+        out[f"rate_{zone}"] = class_trips.T / pop
+        out[f"pkm_{zone}"] = (class_trips * out[f"centroid_{zone}"][None, :]).sum(1)
+    out["pkm_fit"] = (out["pkm_internal"] + out["pkm_od"]) / pkm
+    out["od_pkm_share"] = out["pkm_od"].sum() / (out["pkm_internal"] + out["pkm_od"]).sum()
+    return out
 
 
 if __name__ == "__main__":
-    for city, pops in {"NAPLES": (954_318, 250_000), "SOUTH_WESTPHALIA": (1_381_751, 437_000)}.items():
+    for city, pops in {"NAPLES": (954_318, 2_050_000), "SOUTH_WESTPHALIA": (1_381_751, 1_738_000)}.items():
         r = estimate(city, *pops)
-        print(city, "centroids (km)", np.round(r["centroid"], 2), "pkm fit by mode", np.round(r["pkm_fit"], 2))
-        for name in ("rate_internal", "rate_od"):
-            print(" ", name)
-            for cl, row in zip(("short", "medium", "long"), r[name], strict=True):
-                print("   ", cl, np.round(row, 5).tolist())
+        print(city, "centroids internal", np.round(r["centroid_internal"], 2), "od", np.round(r["centroid_od"], 2),
+              "pkm fit", np.round(r["pkm_fit"], 2), "OD pkm share %.2f" % r["od_pkm_share"])  # fmt: skip
