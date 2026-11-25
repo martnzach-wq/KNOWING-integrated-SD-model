@@ -169,9 +169,10 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
     power_biomass_chp_el = elec_supply.get("Biomass CHP el", np.zeros(n))
     power_waste_chp_el = elec_supply.get("Waste CHP el", np.zeros(n))
 
-    # wind/hydro: not present in Tallinn capacity table -> zero
-    power_wind = np.zeros(n)
-    power_hydro = np.zeros(n)
+    # wind/hydro/biomethane: zero where a city's supply table lacks them (Tallinn, Granollers, Naples)
+    power_wind = elec_supply.get("Wind", np.zeros(n))
+    power_hydro = elec_supply.get("Hydro Run-Of-River", np.zeros(n)) + elec_supply.get("Hydro Reservoir", np.zeros(n))
+    power_biomethane_chp_el = elec_supply.get("Biomethane CHP el", np.zeros(n))
 
     # Fossil: fills residual gap up to installed-capacity-scaled max output,
     # with the model's built-in assumption that it phases to ~0 after 10 years
@@ -197,7 +198,8 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
         if esc.fossil_power_phases_out_after_10y:
             power_fossil = np.where(years - years[0] > 10, 0.0, power_fossil)
 
-    power_total = power_fossil + power_wind + power_pv + power_hydro + power_biomass_chp_el + power_waste_chp_el
+    power_total = (power_fossil + power_wind + power_pv + power_hydro + power_biomass_chp_el
+                   + power_waste_chp_el + power_biomethane_chp_el)
 
     net_imported_elec = total_elec_demand - power_total
 

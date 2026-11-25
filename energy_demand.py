@@ -57,6 +57,11 @@ CETS_ROWS = {
     "industry_dh": "EN_finEN_Industry_DH",
     "service_fossil": "EN_finEN_Service fossil",
     "industry_fossil": "EN_finEN_Industry fossil",
+    # optional carrier rows (South Westphalia); zero where a city file lacks them
+    "service_biofuel": "EN_finEN_Service biofuel",
+    "service_solar": "EN_finEN_Service solar",
+    "industry_biofuel": "EN_finEN_Industry biofuel",
+    "industry_h2": "EN_finEN_Industry H2",
 }
 
 KEYFRAME_YEARS = [2019, 2025, 2027, 2030, 2035, 2040, 2045, 2050]
@@ -152,6 +157,10 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
     out["industry_electric"] = series("industry_electric")
     out["industry_dh"] = series("industry_dh")
     out["industry_fossil"] = series("industry_fossil")
+    out["service_biofuel"] = series("service_biofuel")
+    out["service_solar"] = series("service_solar")
+    out["industry_biofuel"] = series("industry_biofuel")
+    out["industry_h2"] = series("industry_h2")
     out["population"] = series("population")
 
     # --- Freight: read as-is (no mobility-submodel coupling for freight) ---
@@ -193,9 +202,15 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
                               + out["hh_other_dh"] + out["hh_other_electric"]
                               + out["hh_other_fossil"])
     out["total_households"] = out["total_hh_heating"] + out["total_hh_other"] + out["hh_cooling_electric"]
-    out["total_industry"] = out["manufacturing"] + out["agriculture"] + out["construction"] \
-        + out["industry_electric"] + out["industry_dh"] + out["industry_fossil"]
-    out["total_services"] = out["service_electric"] + out["service_dh"] + out["service_fossil"]
+    # The Industry_* rows split manufacturing by carrier (in the Granollers file they
+    # sum exactly to EN_finEN_Manufacturing), so manufacturing is counted once: by its
+    # carrier rows where present, otherwise by the manufacturing row.
+    industry_carriers = (out["industry_electric"] + out["industry_dh"] + out["industry_fossil"]
+                         + out["industry_biofuel"] + out["industry_h2"])
+    manufacturing = np.where(industry_carriers > 0, industry_carriers, out["manufacturing"])
+    out["total_industry"] = manufacturing + out["agriculture"] + out["construction"]
+    out["total_services"] = (out["service_electric"] + out["service_dh"] + out["service_fossil"]
+                             + out["service_biofuel"] + out["service_solar"])
     out["total_transport"] = (out["transport_car_fossil"] + out["transport_car_electric"]
                                + out["transport_pt_electric"] + out["transport_other"]
                                + out["freight_fossil"] + out["freight_electric"] + out["freight_other"])
