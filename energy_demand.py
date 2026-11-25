@@ -210,6 +210,17 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
     out["transport_pt_electric"] = pt_km_cap * pop * pt_factor_blended / 1e6
     # other passenger transport fuels (aviation, buses, LPG; MAED-City "EN_Other fuels"), exogenous like freight
     out["transport_other"] = series("transport_other")
+    # biofuel and hydrogen blending of the non-electric passenger transport fuels
+    te_cfg = getattr(city, "transport_energy", None)
+    blend = (
+        np.interp(YEARS, sorted(te_cfg.non_fossil_fuel_share), [te_cfg.non_fossil_fuel_share[y] for y in sorted(te_cfg.non_fossil_fuel_share)])
+        if te_cfg is not None and te_cfg.non_fossil_fuel_share
+        else np.zeros(len(YEARS))
+    )
+    # "other" fuels are mostly aviation and stay fossil; the blend applies to car fuels
+    out["transport_other_renewable"] = np.zeros(len(YEARS))
+    out["transport_car_renewable_fuel"] = out["transport_car_fossil"] * blend
+    out["transport_car_fossil"] = out["transport_car_fossil"] * (1 - blend)
 
     out["transport_active_km_cap"] = active_km_cap  # informational, zero energy
 
@@ -230,6 +241,7 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
                              + out["service_biofuel"] + out["service_solar"])
     out["total_transport"] = (out["transport_car_fossil"] + out["transport_car_electric"]
                                + out["transport_pt_electric"] + out["transport_other"]
+                               + out["transport_other_renewable"] + out["transport_car_renewable_fuel"]
                                + out["freight_fossil"] + out["freight_electric"] + out["freight_other"])
     out["total_final_energy"] = (out["total_households"] + out["total_industry"]
                                   + out["total_services"] + out["total_transport"])

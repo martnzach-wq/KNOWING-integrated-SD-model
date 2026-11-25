@@ -281,6 +281,9 @@ class TransportEnergyConfig:
     # share of trips crossing the city boundary counted in the city's energy balance
     # (GPC induced-activity method: 0.5; 1.0 counts all OD traffic)
     od_energy_share: float = 1.0
+    # share of biofuels and hydrogen in the non-electric car and other passenger transport fuels,
+    # keyframes {year: share} (MAED-City); the rest is fossil
+    non_fossil_fuel_share: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -767,7 +770,10 @@ NAPLES = CityConfig(
     ),
 
     # Italian fleet about 7 l/100 km (0.65 kWh/vkm), EV 0.17 kWh/vkm (estimates); load factor 1.11 (D3.4a Table A-15)
-    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.65, car_electric_kwh_per_vkm=0.17, load_factor=1.11, od_energy_share=0.5),
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.65, car_electric_kwh_per_vkm=0.17, load_factor=1.11, od_energy_share=0.5,
+        # biofuel share of non-electric transport fuels: A-13 (3.1 % in 2019); 2030-2050 from Fig. A-60
+        # (biofuel against fossil motor fuels: 2 %/33 %, 4 %/23 %, 5 %/18 %, 6 %/13 % of final energy)
+        non_fossil_fuel_share={2019: 0.031, 2030: 0.057, 2040: 0.15, 2045: 0.22, 2050: 0.32}),
 )
 
 
@@ -886,5 +892,8 @@ SOUTH_WESTPHALIA = CityConfig(
         fuel_ef_other_t_per_gwh=241.0,
     ),
     # German fleet about 7.4 l/100 km (0.69 kWh/vkm), EV 0.19 kWh/vkm (estimates); load factor 1.13 (D3.5 Table 11)
-    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.69, car_electric_kwh_per_vkm=0.19, load_factor=1.13, od_energy_share=0.5),
+    transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.69, car_electric_kwh_per_vkm=0.19, load_factor=1.13, od_energy_share=0.5,
+        # biofuel and H2 share of non-electric transport fuels: T9 (4.2 % in 2019); 2030-2050 from Fig. 22
+        # (fossil motor fuels 29/14/7/3 % of final energy) and T18 (H2 mobility 217 GWh in 2050)
+        non_fossil_fuel_share={2019: 0.042, 2030: 0.05, 2040: 0.10, 2045: 0.26, 2050: 0.30}),  # 2050: H2 mobility shared with freight
 )
