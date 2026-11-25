@@ -107,6 +107,16 @@ class MobilityModel:
             else _interp_series(m.policy_car_costs_ev)
         )
         self.street_green = _interp_series(m.policy_street_green)
+        # coping-type distribution per year (static unless a 2050 behaviour scenario is given)
+        d0 = np.asarray(m.coping_type_distribution, dtype=float)
+        d1 = np.asarray(m.coping_type_distribution_2050, dtype=float) if m.coping_type_distribution_2050 else d0
+        w = (np.asarray(YEARS) - 2019) / (2050 - 2019)
+        self.coping_dist_t = (1 - w)[:, None] * d0[None, :] + w[:, None] * d1[None, :]
+        self.cycling_resistance = (
+            _interp_series(m.cycling_resistance_reduction) if m.cycling_resistance_reduction else None
+        )
+        self.calming_bonus = {mo: _interp_series(v) for mo, v in (m.traffic_calming_time_bonus or {}).items()}
+        self.fifteen_bonus = {mo: _interp_series(v) for mo, v in (m.fifteen_minute_time_bonus or {}).items()}
         # cooling degree days per year (MAED-City trajectory, microclimate effect of greening)
         from microclimate import run_microclimate
 
@@ -372,7 +382,13 @@ class MobilityModel:
             # original script only documents a single PI=1 EV trajectory)
             # -- the same EV curve applies regardless of scenario.
             ev_target_bau = ev_target_pi1
-        ev_share = ev_target_pi1 * self.pi + ev_target_bau * (1 - self.pi)
+        # behaviour model: EV gap (full policy - BAU) scaled by the compliance with the combustion-car
+        # sales ban, relative to the 2019 coping-type distribution (1 without a coping scenario)
+        ev_gap_factor = np.ones(n)
+        if m.ev_ban_compliance_by_type is not None:
+            comp = np.asarray(m.ev_ban_compliance_by_type)
+            ev_gap_factor = (self.coping_dist_t @ comp) / float(self.coping_dist_t[0] @ comp)
+        ev_share = ev_target_bau + (ev_target_pi1 - ev_target_bau) * self.pi * ev_gap_factor
 
         car_i = MODE_IDX["car"]
         carpass_i = MODE_IDX["car passenger"]
@@ -537,7 +553,7 @@ class MobilityModel:
         car_pass_attr_term = (self.PI_CarPassenger * self.car_pass_attr[t_idx]
                                * cal_carpassenger_attr)
         cycling_attr_term = (self.PI_Cycling * self.cycling_attr[t_idx]
-                              * cal_cycling_attr)
+                              * cal_cycling_attr) if self.cycling_resistance is None else 0.0
 
         # Car congestion speed factor (Granollers-style only): csf =
         # max(0.05, 1 - car_trips_in_zone / adapted_capacity), computed
@@ -567,7 +583,7 @@ class MobilityModel:
         comp = m.parking_compliance_by_type
         if comp is not None:
             comp = np.asarray(comp)
-            parking_weight = comp / float(np.dot(np.asarray(m.coping_type_distribution), comp))
+            parking_weight = comp / float(np.dot(self.coping_dist_t[t_idx], comp))
         else:
             parking_weight = np.ones(N_CT)
 
@@ -610,6 +626,13 @@ class MobilityModel:
                                          * (1 - cal_pt_traveltime * (1 - self.pt_traveltime_adapt[t_idx]))))
                     travel_time = (centroid_dist / max(speed, 1e-6)
                                    + access_time[tt_name][mode] * pt_adapt_factor)
+                    # perceived-time levers of the active modes (ABM light "perceived travel time bonus")
+                    if mode == "bicycle" and self.cycling_resistance is not None:
+                        travel_time *= max(1 - self.PI_Cycling * cal_cycling_attr * self.cycling_resistance[t_idx], 0.05)
+                    if mode in self.calming_bonus:
+                        travel_time *= max(1 - self.PI_Capacity * cal.get("capacity", 1.0) * self.calming_bonus[mode][t_idx], 0.05)
+                    if mode in self.fifteen_bonus and tl_name == "short":
+                        travel_time *= max(1 - self.PI_DistanceAdapt * cal.get("distance", 1.0) * self.fifteen_bonus[mode][t_idx], 0.05)
 
                     for ci, ct_name in enumerate(COPING_TYPES):
                         if generic_mode:
