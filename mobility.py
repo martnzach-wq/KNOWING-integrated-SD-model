@@ -449,6 +449,7 @@ class MobilityModel:
 
             new_trips = prev + demand_change + mode_change + demand_increase_ct
             new_trips = np.maximum(new_trips, 0)
+            new_trips = self._shorter_trips(new_trips, t)
             new_trips = self._heat_transfer(new_trips, t)
             trips[t] = new_trips
 
@@ -511,7 +512,7 @@ class MobilityModel:
             # Re-derived explicitly above per mode for clarity in this
             # translation; sign convention matches the .mdl listing order.
             attr_distinction = 1.0
-            value_of_time_base = 15
+            value_of_time_base = m.value_of_time_base  # was fixed at 15; class B, set per city
             vot_profile = np.array([3, -2, 2, -3, -1, 1])
             value_of_time = value_of_time_base + 1.0 * vot_profile
             parking_cost_base = m.parking_cost_base  # 1.5 default
@@ -520,11 +521,18 @@ class MobilityModel:
 
         cdd = self.cdd[t_idx] if hasattr(self, "cdd") else m.cooling_degree_days
 
-        cal_areatoll = 1.0
-        cal_carpassenger_attr = 1.0
-        cal_pt_traveltime = 1.0
-        cal_cycling_attr = 1.0
-        cal_roadpricing = 1.0
+        cal = m.lever_calibration
+        cal_areatoll = cal.get("area_toll", 1.0)
+        cal_carpassenger_attr = cal.get("car_passenger", 1.0)
+        cal_pt_traveltime = cal.get("pt_traveltime", 1.0)
+        cal_cycling_attr = cal.get("cycling", 1.0)
+        cal_roadpricing = cal.get("road_pricing", 1.0)
+        cal_parking = cal.get("parking", 1.0)
+        cal_capacity = cal.get("capacity", 1.0)
+        # capacity change with its calibration factor: (1 - PI) + PI * (1 - cal * (1 - adaptation))
+        capacity_factor = (1 - self.PI_Capacity) + self.PI_Capacity * (
+            1 - cal_capacity * (1 - self.capacity_adapt[t_idx])
+        )
 
         car_pass_attr_term = (self.PI_CarPassenger * self.car_pass_attr[t_idx]
                                * cal_carpassenger_attr)
@@ -541,12 +549,11 @@ class MobilityModel:
         # reallocation away from cars over time, NOT a fixed constant.
         # Tallinn's translation uses constant free-flow speed
         # (network_capacity=None -> csf=1.0 for all zones).
-        csf_by_zone = {tt: 1.0 for tt in TRAFFIC_TYPES}
+        # without a network capacity (Tallinn branch) the capacity change acts on car speed directly
+        csf_by_zone = {tt: (1.0 if m.network_capacity else max(capacity_factor, 0.05)) for tt in TRAFFIC_TYPES}
         if generic_mode and m.network_capacity and trips_now is not None:
             car_i = MODE_IDX["car"]
-            adapted_capacity = m.network_capacity * (
-                (1 - self.PI_Capacity) + self.PI_Capacity * self.capacity_adapt[t_idx]
-            )
+            adapted_capacity = m.network_capacity * capacity_factor
             for tt_name in TRAFFIC_TYPES:
                 tti = TT_IDX[tt_name]
                 car_trips_zone = trips_now[car_i, :, tti, :].sum()
@@ -554,8 +561,15 @@ class MobilityModel:
 
         parking_cost_adapted = (
             parking_cost_base * (1 - self.PI_Parking)
-            + parking_cost_base * self.PI_Parking * self.parking_adapt[t_idx] * 1.0
+            + parking_cost_base * self.PI_Parking * self.parking_adapt[t_idx] * cal_parking
         )
+        parking_delta = parking_cost_adapted - parking_cost_base
+        comp = m.parking_compliance_by_type
+        if comp is not None:
+            comp = np.asarray(comp)
+            parking_weight = comp / float(np.dot(np.asarray(m.coping_type_distribution), comp))
+        else:
+            parking_weight = np.ones(N_CT)
 
         for tt_name in TRAFFIC_TYPES:
             tti = TT_IDX[tt_name]
@@ -589,10 +603,11 @@ class MobilityModel:
                                                      "car passenger": 0.2, "bicycle": 0, "walk": 0},
                                         "origin destination": {"public transport": 0.15, "car": 0.1,
                                                                 "car passenger": 0.2, "bicycle": 0, "walk": 0}}
+                    # strength form: (1 - PI) + PI * (1 - cal * (1 - adaptation)); cal = 1 as in the mdl
                     pt_adapt_factor = (1 if mode != "public transport" else
                                         ((1 - self.PI_PTTravelTime)
-                                         + self.PI_PTTravelTime * self.pt_traveltime_adapt[t_idx]
-                                         * cal_pt_traveltime))
+                                         + self.PI_PTTravelTime
+                                         * (1 - cal_pt_traveltime * (1 - self.pt_traveltime_adapt[t_idx]))))
                     travel_time = (centroid_dist / max(speed, 1e-6)
                                    + access_time[tt_name][mode] * pt_adapt_factor)
 
@@ -625,9 +640,25 @@ class MobilityModel:
                             # class-R offsets act on top of the GC-neutral correction (not absorbed by it)
                             attr += m.attr_offset.get(mode, 0.0)
 
-                        gc[mi, tli, tti, ci] = (cost + travel_time * value_of_time[ci] - attr)
+                        cost_ct = cost + (parking_delta * (parking_weight[ci] - 1) if mode in CAR_MODES else 0.0)
+                        gc[mi, tli, tti, ci] = (cost_ct + travel_time * value_of_time[ci] - attr)
 
         return gc
+
+    def _shorter_trips(self, trips_t, t):
+        """TR ShorterTrips (15-minute city): a share PI * DistanceAdaptation / 10 * Cal of
+        medium trips becomes short and of long trips becomes medium, per year (annual mdl)."""
+        f = self.PI_DistanceAdapt * self.distance_adapt[t] / 10 * self.m.lever_calibration.get("distance", 1.0)
+        if f <= 0:
+            return trips_t
+        out = trips_t.copy()
+        s, md, lg = TL_IDX["short"], TL_IDX["medium"], TL_IDX["long"]
+        to_short = f * trips_t[:, md]
+        to_medium = f * trips_t[:, lg]
+        out[:, s] += to_short
+        out[:, md] += to_medium - to_short
+        out[:, lg] -= to_medium
+        return out
 
     def _heat_transfer(self, trips_t, t):
         """Heat effect on active modes and PT, replacing the former attractiveness terms

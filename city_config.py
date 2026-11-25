@@ -205,6 +205,14 @@ class MobilityConfig:
     # heat effect on active modes and PT (mobility._heat_transfer): share of a mode's trips
     # that move to motorised modes per cooling degree day of the year, relative to 2019
     heat_active_per_cdd: float = 0.02 / 365
+    # TR Cal <lever> of Submodel_Mobility_v10.mdl: one calibration factor per intervention
+    # (area_toll, road_pricing, parking, capacity, cycling, pt_traveltime, distance, car_passenger),
+    # fitted to the single-measure effects of the transport domain model; missing keys = 1
+    lever_calibration: dict = field(default_factory=dict)
+    # behaviour model (D1.3): compliance probability per coping type for the parking measure
+    # ("Parking spaces are removed to create space for trees and green space", D3.3 Table 30);
+    # the parking change acts on each coping type relative to the population-weighted compliance
+    parking_compliance_by_type: Optional[tuple] = (0.1445, 0.2743, 0.3246, 0.3093, 0.4783, 0.4774)
     heat_pt_per_cdd: float = 0.01 / 365
 
 
@@ -342,6 +350,9 @@ TALLINN = CityConfig(
         initial_trip_rate={"internal": _tallinn_trip_rate_internal, "origin destination": _tallinn_trip_rate_od},
         initial_travel_speed={"internal": _tallinn_speed_internal, "origin destination": _tallinn_speed_od},
         # D3.3 Table 28 / Fig. 73, metropolitan Estonia (KNOWING survey 2023); was national Estonia (D1.3)
+        # class B: VoT = 5.10 EUR/h (Granollers calibration, ES51 GDP 31,462 PPS) x (GDP/31,462)^0.9,
+        # GDP elasticity 0.9 (Wardman et al. 2016; Abrantes and Wardman 2011); GDP 22,626 PPS (regsim store)
+        value_of_time_base=3.79,
         coping_type_distribution=(0.09, 0.17, 0.32, 0.13, 0.13, 0.17),
         cooling_degree_days=8.6,  # MAED-City base year (D3.3 Table 7); was 100 (Vensim default)
         cooling_degree_days_trajectory={2019: 8.6, 2050: 15.0},  # CETS 2050 (D3.3 Table 7)
@@ -696,7 +707,9 @@ NAPLES = CityConfig(
         # Generalised-cost formula: Southern Italian city, similar VoT to
         # Granollers; attr_distinction estimated, needs KNOWING survey data.
         attr_distinction=0.22,
-        value_of_time_base=5.5,    # EUR/h; slightly above Granollers (higher Naples income level)
+        # class B: VoT = 5.10 EUR/h (Granollers calibration, ES51 GDP 31,462 PPS) x (GDP/31,462)^0.9,
+        # GDP elasticity 0.9 (Wardman et al. 2016; Abrantes and Wardman 2011); GDP 19,000 PPS (regsim store)
+        value_of_time_base=3.24,
         value_of_time_dist=0.1,
         value_of_time_profile=(3.0, -2.0, 2.0, -3.0, -1.0, 1.0),
         # Naples road network: estimated ~3.5M car trips/day capacity
@@ -845,7 +858,9 @@ SOUTH_WESTPHALIA = CityConfig(
             "walk":             (5.88, 12.00),
         },
         attr_distinction=0.22,
-        value_of_time_base=10.0,  # placeholder (class B)
+        # class B: VoT = 5.10 EUR/h (Granollers calibration, ES51 GDP 31,462 PPS) x (GDP/31,462)^0.9,
+        # GDP elasticity 0.9 (Wardman et al. 2016; Abrantes and Wardman 2011); GDP 31,558 PPS (regsim store)
+        value_of_time_base=5.11,
         value_of_time_dist=0.1,
         value_of_time_profile=(3.0, -2.0, 2.0, -3.0, -1.0, 1.0),
         network_capacity=None,
