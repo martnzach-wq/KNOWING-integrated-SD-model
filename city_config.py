@@ -144,6 +144,9 @@ class MobilityConfig:
     logit_adjustment: float = 0.5  # share of the gap closed per year
     # road pricing charged on the in-city part of OD trips only (km); None charges the full length
     road_pricing_od_km: Optional[float] = None
+    # scale of the charged km so that the mean charged km per car trip equals ABM light's in-area car
+    # vkm per car trip (abm_base_year/abm_light_pricing_proxies.csv, reference 2040; D53)
+    road_pricing_km_scale: float = 1.0
     # trips shortened by the 15-minute city choose their mode anew with the mode split of the
     # shorter class (zone and coping type); False keeps their mode
     shorter_trips_rechoose_mode: bool = False
@@ -459,7 +462,7 @@ TALLINN = CityConfig(
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 0.313, "parking": 0.768, "area_toll": 0.143, "road_pricing": 0.262, "cycling": 1.897, "pt_traveltime": 0.146, "distance": 0.413, "car_passenger": 0.795},
+        lever_calibration={"capacity": 0.313, "parking": 0.768, "area_toll": 0.143, "road_pricing": 0.252, "cycling": 1.897, "pt_traveltime": 0.146, "distance": 0.413, "car_passenger": 0.795},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
@@ -1055,18 +1058,18 @@ def _apply_abm(city: "CityConfig", data_file: str, region: str, **options) -> No
         m.lever_calibration = dict.fromkeys(m.lever_calibration, 1.0)  # start values, replaced by the fit
 
 
-_apply_abm(TALLINN, "tallinn.json", "tallinn")
+_apply_abm(TALLINN, "tallinn.json", "tallinn", road_pricing_km_scale=8.292 / 7.96)
 _ABM_LOGIT = dict(mode_choice="logit", logit_scale=0.25, logit_adjustment=0.67, network_capacity=None,
                   push_levers_by_compliance=True, shorter_trips_rechoose_mode=True)
 # value of time: HEATCO D5 Table 0.3/0.4 car, short trips (30 % commute, 60 % other, 10 % business),
 # updated to 2019 with GDP per capita elasticity 0.7 and HICP (Eurostat): Italy 14.0, Germany 14.0 EUR/h (D52)
 # joint fit on the ABM light export (D52): squared error pathways 0.0072, effects 0.0007;
 # the logit scale goes to its lower bound, so scale and factors act only as products
-_apply_abm(NAPLES, "naples.json", "naples", road_pricing_od_km=8.4, value_of_time_base=14.0,
+_apply_abm(NAPLES, "naples.json", "naples", road_pricing_od_km=8.4, road_pricing_km_scale=6.987 / 8.26, value_of_time_base=14.0,
            **{**_ABM_LOGIT, "logit_scale": 0.0050, "logit_adjustment": 1.0000},
-           lever_calibration={"capacity": 1.538, "parking": 85.893, "area_toll": 2.035, "road_pricing": 29.968, "cycling": 93.280, "pt_traveltime": 8.729, "distance": 0.378, "car_passenger": 41.143})
+           lever_calibration={"capacity": 1.538, "parking": 85.893, "area_toll": 2.035, "road_pricing": 35.428, "cycling": 93.280, "pt_traveltime": 8.729, "distance": 0.378, "car_passenger": 41.143})
 # joint fit on the ABM light export with the corrected base year (D52): squared error pathways
 # 0.0199, effects 0.0011; parking, road pricing, cycling and car passenger at their bounds
-_apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", road_pricing_od_km=8.4, value_of_time_base=14.0,
+_apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", road_pricing_od_km=8.4, road_pricing_km_scale=8.909 / 8.37, value_of_time_base=14.0,
            **{**_ABM_LOGIT, "logit_scale": 0.0087, "logit_adjustment": 1.0000},
-           lever_calibration={"capacity": 0.743, "parking": 100.000, "road_pricing": 0.010, "cycling": 0.010, "pt_traveltime": 7.356, "distance": 0.813, "car_passenger": 0.010})
+           lever_calibration={"capacity": 0.743, "parking": 100.000, "road_pricing": 0.009, "cycling": 0.010, "pt_traveltime": 7.356, "distance": 0.813, "car_passenger": 0.010})

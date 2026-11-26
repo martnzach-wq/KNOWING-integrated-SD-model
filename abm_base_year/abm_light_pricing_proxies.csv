@@ -1,0 +1,28 @@
+region,year,measure,scenario,car_vkm_per_day_in_area,vkm_area,car_trips_internal,car_trips_origin_destination,car_vkm_change_vs_reference
+SWF,2030,all_measures,2030_9_all_measures,24265327.53251148,Suedwestfalen (Visum link filter SWF_AREA),1937730.275390625,713413.48046875,-0.0014414209599186156
+SWF,2030,reference,2030_0_reference,24300354.57292635,Suedwestfalen (Visum link filter SWF_AREA),2122143.0834960938,713209.1865234375,0.0
+SWF,2040,all_measures,2040_9_all_measures,24525619.09934835,Suedwestfalen (Visum link filter SWF_AREA),1776943.830078125,709419.8950195312,-0.008828827394710248
+SWF,2040,reference,2040_0_reference,24744080.313476887,Suedwestfalen (Visum link filter SWF_AREA),2060725.810546875,716665.8095703125,0.0
+SWF,2040,road_pricing,2040_3_road_pricing,25463980.18447332,Suedwestfalen (Visum link filter SWF_AREA),1999752.4736328125,737917.98828125,0.029093822113256618
+SWF,2050,all_measures,2050_9_all_measures,24395759.261527646,Suedwestfalen (Visum link filter SWF_AREA),1706460.4526367188,700075.1420898438,-0.030701962435196628
+SWF,2050,reference,2050_0_reference,25168481.02036588,Suedwestfalen (Visum link filter SWF_AREA),2034127.7036132812,717538.3046875,0.0
+naples,2030,all_measures,2030_10_all_measures,6731368.747406168,city of Naples (Visum link filter URBAN),287501.31689453125,730036.828125,-0.14726120180349955
+naples,2030,reference,2030_0_reference,7893822.541723999,city of Naples (Visum link filter URBAN),326821.2081637126,804296.5228250243,0.0
+naples,2040,all_measures,2040_10_all_measures,5225716.347358014,city of Naples (Visum link filter URBAN),232155.81396484375,604142.25,-0.32242322321103434
+naples,2040,reference,2040_0_reference,7712360.468023519,city of Naples (Visum link filter URBAN),319518.92511484295,784238.1780274308,0.0
+naples,2040,road_pricing,2040_4_road_pricing,6349214.562801804,city of Naples (Visum link filter URBAN),276116.75729746255,680526.9081127594,-0.17674820969189664
+naples,2040,uvar_pricing,2040_3_uvar_pricing,6920352.907181599,city of Naples (Visum link filter URBAN),300254.6775783385,741354.4535271614,-0.10269327582984344
+naples,2050,all_measures,2050_10_all_measures,3913087.5437873816,city of Naples (Visum link filter URBAN),181827.85546875,492400.265625,-0.48226836479379187
+naples,2050,reference,2050_0_reference,7558138.768609015,city of Naples (Visum link filter URBAN),312758.1697098321,767170.12804681,0.0
+tallinn,2030,all_measures,2030_10_all_measures,3278136.990854427,city of Tallinn (Visum link filter URBAN),221985.64746380676,174854.26734458184,-0.21935440499092906
+tallinn,2030,reference,2030_0_reference,4199264.0601736,city of Tallinn (Visum link filter URBAN),308872.66450480255,193798.26967583588,0.0
+tallinn,2030,road_pricing,2030_4_road_pricing,4099066.854535761,city of Tallinn (Visum link filter URBAN),301811.9934171181,190956.16886865857,-0.02386065848731045
+tallinn,2030,uvar_pricing,2030_3_uvar_pricing,3596095.6781787165,city of Tallinn (Visum link filter URBAN),249723.70760854922,181941.36518774665,-0.14363668808432783
+tallinn,2040,all_measures,2040_10_all_measures,2750318.3718365617,city of Tallinn (Visum link filter URBAN),179255.91013758729,160411.30790820825,-0.3710056059819197
+tallinn,2040,reference,2040_0_reference,4372564.204057921,city of Tallinn (Visum link filter URBAN),326214.9475735539,201130.0080075502,0.0
+tallinn,2040,road_pricing,2040_4_road_pricing,4059282.893737176,city of Tallinn (Visum link filter URBAN),303382.9673980914,192048.88469239653,-0.07164704637841723
+tallinn,2040,uvar_pricing,2040_3_uvar_pricing,3447170.391448321,city of Tallinn (Visum link filter URBAN),235708.14738986874,182238.0498125541,-0.211636415024117
+tallinn,2050,all_measures,2050_10_all_measures,2348822.725547944,city of Tallinn (Visum link filter URBAN),144845.9073416114,150487.0714081634,-0.48590668954676985
+tallinn,2050,reference,2050_0_reference,4568864.596734778,city of Tallinn (Visum link filter URBAN),344911.8929613002,209212.40637570937,0.0
+tallinn,2050,road_pricing,2050_4_road_pricing,4006147.549643261,city of Tallinn (Visum link filter URBAN),304428.5485221408,192818.35918365084,-0.1231634326597626
+tallinn,2050,uvar_pricing,2050_3_uvar_pricing,3300297.318355783,city of Tallinn (Visum link filter URBAN),223560.91493456095,182497.2002934343,-0.2776548202556932

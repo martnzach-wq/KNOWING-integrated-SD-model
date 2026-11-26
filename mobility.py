@@ -691,7 +691,7 @@ class MobilityModel:
                             else centroid_dist)
 
                     # ---- Cost ----
-                    priced_km = (min(dist, m.road_pricing_od_km)
+                    priced_km = m.road_pricing_km_scale * (min(dist, m.road_pricing_od_km)
                                  if m.road_pricing_od_km is not None and tt_name == "origin destination" else dist)
                     if mode in CAR_MODES:
                         cost = (car_cost_per_km * dist + road_pricing_adapted * priced_km
