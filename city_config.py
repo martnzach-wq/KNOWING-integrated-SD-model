@@ -1110,5 +1110,7 @@ for _k, _v in dict(
                                 "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
 ).items():
     setattr(_g, _k, _v)
-_g.lever_calibration = {"capacity": 1.0, "parking": 1.0, "road_pricing": 1.0, "cycling": 1.0,
-                        "pt_traveltime": 1.0, "car_passenger": 1.0, "street_green": 0.0}
+# transferred from Tallinn, Naples and South Westphalia (D55): scale and adjustment as their means, lever
+# factors fitted to the single-measure effects implied by their semi-elasticities at Granollers' intensities
+_g.logit_scale, _g.logit_adjustment = 0.0220, 0.8899
+_g.lever_calibration = {"capacity": 1.988, "parking": 22.265, "road_pricing": 5.718, "cycling": 20.390, "pt_traveltime": 4.387, "car_passenger": 2.742, "street_green": 0.0}
