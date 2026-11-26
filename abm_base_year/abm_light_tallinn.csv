@@ -1,0 +1,1225 @@
+region,year,scenario_nr,measure,scenario,aggregation,distance_category,mode,trips,avg_travel_time_min,avg_travel_distance_km
+tallinn,base,0,baseyear,Baseyear,Internal traffic,long (>10),Bike,399.5058919908436,68.70754805178353,13.22581304565146
+tallinn,base,0,baseyear,Baseyear,Internal traffic,long (>10),Car,89770.76073828393,39.84118293140522,13.60266996641565
+tallinn,base,0,baseyear,Baseyear,Internal traffic,long (>10),CarP,19065.9713336192,39.93540516050013,13.65688678319546
+tallinn,base,0,baseyear,Baseyear,Internal traffic,long (>10),PT,71684.3773761276,55.96260518818943,13.6594315797454
+tallinn,base,0,baseyear,Baseyear,Internal traffic,long (>10),Walk,0.02232755440890392,153.3382635491917,10.56078411060369
+tallinn,base,0,baseyear,Baseyear,Internal traffic,long (>10),Total,180920.637667576,46.30249871794487,13.6300410434283
+tallinn,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Bike,4779.974163726713,21.38370071229501,4.163545427180119
+tallinn,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Car,180027.0857031285,26.77852473948992,6.070551618064181
+tallinn,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),CarP,45160.63896035478,26.71914842019603,5.992865899552919
+tallinn,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),PT,149704.6050136275,33.5876782389506,5.927573174489779
+tallinn,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Walk,34753.10148050797,35.82848827392812,2.615075142943521
+tallinn,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Total,414425.4053213454,29.92844587722196,5.698670862073368
+tallinn,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Bike,3544.881254022038,5.585461903271095,1.152082570219037
+tallinn,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Car,23486.57996331419,16.0870989812847,1.294891757170762
+tallinn,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),CarP,4387.073475505803,16.93040572431794,1.411715127793747
+tallinn,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),PT,18021.48612655755,15.89613936737312,1.301898341184883
+tallinn,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Walk,193666.9809514683,11.85385991886059,0.914350293000137
+tallinn,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Total,243107.0017708678,12.56269447451441,0.9922851855811204
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Bike,388.2275114506666,97.88078078387922,19.10848427431984
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Car,168468.9565750179,43.93759048112514,21.33699280179438
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),CarP,30841.15597933216,43.22459271407312,20.62227475021302
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),PT,156341.3600822041,73.01988351278173,25.59938220698923
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Walk,0.8302103219895116,150.4772572806351,10.59673879820062
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Total,356040.5303583268,56.70525557762092,23.14428968527242
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Bike,214.1539948363474,27.38325652452933,5.690988214914132
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Car,19304.90611786898,24.6042988246703,7.123121401357126
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),CarP,4387.622008451932,24.73907164399645,7.079450145367859
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),PT,38153.68950568723,49.01472033631215,5.916251568184477
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Walk,1170.281308530313,41.82300525661677,3.394877655410959
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Total,63230.6529353748,39.67111825807593,6.318006500564688
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Bike,23.94000909211707,7.265081209583861,1.702244322744065
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Car,169.0787014329518,14.3202684068865,1.567217069023212
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),CarP,34.31046417470503,14.32913145064448,1.568839147364851
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),PT,111.7327870240853,29.05943751782812,1.672214260586867
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Walk,900.93069046596,18.23588499598749,1.641223928187346
+tallinn,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Total,1239.992652189819,18.35734914366215,1.633100433224916
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Bike,423.6473421636589,68.7052568658202,13.2253034666024
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Car,94455.34502458593,40.44647240055288,13.58619653994694
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,long (>10),CarP,19970.00414659052,40.52469492647356,13.63501218613292
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,long (>10),PT,76276.61784043792,55.98336737366878,13.66566065654722
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Walk,0.02367512062494723,153.3362093913756,10.56093013855051
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Total,191125.6380288987,46.71794046956602,13.62221023108128
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Bike,5063.987519254856,21.38445342865821,4.163788425485922
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Car,189798.7002543959,27.04745780496236,6.067343032285226
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),CarP,47467.54203639614,26.97989990032193,5.985809494619912
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),PT,158494.0680953044,33.59488622784661,5.929835095184283
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Walk,36785.73988049432,35.82890685121698,2.615204285656402
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Total,437610.0377858456,30.08412598162768,5.696479867148317
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Bike,3751.984349130692,5.585206567515095,1.152059131450993
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Car,24618.61922582074,16.09367262052528,1.29418633185197
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),CarP,4580.891722425815,16.92202692008451,1.410716597300858
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),PT,19039.04358533611,15.89754149756713,1.302003216177099
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Walk,204692.5453206758,11.85508159339844,0.9144588360550295
+tallinn,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Total,256683.0842033891,12.56022928303629,0.9919536842063357
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Bike,404.0037566471757,97.77779320300291,19.08737143810269
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Car,173931.0744328724,44.31860833602529,21.40908580920144
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),CarP,31557.74511884958,43.55775070813812,20.65885602870519
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),PT,165244.858927373,73.0954212291189,25.62904461120099
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Walk,0.8428711015389979,150.4840048705934,10.59704925880995
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Total,371138.5251068437,57.12486882783513,23.22162694070394
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Bike,220.5195614530018,27.41614966849531,5.698032785324164
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Car,19706.70765743846,24.73818657189101,7.115879050413427
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),CarP,4507.626648754003,24.88954092927051,7.083619057279869
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),PT,40130.95694894085,49.03942385860967,5.913701055231805
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Walk,1191.943739795894,41.74009352806036,3.390823469763453
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Total,65757.7545563822,39.89639905689955,6.30772054121278
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Bike,24.44093261916284,7.277415699562157,1.701630434787427
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Car,160.4875855250106,14.14777307089673,1.574777676387686
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),CarP,33.09408776406894,14.19697896355862,1.582636282955533
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),PT,113.1670564115088,29.04559552924314,1.67338935191997
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Walk,918.0829519911706,18.24878546745564,1.639382613998766
+tallinn,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Total,1249.272614310922,18.37801289505264,1.633878273946025
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,long (>10),Bike,433.4641018839322,68.65062514449032,13.21537305238449
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,long (>10),Car,91226.19564278689,42.92832092041717,13.67112963738032
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,long (>10),CarP,19033.94055654926,42.91054925596453,13.70517438109463
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,long (>10),PT,78942.2296588155,56.0579925099651,13.68725714127366
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,long (>10),Walk,0.03883700127509105,153.6506200888626,10.57411451085329
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,long (>10),Total,189635.8687970368,48.45101706132491,13.68021796206094
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,medium (2-10km),Bike,5242.083943884274,21.4458887944645,4.175016355504328
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,medium (2-10km),Car,185309.1299251723,28.00726014864333,6.046184558337523
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,medium (2-10km),CarP,46421.93159876493,27.87174276004627,5.969190873685012
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,medium (2-10km),PT,160757.8496292529,33.65356741741804,5.946275348217323
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,medium (2-10km),Walk,40640.26811116654,36.18644206153119,2.636220709364186
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,medium (2-10km),Total,438371.263208241,30.74331112424013,5.662888331358842
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,short (0-2km),Bike,3741.171362647622,5.591075230367982,1.152999598342336
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,short (0-2km),Car,24709.95314522705,16.26960676502762,1.308931371825806
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,short (0-2km),CarP,4628.182384790099,17.11736593725695,1.424231879192747
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,short (0-2km),PT,18609.14041783568,15.89951555084552,1.302451262290453
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,short (0-2km),Walk,207263.5797696678,12.00364297717539,0.9248438332786499
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Internal traffic,short (0-2km),Total,258952.0270801682,12.68943537973751,1.000852365608557
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,long (>10),Bike,409.3505165074606,97.7791578389933,19.08793040536253
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,long (>10),Car,171656.9890020482,45.60895577729432,21.58988326662059
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,long (>10),CarP,30978.37425878388,44.70318488419607,20.78509963328747
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,long (>10),PT,166683.7949091528,73.15263900542186,25.60168624663302
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,long (>10),Walk,0.8580980925117476,150.5238278341468,10.59783465452565
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,long (>10),Total,369729.3667845848,58.00849088266685,23.32828466595569
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,medium (2-10km),Bike,223.1979751950569,27.45947101208965,5.706474647992413
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,medium (2-10km),Car,19733.51767551442,25.28614382165308,7.113598900334097
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,medium (2-10km),CarP,4472.567969494306,25.24454276398653,7.070718784800769
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,medium (2-10km),PT,40183.91112317107,49.03354533300826,5.916144637722746
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,medium (2-10km),Walk,1198.471004645577,41.77928935111606,3.39334068253519
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,medium (2-10km),Total,65811.66574802043,40.09095138923313,6.307011372445957
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,short (0-2km),Bike,24.62080304328708,7.278809587505471,1.702180949224377
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,short (0-2km),Car,160.6111287006565,14.11573820031214,1.584337827573328
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,short (0-2km),CarP,33.21170291804171,14.15721061706839,1.592391429020096
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,short (0-2km),PT,113.356253971463,29.04699907196056,1.673607253756244
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,short (0-2km),Walk,923.126713776854,18.25729572312586,1.639924909313953
+tallinn,2030,1,traffic_calming,2030_1_traffic_calming,Origin & destination traffic,short (0-2km),Total,1254.926602410302,18.37796427150069,1.635816562524611
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,long (>10),Bike,437.9661651583567,68.71048188830828,13.22622019241482
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,long (>10),Car,91331.10490774392,40.17207857994884,13.58223945005032
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,long (>10),CarP,18956.39152764624,40.23970807942683,13.62749016439747
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,long (>10),PT,79711.55615149076,56.02472677020327,13.67207241133079
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,long (>10),Walk,0.02479272686755223,153.306278897165,10.56194746095707
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,long (>10),Total,190437.0435447662,46.87992755629552,13.62352614500639
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,medium (2-10km),Bike,5277.645831580542,21.36392558294867,4.160438423334107
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,medium (2-10km),Car,183363.9042773601,26.95135351335833,6.080698434328032
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,medium (2-10km),CarP,44833.87908513307,26.884440336275,5.999892486023267
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,medium (2-10km),PT,163839.3121588681,33.63336766096024,5.935521582774451
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,medium (2-10km),Walk,38122.22474188357,35.85827745905934,2.617604329420149
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,medium (2-10km),Total,435436.9660948253,30.17074007061673,5.691287711695859
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,short (0-2km),Bike,3849.120131785414,5.594933040488184,1.153925442721802
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,short (0-2km),Car,23597.3085472343,16.10786024410793,1.300629649679221
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,short (0-2km),CarP,4288.02402305756,16.9660210615003,1.420371806522383
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,short (0-2km),PT,19324.9430596274,15.91667197513146,1.303592007898047
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,short (0-2km),Walk,207887.145008465,11.88786895833472,0.9169077846483894
+tallinn,2030,2,parking_management,2030_2_parking_management,Internal traffic,short (0-2km),Total,258946.5407701697,12.56364472539581,0.992593789347805
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,long (>10),Bike,422.4541227130734,97.98466811545737,19.12869480921052
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,long (>10),Car,173612.7679920827,44.21229772100233,21.40236883313176
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,long (>10),CarP,31211.21937768818,43.41213617667776,20.62112940209904
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,long (>10),PT,166446.9758653469,73.09786201763772,25.59700342056438
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,long (>10),Walk,0.8911886187652366,150.4505748189598,10.59702074425001
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,long (>10),Total,371694.3085464496,57.14161015126128,23.21254089826968
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,medium (2-10km),Bike,230.8476708814029,27.41083827949508,5.696938969339675
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,medium (2-10km),Car,19356.97167511862,24.66683755915078,7.121696557951292
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,medium (2-10km),CarP,4381.794184370129,24.78647115635479,7.074468357805029
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,medium (2-10km),PT,40299.50833011623,49.01207264115075,5.918682710847007
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,medium (2-10km),Walk,1228.226987872064,41.72462953262415,3.390067585906805
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,medium (2-10km),Total,65497.34884835844,39.98363309448394,6.303342821030554
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,short (0-2km),Bike,25.28114725281758,7.27274603086228,1.701195522343314
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,short (0-2km),Car,153.2216677882485,14.08992101651173,1.585687088120497
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,short (0-2km),CarP,31.07633109595876,14.13601690572866,1.593283293999272
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,short (0-2km),PT,116.3538842357215,29.05169240877236,1.674268658809727
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,short (0-2km),Walk,944.6530660790693,18.24699816860421,1.639616743439044
+tallinn,2030,2,parking_management,2030_2_parking_management,Origin & destination traffic,short (0-2km),Total,1270.586096451816,18.41622554321275,1.636378554203748
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,long (>10),Bike,489.7154395726567,68.33378086903076,13.1547542479297
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,long (>10),Car,74479.08140747694,38.23640078594453,13.54490487605334
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,long (>10),CarP,15206.5591486855,38.10900564132277,13.4924576099122
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,long (>10),PT,97165.37977145471,56.16397592232899,13.69906716921048
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,long (>10),Walk,0.02986549556503818,153.3830252218682,10.55325581932018
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,long (>10),Total,187340.7656326854,47.60299534110398,13.61958452799993
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,medium (2-10km),Bike,6376.50875261677,21.68734721160278,4.217682322119284
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,medium (2-10km),Car,152937.5916227869,25.91173995489393,5.975225410461929
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,medium (2-10km),CarP,38933.14947795052,25.83512680632569,5.855980220331997
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,medium (2-10km),PT,191815.9295457884,33.91800165632797,6.047448885867324
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,medium (2-10km),Walk,42622.76281701638,36.24032925381469,2.636236797367954
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,medium (2-10km),Total,432685.9422161589,30.4093251177838,5.64169738874407
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,short (0-2km),Bike,4232.765379004219,5.648492366805012,1.16160564739587
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,short (0-2km),Car,22307.03457828538,15.93864543336011,1.291339118101515
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,short (0-2km),CarP,4165.470639293094,16.69245472310323,1.399330162260669
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,short (0-2km),PT,19950.90621900483,15.9305250306392,1.308330463619316
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,short (0-2km),Walk,217735.2859137323,12.02086957148337,0.9248688538248829
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Internal traffic,short (0-2km),Total,268391.4627293198,12.609121159681,0.994929492993675
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,long (>10),Bike,480.9394244242125,98.7809020311162,19.29087773734858
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,long (>10),Car,162554.8894685583,42.78342312358669,21.28317115029636
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,long (>10),CarP,29465.41061048333,41.72527832568377,20.46481928537328
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,long (>10),PT,176719.9091354699,73.23230529173006,25.3663572983682
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,long (>10),Walk,0.9674833460285208,150.7700751055988,10.60091311803671
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,long (>10),Total,369222.1161222817,57.34587931149563,23.16956601555392
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Bike,253.5120440281891,27.90339218487634,5.795717255682375
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Car,19224.1977555067,24.26405130969246,7.098590128639736
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,medium (2-10km),CarP,4421.73843737997,24.45391766646907,7.077619626468868
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,medium (2-10km),PT,40795.25638917358,48.96404369078579,5.941633790656666
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Walk,1246.168019171354,42.13420218938089,3.417652199937483
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Total,65940.87264525979,39.9094901285468,6.306844197585732
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,short (0-2km),Bike,25.38303566935199,7.28031094291728,1.701925400928175
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,short (0-2km),Car,162.2779636816484,14.19681348100004,1.55242365554054
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,short (0-2km),CarP,33.75287233027836,14.24078215469731,1.559111117163728
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,short (0-2km),PT,114.2798505226231,29.03916027560349,1.673538020323015
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,short (0-2km),Walk,949.8376350410442,18.26405380984636,1.638528057222398
+tallinn,2030,3,uvar_pricing,2030_3_uvar_pricing,Origin & destination traffic,short (0-2km),Total,1285.531357244946,18.38599277735505,1.629937643337263
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,long (>10),Bike,432.8750397027337,68.68489599595652,13.22134650379655
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,long (>10),Car,91214.55089417563,40.01906775525342,13.55344957178267
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,long (>10),CarP,18874.45347795079,40.05634111315176,13.58018736505194
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,long (>10),PT,80252.83232091175,56.08224927763112,13.69354013331177
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,long (>10),Walk,0.02489135922610296,153.3469875768272,10.561911495691
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,long (>10),Total,190774.7366241001,46.84508095271902,13.61427257273366
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,medium (2-10km),Bike,5189.057340591276,21.41163131260354,4.168988374943502
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,medium (2-10km),Car,185800.8015950599,26.84153015960824,6.042146675672731
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,medium (2-10km),CarP,46240.01931033126,26.76447373169366,5.955067223420759
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,medium (2-10km),PT,162206.6294900821,33.65841875238289,5.948588808409813
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,medium (2-10km),Walk,37430.16232217426,35.86103900342219,2.617461942893096
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,medium (2-10km),Total,436866.6700582388,30.07273810449438,5.682520492415444
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,short (0-2km),Bike,3806.911516393345,5.584941890782075,1.151985176631678
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,short (0-2km),Car,24796.64092788257,16.11092790444621,1.308177400489845
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,short (0-2km),CarP,4684.917276637514,16.93988087422354,1.425940876329986
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,short (0-2km),PT,19159.04570102033,15.90347959630021,1.302394238740552
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,short (0-2km),Walk,206447.5648395529,11.86155361071638,0.9149631869513009
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Internal traffic,short (0-2km),Total,258895.0802614867,12.56727073255538,0.9940276898939777
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,long (>10),Bike,408.979140483036,97.6345111759701,19.05869392565285
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,long (>10),Car,171261.3055418992,44.00920666264995,21.33991181239598
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,long (>10),CarP,30645.58638335462,43.17276679831854,20.56626864543989
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,long (>10),PT,167799.7414830926,73.16338751311575,25.58164541828284
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,long (>10),Walk,0.8804182150562756,150.5104445485221,10.59756307928865
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,long (>10),Total,370116.4929670445,57.21709204255296,23.19638305529254
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,medium (2-10km),Bike,226.4822883679761,27.45465588230426,5.705061031961077
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,medium (2-10km),Car,19533.39061036328,24.61147523654449,7.081079544129667
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,medium (2-10km),CarP,4425.666713136967,24.73727088821392,7.035935358775773
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,medium (2-10km),PT,40267.21244855342,49.02164602830867,5.919135135229064
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,medium (2-10km),Walk,1209.626563795697,41.81259438291252,3.395444888068644
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,medium (2-10km),Total,65662.37862421734,39.91608564766372,6.292836078459316
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,short (0-2km),Bike,24.79191649548581,7.275414534787369,1.700931675276776
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,short (0-2km),Car,161.472716396086,14.1681409056796,1.585172428175158
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,short (0-2km),CarP,33.37138375060839,14.21646155577354,1.593674719073364
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,short (0-2km),PT,113.8547969451375,29.04518770643671,1.673422838859958
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,short (0-2km),Walk,928.9119811988296,18.24771824401141,1.638402737399799
+tallinn,2030,4,road_pricing,2030_4_road_pricing,Origin & destination traffic,short (0-2km),Total,1262.402794786147,18.37766900775525,1.63479813531817
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,long (>10),Bike,662.2585474137034,67.37937752581827,13.03598976490634
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,long (>10),Car,94001.07324890238,40.45198710375276,13.59560352146312
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,long (>10),CarP,19931.96676682593,40.53121774179888,13.64597568669164
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,long (>10),PT,76354.03871536374,55.97604017186764,13.66241744083587
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,long (>10),Walk,0.02371198560392903,153.3268217392231,10.56058684352381
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,long (>10),Total,190949.3609904914,46.76119356629577,13.62563686601201
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,medium (2-10km),Bike,7418.983873554248,22.7142408841077,4.447468764569747
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,medium (2-10km),Car,189255.4130998099,27.05232970972435,6.078955457549172
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,medium (2-10km),CarP,47862.1344396612,26.98182728856288,5.998430118875716
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,medium (2-10km),PT,159357.6593853229,33.60287723335659,5.931923300868084
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,medium (2-10km),Walk,36880.06253434108,35.85546352042989,2.616762005035085
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,medium (2-10km),Total,440774.2533326893,30.07651142863703,5.699907230106097
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,short (0-2km),Bike,3990.045954681415,5.583383561507073,1.16402403977306
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,short (0-2km),Car,24667.48497242529,16.11018435827025,1.298684958859033
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,short (0-2km),CarP,4620.625199271155,16.94605750190239,1.417063832237804
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,short (0-2km),PT,19020.97506278368,15.8978873709876,1.302095575509422
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,short (0-2km),Walk,204411.7349337554,11.85663336351494,0.9145413999083006
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Internal traffic,short (0-2km),Total,256710.866122917,12.55889722204272,0.9930925305783163
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,long (>10),Bike,567.7912817953815,96.72077332332218,18.93006280392288
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,long (>10),Car,173721.8398493797,44.30183616451549,21.41183269776399
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,long (>10),CarP,31587.08600691684,43.54005273139621,20.66058924357377
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,long (>10),PT,165243.9825273748,73.09186346354825,25.62687148904586
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,long (>10),Walk,0.8608855237936425,150.4467639754298,10.59519617540126
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,long (>10),Total,371121.5605509906,57.13636573542818,23.22084041099805
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Bike,317.827552578788,29.22483144714277,6.083106065645188
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Car,19678.85216566878,24.73248664629195,7.121095702873957
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,medium (2-10km),CarP,4535.428157476361,24.88724951927333,7.099506592090185
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,medium (2-10km),PT,40157.03869970326,49.03529011473699,5.914545124821632
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Walk,1193.664742503859,41.81040062751588,3.395295943588698
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Total,65882.81131793105,39.88732916227965,6.311678639963692
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,short (0-2km),Bike,25.10058782019966,7.270350255691532,1.701701410084651
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,short (0-2km),Car,160.1635422279968,14.12470819539023,1.600359541267634
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,short (0-2km),CarP,33.04816791182441,14.1730012801461,1.60678936127663
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,short (0-2km),PT,113.1399796138987,29.04581102283272,1.6734463524234
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,short (0-2km),Walk,917.7568128796447,18.25248469033742,1.639498623760048
+tallinn,2030,5,cycling_optimization,2030_5_cycling_optimization,Origin & destination traffic,short (0-2km),Total,1249.209090453564,18.3722083897948,1.637939666596244
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,long (>10),Bike,420.3924204200547,68.70543161621966,13.22512259298986
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,long (>10),Car,92939.46573598486,40.34133776761927,13.59719279483263
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,long (>10),CarP,19463.90295821987,40.41286244962489,13.64317724145883
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,long (>10),PT,78965.98511722134,53.88817705957776,13.67683952319569
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,long (>10),Walk,0.02309964831303514,153.3346923813442,10.56017549951533
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,long (>10),Total,191789.7693314944,45.98844982855856,13.63383673862077
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,medium (2-10km),Bike,5014.876746717842,21.3822217494408,4.163334885892647
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,medium (2-10km),Car,188410.3028183822,27.00517694651095,6.073562082436951
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,medium (2-10km),CarP,46959.9429464499,26.93199279448397,5.990532959193742
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,medium (2-10km),PT,160453.144185959,32.48571111963255,5.926604410840729
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,medium (2-10km),Walk,36470.36320140286,35.81290855357356,2.614352100783376
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,medium (2-10km),Total,437308.6298989117,29.67824324293145,5.700331255120079
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,short (0-2km),Bike,3727.316627349432,5.583867669332188,1.151817735021195
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,short (0-2km),Car,24522.34387690747,16.09485143013095,1.297259326339369
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,short (0-2km),CarP,4586.158302383581,16.92449109396143,1.414158732762565
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,short (0-2km),PT,19045.52059381169,15.57532380883219,1.303674871483826
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,short (0-2km),Walk,203749.6150772194,11.84805720990743,0.9140112334788792
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Internal traffic,short (0-2km),Total,255630.9544776716,12.53287956618794,0.9922475493428499
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,long (>10),Bike,402.3535880601511,97.90256069588146,19.11161150849255
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,long (>10),Car,172914.7277988353,44.20664389167879,21.37830575386839
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,long (>10),CarP,31013.79289377801,43.42357697715524,20.61840828601211
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,long (>10),PT,167229.048722179,70.0760529005281,25.63705056234978
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,long (>10),Walk,0.8215901590266541,150.4550846095732,10.59624170754288
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,long (>10),Total,371560.7445930115,55.84275692252453,23.22914085792964
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Bike,218.1608311079017,27.42105034985735,5.699194393754043
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Car,19436.34352906796,24.62975334335473,7.089758253277689
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),CarP,4385.367721430668,24.76017405413331,7.068742494644361
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),PT,40785.8268064508,46.89234062656637,5.918047268496182
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Walk,1181.701588224887,41.72137598854258,3.389470613121671
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Total,66007.40047628222,38.70963097170835,6.293523814542066
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Bike,24.24567526966455,7.274882946586027,1.701422101792533
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Car,159.8533873675872,14.16544636826616,1.551129364179145
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,short (0-2km),CarP,32.96838166898372,14.21595950856553,1.558871811311199
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,short (0-2km),PT,117.6407236338059,28.59462592059489,1.686271909636524
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Walk,911.51215020869,18.24406132519769,1.639431291882272
+tallinn,2030,6,public_transport_optimization,2030_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Total,1246.220318148731,18.37799619603997,1.63160129216232
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,long (>10),Bike,433.7796518293871,68.87769595375593,13.27490250724629
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,long (>10),Car,94699.23977601585,40.46489749514685,13.61971363217396
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,long (>10),CarP,20445.15310958177,40.47456921572453,13.70855249532243
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,long (>10),PT,76727.25386495142,56.2913494800671,13.78771756304074
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,long (>10),Walk,0.02366126813546484,153.3335190253396,10.56158441606646
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,long (>10),Total,192305.4500636466,46.84456849806452,13.69541174681047
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,medium (2-10km),Bike,5002.097294216936,21.34486088013552,4.157240269580596
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,medium (2-10km),Car,187504.6531641357,27.05358787696477,6.078016729484897
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,medium (2-10km),CarP,46942.07193129143,26.9754510673262,5.994787099949678
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,medium (2-10km),PT,155983.6206978369,33.59920781748274,5.92521960382721
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,medium (2-10km),Walk,36499.36783694698,35.82575651498492,2.615702867691219
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,medium (2-10km),Total,431931.8109244279,30.08407686428088,5.698973107437663
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,short (0-2km),Bike,3721.47610368539,5.57620093967292,1.149902149110383
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,short (0-2km),Car,25020.82286740098,16.11222296545684,1.299814206987701
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,short (0-2km),CarP,4641.311533135036,16.94259111641571,1.418065473094167
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,short (0-2km),PT,18821.55572439373,15.87700315287093,1.299792769493381
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,short (0-2km),Walk,209528.4682837332,11.74758697968865,0.9076808329154122
+tallinn,2030,7,15min_city,2030_7_15min_city,Internal traffic,short (0-2km),Total,261733.6345123484,12.466156405371,0.9858592884757932
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,long (>10),Bike,400.8362459527655,97.71507614822687,19.0754654446173
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,long (>10),Car,173791.6407454231,44.27843430944379,21.3892071837558
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,long (>10),CarP,31562.63378615912,43.49571817259343,20.62825660292932
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,long (>10),PT,165019.0774110373,73.08767994548082,25.62935724826682
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,long (>10),Walk,0.8442914776559021,150.4615405761639,10.59649372921986
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,long (>10),Total,370775.03248005,57.09180934606835,23.2090479075388
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,medium (2-10km),Bike,222.4506579408841,27.31111677732798,5.676593148774675
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,medium (2-10km),Car,19718.41593015445,24.63912245279285,7.079763251554178
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,medium (2-10km),CarP,4477.513292236943,24.76474308954782,7.036886840585465
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,medium (2-10km),PT,40163.70793365967,49.02454394243751,5.911654497582106
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,medium (2-10km),Walk,1206.402465125002,41.73839793461931,3.390450292706154
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,medium (2-10km),Total,65788.49027911694,39.85750495953607,6.291320004566878
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,short (0-2km),Bike,25.007422243849,7.287903381048371,1.695673730287748
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,short (0-2km),Car,168.6708421196763,14.070231855852,1.480702519543169
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,short (0-2km),CarP,34.34850391157929,14.13522910603362,1.490137938126552
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,short (0-2km),PT,113.2303323425105,28.94574015252845,1.667835882983884
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,short (0-2km),Walk,946.4131075473931,18.18715432130857,1.622306441674106
+tallinn,2030,7,15min_city,2030_7_15min_city,Origin & destination traffic,short (0-2km),Total,1287.670208165008,18.27417484084292,1.605660717883706
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,long (>10),Bike,423.3499461035777,68.70488622911304,13.22523905598714
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,long (>10),Car,94458.08613943166,40.45157080127179,13.58306251236681
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,long (>10),CarP,20230.86155395821,40.53602432079625,13.6366265175975
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,long (>10),PT,76134.0913447989,55.97844101671875,13.6641575349086
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,long (>10),Walk,0.02362995896763552,153.3364354847993,10.56091707734811
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,long (>10),Total,191246.4126142513,46.70421843750859,13.62021973679063
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Bike,5059.537916656556,21.38422930722382,4.163758873942282
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Car,189177.6831138904,27.0463773900717,6.073249808980228
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,medium (2-10km),CarP,47675.33775767454,26.98956976366195,5.998689517456191
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,medium (2-10km),PT,158337.8411702911,33.59279011491825,5.929248066750104
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Walk,36765.81556310703,35.82756901497964,2.61513445928483
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Total,437016.2155216197,30.0852494206925,5.699906259687346
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,short (0-2km),Bike,3749.895682247949,5.585085888634302,1.152034870664944
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,short (0-2km),Car,24984.993858215,16.14190021177361,1.29808180518286
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,short (0-2km),CarP,4699.188790797495,16.97912213571602,1.415332309959174
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,short (0-2km),PT,19032.31910345599,15.89724030183457,1.30195675332754
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,short (0-2km),Walk,204632.3235505145,11.85459700065356,0.9144250514715978
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Internal traffic,short (0-2km),Total,257098.7209852309,12.57272667257188,0.9930180463317073
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Bike,403.8630881093637,97.78747002648642,19.08942148753169
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Car,173861.0216982346,44.30518283829311,21.40406405767787
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,long (>10),CarP,31986.98024950337,43.58763467711699,20.67423386761578
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,long (>10),PT,165048.1496815737,73.0893163582889,25.63163728940672
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Walk,0.8408195875825106,150.4835141407856,10.59702808943059
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Total,371300.8555370086,57.09670891872082,23.21786055224127
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Bike,220.2516582856207,27.41482349827522,5.69779505037543
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Car,19595.61839297262,24.71154593901655,7.102874748986375
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),CarP,4489.375923713525,24.84516739210199,7.069900397252043
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),PT,40121.12292142042,49.04035382861885,5.913241471696401
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Walk,1191.097844820442,41.7360807989895,3.390418436077535
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Total,65617.46674121263,39.9143921702655,6.301124396983902
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Bike,24.42886110011635,7.277759302200992,1.701621864191103
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Car,188.3923300741065,14.64673495938925,1.637463830184442
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),CarP,43.34713296835314,15.07116072024782,1.668341644920126
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),PT,113.0985631385853,29.04494653728443,1.673351660582073
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Walk,917.6609623248786,18.24974880613608,1.639401292438776
+tallinn,2030,8,car_occupancy_bonus,2030_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Total,1286.92784960604,18.35567960121479,1.6442571931332
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,long (>10),Bike,422.7011309302536,68.70538681161415,13.22535194017153
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,long (>10),Car,94780.2339071652,40.48000668772036,13.58807904063824
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,long (>10),CarP,20067.60634892389,40.56013013661205,13.63745456005064
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,long (>10),PT,75973.79531588891,55.97665010703567,13.66369355217787
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,long (>10),Walk,0.02357822963976865,153.3417521643735,10.56095505372103
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,long (>10),Total,191244.3602811379,46.70701521483648,13.62249664840444
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,medium (2-10km),Bike,5052.552048236559,21.38263581771158,4.16343100943918
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,medium (2-10km),Car,189713.489410099,27.06972980480533,6.071332741852651
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,medium (2-10km),CarP,47480.1278403871,27.00055526687983,5.991463488187078
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,medium (2-10km),PT,158193.1562494597,33.59064532545595,5.928585436428535
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,medium (2-10km),Walk,36727.36050914359,35.82631950269887,2.615021816524037
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,medium (2-10km),Total,437166.686057326,30.09180793283256,5.698580643957178
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,short (0-2km),Bike,3746.597892741908,5.58522593780145,1.152066024531888
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,short (0-2km),Car,24860.31870851539,16.11856634172783,1.303079775354046
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,short (0-2km),CarP,4624.416775138249,16.94166002535805,1.417989150762804
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,short (0-2km),PT,19027.85573923255,15.89711128992514,1.30196694068461
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,short (0-2km),Walk,204525.5202707162,11.85449046509008,0.9144123075491142
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Internal traffic,short (0-2km),Total,256784.7093863443,12.56701525122951,0.9932950141425908
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,long (>10),Bike,403.8514083169425,97.83156426444238,19.09835944680105
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,long (>10),Car,174392.1138167899,44.35378172053348,21.41977924215746
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,long (>10),CarP,31726.20969921299,43.59892671425814,20.6768715873076
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,long (>10),PT,164911.6828725631,73.08426051456827,25.6324563991143
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,long (>10),Walk,0.8384628294583724,150.4871350333287,10.59706196136475
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,long (>10),Total,371434.6962597124,57.10361105470971,23.22414339810917
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Bike,219.7873464468313,27.41508888752436,5.697909070674076
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Car,19657.54631697208,24.70984338993308,7.093884389275443
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,medium (2-10km),CarP,4499.186632750629,24.86546177005378,7.064287792200598
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,medium (2-10km),PT,40114.03262715798,49.04151570322095,5.912991779664068
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Walk,1189.551370218817,41.73501830358997,3.390413474674927
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Total,65680.10429354633,39.89843912665416,6.298882425458611
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,short (0-2km),Bike,24.40860532736277,7.279042542711114,1.70178564151321
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,short (0-2km),Car,160.4459490593472,14.16403450501719,1.602056253735083
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,short (0-2km),CarP,33.06820176403436,14.21162886772485,1.609535355158071
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,short (0-2km),PT,113.0445877665328,29.04462747579208,1.673317402208917
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,short (0-2km),Walk,916.8773959054557,18.25167097628286,1.639496517553011
+tallinn,2030,9,fleet_transformation,2030_9_fleet_transformation,Origin & destination traffic,short (0-2km),Total,1247.844739822733,18.38214964531232,1.638170838351977
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Bike,803.0589392556474,67.54776496145554,13.07974194262856
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Car,65808.09126319826,39.85914871400431,13.61890884191364
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),CarP,14045.20974393408,39.61042169908142,13.63015076183442
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),PT,108224.0036617693,54.41534586253638,13.84043959443317
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Walk,0.04973110658914962,153.6293149222957,10.56900911806384
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Total,188880.4133392639,48.29876259952,13.74438350179487
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Bike,9574.83308423973,22.93311833385793,4.482848907937262
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Car,135920.7128580096,26.41539648965787,5.940527410718242
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),CarP,35383.72505489957,26.22432979846542,5.848650143261332
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),PT,200694.0338853466,32.89488026389173,6.064191675526499
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Walk,47802.97791329914,36.63540471698678,2.661795970590245
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Total,429376.2827957947,30.48836872967124,5.593227290137833
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Bike,4591.237252130204,5.652090169363136,1.17089856773274
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Car,20256.8433425989,16.02951063630091,1.293155567548312
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),CarP,3773.024667422435,16.82660641192642,1.404222484712024
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),PT,19483.66197573605,15.60239703768891,1.309151150190069
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Walk,226960.7487526588,12.07147786133731,0.9294988286023402
+tallinn,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Total,275065.5159905464,12.57114344274953,0.9937127035022223
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Bike,703.4226149491784,98.08053017436517,19.19786380337433
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Car,155858.6080760798,43.5912515148981,21.40077585076565
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),CarP,27949.3741488042,42.36821048575838,20.56978899570681
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),PT,182884.1954231501,70.23636546532892,25.26845194003936
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Walk,1.038796627271348,150.6426180779715,10.59728230455305
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Total,367396.6390596105,56.86635169932973,23.25857854645966
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Bike,390.3150581868942,29.48000622122436,6.123133764309116
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Car,18834.51055500257,24.61585018750992,7.083987841465717
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),CarP,4309.39022937854,24.64319245062118,7.037436266686123
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),PT,41869.47799886313,46.76732245930474,5.956341776594845
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Walk,1304.565165827919,42.22537236808287,3.423513416849384
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Total,66708.25900725905,38.89383834296718,6.296005588185717
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Bike,27.85058040321665,7.288925697900654,1.696513454641251
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Car,161.1487134994411,14.06727203915666,1.540593060893087
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),CarP,33.19630101430912,14.10064128562093,1.544647316809902
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),PT,123.4291791127094,28.49771800847,1.683808521261491
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Walk,996.9400809383549,18.2303738877813,1.626304285118601
+tallinn,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Total,1342.564854968031,18.34552200873011,1.620740385538481
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Bike,453.7421585796488,68.69804073479673,13.2238861247281
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Car,99549.21628747524,41.16693779270529,13.59354041736409
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,long (>10),CarP,20927.29891423983,41.21593211433989,13.62248647478111
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,long (>10),PT,82444.593074629,56.00848771740669,13.67305505366821
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Walk,0.02550201907799875,153.3467467005562,10.56152590843187
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Total,203374.8759369428,47.24991997102003,13.62792770113327
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Bike,5427.560187180189,21.39449610513928,4.165708293067258
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Car,200133.0877514427,27.36236265009515,6.050928856912354
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),CarP,49905.14769865918,27.27586816906529,5.962395349267889
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),PT,169838.2662018268,33.61720835989886,5.936413174603526
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Walk,39333.948827296,35.83748107144739,2.615840933294743
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Total,464638.0106664049,30.28714391872604,5.686741813432961
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Bike,4009.062615158172,5.584652908048509,1.151967645549746
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Car,26532.64353463594,16.16639306997999,1.300853945586412
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),CarP,4966.392224345189,16.979976072239,1.418635630367432
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),PT,20284.50128074324,15.89925574920453,1.302078893067422
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Walk,218269.0406685646,11.85637746256093,0.9145837395591293
+tallinn,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Total,274061.6403234472,12.57397493860055,0.9932664838164699
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Bike,425.725643302941,97.87345483216616,19.10611848556334
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Car,180873.0858165555,44.83581563840858,21.54369162654723
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),CarP,32674.04744832434,44.0175933592658,20.7630985477459
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),PT,175731.0565673184,73.16516543517187,25.65115707761636
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Walk,0.8544601646178965,150.4979652876854,10.5974416871594
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Total,389704.7699356658,57.60004663835852,23.32775246270855
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Bike,228.154773562074,27.46607113395606,5.708881565947044
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Car,20083.3341245433,24.86909321233753,7.113073537305714
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),CarP,4588.106889607531,24.9716005543444,7.069866389973058
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),PT,42472.04746920159,49.0651132049618,5.911188577433404
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Walk,1217.203121666153,41.64432662787949,3.386460100765472
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Total,68588.84637858064,40.16511084665577,6.295139198851001
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Bike,25.03285043968505,7.292055888739277,1.701112161946244
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Car,173.588066451405,14.26267005561163,1.590696435066756
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),CarP,35.27367459078648,14.27267910113962,1.594121912560107
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),PT,114.8453689561912,29.02574993932109,1.67477262187612
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Walk,938.4680484949054,18.26221865250576,1.637106945978174
+tallinn,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Total,1287.208008932973,18.36051484841825,1.63427555473159
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Bike,471.2548609721495,68.61181771529363,13.2082103426082
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Car,94444.95013753581,45.18372368818847,13.65029947366358
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),CarP,19459.05450284488,45.0852703872036,13.66253329412045
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),PT,86228.2416883315,56.11962919148621,13.70520663702543
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Walk,0.06688869273288463,153.975370777279,10.5882774337168
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Total,200603.5680783771,49.92998011779446,13.67404813033418
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Bike,5746.222508645787,21.51272721338014,4.187397018464564
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Car,193008.74233762,28.93776316991209,6.021486085691095
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),CarP,48224.40711817778,28.78372389051715,5.940424696180546
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),PT,172887.4713227034,33.7119292221077,5.962364925319576
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Walk,47581.73430880477,36.56014920904317,2.658574814606514
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Total,467448.5775959518,31.37222449171517,5.626399462894605
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Bike,3956.387150867664,5.59459441518829,1.153540541741036
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Car,25985.78771712083,16.39177773410488,1.30893027085946
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),CarP,4850.999066836208,17.22346619734781,1.421732256727292
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),PT,19300.20398570454,15.89989557111582,1.30265124672729
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Walk,222730.3089130651,12.14780124145918,0.9349160877116998
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Total,276823.6868335943,12.80307132656398,1.007319301251144
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Bike,433.9297509617973,97.89770345527738,19.1110495287771
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Car,177117.284435641,47.03394277191933,21.71287584717659
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),CarP,31650.41857145357,46.00420008071274,20.86034168711613
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),PT,177868.9972836565,73.23541551554835,25.60643659621727
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Walk,0.8790095792438373,150.5597307626053,10.59866659740815
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Total,387071.5090512921,59.04722736532564,23.42941113433373
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Bike,232.1735575714713,27.52714766223934,5.72043202192811
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Car,20097.25503252446,25.74743843315767,7.118815861807025
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),CarP,4559.988812707859,25.69581737434101,7.091676951371518
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),PT,42551.7222016849,49.05649665309528,5.914734399014922
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Walk,1226.301556744997,41.71419358196881,3.390768985077146
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Total,68667.44116123367,40.47928834220005,6.299564852463027
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Bike,25.35151625843,7.298012669985776,1.702389724637291
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Car,213.9156244760351,14.62623881079491,1.666658093206049
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),CarP,48.38322327120845,15.02883329675511,1.694297519939461
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),PT,115.0826226086786,29.02980343797477,1.67515198617036
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Walk,946.0605256477583,18.28381995993294,1.638491568922161
+tallinn,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Total,1348.79351226211,18.29736435113474,1.649289532719718
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Bike,472.100064946043,68.71063421082535,13.22605515444783
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Car,97143.68887974953,40.72886303908376,13.58774427959636
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),CarP,20213.934845831,40.79451901715974,13.6297787410271
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),PT,85426.60337832435,56.01820043031564,13.66987971296147
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Walk,0.02648318567758793,153.3209575537804,10.56194996966279
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Total,203256.3536520366,47.22635490566982,13.62560483954253
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Bike,5677.462182795238,21.37141819305922,4.161765628314543
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Car,193733.3840172759,27.1947659650443,6.072920549982544
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),CarP,47413.67534728607,27.12915515862751,5.992363715170372
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),PT,175610.2285940527,33.63991003502137,5.937959631126254
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Walk,40858.9547249475,35.86739494510447,2.618093920656283
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Total,463293.7048663574,30.32456262930864,5.685410151800873
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Bike,4125.805035902937,5.595981718096043,1.154095010769005
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Car,24909.28459178159,16.11740321989946,1.30301029989381
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),CarP,4533.706635227763,16.97976451067502,1.425335265349402
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),PT,20616.06230244456,15.91915528531099,1.303865032135569
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Walk,221989.4994632278,11.89386528833512,0.9173364027081601
+tallinn,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Total,276174.3580285846,12.56469177022815,0.9928520913880259
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Bike,446.2673134005273,97.98356228281165,19.12695105639052
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Car,175930.128481328,44.52752239980664,21.48017058669359
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),CarP,31840.8805156638,43.77508118646575,20.74786653479871
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),PT,170208.9598450111,73.15755487082437,25.52487640975436
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Walk,0.8926396434333354,150.4539798471575,10.59708236029851
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Total,378427.1287950468,57.40471730236824,23.23498157946135
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Bike,242.3267726499735,27.40718754784378,5.696918270326242
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Car,19395.48273435366,24.73140352949051,7.101092032484605
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),CarP,4338.777953637107,24.82674027787564,7.063207624502918
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),PT,40634.6685705183,48.95938167229104,5.9287038188209
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Walk,1273.175988662757,41.51620501121465,3.377728789331165
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Total,65884.43201982179,40.01464869690825,6.298402497410379
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Bike,26.28346002041326,7.296671784488709,1.70107562960958
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Car,164.0285026441567,14.24875264318849,1.614096390321112
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),CarP,32.35629311247704,14.27070716625971,1.619473765481558
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),PT,119.7799150616033,29.0457444247181,1.67546590080566
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Walk,977.9141651924391,18.2769427885625,1.637816913040315
+tallinn,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Total,1320.362336031089,18.43668810513566,1.63909526851588
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Bike,554.049124733049,68.1524611204103,13.12034997290677
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Car,68932.24486261043,37.65177205120756,13.41868815207023
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),CarP,13775.14435541913,37.41602162928062,13.28014889554256
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),PT,115682.9837451651,56.29959685277154,13.73346526905429
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Walk,0.03513492884086963,153.3667422983821,10.55211454804999
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Total,198944.4572228566,48.56382003350488,13.59130197406522
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Bike,7485.968230043663,21.83958164597651,4.245340138742541
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Car,144036.8208152504,25.59952795086939,5.893155266196247
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),CarP,37955.29343311948,25.53779750508034,5.765204605350899
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),PT,220094.9235923424,34.07079655855433,6.096100277930359
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Walk,47931.25081692635,36.42258715513805,2.646550281595999
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Total,457504.2568876823,30.74211648655092,5.61307357163138
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Bike,4725.217313438445,5.668172784174148,1.16437903188921
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Car,22739.08171200792,15.92132999640357,1.295789770312532
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),CarP,4330.041012444995,16.64932527170532,1.39930020793997
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),PT,21541.40358047857,15.94207716953321,1.310287928797646
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Walk,236553.7936231992,12.07189732038396,0.9281079385415156
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Total,289889.5372415692,12.62542930523263,0.9962378715059068
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Bike,546.8610016189369,99.22438305578014,19.38037283873298
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Car,162651.1738282918,42.47986003518462,21.29897073030985
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),CarP,29579.9306927714,41.23613467684627,20.35880805742032
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),PT,194306.4818812736,73.41444490255057,25.27579707175195
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Walk,1.030686256756991,150.846591260172,10.60265261664611
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Total,387085.4780902125,57.99360168356424,23.22064694898799
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Bike,281.0967663204231,28.17943970751839,5.851820920006158
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Car,19421.81817156427,24.19935008568007,7.074433828087312
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),CarP,4557.528302395665,24.41717798084832,7.052790449747479
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),PT,43516.64806492769,48.95576507788994,5.95291772491711
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Walk,1296.843871190088,42.18664089627382,3.423588178827888
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Total,69073.93517639812,40.16419197163612,6.292930485732189
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Bike,26.34105275294917,7.294785156293266,1.701610960564099
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Car,165.0578126980058,14.16733254039708,1.541880951671662
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),CarP,34.54357495734966,14.2080939814346,1.546175723218324
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),PT,116.300605562658,29.01233180585729,1.674553125530553
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Walk,983.2784514835523,18.28364894714247,1.636334078406836
+tallinn,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Total,1325.521497454515,18.38781900541209,1.626873456074422
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Bike,483.4825540135744,68.64128781867382,13.21278772138311
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Car,88018.12555449145,39.79810212816258,13.49709857752194
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),CarP,17307.51797388478,39.74033400813575,13.47841849779938
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),PT,95242.45718139045,56.2814677795479,13.74838732067388
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Walk,0.02940346915729215,153.3658205855199,10.56397222803056
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Total,201051.6126672494,47.67103047651535,13.61384723549048
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Bike,5829.221924430842,21.47431547999195,4.180969369871546
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Car,189442.2612404171,26.72646939295598,6.005459536091234
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),CarP,46724.43901891429,26.60999459098262,5.894734255338695
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),PT,181658.101841473,33.79990481015505,5.989677231939245
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Walk,41386.1431033019,35.93316267531788,2.622568639375716
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Total,465040.1671285371,30.23136703786453,5.664240140237172
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Bike,4181.439735179983,5.584346547455876,1.151824357525979
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Car,25922.58060318286,16.11741195672319,1.300692960325147
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),CarP,4936.720066194606,16.90686956304579,1.411772246480587
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),PT,20648.19395234891,15.91618648377804,1.303251459488965
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Walk,223643.3871755413,11.87617041907672,0.9161168905453118
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Total,279332.3215324477,12.56312719839431,0.9927114715971123
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Bike,441.3742021040509,97.47688661048635,19.02615039799803
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Car,171831.3717135446,43.86572238930281,21.34964961530882
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),CarP,29734.15267932884,42.8518351882073,20.52253759981211
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),PT,184054.9112784473,73.37976341705077,25.51221293857926
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Walk,0.9689774053152943,150.5594278986759,10.59833074698096
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Total,386062.77885083,57.91997312739847,23.26775941084471
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Bike,246.7362318513273,27.58379412792364,5.730626867652678
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Car,20052.10647959685,24.63363630392157,7.113519532935701
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),CarP,4495.647795844336,24.72540018100297,7.069263265028498
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),PT,42895.85133438426,49.01376176883785,5.927379742277266
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Walk,1271.085378521124,41.84713730765186,3.399805730088701
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Total,68961.42722019789,40.13253995015064,6.299425393381615
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Bike,26.07957376624472,7.284248551493429,1.69905035391924
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Car,165.40649925509,14.1488271947958,1.549026822553144
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),CarP,34.33917585585968,14.18843316199385,1.55508197499098
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),PT,116.8788903949811,29.02599737285956,1.674697629929593
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Walk,971.0026548892453,18.25602060946797,1.634300841566074
+tallinn,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Total,1313.706794161421,18.37294906754011,1.626372880687847
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Bike,4103.653671087375,66.50652223482079,12.97032878299206
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Car,97924.34288892918,40.97113842958315,13.58121094363409
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),CarP,21667.5049950885,40.99089031043068,13.58780464580673
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),PT,84435.19293382991,55.94770564654582,13.64409375265449
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Walk,0.02641552682945611,153.275124976962,10.5582811587217
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Total,208130.7209044618,47.55242853677672,13.59536292706267
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Bike,20357.60181044201,27.26917067136976,5.343884397312401
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Car,196257.1151591336,27.27514461140644,6.070644885589446
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),CarP,52343.57503904642,27.21276996567814,5.998647670292517
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),PT,175164.5564715728,33.72301110259198,5.969037672228855
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Walk,39490.60795994771,35.97020809893339,2.623568803510854
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Total,483613.4564401425,30.31357224587274,5.713978207678569
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Bike,4688.314091634165,5.406834902252976,1.145811811749371
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Car,25383.27267825947,16.11517204537,1.293346941673583
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),CarP,4830.797565113509,16.94115031998169,1.412374971360923
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),PT,20116.01469024333,15.89732766699816,1.302332514117636
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Walk,215874.5508778336,11.8581640631985,0.9145575246986521
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Total,270892.949903084,12.53598786436701,0.9917262014463917
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Bike,2131.648646942599,91.31177606885448,17.94023117921605
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Car,179259.5553076228,44.67327946173914,21.5045855721862
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),CarP,33052.71460677745,43.82032423262503,20.66817372654288
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),PT,175926.404862925,73.12353761267552,25.61841672150802
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Walk,1.038825331161858,150.3918660315061,10.59030545120935
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Total,390371.362249599,57.67752708440145,23.26823070503707
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Bike,849.4294262879085,33.53147342739972,6.924664780495759
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Car,19772.96490812677,24.80121103191919,7.0942751276556
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),CarP,4717.124069958335,24.95633276977207,7.074756556741458
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),PT,42613.65452745171,49.05095418098583,5.917564714516757
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Walk,1217.791551537082,42.09470315342129,3.414568212459234
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Total,69170.96448336181,40.16282299921839,6.301150570724502
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Bike,24.24079387296977,7.409270253287909,1.671503382356
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Car,171.1727389007194,14.26577320821931,1.60093287953924
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),CarP,35.02599850349042,14.27283691146582,1.60403038523354
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),PT,114.352416523518,29.02822741553881,1.674874449388476
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Walk,929.7574194277345,18.27117553482201,1.637833112001729
+tallinn,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Total,1274.549367228432,18.3819065779485,1.635912176138369
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Bike,443.1796909696864,68.69929008703977,13.22363089040999
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Car,96042.56750787888,40.70168300043515,13.57029665078104
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),CarP,19680.10790594722,40.71649497635894,13.59103781361395
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),PT,90114.81793003992,49.93874213194241,13.70550591246101
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Walk,0.0236583745875777,153.3316113226413,10.55900260190956
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Total,206280.6966932103,44.79851829415971,13.63059720266941
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Bike,5278.79723601057,21.3863599363486,4.163974327171458
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Car,194910.7404911522,27.15341474121415,6.048924172460767
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),CarP,48209.470513151,27.04859618064927,5.951449947264704
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),PT,176121.8441077161,30.65659308136823,5.956133720249345
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Walk,38431.85517041302,35.79543419154553,2.613306597972817
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Total,462952.7075184429,29.12687486855587,5.696773663836881
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Bike,3934.508763352478,5.58300762142154,1.151591883477268
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Car,25868.64392728013,16.15181775175105,1.298367729428276
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),CarP,4884.880193468864,16.9675903395059,1.416234406110173
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),PT,20303.72373030839,15.16249112399078,1.305078669085555
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Walk,215411.5320128823,11.84260812617337,0.9136520447822035
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Total,270403.2886272921,12.5056395138152,0.9923889647764406
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Bike,421.2972905748466,98.32642768736287,19.19471511835691
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Car,176992.2935147634,44.48953049905744,21.47107589406036
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),CarP,30770.40423731416,43.6501107359808,20.67426463274905
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),PT,183356.0822001826,64.29042082655994,25.61937285306803
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Walk,0.7909950220925104,150.4075851198582,10.59483481208911
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Total,391540.8682378571,53.75433477093318,23.34860568864842
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Bike,220.8795222512283,27.4780600928757,5.71171655807859
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Car,19840.09428404642,24.77384711515529,7.102951126785792
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),CarP,4429.595993827343,24.91601690342281,7.070798015638532
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),PT,43441.7929660853,42.89595955776367,5.928006953142556
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Walk,1182.373287451292,41.62781188759116,3.385404258950863
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Total,69114.73605366159,36.47051038450441,6.294340208771072
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Bike,24.38912314149201,7.279807040492616,1.699999771814718
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Car,160.1768519076024,14.11529184143972,1.573334537207656
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),CarP,33.04837081569789,14.15814252076563,1.580255603623737
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),PT,137.6092038925699,26.0936414411075,1.678145139338999
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Walk,918.3267936772974,18.23782275093902,1.636768571450013
+tallinn,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Total,1273.55034343466,18.25243996131811,1.633005567222521
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Bike,461.4216241873895,69.01831832164525,13.299893853971
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Car,98807.76630738359,41.05759172465687,13.64618533373362
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),CarP,21322.93456952015,41.05641647210805,13.7311376011274
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),PT,82018.73905396891,56.38980005177515,13.82533230915455
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Walk,0.02510407586326421,153.3828417750003,10.56303582686239
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Total,202610.8866591359,47.327777195532,13.72685709407872
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Bike,5287.389030154669,21.17727106538689,4.126230020243752
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Car,192328.6739618854,27.24763558986674,6.062112233322988
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),CarP,48280.31961824179,27.21763838184142,5.996796017872685
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),PT,161621.5627228773,33.69008692628795,5.946651250201686
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Walk,49790.15400529003,35.21407319426683,2.572823328749081
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Total,457308.0993384492,30.31852927488951,5.612125743063446
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Bike,3846.252358143632,5.581007054266117,1.150427534378833
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Car,25241.51023475977,16.13388603491822,1.298058577142389
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),CarP,4577.540098629242,16.93284472574146,1.411549341110344
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),PT,18641.54202857611,15.84149677735765,1.296371568527907
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Walk,232462.238853551,12.28589808201174,0.9435408501505387
+tallinn,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Total,284769.0835736598,12.84387210605204,1.008379129991567
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Bike,412.5926362727885,97.78488311312488,19.08879528960887
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Car,179530.1374185049,44.67894931493459,21.49623647393466
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),CarP,32431.46975268833,43.83621028862359,20.69238043967215
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),PT,174781.0089872498,73.13931343682455,25.65236921229221
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Walk,0.856493642363882,150.4455874807577,10.59624365796265
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Total,387156.0652883582,57.513570914126,23.30258867981845
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Bike,229.0125342849529,27.31245351250367,5.676925564754609
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Car,20238.10729510765,24.76441120686618,7.070636909663382
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),CarP,4607.670228649487,24.89124638773713,7.031761965091179
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),PT,42486.53678260419,49.05201440863228,5.908132275288421
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Walk,1230.778045166565,41.72881830868987,3.391380880686949
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Total,68792.10488581283,40.08511576541218,6.279594916784078
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Bike,25.86436169707629,7.320487527445175,1.695571617778345
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Car,169.5240988723774,14.05735617656787,1.492275513527581
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),CarP,34.73479119357439,14.10456089426395,1.497828758315171
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),PT,114.4534989147264,28.94299144411925,1.671593808982037
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Walk,962.4177858164269,18.28829534331399,1.626758789686312
+tallinn,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Total,1306.994536494181,18.34432052633382,1.611177095466211
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Bike,452.7281034898347,68.69837542200656,13.22395108785514
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Car,99254.20801658533,41.13645508654196,13.58984180031282
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),CarP,21768.92734555628,41.2057748634608,13.62887855741386
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),PT,81966.37287900544,55.99333877308433,13.66860132088343
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Walk,0.02535613085925368,153.3441373049836,10.56133037842756
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Total,203442.2617007677,47.19102199921672,13.62493625266823
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Bike,5414.07158266337,21.39278813693267,4.165416068184515
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Car,199890.4038295882,27.32804354180399,6.046400890657067
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),CarP,51022.00159966508,27.26506753775262,5.967390613231764
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),PT,169322.2265134521,33.60902741297222,5.934101908223737
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Walk,39275.18884592786,35.83476597869673,2.615707199212647
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Total,464923.8923712966,30.25812794245552,5.685114004616312
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Bike,4002.568787026379,5.584276576947866,1.151907816119386
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Car,26216.32409032473,16.14072210534634,1.297373678977763
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),CarP,4949.764147212051,16.97566818104585,1.413927831974559
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),PT,20263.03819228451,15.89839221737857,1.301974104238604
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Walk,218075.689390495,11.85499103219699,0.9144973336369703
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Total,273507.3846073427,12.56625111721769,0.9924161874532405
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Bike,425.2068245530318,97.90487176548159,19.11244780915473
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Car,180471.9962541509,44.7966340059279,21.52830863715169
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),CarP,33998.9710326104,44.13730325713399,20.83494784890554
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),PT,175083.6783317988,73.14496155065234,25.65874804852044
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Walk,0.8480361950469559,150.4961318809965,10.59731880953621
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Total,389980.7004793082,57.52440363681137,23.31958307885999
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Bike,227.3738681165731,27.46110425522189,5.707974183487513
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Car,19991.74823451885,24.83053379688388,7.0983758601192
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),CarP,4654.156327469282,24.96877566437497,7.075457977267269
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),PT,42440.2098855794,49.06864956824196,5.909914678573324
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Walk,1214.886194458849,41.6298791369825,3.385521339260675
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Total,68528.37451014295,40.15734612896907,6.290359582221946
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Bike,24.98666871047315,7.292278999036697,1.701148583070866
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Car,162.4725918639152,14.11003214830353,1.578124064992787
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),CarP,33.70708394351227,14.15583867026513,1.584123792511598
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),PT,114.6630185123734,29.02548469395194,1.674595699915713
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Walk,937.3610162583653,18.26307671161822,1.637161729763661
+tallinn,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Total,1273.190379288639,18.37832072257295,1.632850790577032
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Bike,449.436980442009,68.70239498135118,13.22471939273214
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Car,101210.2935713703,41.31906647297514,13.57383387754885
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),CarP,21411.68862348024,41.38966529268964,13.61317164722604
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),PT,81065.57597106394,55.9774503224865,13.66393596676828
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Walk,0.02506983668113378,153.3525112312377,10.56116357431971
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Total,204137.0202161931,47.20781637917444,13.61297173377278
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Bike,5376.566645235665,21.38527187616166,4.163895127531957
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Car,200673.6209586655,27.41408926535421,6.048795864219994
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),CarP,50119.80118688111,27.33042330505617,5.962055401277044
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),PT,168465.9507292832,33.59753005927499,5.930602100752808
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Walk,39073.5290153143,35.82785182316526,2.615120450687794
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Total,463709.4685353799,30.29056054377868,5.685294229558531
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Bike,3985.018079942288,5.584826981140528,1.152005044017863
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Car,26523.06760869147,16.1630432997436,1.301141584560667
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),CarP,4955.767411695793,16.98735897706498,1.418715800833745
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),PT,20233.37583515821,15.89697505645804,1.301924949575863
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Walk,217521.4212115668,11.85388776258243,0.9143866400421332
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Total,273218.6501470545,12.57329435173492,0.9932443148493675
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Bike,424.907111433579,98.13058081971263,19.15800754097628
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Car,182722.1476298566,45.00910772740112,21.58898474068078
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),CarP,33376.27589817808,44.22291639559314,20.83030686930442
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),PT,174233.6748754654,73.11671546257209,25.66577783191627
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Walk,0.8357255563051346,150.4939689994783,10.59714164884524
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Total,390757.8412404899,57.53275019968877,23.33930323001588
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Bike,225.0659673285599,27.45203844049674,5.706358051773976
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Car,20064.42118907182,24.89897820297548,7.101483428772124
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),CarP,4586.2320153739,25.01886726476268,7.065851683024849
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),PT,42400.04796421023,49.07383766575234,5.908505596342478
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Walk,1206.936421077789,41.62570998977743,3.38529889111677
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Total,68482.7035570623,40.17769376511009,6.290403789801017
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Bike,24.82692573282812,7.292301048538906,1.701206354106038
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Car,180.8549324619018,14.51293314299601,1.604461618008457
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),CarP,42.73354136153025,15.01859434027098,1.647015002267628
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),PT,114.1771382809014,29.02379747987597,1.674394519002178
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Walk,931.9765883839847,18.26117954347535,1.637216275061198
+tallinn,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Total,1294.569126221146,18.36937414141304,1.637470008491265
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Bike,7094.910321688039,66.86622165978582,13.03598919666915
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Car,49389.49326473913,38.64284316085693,13.53916347727974
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),CarP,12594.74397169144,38.34326481160001,13.51343407017612
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),PT,140677.3248730015,50.50541622093614,13.88198658009636
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Walk,0.09219487108147077,153.9146684895836,10.5772889974876
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Total,209756.5646259912,47.5354129920613,13.75051863713465
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Bike,31507.11766004813,28.26089952883898,5.528881748974928
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Car,111753.4227234586,25.83719922342645,5.841480133842865
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),CarP,35407.23784703136,25.8252861682201,5.815051934955409
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),PT,241150.5126028135,31.2939033514169,6.181373403992949
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Walk,57344.34843658793,37.27584170507927,2.700718790834601
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Total,477162.6392699395,30.12875587829257,5.613205136735802
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Bike,5745.999029019269,5.368924481688237,1.136411263406994
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Car,18112.99414938957,15.94226691030815,1.301724760718653
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),CarP,3689.574364791715,16.68241521721373,1.40157036188672
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),PT,20061.37377120986,15.17634558950277,1.310787326113965
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Walk,248514.9467289246,12.15262569005595,0.9357941027001716
+tallinn,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Total,296124.888043335,12.51407987177323,0.9932774211509469
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Bike,3397.996302902377,93.03268047630276,18.27196013309458
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Car,142594.8376646675,42.79041629773218,21.41609042172846
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),CarP,26833.85280272046,41.45345775710054,20.4680140142027
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),PT,212429.5893485098,64.58191971711128,25.00727322160592
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Walk,1.195014806557003,150.4575861828425,10.59042963531109
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Total,385257.4711336066,55.15652577707547,23.30245556509135
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Bike,1257.952173922579,33.86660008085197,6.988055382900059
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Car,17649.14402402117,24.30056938070998,7.009726291749986
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),CarP,4292.44671991665,24.42375611717231,7.02398158413431
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),PT,45561.19284510092,42.74015456981165,6.00112393359552
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Walk,1365.84664876883,42.63566630155201,3.451046088851899
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Total,70126.58241173015,36.81700436014526,6.28560988523827
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Bike,28.57084594786398,7.396098803547259,1.660895065639374
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Car,167.3262195195955,14.23100709594201,1.536299797837097
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),CarP,35.11411041127759,14.23920552457212,1.538527925507166
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),PT,148.558442696292,26.04172085771695,1.682134327143482
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Walk,1031.913311976659,18.29519209110496,1.624815170833837
+tallinn,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Total,1411.482930551688,18.30719993294283,1.618938539456634
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Bike,485.4512114955949,68.69008238001707,13.22232483739681
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Car,104718.3677825552,42.06325710846622,13.59320052639426
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,long (>10),CarP,21844.43575872478,42.10748232547206,13.61986606165165
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,long (>10),PT,88905.5906989372,56.02847009758707,13.67847217498872
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Walk,0.02741982135379675,153.3485003240898,10.56198699519296
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Total,215953.8728715341,47.87690909006674,13.63016904465252
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Bike,5811.013708452861,21.40276226229825,4.167269525498298
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Car,212152.1675494647,27.74482780471311,6.047982048722732
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),CarP,52799.42174954199,27.64886016942323,5.957550172635067
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),PT,181832.8527782545,33.63650653204052,5.942096345876248
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Walk,42031.43181222932,35.84519549527257,2.616399250789494
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Total,494626.8875979434,30.51428893141849,5.685706080091437
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Bike,4281.101664378684,5.584120259738356,1.151882447865658
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Car,28041.35762928032,16.17820546339837,1.297720307624917
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),CarP,5263.552812145803,16.99720610337701,1.416500860013869
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),PT,21610.37092421052,15.90051693337366,1.302174966547225
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Walk,232692.0747839398,11.85743950599715,0.9146850591341226
+tallinn,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Total,291888.4578139551,12.57253890851936,0.9926992063609873
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Bike,448.7468976548982,98.00915068908817,19.13282822094652
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Car,188742.9865870271,45.45534395428152,21.63406929826602
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),CarP,33986.8932981269,44.58072277038607,20.80708738032413
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),PT,186822.4085853925,73.22892805564145,25.67541273725661
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Walk,0.8632850744359359,150.5080216248278,10.5978666210231
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Total,410001.8986532757,58.0959592421033,23.40424407016239
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Bike,235.8225226028338,27.51393836446886,5.719298490253296
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Car,20294.48421837619,24.98009371166614,7.075363620999556
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),CarP,4645.333997828758,25.08508875440361,7.028110226875746
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),PT,44979.69984438671,49.09118143055505,5.908321366108191
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Walk,1242.449871213297,41.54227184905475,3.381854392857385
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Total,71397.79045440779,40.47318435565485,6.26831471196451
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Bike,25.62478228222001,7.306536385743992,1.700621753197341
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Car,174.9355703060889,14.18180834933576,1.593008435708629
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),CarP,36.95257444336865,14.2667929094748,1.605109145543201
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),PT,116.4572466083668,29.00623039229171,1.676079308779911
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Walk,959.2270886679612,18.27541889404643,1.634871117237567
+tallinn,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Total,1313.197262308006,18.35488783023706,1.633394404376547
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,long (>10),Bike,520.1432405880865,68.5467051150517,13.19615305636945
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,long (>10),Car,94196.70907360961,47.60154221403798,13.60847015883005
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,long (>10),CarP,18720.7310641487,47.29167431778368,13.57898749721538
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,long (>10),PT,98126.25387717248,56.23432184834954,13.74078981808386
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,long (>10),Walk,0.1202486289269906,154.3106198860904,10.60464147296202
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,long (>10),Total,211563.9575041478,51.6296796108368,13.66621756761253
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,medium (2-10km),Bike,6409.610270474105,21.61784606110162,4.207064851629486
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,medium (2-10km),Car,198175.9294636459,29.95289051875722,5.974598448270696
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,medium (2-10km),CarP,49103.93792003403,29.72410103425621,5.878679454786248
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,medium (2-10km),PT,189404.9594511316,33.82896441310708,5.997360758505454
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,medium (2-10km),Walk,56376.40080428323,36.99245136366232,2.684910051255717
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,medium (2-10km),Total,499470.8379095689,32.08785774872823,5.579803229063441
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,short (0-2km),Bike,4224.650024650243,5.595790916258643,1.153659605547011
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,short (0-2km),Car,26579.21090988627,16.47182594668505,1.306581672482876
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,short (0-2km),CarP,4976.913069181024,17.30526713822098,1.418353561653512
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,short (0-2km),PT,20072.84354821595,15.90126983734513,1.302922833929972
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,short (0-2km),Walk,240617.0829975978,12.29369475805926,0.9451462673275676
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Internal traffic,short (0-2km),Total,296470.7005495313,12.90121374842951,1.012688416755642
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,long (>10),Bike,465.251496833702,97.97637101826761,19.12770457855833
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,long (>10),Car,180884.6190214762,48.53774871428455,21.8502734601185
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,long (>10),CarP,31735.10201125724,47.22782107678409,20.90106648266852
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,long (>10),PT,192121.4384279301,73.38463519398181,25.58128135464131
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,long (>10),Walk,0.9186507131191043,150.6210579419746,10.59972941013404
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,long (>10),Total,405207.3296082104,60.27283766310074,23.54176904416316
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,medium (2-10km),Bike,244.5971799315084,27.62542568747951,5.740631128096716
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,medium (2-10km),Car,20416.51720077716,26.18364325687882,7.081315076049903
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,medium (2-10km),CarP,4644.391017978847,26.03506054703987,7.040397591237428
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,medium (2-10km),PT,45159.25216966459,49.07321981352604,5.915713446633307
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,medium (2-10km),Walk,1263.804919324225,41.65682682870845,3.389262425263898
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,medium (2-10km),Total,71728.56248767632,40.86250741491425,6.275196920030983
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,short (0-2km),Bike,26.24191698309106,7.316327223210904,1.702205697592185
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,short (0-2km),Car,165.2566505244986,14.12038812446756,1.577068483365054
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,short (0-2km),CarP,34.36361845293813,14.15682598627575,1.580129968874608
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,short (0-2km),PT,117.1608522771799,29.00925221849582,1.676905349196418
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,short (0-2km),Walk,974.4412166421556,18.31077546835757,1.636610855786998
+tallinn,2050,1,traffic_calming,2050_1_traffic_calming,Origin & destination traffic,short (0-2km),Total,1317.464254879863,18.409216958199,1.632558837619822
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,long (>10),Bike,512.5036030775204,68.6933197598505,13.22270334594809
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,long (>10),Car,100941.8111975555,41.46687374218988,13.56672121588866
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,long (>10),CarP,20771.09070451663,41.50270790520425,13.5874831127551
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,long (>10),PT,93977.68565384006,56.06578635328559,13.68279068103325
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,long (>10),Walk,0.02908012708805281,153.3071326977812,10.56262379634149
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,long (>10),Total,216203.1202391168,47.88062594605299,13.61835224314964
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,medium (2-10km),Bike,6174.372880738287,21.38897846005813,4.165071495602519
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,medium (2-10km),Car,202679.1950096822,27.48038603260008,6.057951982199244
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,medium (2-10km),CarP,49461.09822491046,27.39801213939179,5.972507770176278
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,medium (2-10km),PT,190386.3025147546,33.67909274429903,5.949890209138155
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,medium (2-10km),Walk,44157.79867207447,35.89216340352871,2.619723058250148
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,medium (2-10km),Total,492858.76730216,30.54396042360462,5.675871700730646
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,short (0-2km),Bike,4447.593257800097,5.597420813268844,1.154339343546721
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,short (0-2km),Car,25962.74188415404,16.12825009022313,1.291149026101797
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,short (0-2km),CarP,4707.311064578274,16.98451587732825,1.411442346522102
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,short (0-2km),PT,22057.95763800171,15.9244600931454,1.304359900033673
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,short (0-2km),Walk,237932.0804651881,11.90341469799958,0.9180389713368081
+tallinn,2050,2,parking_management,2050_2_parking_management,Internal traffic,short (0-2km),Total,295107.6843097223,12.56166996555916,0.9911715361026601
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,long (>10),Bike,474.34595548425,97.91768234727765,19.11282912587609
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,long (>10),Car,185164.728696262,45.09069515518233,21.60187746214508
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,long (>10),CarP,32723.20597728667,44.25881463204363,20.80202944632616
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,long (>10),PT,190489.78311918,73.25189730232034,25.59324278633851
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,long (>10),Walk,0.9250000122892572,150.4741042514327,10.59802529416833
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,long (>10),Total,408852.9887482252,58.20630244342556,23.39457531486766
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,medium (2-10km),Bike,255.4420915496821,27.46608592634433,5.709269032956057
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,medium (2-10km),Car,19919.32628065594,24.88414818827173,7.079795232901019
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,medium (2-10km),CarP,4433.435163908159,24.98170968329563,7.03236496726757
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,medium (2-10km),PT,45393.73596648657,49.03373980460483,5.919643008324313
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,medium (2-10km),Walk,1315.82133179059,41.42793583926377,3.373965552186545
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,medium (2-10km),Total,71317.76083439094,40.57590448117519,6.26512828435954
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,short (0-2km),Bike,27.24623729762576,7.312034497656859,1.7004812893185
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,short (0-2km),Car,155.3821898763936,14.06446696721129,1.561460293618307
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,short (0-2km),CarP,31.08018374827195,14.12250387432688,1.570606436816307
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,short (0-2km),PT,122.4809455174016,29.03014977387755,1.677132639803165
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,short (0-2km),Walk,1009.836562233929,18.29329300810957,1.635419400160483
+tallinn,2050,2,parking_management,2050_2_parking_management,Origin & destination traffic,short (0-2km),Total,1346.026118673622,18.46353431820038,1.630497832925741
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,long (>10),Bike,620.6378913171163,67.9862180895057,13.08887466983041
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,long (>10),Car,62160.44737128961,37.14507145071615,13.32055276978931
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,long (>10),CarP,12532.38422785789,36.85653429776988,13.12021772744125
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,long (>10),PT,135200.3568673797,56.44080665158251,13.77222338368135
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,long (>10),Walk,0.04069451993956721,153.3769324279449,10.55189788791512
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,long (>10),Total,210513.8670523642,49.61132926865627,13.5980235720746
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,medium (2-10km),Bike,8593.42986586711,21.98158588349614,4.271537007597706
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,medium (2-10km),Car,138487.3760839126,25.32806549019681,5.811695284940135
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,medium (2-10km),CarP,38171.1548725079,25.32379348794677,5.693584740593701
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,medium (2-10km),PT,247957.2578891705,34.19692774358705,6.135435124889113
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,medium (2-10km),Walk,53119.01380370382,36.54593860793879,2.653666581951742
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,medium (2-10km),Total,486328.232515162,31.01570633015869,5.595336500342891
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,short (0-2km),Bike,5212.798266662164,5.679706458621212,1.165960074520231
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,short (0-2km),Car,22913.09147935876,15.85181430903614,1.287994273725131
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,short (0-2km),CarP,4458.096432995399,16.56629044047718,1.387746145061552
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,short (0-2km),PT,23155.60514843477,15.95048759625434,1.311576852269295
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,short (0-2km),Walk,255524.9961964993,12.1052785990335,0.9302508664310233
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Internal traffic,short (0-2km),Total,311264.5875239504,12.62340778183511,0.9954529639807586
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,long (>10),Bike,613.6199150473079,99.61012601761239,19.45728826413872
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,long (>10),Car,162856.0176852015,42.19988549632101,21.2880403495871
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,long (>10),CarP,29946.77175003592,40.78687308798482,20.23191545838
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,long (>10),PT,213202.6807289743,73.62392108073874,25.21063081676421
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,long (>10),Walk,1.080435858751455,150.9000933917251,10.60366660966245
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,long (>10),Total,406620.1705151178,58.65927305666656,23.26419500322849
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Bike,309.9344039989963,28.40082355591772,5.897086279211502
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Car,19464.02339848407,24.11908217297345,7.048330367656392
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,medium (2-10km),CarP,4683.401188585454,24.36799206374036,7.032602362443053
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,medium (2-10km),PT,46384.96631836746,48.95326422905975,5.961212645490137
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Walk,1344.108063967547,42.18754714538149,3.425925061269421
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Total,72186.43337340353,40.44779404371192,6.27636683912851
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,short (0-2km),Bike,27.27314409029208,7.313334559321352,1.701641974097285
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,short (0-2km),Car,177.1592097487047,14.23765136941622,1.583250497980777
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,short (0-2km),CarP,38.29851118117593,14.31413920229688,1.593630711882859
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,short (0-2km),PT,118.4221877304101,28.99080871170331,1.676040603868547
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,short (0-2km),Walk,1015.53524194476,18.31089029765595,1.634539587614762
+tallinn,2050,3,uvar_pricing,2050_3_uvar_pricing,Origin & destination traffic,short (0-2km),Total,1376.688294695343,18.37635172074629,1.631700637472725
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,long (>10),Bike,538.7720541583299,68.60300335521933,13.20520566860782
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,long (>10),Car,84097.09005642073,39.53959512053993,13.46270823263582
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,long (>10),CarP,15756.89223734442,39.37919452763741,13.39717413448441
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,long (>10),PT,111780.154163863,56.45015863928047,13.79233638960174
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,long (>10),Walk,0.03438592719044936,153.3780833395506,10.56580150754696
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,long (>10),Total,212172.9428977136,48.51058087804276,13.63084672001571
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,medium (2-10km),Bike,6527.647751261052,21.54033178493285,4.193496555738544
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,medium (2-10km),Car,193175.0508879813,26.58747288445301,5.956941902727039
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,medium (2-10km),CarP,47274.79278307584,26.43368983646135,5.823504381546546
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,medium (2-10km),PT,202940.1004689463,33.93056112059799,6.027517940506969
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,medium (2-10km),Walk,45673.76362646346,36.00750001845686,2.627703668424757
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,medium (2-10km),Total,495591.355517728,30.38140333775723,5.643063318169243
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,short (0-2km),Bike,4581.67830035796,5.58407303502132,1.151707273823455
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,short (0-2km),Car,27156.40757773873,16.13282695884615,1.303650961948822
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,short (0-2km),CarP,5228.49801421015,16.89309975385541,1.411403527289557
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,short (0-2km),PT,22227.65880138358,15.92797776586771,1.304121235420694
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,short (0-2km),Walk,241911.9706545037,11.8926369485551,0.917367325902258
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Internal traffic,short (0-2km),Total,301106.2133481941,12.56378087538579,0.9929002984745219
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,long (>10),Bike,473.0248868024764,97.42720552385975,19.01525734530015
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,long (>10),Car,172436.685196404,43.68347112023547,21.37506408323434
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,long (>10),CarP,28865.18615128302,42.52461127161774,20.51739504607114
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,long (>10),PT,201519.6529920827,73.59552319135784,25.45459284398341
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,long (>10),Walk,1.055485477690605,150.6072725431783,10.59941460971266
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,long (>10),Total,403295.6047120498,58.61036483905131,23.34934997592425
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,medium (2-10km),Bike,267.5662133384895,27.6922738458318,5.752101139744451
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,medium (2-10km),Car,20212.29723552511,24.57536898581306,7.078240402542863
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,medium (2-10km),CarP,4536.950340764375,24.69850779112507,7.049626684682508
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,medium (2-10km),PT,45696.85019435173,49.01099291986959,5.934394313651647
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,medium (2-10km),Walk,1331.649515569096,41.8734555962566,3.403264569351355
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,medium (2-10km),Total,72045.31349954879,40.41343856486716,6.27806910152244
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,short (0-2km),Bike,27.37886035992118,7.294239939739881,1.697401584746462
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,short (0-2km),Car,169.3767517217521,14.12420711484512,1.536491905840532
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,short (0-2km),CarP,35.45073926199947,14.15655637906737,1.539956187071662
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,short (0-2km),PT,119.7346453493989,29.00827840872372,1.676201918112142
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,short (0-2km),Walk,1013.471961463067,18.26659563040218,1.630430603017638
+tallinn,2050,4,road_pricing,2050_4_road_pricing,Origin & destination traffic,short (0-2km),Total,1365.412958156139,18.36796623907193,1.62178529544899
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,long (>10),Bike,11567.07301835162,68.34861856160508,13.34931212407799
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,long (>10),Car,101372.9773818255,41.54232500490013,13.57867699193462
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,long (>10),CarP,24041.28106284739,41.53705802340873,13.5927258075245
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,long (>10),PT,94731.62240721873,55.98165440484878,13.64685171970321
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,long (>10),Walk,0.02976073615438581,153.2602689160096,10.5572176253095
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,long (>10),Total,231712.9836309794,48.78321469949345,13.59655636983036
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,medium (2-10km),Bike,32146.32203661786,29.44766226150513,5.785847750439131
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,medium (2-10km),Car,203161.0736835395,27.56077034005182,6.073109733309381
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,medium (2-10km),CarP,56948.85381552356,27.55253805803982,6.030833652195305
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,medium (2-10km),PT,191002.3946157405,33.8483220635129,6.008595873392168
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,medium (2-10km),Walk,41995.50304852791,36.05124790165966,2.628404203656617
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,medium (2-10km),Total,525254.1471999492,30.64058824673083,5.752071937083858
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,short (0-2km),Bike,5182.960803962292,5.328924987517443,1.109128380507847
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,short (0-2km),Car,26704.56205317864,16.17934618306503,1.30331511299227
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,short (0-2km),CarP,5186.898897704201,16.98418720692843,1.418492991727294
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,short (0-2km),PT,21251.96013249883,15.89437448358626,1.302404523901277
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,short (0-2km),Walk,227767.6937643671,11.85739777998751,0.9144277834886488
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Internal traffic,short (0-2km),Total,286094.075651711,12.5353731161553,0.9922133609325694
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,long (>10),Bike,4698.701436139449,92.11186034562448,18.11225951838272
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,long (>10),Car,185090.0698829388,45.09712410137917,21.59399189162801
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,long (>10),CarP,34973.81704894461,44.1819930942054,20.6450808268058
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,long (>10),PT,187566.6957864647,73.14440100966678,25.59389912858751
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,long (>10),Walk,1.195123196776947,150.4552187248292,10.59215876852589
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,long (>10),Total,412330.4792776842,58.31410375623041,23.2933316389373
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Bike,1319.253478603149,35.35496181500531,7.235565668999942
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Car,19911.91841204586,24.90660882645545,7.099707107655864
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,medium (2-10km),CarP,4909.432640730824,25.10764675126137,7.105122352296882
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,medium (2-10km),PT,45196.81796649687,49.07558981688123,5.919179409453255
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Walk,1232.243963975497,42.26626375419507,3.427017879105304
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Total,72569.6664618522,40.45750532989355,6.304940784933692
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,short (0-2km),Bike,26.62781569706994,7.252009708254915,1.651578697469303
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,short (0-2km),Car,188.27845010686,14.60228721948483,1.569850755513002
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,short (0-2km),CarP,45.89659806373837,15.09570958653343,1.615188065856202
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,short (0-2km),PT,115.2789827326943,29.01590703521522,1.676497384795001
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,short (0-2km),Walk,935.77276944198,18.28485376429844,1.636430693835321
+tallinn,2050,5,cycling_optimization,2050_5_cycling_optimization,Origin & destination traffic,short (0-2km),Total,1311.854616042343,18.36379968966947,1.629960215913707
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,long (>10),Bike,465.9625175762693,68.69737427277006,13.22292799334282
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,long (>10),Car,98458.77511307984,41.11012795420378,13.55320184467593
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,long (>10),CarP,19675.75730424081,41.09863216630097,13.55743792279332
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,long (>10),PT,101665.7726425417,45.96778362442158,13.74974852920134
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,long (>10),Walk,0.02407568997236484,153.3345695947609,10.55756564319151
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,long (>10),Total,220266.2916531286,43.40956491951751,13.64359902293168
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,medium (2-10km),Bike,5541.738695445497,21.38810011144406,4.16410872809917
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,medium (2-10km),Car,202698.8344508494,27.33392854226354,6.032379718831267
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,medium (2-10km),CarP,49932.7203360787,27.20926485774532,5.922525347172671
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,medium (2-10km),PT,193392.3302354759,28.82533179011348,6.000876531746056
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,medium (2-10km),Walk,40430.70789899507,35.77636042569724,2.612101179972557
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,medium (2-10km),Total,491996.3316168446,28.534312334824,5.706735919756224
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,short (0-2km),Bike,4145.994736100888,5.582342732803818,1.151392928834283
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,short (0-2km),Car,26816.96577357688,16.15918460304113,1.297503746152218
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,short (0-2km),CarP,5059.132876182617,16.95916119140805,1.409728367041641
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,short (0-2km),PT,21926.22034309477,14.77741814532373,1.313460649185226
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,short (0-2km),Walk,227518.3263287416,11.83683918361989,0.913266145351583
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Internal traffic,short (0-2km),Total,285466.6400576968,12.46868663766313,0.9923569287599676
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,long (>10),Bike,441.5020212964133,98.86303995203238,19.3004032629759
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,long (>10),Car,181547.8745338313,44.79309209246502,21.55216961571157
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,long (>10),CarP,30669.86382659165,43.87558676820413,20.70002986601309
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,long (>10),PT,201295.0341598485,58.4353979508282,25.61001722632746
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,long (>10),Walk,0.7534365297274055,150.3598423970079,10.59349018143971
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,long (>10),Total,413955.0279780976,51.41685555520893,23.45983371898722
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Bike,222.8446119112611,27.53638503256203,5.724743637608855
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Car,19969.09256404175,24.8200580460034,7.072700034468347
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),CarP,4347.79280979313,24.89478107186885,7.011804733983812
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),PT,46300.32016358726,38.86520526675684,5.934612539550573
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Walk,1180.691587167966,41.50814428474566,3.379892107356078
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Total,72020.74173650137,34.13582568438788,6.272666235566738
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Bike,24.44294779414123,7.285043317804084,1.69860649706141
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Car,160.591825168834,14.09379905525532,1.580561074346086
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,short (0-2km),CarP,33.16319164228693,14.13087154413549,1.587713995435787
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,short (0-2km),PT,138.9436507145162,24.54664124890217,1.664174778305971
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Walk,922.0228641623181,18.23241365553608,1.634202333141592
+tallinn,2050,6,public_transport_optimization,2050_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Total,1279.164479482096,18.0831661812318,1.630749031545706
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,long (>10),Bike,518.6303711396575,69.03104465161576,13.30238473068307
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,long (>10),Car,105977.2384925149,42.06775781378149,13.63787604280126
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,long (>10),CarP,22590.00660369016,42.03437209295354,13.71288022099754
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,long (>10),PT,89459.56555378553,56.43415587225596,13.84252149490815
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,long (>10),Walk,0.02709398518316132,153.4128476628495,10.5627716699864
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,long (>10),Total,218545.4681151154,48.00905942333045,13.72860205505516
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,medium (2-10km),Bike,5895.407157814805,21.14564350899844,4.120602501359896
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,medium (2-10km),Car,205917.7660214633,27.65685916630796,6.036549643375091
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,medium (2-10km),CarP,51489.00896199966,27.5463535514861,5.940648375841512
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,medium (2-10km),PT,175040.1838927554,33.69190723218537,5.939082608070784
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,medium (2-10km),Walk,41034.52546558878,35.84692819066221,2.617710764917994
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,medium (2-10km),Total,479376.8914996219,30.46962601244319,5.674445771451986
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,short (0-2km),Bike,4384.32583770269,5.621332730417249,1.157241282269057
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,short (0-2km),Car,27468.07451050809,16.07938824238329,1.288168455749335
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,short (0-2km),CarP,5011.577255365863,16.91596182571826,1.410036062981845
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,short (0-2km),PT,20901.97755961184,15.85568755858958,1.298057061681441
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,short (0-2km),Walk,249002.4549487821,11.58095154515614,0.8978545248713843
+tallinn,2050,7,15min_city,2050_7_15min_city,Internal traffic,short (0-2km),Total,306768.4101119706,12.2769871505017,0.9721459748308477
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,long (>10),Bike,453.9837637784581,98.03073258937634,19.13710364432293
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,long (>10),Car,187503.2265171555,45.3867355550378,21.63673510919358
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,long (>10),CarP,33687.85852897226,44.51166022904218,20.81637589712037
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,long (>10),PT,186095.0642525399,73.20789917100572,25.6760179115202
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,long (>10),Walk,0.8680776188674261,150.4337737956412,10.5960158922687
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,long (>10),Total,407741.0011400649,58.07099470814131,23.40969899860099
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,medium (2-10km),Bike,240.3731645799535,27.42135638053717,5.699543046752408
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,medium (2-10km),Car,20983.97121097582,24.97816973742576,7.092923138043508
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,medium (2-10km),CarP,4798.612520420541,25.11583605363514,7.056902938754289
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,medium (2-10km),PT,45030.76203517507,49.07138875550118,5.905746209392452
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,medium (2-10km),Walk,1263.087970243638,41.64773153541837,3.388390922486885
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,medium (2-10km),Total,72316.80690139502,40.28911979864719,6.28195799012355
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,short (0-2km),Bike,26.89023101684633,7.349374391226265,1.694519774956944
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,short (0-2km),Car,173.3151145828307,13.94327413193144,1.512584169901415
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,short (0-2km),CarP,35.40127148177749,13.99185366497824,1.517873240958085
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,short (0-2km),PT,116.142678082971,28.92443917233575,1.675059449261715
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,short (0-2km),Walk,994.4500243614393,18.33379569201863,1.624090516536993
+tallinn,2050,7,15min_city,2050_7_15min_city,Origin & destination traffic,short (0-2km),Total,1346.199319525865,18.34865088771584,1.612745662728031
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,long (>10),Bike,483.5761459764419,68.69108313658751,13.22251579776029
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,long (>10),Car,104748.484418758,41.95407710746352,13.5613695645725
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,long (>10),CarP,23483.32528385074,42.03302962530132,13.60334627865254
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,long (>10),PT,88019.6886650239,56.00277488104514,13.67118136821941
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,long (>10),Walk,0.02714975023306962,153.3461257619744,10.56166339065081
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,long (>10),Total,216735.1016633593,47.72770798142543,13.60975771434367
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Bike,5785.949748498868,21.40054120769872,4.166896032233717
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Car,210781.0253749461,27.67993583595101,6.041462447288412
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,medium (2-10km),CarP,54631.38686368763,27.63105022732549,5.973866924776025
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,medium (2-10km),PT,180898.833918262,33.62285208533547,5.938231070174959
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Walk,41920.36021373526,35.8408889998463,2.616193859892427
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Total,494017.5561191298,30.46966212901045,5.683576556828774
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,short (0-2km),Bike,4268.982693462553,5.583445248065505,1.151773773543662
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,short (0-2km),Car,27852.05775041949,16.1840037130172,1.293854565204385
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,short (0-2km),CarP,5319.473554686625,17.01838659369836,1.41183517100412
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,short (0-2km),PT,21570.75406334105,15.89895240106043,1.30198916243882
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,short (0-2km),Walk,232334.2784167264,11.85494397359742,0.9145269216703762
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Internal traffic,short (0-2km),Total,291345.5464786362,12.57058700488333,0.9920332683332954
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Bike,447.8961695840728,98.07102091137011,19.14504464823183
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Car,187721.682533144,45.40481284595206,21.63747661805788
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,long (>10),CarP,36313.88989140476,44.82298215720814,20.98492177717262
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,long (>10),PT,185637.9888772071,73.19326169180735,25.68810264569343
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Walk,0.8527110927494723,150.4952457062452,10.59725785543458
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Total,410122.3101824327,57.98920949712739,23.41042942243285
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Bike,234.3760404851141,27.50584715427388,5.717928430309849
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Car,20422.15262676162,25.00717647341798,7.104808928362468
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),CarP,4824.348705172379,25.14735493828495,7.084371562352457
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),PT,44925.11066955923,49.09724669680992,5.9063414470023
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Walk,1238.123496137154,41.51523374108969,3.38023299703047
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Total,71644.1115381155,40.41597922130095,6.283018881927365
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Bike,25.53732470299172,7.307023555598731,1.700667301039077
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Car,174.3479163607659,14.18606062349052,1.582565841548233
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),CarP,37.19584215853356,14.27194220468021,1.596958162074635
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),PT,116.0672822003869,29.00569833705763,1.675905061926843
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Walk,956.7110492497145,18.27620311779998,1.634956229691237
+tallinn,2050,8,car_occupancy_bonus,2050_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Total,1309.859414672393,18.35496742619278,1.631813434016456
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,long (>10),Bike,475.3709899335669,68.70190180319496,13.22471280349557
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,long (>10),Car,107661.4597108431,42.47333075863265,13.58935608464276
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,long (>10),CarP,22793.17791411377,42.52281911922331,13.62135175390265
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,long (>10),PT,85722.22312759551,55.96143198989935,13.65943702686022
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,long (>10),Walk,0.02643076126738992,153.3598428841809,10.56123724306195
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,long (>10),Total,216652.2581732472,47.87290177064273,13.61965051281998
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,medium (2-10km),Bike,5693.328321090296,21.38228312992917,4.163268201686916
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,medium (2-10km),Car,213939.6773855137,27.92004166478109,6.056627854641746
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,medium (2-10km),CarP,53323.9280793634,27.83338177028687,5.969627760578873
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,medium (2-10km),PT,178681.021223369,33.59379455911813,5.929549569814554
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,medium (2-10km),Walk,41432.46499163014,35.82447631261909,2.61486628932815
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,medium (2-10km),Total,493070.4200009665,30.55546546762759,5.6900963393966
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,short (0-2km),Bike,4225.342830238767,5.584346853637919,1.151934206833673
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,short (0-2km),Car,28311.03697525863,16.21232377772432,1.303057450687933
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,short (0-2km),CarP,5337.961212082161,17.0489686738177,1.424932741273109
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,short (0-2km),PT,21492.1950152326,15.89548758574233,1.301820703435645
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,short (0-2km),Walk,230962.6163075583,11.85180362817641,0.9142434124520797
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Internal traffic,short (0-2km),Total,290329.1523403705,12.58069565143899,0.9936979903711795
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,long (>10),Bike,447.3520999841147,98.574667126721,19.24697954016349
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,long (>10),Car,192708.3489587706,45.89305871865757,21.76067120820699
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,long (>10),CarP,35506.15881975921,45.11050408095947,21.00089227710018
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,long (>10),PT,183411.8085592979,73.1205672123327,25.70518788927475
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,long (>10),Walk,0.8233931106281129,150.4927268808038,10.59661746057869
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,long (>10),Total,412074.4918309225,58.00182672020301,23.44813408956663
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Bike,229.0002450827432,27.48438773782696,5.714071810923875
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Car,20580.07307209101,25.10327578616861,7.098273749578125
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,medium (2-10km),CarP,4758.805114454386,25.22363000708722,7.083726428458641
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,medium (2-10km),PT,44820.94649178158,49.1098023094905,5.902689748421844
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Walk,1219.893062198798,41.50480658198069,3.3795194183971
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Total,71608.71798560851,40.42433448890424,6.281195867915936
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,short (0-2km),Bike,25.15465231468495,7.306370324874914,1.700814922066969
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,short (0-2km),Car,165.0683705656443,14.08603702933117,1.598722052585179
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,short (0-2km),CarP,34.07360340086498,14.13068796752044,1.6059622041937
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,short (0-2km),PT,115.0872242773861,29.00211938856103,1.675564254453481
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,short (0-2km),Walk,944.5202579759931,18.27214294974685,1.635139157285977
+tallinn,2050,9,fleet_transformation,2050_9_fleet_transformation,Origin & destination traffic,short (0-2km),Total,1283.904108534573,18.37100939035983,1.634593156377955
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Bike,21802.61541625076,69.0354645166935,13.47912745753049
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Car,36069.19475478392,37.69081143918471,13.40501138618688
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),CarP,12100.32709101819,37.52847264457937,13.45286534230801
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),PT,173169.1804524634,46.55707677644178,13.95279588798218
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Walk,0.1628383794201611,154.268397105069,10.58791637925414
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Total,243141.4805528957,46.80819422504869,13.80417777692326
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Bike,50409.43012605869,30.54295915035474,5.992107284946617
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Car,92768.87973849848,25.35678331227478,5.695930146420056
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),CarP,35707.10457894808,25.60921166274466,5.788519207342044
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),PT,274864.0780922002,29.55387666868767,6.280543424892931
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Walk,66199.62961090237,37.80271403086426,2.733179398047218
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Total,519949.1221466078,29.68026758814036,5.662835361641768
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Bike,6506.106845440586,5.231587473559108,1.087226127865961
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Car,16007.832848329,15.85012639241334,1.282396720886386
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),CarP,3565.444590823021,16.54471713384952,1.374741014249145
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),PT,20724.00267476765,14.77471987340167,1.318300084213467
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Walk,268366.0632515774,12.21768303448847,0.9411467308363013
+tallinn,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Total,315169.4502109377,12.47505284146538,0.9911996926676025
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Bike,8057.027256331138,94.1575135541327,18.50222690296569
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Car,133554.8490176968,42.45308322106147,21.48720595861922
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),CarP,26756.1385440938,40.81264878666657,20.22562078480823
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),PT,240983.1104767716,58.76868081045411,24.83276531948998
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Walk,1.227757914121873,150.3163940613264,10.58793496970208
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Total,409352.3530528075,52.96873842073937,23.31547128679706
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Bike,2069.492174736969,35.73598854183847,7.298093770211461
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Car,16770.50181968854,24.16116718919906,6.949042389662427
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),CarP,4415.902488657483,24.40389883615123,7.002206123870812
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),PT,49156.3872602702,38.74581681857003,6.030541796138364
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Walk,1377.120488456093,42.85329073441539,3.466923873772746
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Total,73789.40423180927,34.56504401992924,6.285148390670384
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Bike,32.61529132748105,7.227639562459199,1.638969171513415
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Car,161.7205707780589,14.47029194844911,1.432065075569216
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),CarP,35.3600024041804,14.46825481320548,1.429976126524021
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),PT,151.0424044704023,24.54740525124387,1.671297974622044
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Walk,1036.069740464352,18.34321523277897,1.624007380785559
+tallinn,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Total,1416.808009444474,18.20996363256559,1.602641679571164
