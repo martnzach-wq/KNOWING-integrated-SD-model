@@ -598,7 +598,7 @@ class MobilityModel:
             vot_profile = np.array([3, -2, 2, -3, -1, 1])
             # coping-type profile relative to the mdl base of 15 EUR/h, so that it scales with the
             # configured value of time (D39, D46)
-            value_of_time = value_of_time_base * (1 + vot_profile / 15.0)
+            value_of_time = value_of_time_base * (1 + m.value_of_time_profile_scale * vot_profile / 15.0)
             parking_cost_base = m.parking_cost_base  # 1.5 default
             pt_cost_internal, pt_cost_od = 0.0, 0.72
             street_green_term = 0.0
@@ -698,9 +698,17 @@ class MobilityModel:
                         # ABM light door-to-door time; capacity acts on car modes, the PT lever on PT
                         travel_time = m.travel_time_by_mode[tt_name][tl_name][mi] * (
                             pt_adapt_factor / (csf_by_zone[tt_name] if mode in CAR_MODES else 1.0))
+                        free_time = m.travel_time_by_mode[tt_name][tl_name][mi] * pt_adapt_factor
                     else:
                         travel_time = (dist / max(speed, 1e-6)
                                        + access_time[tt_name][mode] * pt_adapt_factor)
+                        free_time = travel_time
+                    # push-lever parts of car cost and time, weighted per coping type (D48)
+                    push_by_type = m.push_levers_by_compliance and mode in CAR_MODES and not m.network_capacity
+                    if push_by_type:
+                        push_cost = road_pricing_adapted * dist + area_toll_adapted
+                        push_time = (travel_time - free_time) if m.travel_time_by_mode else (
+                            dist / max(speed, 1e-6) - dist / max(speed / max(csf_by_zone[tt_name], 1e-6), 1e-6))
                     # perceived-time levers of the active modes (ABM light "perceived travel time bonus")
                     if mode == "bicycle" and self.cycling_resistance is not None:
                         travel_time *= max(1 - self.PI_Cycling * cal_cycling_attr * self.cycling_resistance[t_idx], 0.05)
@@ -739,7 +747,11 @@ class MobilityModel:
                             attr += m.attr_offset.get(mode, 0.0)
 
                         cost_ct = cost + (parking_delta * (parking_weight[ci] - 1) if mode in CAR_MODES else 0.0)
-                        gc[mi, tli, tti, ci] = (cost_ct + travel_time * value_of_time[ci] - attr)
+                        time_ct = travel_time
+                        if push_by_type:
+                            cost_ct += push_cost * (parking_weight[ci] - 1)
+                            time_ct += push_time * (parking_weight[ci] - 1)
+                        gc[mi, tli, tti, ci] = (cost_ct + time_ct * value_of_time[ci] - attr)
 
         return gc
 

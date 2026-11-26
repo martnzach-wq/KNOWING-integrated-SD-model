@@ -133,6 +133,11 @@ class MobilityConfig:
     # length class and mode; when set, cost, travel time and pkm use them instead of the
     # class centroid and the speed function
     trip_length_by_mode: Optional[dict] = None
+    # coping types respond to the push levers (capacity, road pricing, area toll) in proportion to
+    # their compliance with parking-space removal, as for parking (D48)
+    push_levers_by_compliance: bool = False
+    # scale of the coping-type value-of-time profile (1 = +/-3 of 15 EUR/h, i.e. up to +/-20 %)
+    value_of_time_profile_scale: float = 1.0
     travel_time_by_mode: Optional[dict] = None
 
     # ------------------------------------------------------------------
@@ -427,7 +432,9 @@ TALLINN = CityConfig(
         # 0.0070, effects 0.0025)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
-        attr_distinction=0.000,  # D46: fitted jointly with the stability of the coping types (odds ratio 1.93)
+        attr_distinction=0.300,  # D46: fitted jointly with the stability of the coping types (odds ratio 1.93)
+        push_levers_by_compliance=True,  # D48
+        value_of_time_profile_scale=0.25,  # D48: +/-5 % instead of +/-20 %
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
         mode_change_damping=2.1093,
         attr_offset={"car passenger": -0.008, "public transport": -0.297, "bicycle": -0.485, "walk": 2.085},
