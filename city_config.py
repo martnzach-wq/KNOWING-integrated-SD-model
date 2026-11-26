@@ -136,6 +136,12 @@ class MobilityConfig:
     # coping types respond to the push levers (capacity, road pricing, area toll) in proportion to
     # their compliance with parking-space removal, as for parking (D48)
     push_levers_by_compliance: bool = False
+    # mode choice: "flow" (pairwise flows of the Vensim model) or "logit" (D51): each length class,
+    # zone and coping type adjusts by logit_adjustment per year towards the pivot-point logit
+    # s* = s0 exp(-logit_scale (GC - GC0)) / sum, with s0 and GC0 of the base year
+    mode_choice: str = "flow"
+    logit_scale: float = 0.3  # 1/EUR
+    logit_adjustment: float = 0.5  # share of the gap closed per year
     # road pricing charged on the in-city part of OD trips only (km); None charges the full length
     road_pricing_od_km: Optional[float] = None
     # trips shortened by the 15-minute city choose their mode anew with the mode split of the

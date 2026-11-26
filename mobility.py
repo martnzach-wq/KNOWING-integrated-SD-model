@@ -463,6 +463,17 @@ class MobilityModel:
         bike_i = MODE_IDX["bicycle"]
         walk_i = MODE_IDX["walk"]
 
+        logit = self.m.mode_choice == "logit"
+        if logit:
+            # pivot point of the logit mode choice: base-year shares and generalised cost (D51)
+            car_cost0 = (self.car_costs_fuel[0] * (1 - ev_share[0] / 100)
+                         + self.car_costs_ev[0] * ev_share[0] / 100)
+            gc_base = self._generalised_cost(0, car_cost0, trips[0])
+            share_base = trips[0] / np.maximum(trips[0].sum(axis=0, keepdims=True), 1e-12)
+            heat_beta = np.array([self.m.heat_active_per_cdd if mo in ACTIVE_MODES
+                                  else self.m.heat_pt_per_cdd if mo == "public transport" else 0.0
+                                  for mo in MODES])
+
         for t in range(1, n):
             prev = trips[t - 1]
             ev_prev = ev_share[t - 1]
@@ -510,7 +521,17 @@ class MobilityModel:
             # --- Mode-change (inter-mode shifts driven by GC differences) ---
             mode_change = np.zeros_like(prev)
             weighted = self.m.mode_change_destination_weighting
-            for tl in range(N_TL):
+            if logit:
+                heat = (1 - heat_beta * self.cdd[t]) / (1 - heat_beta * self.cdd[0])
+                utility = np.log(np.maximum(share_base, 1e-300)) - self.m.logit_scale * (gc - gc_base)
+                utility += np.log(heat)[:, None, None, None]
+                utility -= utility.max(axis=0, keepdims=True)
+                target = np.exp(utility) * (share_base > 0)
+                target /= np.maximum(target.sum(axis=0, keepdims=True), 1e-300)
+                total = prev.sum(axis=0, keepdims=True)
+                share_prev = prev / np.maximum(total, 1e-12)
+                mode_change = total * self.m.logit_adjustment * (target - share_prev)
+            for tl in range(N_TL if not logit else 0):
                 for tt in range(N_TT):
                     for ci in range(N_CT):
                         gc_slice = gc[:, tl, tt, ci]
@@ -544,7 +565,8 @@ class MobilityModel:
             new_trips = prev + demand_change + mode_change + demand_increase_ct
             new_trips = np.maximum(new_trips, 0)
             new_trips = self._shorter_trips(new_trips, t)
-            new_trips = self._heat_transfer(new_trips, t)
+            if not logit:  # the logit target carries the heat effect
+                new_trips = self._heat_transfer(new_trips, t)
             trips[t] = new_trips
 
         self.trips = trips
