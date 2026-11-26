@@ -424,19 +424,19 @@ TALLINN = CityConfig(
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
-        # 0.0068, effects 0.0021)
+        # 0.0070, effects 0.0025)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
-        attr_distinction=0.0,  # D46: type-A car odds ratio stays at 1.93 in BAU 2050
+        attr_distinction=0.000,  # D46: fitted jointly with the stability of the coping types (odds ratio 1.93)
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
-        mode_change_damping=4.5711,
-        attr_offset={"car passenger": -0.161, "public transport": -0.352, "bicycle": 1.086, "walk": 2.471},
+        mode_change_damping=2.1093,
+        attr_offset={"car passenger": -0.008, "public transport": -0.297, "bicycle": -0.485, "walk": 2.085},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.3 Table 1: core network -25/-75/-90 %, citywide -5/-15/-25 %, mean),
         # traffic calming walk/cycling bonus, 15-minute city bonus for short trips
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 0.106, "parking": 0.275, "area_toll": 0.026, "road_pricing": 0.027, "cycling": 0.547, "pt_traveltime": 0.058, "distance": 0.010, "car_passenger": 0.010},
+        lever_calibration={"capacity": 0.179, "parking": 0.183, "area_toll": 0.047, "road_pricing": 0.047, "cycling": 1.221, "pt_traveltime": 0.108, "distance": 1.138, "car_passenger": 0.010},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
