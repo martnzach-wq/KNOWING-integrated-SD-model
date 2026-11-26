@@ -665,10 +665,12 @@ class MobilityModel:
 
                 for mode in MODES:
                     mi = MODE_IDX[mode]
+                    dist = (m.trip_length_by_mode[tt_name][tl_name][mi] if m.trip_length_by_mode
+                            else centroid_dist)
 
                     # ---- Cost ----
                     if mode in CAR_MODES:
-                        cost = ((car_cost_per_km + road_pricing_adapted) * centroid_dist
+                        cost = ((car_cost_per_km + road_pricing_adapted) * dist
                                 + parking_cost_adapted
                                 + area_toll_adapted)
                     elif mode == "public transport":
@@ -692,8 +694,13 @@ class MobilityModel:
                                         ((1 - self.PI_PTTravelTime)
                                          + self.PI_PTTravelTime
                                          * (1 - cal_pt_traveltime * (1 - self.pt_traveltime_adapt[t_idx]))))
-                    travel_time = (centroid_dist / max(speed, 1e-6)
-                                   + access_time[tt_name][mode] * pt_adapt_factor)
+                    if m.travel_time_by_mode:
+                        # ABM light door-to-door time; capacity acts on car modes, the PT lever on PT
+                        travel_time = m.travel_time_by_mode[tt_name][tl_name][mi] * (
+                            pt_adapt_factor / (csf_by_zone[tt_name] if mode in CAR_MODES else 1.0))
+                    else:
+                        travel_time = (dist / max(speed, 1e-6)
+                                       + access_time[tt_name][mode] * pt_adapt_factor)
                     # perceived-time levers of the active modes (ABM light "perceived travel time bonus")
                     if mode == "bicycle" and self.cycling_resistance is not None:
                         travel_time *= max(1 - self.PI_Cycling * cal_cycling_attr * self.cycling_resistance[t_idx], 0.05)
@@ -831,7 +838,9 @@ class MobilityModel:
                         for mode in MODES:
                             mi = MODE_IDX[mode]
                             trips_sum = self.trips[t, mi, tli, tti, :].sum()
-                            if method == "centroid":
+                            if method == "centroid" and self.m.trip_length_by_mode:
+                                dist = self.m.trip_length_by_mode[tt_name][tl_name][mi]
+                            elif method == "centroid":
                                 dist = self.trip_length_centroid[tt_name][tl_name]
                             else:
                                 dist = self.trip_length_mode_specific[tt_name][mode]

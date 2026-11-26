@@ -129,6 +129,11 @@ class MobilityConfig:
     # Mode-specific empirical trip length override (the "v8 fix"),
     # {traffic_type: {mode: km}}. None = not available / not used.
     mode_specific_trip_length: Optional[dict] = None
+    # ABM light base year (D47): trip length (km) and door-to-door travel time (h) per zone,
+    # length class and mode; when set, cost, travel time and pkm use them instead of the
+    # class centroid and the speed function
+    trip_length_by_mode: Optional[dict] = None
+    travel_time_by_mode: Optional[dict] = None
 
     # ------------------------------------------------------------------
     # Generalised-cost formula parameters (added for Granollers migration
@@ -363,6 +368,16 @@ _tallinn_speed_od = {
     "long":   [29.15371155, 29.0770918,  18.14241815, 11.70668359,  4.227508913],
 }
 
+# ABM light base year 2019, working day, without through traffic (D47; abm_base_year.py)
+import json as _json
+
+_TALLINN_ABM = _json.loads((Path(__file__).parent / "abm_base_year" / "tallinn.json").read_text())
+
+
+def _abm_table(data: dict, key: str) -> dict:
+    return {z: {c: list(v) for c, v in data[key][z].items()} for z in data[key]}
+
+
 # Coping-type sensitivity for Tallinn 2050 (D44): half-way from the 2019 distribution to the
 # mean of Naples and Granollers. D1.3 relates the larger shares of engaging types in southern
 # countries to climate impacts already experienced; Tallinn's CDD stay far below southern levels,
@@ -376,10 +391,12 @@ TALLINN = CityConfig(
     mobility=MobilityConfig(
         population_internal=436772,
         population_od=113320,
-        initial_trip_length_internal=(0.993799957, 5.719549309, 13.70258984),
-        initial_trip_length_od=(1.649944013, 6.786485894, 26.39949463),
-        initial_trip_rate={"internal": _tallinn_trip_rate_internal, "origin destination": _tallinn_trip_rate_od},
-        initial_travel_speed={"internal": _tallinn_speed_internal, "origin destination": _tallinn_speed_od},
+        initial_trip_length_internal=tuple(_TALLINN_ABM["centroid_km"]["internal"][c] for c in ("short", "medium", "long")),
+        initial_trip_length_od=tuple(_TALLINN_ABM["centroid_km"]["origin destination"][c] for c in ("short", "medium", "long")),
+        initial_trip_rate=_abm_table(_TALLINN_ABM, "rate"),
+        initial_travel_speed=_abm_table(_TALLINN_ABM, "speed_kmh"),
+        trip_length_by_mode=_abm_table(_TALLINN_ABM, "length_km"),
+        travel_time_by_mode=_abm_table(_TALLINN_ABM, "time_h"),
         # D3.3 Table 28 / Fig. 73, metropolitan Estonia (KNOWING survey 2023); was national Estonia (D1.3)
         # class B: VoT = 5.10 EUR/h (Granollers calibration, ES51 GDP 31,462 PPS) x (GDP/31,462)^0.9,
         # GDP elasticity 0.9 (Wardman et al. 2016; Abrantes and Wardman 2011); GDP 22,626 PPS (regsim store)
