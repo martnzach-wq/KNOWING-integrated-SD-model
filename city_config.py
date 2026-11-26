@@ -405,7 +405,7 @@ TALLINN = CityConfig(
         # D3.3 Table 28 / Fig. 73, metropolitan Estonia (KNOWING survey 2023); was national Estonia (D1.3)
         # class B: VoT = 5.10 EUR/h (Granollers calibration, ES51 GDP 31,462 PPS) x (GDP/31,462)^0.9,
         # GDP elasticity 0.9 (Wardman et al. 2016; Abrantes and Wardman 2011); GDP 22,626 PPS (regsim store)
-        value_of_time_base=3.79,
+        value_of_time_base=11.37,  # D48: 3 x the D39 value, best joint fit on the ABM base year (test)
         coping_type_distribution=(0.09, 0.17, 0.32, 0.13, 0.13, 0.17),
         cooling_degree_days=8.6,  # MAED-City base year (D3.3 Table 7); was 100 (Vensim default)
         cooling_degree_days_trajectory={2019: 8.6, 2050: 15.0},  # CETS 2050 (D3.3 Table 7)
@@ -429,21 +429,21 @@ TALLINN = CityConfig(
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
-        # 0.0070, effects 0.0025)
+        # 0.0018, effects 0.0026)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
-        attr_distinction=0.300,  # D46: fitted jointly with the stability of the coping types (odds ratio 1.93)
+        attr_distinction=0.943,  # D46: fitted jointly with the stability of the coping types (odds ratio 1.93)
         push_levers_by_compliance=True,  # D48
         value_of_time_profile_scale=0.25,  # D48: +/-5 % instead of +/-20 %
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
-        mode_change_damping=2.1093,
-        attr_offset={"car passenger": -0.008, "public transport": -0.297, "bicycle": -0.485, "walk": 2.085},
+        mode_change_damping=3.1856,
+        attr_offset={"car passenger": -4.218, "public transport": 0.435, "bicycle": -0.947, "walk": 4.127},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.3 Table 1: core network -25/-75/-90 %, citywide -5/-15/-25 %, mean),
         # traffic calming walk/cycling bonus, 15-minute city bonus for short trips
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 0.179, "parking": 0.183, "area_toll": 0.047, "road_pricing": 0.047, "cycling": 1.221, "pt_traveltime": 0.108, "distance": 1.138, "car_passenger": 0.010},
+        lever_calibration={"capacity": 0.110, "parking": 0.250, "area_toll": 0.063, "road_pricing": 0.061, "cycling": 0.762, "pt_traveltime": 0.054, "distance": 2.869, "car_passenger": 0.407},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
