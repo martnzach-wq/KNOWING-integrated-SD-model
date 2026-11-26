@@ -593,10 +593,12 @@ class MobilityModel:
             # cycles through (active x2 use same row twice differently keyed).
             # Re-derived explicitly above per mode for clarity in this
             # translation; sign convention matches the .mdl listing order.
-            attr_distinction = 1.0
+            attr_distinction = m.attr_distinction  # Tallinn: fitted so the coping-type spread stays stable (D46)
             value_of_time_base = m.value_of_time_base  # was fixed at 15; class B, set per city
             vot_profile = np.array([3, -2, 2, -3, -1, 1])
-            value_of_time = value_of_time_base + 1.0 * vot_profile
+            # coping-type profile relative to the mdl base of 15 EUR/h, so that it scales with the
+            # configured value of time (D39, D46)
+            value_of_time = value_of_time_base * (1 + vot_profile / 15.0)
             parking_cost_base = m.parking_cost_base  # 1.5 default
             pt_cost_internal, pt_cost_od = 0.0, 0.72
             street_green_term = 0.0

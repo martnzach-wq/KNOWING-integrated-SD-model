@@ -410,6 +410,7 @@ TALLINN = CityConfig(
         # 0.0067, effects 0.0022)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
+        attr_distinction=0.768,  # D46: type-A car odds ratio stays at 1.93 in BAU 2050
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
         mode_change_damping=0.6386,
         attr_offset={"car passenger": -4.254, "public transport": 0.495, "bicycle": -3.714, "walk": -3.965},
