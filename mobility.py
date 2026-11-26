@@ -669,8 +669,10 @@ class MobilityModel:
                             else centroid_dist)
 
                     # ---- Cost ----
+                    priced_km = (min(dist, m.road_pricing_od_km)
+                                 if m.road_pricing_od_km is not None and tt_name == "origin destination" else dist)
                     if mode in CAR_MODES:
-                        cost = ((car_cost_per_km + road_pricing_adapted) * dist
+                        cost = (car_cost_per_km * dist + road_pricing_adapted * priced_km
                                 + parking_cost_adapted
                                 + area_toll_adapted)
                     elif mode == "public transport":
@@ -706,7 +708,7 @@ class MobilityModel:
                     # push-lever parts of car cost and time, weighted per coping type (D48)
                     push_by_type = m.push_levers_by_compliance and mode in CAR_MODES and not m.network_capacity
                     if push_by_type:
-                        push_cost = road_pricing_adapted * dist + area_toll_adapted
+                        push_cost = road_pricing_adapted * priced_km + area_toll_adapted
                         push_time = (travel_time - free_time) if m.travel_time_by_mode else (
                             dist / max(speed, 1e-6) - dist / max(speed / max(csf_by_zone[tt_name], 1e-6), 1e-6))
                     # perceived-time levers of the active modes (ABM light "perceived travel time bonus")
@@ -765,6 +767,16 @@ class MobilityModel:
         s, md, lg = TL_IDX["short"], TL_IDX["medium"], TL_IDX["long"]
         to_short = f * trips_t[:, md]
         to_medium = f * trips_t[:, lg]
+        if self.m.shorter_trips_rechoose_mode:
+            # moved trips take the mode split of their new class (per zone and coping type)
+            def resplit(moved, target):
+                share = target / np.maximum(target.sum(axis=0, keepdims=True), 1e-12)
+                return moved.sum(axis=0, keepdims=True) * share
+            add_short, add_medium = resplit(to_short, trips_t[:, s]), resplit(to_medium, trips_t[:, md])
+            out[:, s] += add_short
+            out[:, md] += add_medium - to_short
+            out[:, lg] -= to_medium
+            return out
         out[:, s] += to_short
         out[:, md] += to_medium - to_short
         out[:, lg] -= to_medium
