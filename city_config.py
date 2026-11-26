@@ -1013,3 +1013,52 @@ SOUTH_WESTPHALIA = CityConfig(
         # (fossil motor fuels 29/14/7/3 % of final energy) and T18 (H2 mobility 217 GWh in 2050)
         non_fossil_fuel_share={2019: 0.042, 2030: 0.05, 2040: 0.10, 2045: 0.26, 2050: 0.30}),  # 2050: H2 mobility shared with freight
 )
+
+
+# ---------------------------------------------------------------------------
+# ABM light base year and populations (D47, D52): rates, length and door-to-door time per zone,
+# class and mode from the ABM light scenario exports; populations and their annual change from
+# the ABM light demand inputs (abm_base_year/abm_light_population.csv)
+# ---------------------------------------------------------------------------
+
+def _abm_population_increase(region: str) -> tuple[dict, dict, dict]:
+    import csv
+
+    rows = list(csv.DictReader(open(Path(__file__).parent / "abm_base_year" / "abm_light_population.csv")))
+    pop = {(r["year"], r["area"]): float(r["population"]) for r in rows if r["region"] == region}
+    years = [("base", 2019), ("2030", 2030), ("2040", 2040), ("2050", 2050)]
+    inc = {"core": {}, "surrounding": {}}
+    for area in inc:
+        for (y0, a), (y1, b) in zip(years, years[1:]):
+            rate = (pop[(y1, area)] - pop[(y0, area)]) / (b - a)
+            inc[area][a] = rate
+            inc[area][b - 1] = rate
+        inc[area][2050] = inc[area][2049]
+    return {"internal": pop[("base", "core")], "od": pop[("base", "surrounding")]}, inc["core"], inc["surrounding"]
+
+
+def _apply_abm(city: "CityConfig", data_file: str, region: str, **options) -> None:
+    data = _json.loads((Path(__file__).parent / "abm_base_year" / data_file).read_text())
+    m = city.mobility
+    m.initial_trip_rate = _abm_table(data, "rate")
+    m.initial_travel_speed = _abm_table(data, "speed_kmh")
+    m.trip_length_by_mode = _abm_table(data, "length_km")
+    m.travel_time_by_mode = _abm_table(data, "time_h")
+    m.initial_trip_length_internal = tuple(data["centroid_km"]["internal"][c] for c in ("short", "medium", "long"))
+    m.initial_trip_length_od = tuple(data["centroid_km"]["origin destination"][c] for c in ("short", "medium", "long"))
+    pops, inc_int, inc_od = _abm_population_increase(region)
+    m.population_internal, m.population_od = pops["internal"], pops["od"]
+    m.pop_net_increase_internal, m.pop_net_increase_od = inc_int, inc_od
+    for k, v in options.items():
+        setattr(m, k, v)
+    if options.get("mode_choice") == "logit" and "lever_calibration" not in options:
+        m.lever_calibration = dict.fromkeys(m.lever_calibration, 1.0)  # start values, replaced by the fit
+
+
+_apply_abm(TALLINN, "tallinn.json", "tallinn")
+_ABM_LOGIT = dict(mode_choice="logit", logit_scale=0.25, logit_adjustment=0.67, network_capacity=None,
+                  push_levers_by_compliance=True, shorter_trips_rechoose_mode=True)
+# value of time: HEATCO D5 Table 0.3/0.4 car, short trips (30 % commute, 60 % other, 10 % business),
+# updated to 2019 with GDP per capita elasticity 0.7 and HICP (Eurostat): Italy 14.0, Germany 14.0 EUR/h (D52)
+_apply_abm(NAPLES, "naples.json", "naples", road_pricing_od_km=8.4, value_of_time_base=14.0, **_ABM_LOGIT)
+_apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", road_pricing_od_km=6.3, value_of_time_base=14.0, **_ABM_LOGIT)

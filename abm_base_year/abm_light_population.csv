@@ -1,0 +1,29 @@
+region,year,area,definition,population,zones,file
+tallinn,base,core,internal traffic zones,427216.0,236,tallinn\model\data\demand_input_Baseyear.xlsx
+tallinn,base,surrounding,origin & destination traffic zones,110281.0,164,tallinn\model\data\demand_input_Baseyear.xlsx
+tallinn,2030,core,internal traffic zones,450712.0,236,tallinn\model\data\demand_input_2030_population.xlsx
+tallinn,2030,surrounding,origin & destination traffic zones,110281.0,164,tallinn\model\data\demand_input_2030_population.xlsx
+tallinn,2040,core,internal traffic zones,479249.0,236,tallinn\model\data\demand_input_2040_population.xlsx
+tallinn,2040,surrounding,origin & destination traffic zones,110281.0,164,tallinn\model\data\demand_input_2040_population.xlsx
+tallinn,2050,core,internal traffic zones,509728.0,236,tallinn\model\data\demand_input_2050_population.xlsx
+tallinn,2050,surrounding,origin & destination traffic zones,110281.0,164,tallinn\model\data\demand_input_2050_population.xlsx
+naples,base,core,internal traffic zones,1065939.0,151,naples\model\data\demand_input_Baseyear.xlsx
+naples,base,surrounding,origin & destination traffic zones,1888647.0,91,naples\model\data\demand_input_Baseyear.xlsx
+naples,2030,core,internal traffic zones,1042488.3420000002,151,naples\model\data\demand_input_2030_population.xlsx
+naples,2030,surrounding,origin & destination traffic zones,1847096.766,91,naples\model\data\demand_input_2030_population.xlsx
+naples,2040,core,internal traffic zones,1021169.5620000002,151,naples\model\data\demand_input_2040_population.xlsx
+naples,2040,surrounding,origin & destination traffic zones,1809323.826,91,naples\model\data\demand_input_2040_population.xlsx
+naples,2050,core,internal traffic zones,999850.782,151,naples\model\data\demand_input_2050_population.xlsx
+naples,2050,surrounding,origin & destination traffic zones,1771550.886,91,naples\model\data\demand_input_2050_population.xlsx
+SWF,base,core,internal traffic zones,1381751.3624,199,SWF\model\data\demand_input_Baseyear.xlsx
+SWF,base,surrounding,"municipal zones < 100,000 inh. within 10 km of core area",1315593.4348000002,63,SWF\model\data\demand_input_Baseyear.xlsx
+SWF,base,surrounding_full_model,all origin & destination traffic zones (not used for the SD model),19272938.1528,175,SWF\model\data\demand_input_Baseyear.xlsx
+SWF,2030,core,internal traffic zones,1331139.40925,199,SWF\model\data\demand_input_2030_population.xlsx
+SWF,2030,surrounding,"municipal zones < 100,000 inh. within 10 km of core area",1311389.8750000002,63,SWF\model\data\demand_input_2030_population.xlsx
+SWF,2030,surrounding_full_model,all origin & destination traffic zones (not used for the SD model),19301611.51675,175,SWF\model\data\demand_input_2030_population.xlsx
+SWF,2040,core,internal traffic zones,1286544.55675,199,SWF\model\data\demand_input_2040_population.xlsx
+SWF,2040,surrounding,"municipal zones < 100,000 inh. within 10 km of core area",1307568.4570000004,63,SWF\model\data\demand_input_2040_population.xlsx
+SWF,2040,surrounding_full_model,all origin & destination traffic zones (not used for the SD model),19327678.21125,175,SWF\model\data\demand_input_2040_population.xlsx
+SWF,2050,core,internal traffic zones,1264821.65075,199,SWF\model\data\demand_input_2050_population.xlsx
+SWF,2050,surrounding,"municipal zones < 100,000 inh. within 10 km of core area",1303747.0390000003,63,SWF\model\data\demand_input_2050_population.xlsx
+SWF,2050,surrounding_full_model,all origin & destination traffic zones (not used for the SD model),19357014.89675,175,SWF\model\data\demand_input_2050_population.xlsx

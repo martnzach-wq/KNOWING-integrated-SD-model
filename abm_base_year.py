@@ -56,7 +56,43 @@ def read_abm_base_year(path: str, pop_internal: float, pop_od: float, min_trips:
         out["trips"][zone][cls] = trips
         out["time_h"][zone][cls] = time_h
         out["length_km"][zone][cls] = dist
+    return _finish(out, pops, min_trips)
+
+
+def read_abm_csv(path: str, pop_internal: float, pop_od: float, year: str = "base",
+                 measure: str = "baseyear", min_trips: float = 1.0) -> dict:
+    """As `read_abm_base_year`, from the long ABM light scenario export (one row per year, measure,
+    zone, length class and mode)."""
+    import pandas as pd
+
+    d = pd.read_csv(path)
+    d = d[(d["year"].astype(str) == year) & (d["measure"] == measure) & d["mode"].isin(ABM_MODES)]
+    pops = {"internal": pop_internal, "origin destination": pop_od}
+    out = {key: {z: {} for z in pops} for key in ("trips", "rate", "length_km", "time_h", "speed_kmh")}
+    for (agg, cls), g in d.groupby(["aggregation", "distance_category"]):
+        z, c = ZONES[agg.strip().lower()], cls.split()[0].lower()
+        g = g.set_index("mode").reindex(ABM_MODES)
+        out["trips"][z][c] = g["trips"].fillna(0).to_numpy(float).copy()
+        out["time_h"][z][c] = g["avg_travel_time_min"].to_numpy(float).copy() / 60
+        out["length_km"][z][c] = g["avg_travel_distance_km"].to_numpy(float).copy()
+    return _finish(out, pops, min_trips)
+
+
+def _finish(out: dict, pops: dict, min_trips: float) -> dict:
     walk = SD_MODES.index("walk")
+    # classes without trips (e.g. short OD trips) take length and time of the internal class;
+    # missing mode cells take the car values of the class
+    for z in pops:
+        for cls in CLASSES:
+            if cls not in out["trips"][z]:
+                out["trips"][z][cls] = np.zeros(len(SD_MODES))
+                out["length_km"][z][cls] = np.full(len(SD_MODES), np.nan)
+                out["time_h"][z][cls] = np.full(len(SD_MODES), np.nan)
+            for key in ("length_km", "time_h"):
+                v = out[key][z][cls]
+                if np.isnan(v).all():
+                    v[:] = out[key]["internal"][cls]
+                v[np.isnan(v)] = v[0]
     for z in pops:
         walk_speed = out["length_km"][z]["medium"][walk] / out["time_h"][z]["medium"][walk]
         for cls in CLASSES:
@@ -67,11 +103,11 @@ def read_abm_base_year(path: str, pop_internal: float, pop_od: float, min_trips:
             h[sparse] = d[0] / walk_speed
             out["rate"][z][cls] = t / pops[z]
             out["speed_kmh"][z][cls] = d / h
-    out["centroid_km"] = {
-        z: {cls: float((out["trips"][z][cls] * out["length_km"][z][cls]).sum() / out["trips"][z][cls].sum())
-            for cls in CLASSES}
-        for z in pops
-    }
+    def centroid(z, cls):
+        t, d = out["trips"][z][cls], out["length_km"][z][cls]
+        return float((t * d).sum() / t.sum()) if t.sum() > 0 else centroid("internal", cls)
+
+    out["centroid_km"] = {z: {cls: centroid(z, cls) for cls in CLASSES} for z in pops}
     out["population"] = pops
     return _jsonable(out)
 
@@ -85,8 +121,9 @@ def _jsonable(x):
 
 
 if __name__ == "__main__":
-    xlsx, pi, po, dst = sys.argv[1:5]
-    data = read_abm_base_year(xlsx, float(pi), float(po))
+    src, pi, po, dst = sys.argv[1:5]
+    reader = read_abm_csv if src.endswith(".csv") else read_abm_base_year
+    data = reader(src, float(pi), float(po))
     with open(dst, "w") as f:
         json.dump(data, f, indent=1)
     for z, c in data["centroid_km"].items():

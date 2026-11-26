@@ -1,0 +1,577 @@
+region,year,scenario_nr,measure,scenario,aggregation,distance_category,mode,trips,avg_travel_time_min,avg_travel_distance_km
+naples,base,0,baseyear,Baseyear,Internal traffic,long (>10),Bike,5333.919616175905,41.95753437417671,11.77795521207321
+naples,base,0,baseyear,Baseyear,Internal traffic,long (>10),Car,107280.4359297623,34.87624213533407,13.57200834220768
+naples,base,0,baseyear,Baseyear,Internal traffic,long (>10),CarP,41333.9574775136,34.78410656622361,13.44006716898124
+naples,base,0,baseyear,Baseyear,Internal traffic,long (>10),PT,193026.4082221886,75.5798372227627,14.38143238429959
+naples,base,0,baseyear,Baseyear,Internal traffic,long (>10),Walk,0.03511032655332624,158.4800808802873,10.50130153364899
+naples,base,0,baseyear,Baseyear,Internal traffic,long (>10),Total,346974.756355967,57.61805741891434,13.97900371909421
+naples,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Bike,98606.24185740054,18.14770433828879,4.827517837444908
+naples,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Car,232434.8828834463,21.47077151790473,6.250208606234199
+naples,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),CarP,104408.556634946,21.43975426662183,6.17385102243401
+naples,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),PT,405299.0086470072,42.64642719809942,5.914280030751998
+naples,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Walk,64755.83623385028,39.22588552056546,2.771192529019809
+naples,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Total,905504.5262566505,31.85316675087945,5.68732164726395
+naples,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Bike,19496.33442360315,5.245593796004211,1.261163597674223
+naples,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Car,8179.273302401333,9.967416846874366,1.500896390118564
+naples,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),CarP,3302.168260048544,10.06662896634629,1.522230864913218
+naples,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),PT,27678.7778083586,20.73147859299458,1.486121778818502
+naples,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Walk,261132.2247509248,12.58038330584948,0.9589204895638251
+naples,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Total,319788.7785453364,12.74592332193867,1.0426571198368
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Bike,8601.931866098992,43.86848127988566,12.97766916277428
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Car,673393.1670561831,36.72074526730452,19.96221887593032
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),CarP,174658.827691136,36.64745578736412,20.01619563183068
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),PT,372081.7814117694,102.9161809566074,20.05584436529805
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Walk,0.1448011670546321,144.6827610880891,10.59643308263244
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Total,1228735.852826355,56.80546477181966,19.9493453839502
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Bike,23921.43994194471,20.51816000365191,6.088933510469777
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Car,165248.9790848135,18.01893313096751,7.37785252923795
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),CarP,52544.46483069104,17.72571058954049,7.239798830649309
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),PT,74008.40460387953,54.39185574227908,6.83633476148637
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Walk,11046.14856625094,34.57509208747457,3.141645802806456
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Total,326769.4370275797,26.95233178458102,6.995450207105703
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Bike,4632.766339574624,41.94506523901135,11.7816877386073
+naples,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Car,101300.0940822354,33.80629054229215,13.57300879596351
+naples,2030,0,reference,2030_0_reference,Internal traffic,long (>10),CarP,38805.95934421113,33.71017202602379,13.44527355425376
+naples,2030,0,reference,2030_0_reference,Internal traffic,long (>10),PT,209494.9725594578,66.98134619800817,14.04253456578407
+naples,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Walk,0.03032269135325757,158.4488449587661,10.50051822231231
+naples,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Total,354233.8226481703,53.52204261747671,13.81326686609241
+naples,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Bike,90667.13060933643,17.96061180112545,4.775129752225533
+naples,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Car,217543.149638129,20.85709024993742,6.221197838386469
+naples,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),CarP,96585.89760413559,20.78636038310709,6.140331454840754
+naples,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),PT,406523.752577138,39.2662696127604,5.968474651110852
+naples,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Walk,60645.95644366373,39.11903231768606,2.764959990808882
+naples,2030,0,reference,2030_0_reference,Internal traffic,medium (2-10km),Total,871965.8868724026,30.40085205007624,5.703670454012526
+naples,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Bike,18524.26633912115,5.244624733567368,1.260437407840012
+naples,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Car,7977.964443348196,9.965883992796092,1.505991464713507
+naples,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),CarP,3220.434198520647,10.06112718471596,1.527759937564231
+naples,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),PT,28460.2187024167,20.16798408257481,1.497019199324468
+naples,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Walk,248400.6558895394,12.5712083187796,0.9584028940785543
+naples,2030,0,reference,2030_0_reference,Internal traffic,short (0-2km),Total,306583.5395729461,12.73957214579112,1.046882284388991
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Bike,7927.242109868845,43.82079857072167,12.97208056137891
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Car,647660.4903908124,35.86875529319557,20.02694236990567
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),CarP,168014.1761162215,35.81290360270576,20.09289519497582
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),PT,394625.1157146276,97.45085597545483,20.27260618313116
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Walk,0.1332314249520452,144.6880900614051,10.5941883123684
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Total,1218227.157562955,55.86134193945868,20.06970883231552
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Bike,22571.87268187707,20.46963912804442,6.076207018446498
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Car,156636.032434212,17.65124963907859,7.415325131003389
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),CarP,49655.44648738352,17.36129949755735,7.281443939848965
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),PT,74495.07069276016,52.44626268328938,6.865421627516797
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Walk,10480.34467147673,34.55435046849207,3.140603880195841
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Total,313838.7669677095,26.63173994434262,7.024551271228242
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2030,0,reference,2030_0_reference,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Bike,6921.05810546875,42.46641540527344,11.96679401397705
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Car,79224.7421875,29.76076316833496,13.31534671783447
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),CarP,34788.5703125,29.78785133361816,13.24262619018555
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),PT,234409.4375,68.08390808105469,14.24911880493164
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Walk,0.06347469985485077,158.52099609375,10.51303291320801
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,long (>10),Total,355343.875,55.29150772094727,13.89794158935547
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Bike,104095.1640625,18.32073974609375,4.89377498626709
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Car,200936.6875,19.06673049926758,6.161684513092041
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),CarP,96471.90625,19.09294891357422,6.115803241729736
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),PT,421262.25,39.51362228393555,6.006983757019043
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Walk,68708.6875,39.5721321105957,2.793272733688354
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,medium (2-10km),Total,891474.6875,30.2249584197998,5.675951957702637
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Bike,18989.232421875,5.269795894622803,1.276926040649414
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Car,7339.88720703125,9.599540710449219,1.492597818374634
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),CarP,3017.76806640625,9.66297721862793,1.510404586791992
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),PT,28038.90234375,20.18008232116699,1.495580792427063
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Walk,260274.609375,12.6481819152832,0.9651985168457031
+naples,2030,10,all_measures,2030_10_all_measures,Internal traffic,short (0-2km),Total,317660.40625,12.7731294631958,1.048013806343079
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Bike,10628.6865234375,44.97504043579102,13.35249614715576
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Car,572302.5,32.36703491210938,19.44156837463379
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),CarP,165942.125,32.59728240966797,19.75600242614746
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),PT,424757.0,99.057373046875,20.61738586425781
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Walk,0.1490848362445831,145.0519256591797,10.60317039489746
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,long (>10),Total,1173630.375,56.65016555786133,19.85643196105957
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Bike,24491.64453125,20.70691108703613,6.151363849639893
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Car,157734.328125,16.98901557922363,7.365698337554932
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),CarP,51966.046875,16.77248764038086,7.231671810150146
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),PT,77943.125,52.41660308837891,6.858144283294678
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Walk,10894.845703125,34.61428070068359,3.145769119262695
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,medium (2-10km),Total,323029.96875,26.37875366210938,6.987276554107666
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2030,10,all_measures,2030_10_all_measures,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Bike,4561.173578699052,41.95120184731474,11.78373016596058
+naples,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Car,98584.35634154985,33.12872620086139,13.54737322744504
+naples,2040,0,reference,2040_0_reference,Internal traffic,long (>10),CarP,37772.72225023582,33.03974928306135,13.42070881164199
+naples,2040,0,reference,2040_0_reference,Internal traffic,long (>10),PT,206059.8038169605,67.00340058918253,14.04559655985765
+naples,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Walk,0.02986442919340278,158.4530648695278,10.50079209454307
+naples,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Total,346978.0858518744,53.3521718018925,13.80627997943082
+naples,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Bike,89014.18695199826,17.96308490436935,4.776081054212041
+naples,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Car,213150.3157419644,20.53541201661115,6.221138967373759
+naples,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),CarP,94678.37118466254,20.46444760462357,6.139848365827548
+naples,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),PT,399141.6540768297,39.27223687448434,5.969523305703713
+naples,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Walk,59518.28404532129,39.12027366825038,2.765074625449638
+naples,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Total,855502.8120007761,30.2946948875916,5.703950220181866
+naples,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Bike,18173.56310395727,5.244602097651496,1.260487767994375
+naples,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Car,7784.253031328677,9.924142524627369,1.506161913767246
+naples,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),CarP,3138.210855376535,10.01775360358511,1.527172757300044
+naples,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),PT,27917.17665699671,20.1691372445853,1.497080954616202
+naples,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Walk,243675.4396668104,12.57123017792436,0.9584180460420185
+naples,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Total,300688.6433144696,12.73865328874931,1.046802760242172
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Bike,7820.340342265608,43.83669482862845,12.97748564349629
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Car,630633.1324962121,35.19717709434601,19.97356505586973
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),CarP,163595.3740706739,35.14572791775029,20.04346908681276
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),PT,388659.6533128832,97.51785007570793,20.29404744943094
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Walk,0.1316619722336377,144.6639306873066,10.59323864408304
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Total,1190708.631884007,55.58897743859681,20.04182826719658
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Bike,22218.03420433206,20.47751886599028,6.07855013090387
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Car,153605.0455312187,17.43326743248367,7.394830156614225
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),CarP,48801.73432828441,17.16500480919687,7.254701900978819
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),PT,73183.65764275633,52.45143575348528,6.865878833454258
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Walk,10301.30540666454,34.56772486146895,3.141309304843063
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Total,308109.7771132561,26.500848954934,7.009866500024223
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,0,reference,2040_0_reference,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Bike,5139.7299991093,42.03894514415403,11.80836251617085
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Car,97140.72278518931,34.0510003397152,13.644583862023
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),CarP,37469.74318660049,33.9542165504568,13.51376177619368
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),PT,207516.6597734606,67.06107910324299,14.05584615483198
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Walk,0.07855312257392716,158.8565277567044,10.52461631787908
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,long (>10),Total,347266.9342974823,53.88467819182053,13.84904899619854
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Bike,91432.74187945598,18.2352732504758,4.854166525198044
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Car,207547.5457528829,21.09879270391297,6.237715801971992
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),CarP,92680.34918400178,21.05091588043729,6.167493093332311
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),PT,393583.8455678827,39.41208771443913,6.0062847292231
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Walk,70951.2340269817,39.93000004986212,2.81312174110598
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Total,856195.7164112051,30.76674319728951,5.692190209678377
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Bike,17556.96918091419,5.217395979012018,1.254022228392048
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Car,7264.453520696774,9.89946890548814,1.496513600083826
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),CarP,2905.657927039517,9.990348591417016,1.51648216561493
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),PT,26246.90491941536,20.09847022037983,1.490927103136494
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Walk,250653.5382241726,12.78674220173752,0.9730859459921813
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Total,304627.5237722385,12.8849461507974,1.051560327979941
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Bike,7881.542888090305,43.85121708533331,12.98226340095895
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Car,626172.9851954984,35.74712757133255,20.06549124628621
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),CarP,162642.7107423934,35.67562255092425,20.12215963604832
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),PT,390577.0997772025,97.59259112280824,20.30254189629069
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Walk,0.1324738398203467,144.6740152298196,10.59377179222282
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Total,1187274.471077024,56.13641392989293,20.10421458972469
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Bike,22238.49617235217,20.48921592686284,6.081980494316245
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Car,152972.2627909193,17.54149381004382,7.384397385774933
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),CarP,48525.63978584493,17.24521189707052,7.244483880175119
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),PT,73243.0157535093,52.45761162421739,6.867150691038752
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Walk,10294.95269542794,34.56529635490676,3.141579924891145
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Total,307274.3671980536,26.60113868710677,7.002596914211512
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Bike,4778.499198383397,41.95040074007632,11.78496691562088
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Car,94840.18439441145,32.3317199407642,13.56714603722173
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),CarP,36683.24833542606,32.22638272316956,13.42331680840047
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),PT,214094.7353978886,67.06808139175695,14.0445212842873
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Walk,0.03135309235556665,158.4415885128661,10.50084651210786
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Total,350396.6986792018,53.67602724399685,13.81946338661059
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Bike,91984.70413059785,18.01024189335545,4.790458307842152
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Car,200886.5287701056,20.06185800873709,6.238353770256582
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),CarP,90795.44424906689,20.03576264244017,6.166288949436976
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),PT,412632.0676888573,39.32991178950922,5.977555697134407
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Walk,61168.95966116164,39.16334434713958,2.767780274115548
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Total,857467.7044997892,30.47385163906461,5.702319107867026
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Bike,18479.96408342546,5.245574118507115,1.260964365188045
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Car,7002.530162361312,9.761818534027602,1.498650411923237
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),CarP,2831.459511332235,9.856459924968485,1.520075527767948
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),PT,28411.88784325747,20.18374475190303,1.49804628598595
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Walk,247635.8178465366,12.57869294703297,0.9588290914754196
+naples,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Total,304361.6594469131,12.75323847233001,1.045150374999898
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Bike,8401.039788886717,43.87301194316169,12.99100136912144
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Car,614545.4921143344,34.52271745540644,19.99803915921921
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),CarP,160355.325703995,34.46983812703794,20.04128760997489
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),PT,405853.4171456686,97.72147987511838,20.32280555077362
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Walk,0.1429462345658766,144.6510637867219,10.59085299213545
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Total,1189155.417699119,56.15111165952152,20.06520861411638
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Bike,23510.78646806153,20.55242089655361,6.10128941103717
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Car,149789.2969114255,17.21726299017672,7.418078413549607
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),CarP,48267.09899232101,16.95961266351558,7.274445418245218
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),PT,76000.14505621613,52.52603954088773,6.870694821671496
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Walk,10740.68494704199,34.80482079058027,3.153360509803697
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Total,308308.0123750662,26.74783174137326,7.011670821753628
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Bike,5459.682023595753,42.42242624245583,11.96678423767855
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Car,79437.79134013393,29.96884711591636,13.28277410646184
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),CarP,33073.19560100719,29.9970997231354,13.18741222853899
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),PT,223487.2163065403,67.99167404227963,14.22980781130315
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Walk,0.04485086286521928,158.0425433256614,10.4882408792883
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,long (>10),Total,341457.9301221401,55.05699918525385,13.87233719777141
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Bike,91329.29841564478,18.03907909106553,4.80378660204937
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Car,212948.4147861864,19.33140169163815,6.163179497683526
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),CarP,96285.68541023841,19.31772046230363,6.113479856107747
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),PT,407626.8560283547,39.34056535619999,5.980947193167931
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Walk,60290.14607494092,39.1513183722924,2.767877071167983
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,medium (2-10km),Total,868480.4007153651,29.96131794262891,5.693481132853464
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Bike,18429.41533412623,5.245106342369941,1.261873120152278
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Car,7868.47145201817,9.711079131386091,1.502600808637645
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),CarP,3174.819923728222,9.804088202118756,1.523851148459493
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),PT,28194.99997821608,20.17024618427545,1.497190004274155
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Walk,246645.0915772795,12.57348945391594,0.9591290502865314
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Internal traffic,short (0-2km),Total,304312.7982653682,12.73062249548204,1.047259447452035
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Bike,9500.032621324877,45.38841765878107,13.4980148824815
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Car,584241.765631538,32.93081291188593,19.52335708235548
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),CarP,156844.7138394117,32.99521013546523,19.69453658764171
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),PT,406952.4425325074,99.30704106158532,20.59453076590976
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Walk,0.1417212921503118,145.7398764355263,10.62123128262115
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,long (>10),Total,1157539.096346074,56.37747856690974,19.87368921336222
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Bike,22717.42427556359,20.59051015780757,6.111014871181732
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Car,157112.6878956234,17.16343762845069,7.418687311596692
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),CarP,49837.31311023434,16.901685484237,7.271505954443647
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),PT,73432.30170658039,52.44032597600915,6.863752353700687
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Walk,10432.71901854424,34.58406797732588,3.14396475321912
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,medium (2-10km),Total,313532.446006546,26.21199679099378,7.028331528100613
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,3,uvar_pricing,2040_3_uvar_pricing,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Bike,5442.610932366235,42.08504743327124,11.83558763491815
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Car,75380.47857123069,28.47901732176339,13.31212869523963
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),CarP,29463.10199107753,28.44502029048365,13.18339666453144
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),PT,238663.9025951701,67.86718007968334,14.18013912469174
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Walk,0.03674620642718654,158.4919554164688,10.50602352097004
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,long (>10),Total,348950.130836051,55.62784820162113,13.8719037253775
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Bike,96219.50405387832,18.11256262554068,4.824478985651827
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Car,192922.2634630407,18.2974839154497,6.116364035019012
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),CarP,87043.8656411461,18.2852400154794,6.046987923424219
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),PT,432757.3155679586,39.48788881901162,6.007728670018516
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Walk,63058.89711266602,39.21598243940232,2.771531421500968
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,medium (2-10km),Total,872001.8458386898,30.30496010006535,5.671092605718387
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Bike,18988.55421939978,5.245137483003426,1.261395662048935
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Car,7814.015263191171,9.567305926680863,1.495929250956732
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),CarP,3160.66436475785,9.656290867934555,1.51718453883713
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),PT,29128.46247528047,20.19237700417665,1.498661615235162
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Walk,254193.0687230665,12.57664210687309,0.9588445935086057
+naples,2040,4,road_pricing,2040_4_road_pricing,Internal traffic,short (0-2km),Total,313284.7650456958,12.73584144161508,1.046402506213171
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Bike,9456.777999098875,44.43002692585758,13.1580558429629
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Car,526225.9482719186,30.76476813901304,19.08087978790107
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),CarP,140163.3403862797,30.67406201477134,19.09445365438338
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),PT,441470.5201257117,99.68273813016394,20.82165014005304
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Walk,0.1538648020112831,144.8665690079345,10.59938219927797
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,long (>10),Total,1117316.740647811,58.09970741668368,19.72025910540677
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Bike,23781.0739305238,20.62147274938843,6.120434663740935
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Car,154300.9598408408,16.48192459867609,7.345011115632807
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),CarP,49829.14639359227,16.28571348160323,7.209262468732674
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),PT,76754.79593301861,52.54082088561317,6.881447431748319
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Walk,10849.75291796894,34.62373425922846,3.145483466141695
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,medium (2-10km),Total,315515.7290159445,26.15875832114208,6.974092822501075
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,4,road_pricing,2040_4_road_pricing,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Bike,7778.187651290403,42.35849465521926,11.90836808832858
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Car,97471.94479868529,32.95468724853968,13.54981890076252
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),CarP,38469.69201165122,32.83577798569703,13.39796428958255
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),PT,207504.4242677994,67.01719150159494,14.0393142748674
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Walk,0.03030814828831832,158.4356543315079,10.50007349131596
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,long (>10),Total,351224.2790375746,53.27416610896556,13.78602993668084
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Bike,108272.695749176,18.64660707730487,4.973683911479777
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Car,208685.006880317,20.44912089244342,6.219436214861353
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),CarP,96524.84897414675,20.40656232643872,6.147813846241871
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),PT,402858.7207981382,39.29945332290196,5.971559529777382
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Walk,59941.68447307054,39.16040503298883,2.767459959035151
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,medium (2-10km),Total,876282.9568748486,30.16782607064158,5.707534379133904
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Bike,18641.41031601289,5.272998008511143,1.275013601772622
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Car,7759.171981893671,9.91679802318607,1.508221774188674
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),CarP,3149.98754127377,10.01602912258431,1.530179039636126
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),PT,27915.92254575979,20.17721461574864,1.497728731211076
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Walk,242655.0825143327,12.59051745555035,0.9596119747488839
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Internal traffic,short (0-2km),Total,300121.5748992728,12.74553900882969,1.049427556242384
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Bike,10955.68573300371,44.57611116400827,13.18886938562497
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Car,629891.3016619241,35.05891887647693,19.95468223880504
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),CarP,164954.7466640554,34.96079113596308,19.97532361828334
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),PT,388976.7767042974,97.50971356233987,20.28569453057686
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Walk,0.1333825274432857,144.6454144863389,10.59234620566411
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,long (>10),Total,1194778.644145808,55.46437580952109,20.00325660861832
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Bike,23774.58673262977,20.87641474428433,6.208153594849695
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Car,151685.9770067899,17.38517077307079,7.382626122711414
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),CarP,48641.70157003116,17.12127750229753,7.246429447489748
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),PT,73281.19907126433,52.46836626499324,6.868448691274536
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Walk,10266.28564643446,34.58486505270719,3.142386141718877
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,medium (2-10km),Total,307649.7500271496,26.54390492459272,7.006358985927246
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,5,cycling_optimization,2040_5_cycling_optimization,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Bike,4228.422629173095,41.93465531930412,11.78166793084945
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Car,93054.81187118194,32.03352031362925,13.52747907437556
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),CarP,35509.56957180877,31.95625507619449,13.40577221251142
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),PT,219522.9974385204,62.13965039498909,14.14218136737133
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Walk,0.02738320771524133,158.4547575161052,10.50100778701328
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,long (>10),Total,352315.8288938919,50.90327682560157,13.87727153694785
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Bike,85103.91889156494,17.87543079467036,4.749826089188657
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Car,205505.0469667034,19.99238472797997,6.213376617854436
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),CarP,90518.16208892502,19.93741938899247,6.135290541215614
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),PT,407666.1776914849,36.79953311827669,5.993759053780354
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Walk,57302.78382645611,39.03513079048106,2.759533619570888
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,medium (2-10km),Total,846096.0894651343,29.16128641957186,5.71808114202564
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Bike,17767.43607425526,5.243054564692006,1.259687319603327
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Car,7621.098010573511,9.841430883693572,1.506455615894436
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),CarP,3072.48673939966,9.932302902306503,1.526514792697689
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),PT,29104.42159396536,19.48199759490305,1.507146570747241
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Walk,238392.0461286262,12.55958839691516,0.9576078390828406
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Internal traffic,short (0-2km),Total,295957.4885468199,12.70382878814635,1.049823672826303
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Bike,7238.760325912021,43.86165003347168,12.99085701537219
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Car,602783.674585894,34.29724143282743,20.03605900951287
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),CarP,157138.314807276,34.26716897462409,20.1093289468849
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),PT,445169.6778457771,90.01951505056641,20.67905494887118
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Walk,0.1215507327284341,144.6962398457103,10.5915561246931
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,long (>10),Total,1212330.549115592,54.81176938774901,20.23959766749315
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Bike,21028.34703784335,20.42605335311681,6.066268233906315
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Car,147728.158390403,17.08962568024145,7.404283145391505
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),CarP,46814.92289048845,16.84154058303585,7.27173049977111
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),PT,77128.11175552427,48.30348113841015,6.835717555143071
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Walk,9820.451277426795,34.4863721335878,3.137708709877337
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,medium (2-10km),Total,302519.9913516858,25.80592603290073,7.007305213460171
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,6,public_transport_optimization,2040_6_public_transport_optimization,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Bike,4619.486929995797,41.80358560331076,11.78479721312438
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Car,98408.4003191056,33.02420061604135,13.53907197213107
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),CarP,37698.98097904653,32.93932634128601,13.41571651781554
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),PT,205021.157640411,67.01528734375366,14.04758100677217
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Walk,0.03311186735578725,157.5506805090933,10.50074164896977
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,long (>10),Total,345748.0589804263,53.28824107043648,13.80371781387782
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Bike,91141.13860372668,17.73948866966436,4.756969757201156
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Car,210289.0300938257,20.53222628667639,6.235892311275565
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),CarP,93799.4568923291,20.45402955293915,6.152173938720865
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),PT,394183.8058735933,39.3374327884401,5.986159929223827
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Walk,64174.80552706204,38.35349798740424,2.772769636371266
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,medium (2-10km),Total,853588.2369905368,30.24946002761408,5.693090655548056
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Bike,17626.69078953509,5.166985105976873,1.265549882955975
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Car,7250.144052116731,9.999176968437126,1.51080689176891
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),CarP,2914.838906531315,10.0889561417092,1.531802719858931
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),PT,26308.93511036984,20.13092438101835,1.493712110361768
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Walk,253414.7552331109,12.1661725640115,0.9716102014755312
+naples,2040,7,15min_city,2040_7_15min_city,Internal traffic,short (0-2km),Total,307515.3640916639,12.37561199914371,1.051148515976172
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Bike,7904.673354957275,43.72392055743746,12.98135585267036
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Car,628816.5512604263,35.16006252377584,19.99952576985623
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),CarP,163105.6971127611,35.10292492231413,20.06367140268897
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),PT,387821.9992891217,97.52516880378253,20.29605417278175
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Walk,0.1629319140977535,142.7817956551239,10.59321898220528
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,long (>10),Total,1187649.083949181,55.5743019638323,20.0584530101007
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Bike,22233.94809141129,20.45751625816292,6.107266259054777
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Car,154064.4047020965,17.48841846773085,7.420191124345485
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),CarP,48732.00495383839,17.21925786633621,7.288985546029144
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),PT,72692.36445932572,52.50839015941965,6.879892066253196
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Walk,11850.40768515858,33.0357107893044,3.159085271769021
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,medium (2-10km),Total,309573.1298918306,26.4776493138999,7.015256523498173
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,7,15min_city,2040_7_15min_city,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Bike,4433.259133388558,41.9355440497653,11.77811664457858
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Car,96312.69197274934,32.522688184842,13.55158073173401
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),CarP,43021.13013686364,32.53638926038568,13.50970161086274
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),PT,201076.7960309523,66.88335862082266,14.0304178429043
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Walk,0.02886973071224904,158.4496045514074,10.50062084026257
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,long (>10),Total,344843.9061436846,52.68095717948275,13.80276403391833
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Bike,87669.6087085171,17.93799830191342,4.768313183478502
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Car,210767.8289070822,20.26371695466714,6.21685291074171
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),CarP,104093.7830479333,20.27406809011574,6.160210656102484
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),PT,392551.3752753263,39.23348284675296,5.964057133720493
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Walk,58705.59266389739,39.09563246680288,2.763496432739753
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,medium (2-10km),Total,853788.1886027564,30.04287436955732,5.70752789065727
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Bike,18020.41024356061,5.244527803855951,1.260307878090791
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Car,7630.462697737817,9.862998294759457,1.499262625640761
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),CarP,3363.807851531283,9.988287134279263,1.521504698352323
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),PT,27674.8919255713,20.16202431138272,1.496601620980894
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Walk,241660.258815337,12.5681241297523,0.9582138648464436
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Internal traffic,short (0-2km),Total,298349.8315337381,12.73191412956715,1.046589767040368
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Bike,7558.561613182888,43.79648005435224,12.96388004616956
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Car,612018.7699177127,34.54442627479578,19.9098483561669
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),CarP,194385.8055240914,35.11510017112629,20.54538347174011
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),PT,380897.221685666,97.26937036994433,20.2372992494677
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Walk,0.125591190376146,144.6726842364737,10.59439826820984
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,long (>10),Total,1194860.484331843,54.69124191277553,20.07368458982809
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Bike,21736.05077165552,20.44883684979814,6.069789987449157
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Car,152724.9577124795,17.28592842622012,7.424216189657119
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),CarP,53242.52090200435,17.05739786739545,7.30736464573871
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),PT,72153.20001903568,52.40774804647265,6.862998004380831
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Walk,10077.79014326619,34.4290354569263,3.134501063812702
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,medium (2-10km),Total,309934.5195484412,26.20232118622593,7.039019069858027
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,8,car_occupancy_bonus,2040_8_car_occupancy_bonus,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Bike,4424.477837398327,41.9303251656179,11.77560700284523
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Car,102035.5036172438,33.95702853374866,13.57213993109223
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),CarP,39096.37458276191,33.84602085817878,13.43924075422639
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),PT,200891.0145804542,66.86754001216619,14.02582627662353
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Walk,0.02885971166989073,158.4478425335614,10.50005457972844
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,long (>10),Total,346447.3994775699,53.12983029418761,13.79727317090736
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Bike,87729.55204342089,17.9406232181961,4.768475116363288
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Car,214755.7005502284,20.91044291621153,6.220110878983149
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),CarP,95103.02968111412,20.82798476767763,6.135985937495294
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),PT,393299.2841254133,39.23557341648554,5.963190453537995
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Walk,58839.51377027066,39.10661781612821,2.764088909540294
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,medium (2-10km),Total,849727.0801704475,30.33644804922638,5.702592755905268
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Bike,18008.86956014836,5.24478966609352,1.260326481854305
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Car,7648.471828496776,9.940904376644122,1.502060891359678
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),CarP,3082.014806369779,10.03474078747125,1.522956480708022
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),PT,27682.48993407951,20.16378532383805,1.49676671072454
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Walk,241558.3619116937,12.57104674718476,0.9583915689527451
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Internal traffic,short (0-2km),Total,297980.2080407881,12.73989956820364,1.046448785877024
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Bike,7459.065635263369,43.74683047786332,12.9487627745148
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Car,651110.068244267,36.1081147200767,20.09940946440267
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),CarP,168456.840445377,36.06451869818846,20.17469287042199
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),PT,375886.0134276679,97.11461030104111,20.18635571077251
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Walk,0.1259500578238269,144.6459817885001,10.59268476134497
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,long (>10),Total,1202912.113702633,55.21269888694313,20.09278017068312
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Bike,21626.13540239309,20.43317253856976,6.065388428083955
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Car,154918.5288106157,17.66960605781214,7.393390728647733
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),CarP,48801.54919054826,17.37955388364359,7.25415797072475
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),PT,71820.44054662329,52.41430226882022,6.862062373578237
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Walk,10105.84813034748,34.48845984144353,3.137134306609921
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,medium (2-10km),Total,307272.5020805279,26.49225832803542,7.013637745213668
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,9,fleet_transformation,2040_9_fleet_transformation,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Bike,10482.7578125,43.05395126342773,12.15642070770264
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Car,58832.5390625,26.57770156860352,13.16146945953369
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),CarP,32150.44921875,26.78742599487305,13.20403289794922
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),PT,260513.421875,63.5859375,14.43263339996338
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Walk,0.1204386577010155,158.5459136962891,10.51578330993652
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,long (>10),Total,361979.3125,53.70803070068359,14.05098915100098
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Bike,117775.1953125,18.76653099060059,5.028617382049561
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Car,166637.59375,17.48381233215332,6.106047630310059
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),CarP,92549.9375,17.65191459655762,6.117091655731201
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),PT,432792.8125,37.18965530395508,6.061705112457275
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Walk,72919.203125,39.9543342590332,2.816412448883057
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,medium (2-10km),Total,882674.6875,29.19108200073242,5.66994047164917
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Bike,18524.705078125,5.287683963775635,1.280103087425232
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Car,6685.68115234375,9.42337703704834,1.502018332481384
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),CarP,2995.2470703125,9.533573150634766,1.525367379188538
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),PT,27999.767578125,19.49674224853516,1.504647731781006
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Walk,258999.671875,12.71599292755127,0.9710400700569153
+naples,2040,10,all_measures,2040_10_all_measures,Internal traffic,short (0-2km),Total,315205.0625,12.7816858291626,1.053134202957153
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Bike,14456.1513671875,46.4266242980957,13.80189895629883
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Car,458158.5625,28.91125679016113,18.73239707946777
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),CarP,166355.5,29.62913703918457,19.62386512756348
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),PT,501541.46875,92.80292510986328,21.25078201293945
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Walk,0.1528231203556061,146.1885070800781,10.64023303985596
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,long (>10),Total,1140511.875,57.33443069458008,19.90739250183105
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Bike,24844.966796875,21.02152824401855,6.253908634185791
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Car,145983.6875,16.03132247924805,7.339087963104248
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),CarP,52455.625,15.91447448730469,7.239740371704102
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),PT,83313.59375,48.25154113769531,6.824179649353027
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Walk,10424.126953125,34.509521484375,3.142546892166138
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,medium (2-10km),Total,317022.0,25.4781551361084,6.964297294616699
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2040,10,all_measures,2040_10_all_measures,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Bike,4468.686760785404,41.95286887539817,11.7843541534194
+naples,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Car,96161.9500756079,32.5691342095663,13.54363190160718
+naples,2050,0,reference,2050_0_reference,Internal traffic,long (>10),CarP,36906.23479728554,32.46798520024232,13.4086380608761
+naples,2050,0,reference,2050_0_reference,Internal traffic,long (>10),PT,201903.9742427988,67.01195917188782,14.046886874677
+naples,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Walk,0.02924960754688507,158.4531180606658,10.50090871833912
+naples,2050,0,reference,2050_0_reference,Internal traffic,long (>10),Total,339440.8751260852,53.16873602617697,13.80513639638772
+naples,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Bike,87191.98367389204,17.96370201134693,4.776355650376938
+naples,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Car,209079.8538633898,20.28887804669838,6.222237225110604
+naples,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),CarP,92774.78192099661,20.21443141737118,6.138973795161337
+naples,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),PT,391006.6899162635,39.27401772693845,5.969917671030183
+naples,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Walk,58293.40755651564,39.12005375741123,2.76507427941732
+naples,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Total,838346.7169310576,30.20292241029209,5.704572561226076
+naples,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Bike,17798.75194168511,5.244599055514101,1.260492843689739
+naples,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Car,7516.365770834383,9.852869966365748,1.503972117213185
+naples,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),CarP,3030.512961655566,9.946462454739978,1.52512480686786
+naples,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),PT,27343.86063016629,20.16935129020345,1.497085902603631
+naples,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Walk,238646.1451400083,12.57135446413834,0.9584213282235324
+naples,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Total,294335.6364443496,12.73770731128703,1.046496380391573
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Bike,7672.400875962818,43.84541339969682,12.98054477279437
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Car,617130.6817551535,34.64814353269835,19.93058191419519
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),CarP,160327.1967821881,34.57500150295375,19.98221694171102
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),PT,381072.8129855642,97.54778442545268,20.30423680178263
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Walk,0.1290763188321175,144.6725348690935,10.59370055884961
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Total,1166203.221475187,55.25192453299503,20.01405239369796
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Bike,21769.85437448317,20.47831611729137,6.07871703160147
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Car,150039.4462916566,17.25659710299533,7.384930452105461
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),CarP,47469.64018157726,16.98134922918402,7.238153942443359
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),PT,71720.08132822803,52.44702588217805,6.865308981970561
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Walk,10090.38012668959,34.5723504252819,3.141600788387318
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Total,301089.4023026346,26.40887334517415,7.001364618928786
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2050,0,reference,2050_0_reference,Origin & destination traffic,short (0-2km),Total,0.0,,
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Bike,14893.7041015625,43.57474136352539,12.33240699768066
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Car,42517.45703125,24.68803787231445,13.00045108795166
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),CarP,30344.705078125,25.05451393127441,13.15964317321777
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),PT,283663.65625,58.50308609008789,14.55411148071289
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Walk,0.2211286723613739,158.5359649658203,10.51269340515137
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,long (>10),Total,371419.75,51.3009033203125,14.17324161529541
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Bike,131560.40625,19.21644401550293,5.16529369354248
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Car,133433.03125,16.41398239135742,6.028395652770996
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),CarP,88323.7265625,16.70475387573242,6.108246326446533
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),PT,439043.8125,34.66662979125977,6.099889755249023
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Walk,76432.3359375,40.35617065429688,2.840526342391968
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,medium (2-10km),Total,868793.3125,28.19819450378418,5.661490440368652
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Bike,17899.29296875,5.322584629058838,1.287193536758423
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Car,5877.3671875,9.283116340637207,1.501500844955444
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),CarP,2859.4765625,9.398669242858887,1.527283668518066
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),PT,27216.607421875,18.54191207885742,1.496456503868103
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Walk,255840.671875,12.79181098937988,0.9776323437690735
+naples,2050,10,all_measures,2050_10_all_measures,Internal traffic,short (0-2km),Total,309693.40625,12.76752853393555,1.056136608123779
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Bike,18262.240234375,47.61646270751953,14.15196514129639
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Car,361298.0625,26.61263656616211,18.02562141418457
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),CarP,167838.0,27.80984687805176,19.52055931091309
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),PT,577228.5625,85.5693359375,21.75442504882812
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Walk,0.153224989771843,146.841796875,10.6301383972168
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,long (>10),Total,1124627.0,57.39263916015625,20.09967613220215
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Bike,24844.611328125,21.35505104064941,6.363571643829346
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Car,131102.203125,15.25195026397705,7.254480361938477
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),CarP,51948.85546875,15.21360111236572,7.199219226837158
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),PT,89056.390625,44.02202606201172,6.809191226959229
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Walk,9833.90625,34.35855102539062,3.136524677276611
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,medium (2-10km),Total,306785.96875,24.70377922058105,6.911712169647217
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Bike,0.0,,
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Car,0.0,,
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),CarP,0.0,,
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),PT,0.0,,
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Walk,0.0,,
+naples,2050,10,all_measures,2050_10_all_measures,Origin & destination traffic,short (0-2km),Total,0.0,,
