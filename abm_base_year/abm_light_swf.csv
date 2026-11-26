@@ -1,41 +1,5 @@
 region,year,scenario_nr,measure,scenario,aggregation,distance_category,mode,trips,avg_travel_time_min,avg_travel_distance_km
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,long (>10),Bike,3268.942626953125,109.4770126342773,25.08444595336914
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,long (>10),Car,344640.84375,18.31695747375488,18.90195846557617
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,long (>10),CarP,52414.34375,18.59622001647949,19.24362373352051
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,long (>10),PT,371347.75,91.17958068847656,21.9541187286377
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,long (>10),Walk,633.4739379882812,70.8929214477539,11.3375072479248
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,long (>10),Total,772305.375,53.7994384765625,20.41268157958984
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,medium (2-10km),Bike,7276.05712890625,19.81634140014648,6.617457866668701
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,medium (2-10km),Car,2068916.0,3.949755907058716,4.211641788482666
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,medium (2-10km),CarP,453850.46875,4.033783912658691,4.281361103057861
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,medium (2-10km),PT,906139.75,31.52904319763184,4.453447341918945
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,medium (2-10km),Walk,21838.10546875,46.27075576782227,6.278987884521484
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,medium (2-10km),Total,3458020.25,11.48831176757812,4.302272796630859
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,short (0-2km),Bike,420934.375,4.915200710296631,0.9830402135848999
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,short (0-2km),Car,7316.173828125,2.770626306533813,1.984527587890625
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,short (0-2km),CarP,1433.473876953125,2.774863481521606,1.985217452049255
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,short (0-2km),PT,0.0,,
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,short (0-2km),Walk,1800606.5,14.69445514678955,0.9796302914619446
-SWF,base,0,baseyear,Baseyear_corr_fin,Internal traffic,short (0-2km),Total,2230290.5,12.8019905090332,0.9842166304588318
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,long (>10),Bike,49722.72265625,575.614990234375,126.9910125732422
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,long (>10),Car,611877.875,68.90581512451172,75.91578674316406
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,long (>10),CarP,103693.9375,63.8958625793457,71.67657470703125
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,long (>10),PT,727552.0,173.9918670654297,103.8448638916016
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,long (>10),Walk,453.2931823730469,106.4594573974609,13.87300300598145
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,long (>10),Total,1493299.75,136.6404113769531,90.91060638427734
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,medium (2-10km),Bike,647.7030029296875,18.19357299804688,6.232823371887207
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,medium (2-10km),Car,14016.5322265625,8.170522689819336,7.656805515289307
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,medium (2-10km),CarP,4315.21533203125,7.86992073059082,7.094347953796387
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,medium (2-10km),PT,11239.6123046875,60.3654899597168,8.490776062011719
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,medium (2-10km),Walk,1852.428466796875,47.99344253540039,5.849987983703613
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,medium (2-10km),Total,32071.490234375,28.92462921142578,7.740277290344238
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,short (0-2km),Bike,0.0,,
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,short (0-2km),Car,0.0,,
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,short (0-2km),CarP,0.0,,
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,short (0-2km),PT,0.0,,
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,short (0-2km),Walk,0.0,,
-SWF,base,0,baseyear,Baseyear_corr_fin,Origin & destination traffic,short (0-2km),Total,0.0,,
-SWF,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Bike,4349.45654296875,94.37213134765625,21.95044326782227
+SWF,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Bike,4349.45654296875,94.37213134765624,21.95044326782227
 SWF,2030,0,reference,2030_0_reference,Internal traffic,long (>10),Car,461583.75,24.49457550048828,23.32184410095215
 SWF,2030,0,reference,2030_0_reference,Internal traffic,long (>10),CarP,23529.0390625,19.4689769744873,19.31902694702148
 SWF,2030,0,reference,2030_0_reference,Internal traffic,long (>10),PT,19842.947265625,88.59835052490234,23.41266059875488
@@ -61,7 +25,7 @@ SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Wa
 SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,long (>10),Total,939824.5,99.4901123046875,91.5219497680664
 SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Bike,277.0291137695312,25.51806449890137,7.328540802001953
 SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Car,9209.4365234375,9.694029808044434,8.074959754943848
-SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),CarP,1156.43798828125,9.678197860717773,8.182950973510742
+SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),CarP,1156.43798828125,9.678197860717772,8.182950973510742
 SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),PT,1986.546508789062,51.70448684692383,8.49193000793457
 SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Walk,0.0,,
 SWF,2030,0,reference,2030_0_reference,Origin & destination traffic,medium (2-10km),Total,12629.451171875,16.64770698547363,8.134061813354492
@@ -94,7 +58,7 @@ SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,long (>
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,long (>10),CarP,86315.609375,63.22946548461914,82.94745635986328
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,long (>10),PT,142236.0625,229.1744995117188,162.5613403320312
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,long (>10),Walk,29.08884811401367,48.92310333251953,16.24617385864258
-SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,long (>10),Total,980251.875,110.8549728393555,95.84954833984375
+SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,long (>10),Total,980251.875,110.8549728393555,95.84954833984376
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,medium (2-10km),Bike,322.0506591796875,24.29126930236816,7.155009269714355
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,medium (2-10km),Car,8652.54296875,9.684388160705566,8.037371635437012
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,medium (2-10km),CarP,1109.178955078125,9.533864974975586,8.119429588317871
@@ -107,7 +71,7 @@ SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,short (
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,short (0-2km),PT,0.0,,
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,short (0-2km),Walk,0.0,,
 SWF,2030,9,all_measures,2030_9_all_measures,Origin & destination traffic,short (0-2km),Total,0.0,,
-SWF,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Bike,4612.32958984375,97.90660858154297,22.71792221069336
+SWF,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Bike,4612.32958984375,97.90660858154295,22.71792221069336
 SWF,2040,0,reference,2040_0_reference,Internal traffic,long (>10),Car,453965.78125,24.7414493560791,23.53850364685059
 SWF,2040,0,reference,2040_0_reference,Internal traffic,long (>10),CarP,23031.875,19.77495384216309,19.72105979919434
 SWF,2040,0,reference,2040_0_reference,Internal traffic,long (>10),PT,19028.63671875,88.79008483886719,23.93172454833984
@@ -119,7 +83,7 @@ SWF,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),CarP,4202
 SWF,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),PT,694875.5,26.97992134094238,3.872953414916992
 SWF,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Walk,0.0,,
 SWF,2040,0,reference,2040_0_reference,Internal traffic,medium (2-10km),Total,2724043.0,9.950867652893066,4.170552253723145
-SWF,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Bike,370204.5625,4.902649879455566,0.9805299639701843
+SWF,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Bike,370204.5625,4.902649879455566,0.9805299639701844
 SWF,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),Car,4978.529296875,2.776947498321533,1.984471201896667
 SWF,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),CarP,1451.022827148438,2.772663593292236,1.983797430992126
 SWF,2040,0,reference,2040_0_reference,Internal traffic,short (0-2km),PT,0.0,,
@@ -132,8 +96,8 @@ SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),PT
 SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Walk,20.69010543823242,49.12185668945312,16.36740303039551
 SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,long (>10),Total,950397.125,103.2495803833008,93.42899322509766
 SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Bike,260.3776245117188,25.7655200958252,7.441380023956299
-SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Car,8556.6220703125,9.728555679321289,8.075257301330566
-SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),CarP,1074.79248046875,9.546671867370605,8.18929672241211
+SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Car,8556.6220703125,9.728555679321287,8.075257301330566
+SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),CarP,1074.79248046875,9.546671867370604,8.18929672241211
 SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),PT,1849.543701171875,51.53387069702148,8.491809844970703
 SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Walk,0.0,,
 SWF,2040,0,reference,2040_0_reference,Origin & destination traffic,medium (2-10km),Total,11741.3369140625,16.65288925170898,8.137255668640137
@@ -154,21 +118,21 @@ SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10k
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),CarP,410434.5625,3.831555604934692,4.084184169769287
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),PT,680846.875,27.0090389251709,3.876908540725708
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Walk,0.0,,
-SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Total,2678556.5,9.952380180358887,4.173600673675537
+SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,medium (2-10km),Total,2678556.5,9.952380180358888,4.173600673675537
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Bike,368671.6875,4.902971744537354,0.980594277381897
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Car,4907.728515625,2.792447090148926,1.984463453292847
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),CarP,1416.552734375,2.787597417831421,1.983781695365906
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),PT,0.0,,
-SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Walk,752869.5,14.59028911590576,0.9726861119270325
+SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Walk,752869.5,14.59028911590576,0.9726861119270324
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Internal traffic,short (0-2km),Total,1127865.5,11.35758113861084,0.9809435606002808
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Bike,43096.16796875,529.4456176757812,117.502197265625
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Car,706470.625,65.6563491821289,82.48359680175781
-SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),CarP,99202.25,72.13310241699219,95.16112518310547
+SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),CarP,99202.25,72.13310241699219,95.16112518310548
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),PT,101760.28125,214.2919769287109,157.6977996826172
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Walk,20.71456718444824,49.1237678527832,16.36803817749023
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,long (>10),Total,950550.0625,103.2713088989258,93.44489288330078
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Bike,260.4471435546875,25.76851081848145,7.441773414611816
-SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Car,8540.1865234375,9.730010986328125,8.074585914611816
+SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Car,8540.1865234375,9.730010986328123,8.074585914611816
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),CarP,1078.296630859375,9.578791618347168,8.191691398620605
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),PT,1857.171142578125,51.54689788818359,8.491808891296387
 SWF,2040,1,traffic_calming,2040_1_traffic_calming,Origin & destination traffic,medium (2-10km),Walk,0.0,,
@@ -183,7 +147,7 @@ SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Car,449475.03125,24.79105758666992,23.60406112670898
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),CarP,22810.6796875,19.85173416137695,19.82891654968262
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),PT,22028.671875,88.11601257324219,23.49416732788086
-SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Walk,931.3126220703125,39.09051132202148,13.02498340606689
+SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Walk,931.3126220703124,39.09051132202148,13.02498340606689
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,long (>10),Total,500321.0625,28.1197509765625,23.3982105255127
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Bike,8093.71240234375,22.03300666809082,6.569747924804688
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Car,1470545.375,4.159839630126953,4.339919090270996
@@ -191,18 +155,18 @@ SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium 
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),PT,775952.625,26.99725341796875,3.876822948455811
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Walk,0.0,,
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,medium (2-10km),Total,2632008.25,10.90235805511475,4.175938606262207
-SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Bike,414915.75,4.907752513885498,0.9815505743026733
+SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Bike,414915.75,4.907752513885498,0.9815505743026732
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Car,4794.1328125,2.776578426361084,1.984474420547485
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),CarP,1378.83251953125,2.772356033325195,1.983808279037476
 SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),PT,0.0,,
-SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Walk,799857.625,14.60498046875,0.9736654162406921
-SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Total,1220946.375,11.24975109100342,0.9814547300338745
+SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Walk,799857.625,14.60498046875,0.973665416240692
+SWF,2040,2,parking_management,2040_2_parking_management,Internal traffic,short (0-2km),Total,1220946.375,11.24975109100342,0.9814547300338744
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Bike,48057.1484375,526.0100708007812,116.6930847167969
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Car,696314.5,65.13492584228516,82.36801147460938
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),CarP,102282.53125,71.28619384765625,94.59845733642578
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),PT,113458.6171875,212.4600830078125,155.6313018798828
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Walk,26.62906265258789,48.99008941650391,16.3234977722168
-SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Total,960139.375,106.2668609619141,94.04456329345703
+SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,long (>10),Total,960139.375,106.2668609619141,94.04456329345705
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Bike,307.9918823242188,25.28815841674805,7.368721485137939
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),Car,8173.02783203125,9.7717866897583,8.070940017700195
 SWF,2040,2,parking_management,2040_2_parking_management,Origin & destination traffic,medium (2-10km),CarP,1029.60546875,9.5676908493042,8.159329414367676
@@ -227,7 +191,7 @@ SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,medium (2-10km),Car
 SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,medium (2-10km),PT,713527.625,27.03254508972168,3.882494688034058
 SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,medium (2-10km),Walk,0.0,,
 SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,medium (2-10km),Total,2683047.25,10.20224857330322,4.153116703033447
-SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,short (0-2km),Bike,379752.1875,4.903078556060791,0.9806157946586609
+SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,short (0-2km),Bike,379752.1875,4.903078556060791,0.9806157946586608
 SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,short (0-2km),Car,4947.6611328125,2.776790618896484,1.984474182128906
 SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,short (0-2km),CarP,1436.4501953125,2.772523164749146,1.983802080154419
 SWF,2040,3,road_pricing,2040_3_road_pricing,Internal traffic,short (0-2km),PT,0.0,,
@@ -268,13 +232,13 @@ SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Internal traffic,sho
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Internal traffic,short (0-2km),CarP,1457.75,2.772747755050659,1.983821153640747
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Internal traffic,short (0-2km),PT,0.0,,
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Internal traffic,short (0-2km),Walk,713882.125,14.58172225952148,0.9721148014068604
-SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Internal traffic,short (0-2km),Total,1119240.625,11.06474018096924,0.9810382723808289
+SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Internal traffic,short (0-2km),Total,1119240.625,11.06474018096924,0.9810382723808287
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,long (>10),Bike,46503.12890625,528.72119140625,117.3354263305664
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,long (>10),Car,706567.5625,65.505615234375,82.51023864746094
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,long (>10),CarP,98824.546875,71.9242935180664,94.78163146972656
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,long (>10),PT,101813.671875,214.5626831054688,158.0442199707031
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,long (>10),Walk,20.81299018859863,49.12478637695312,16.19941139221191
-SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,long (>10),Total,953729.75,104.6687088012695,93.54187774658203
+SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,long (>10),Total,953729.75,104.6687088012695,93.54187774658205
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,medium (2-10km),Bike,273.5067749023438,26.06866455078125,7.494158744812012
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,medium (2-10km),Car,8538.1064453125,9.728601455688477,8.074931144714355
 SWF,2040,4,cycling_optimization,2040_4_cycling_optimization,Origin & destination traffic,medium (2-10km),CarP,1082.307983398438,9.549263954162598,8.190145492553711
@@ -303,8 +267,8 @@ SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,In
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Internal traffic,short (0-2km),Car,4961.43212890625,2.776909351348877,1.984456658363342
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Internal traffic,short (0-2km),CarP,1439.340087890625,2.772508859634399,1.983764886856079
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Internal traffic,short (0-2km),PT,0.0,,
-SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Internal traffic,short (0-2km),Walk,696362.6875,14.57700347900391,0.9718001484870911
-SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Internal traffic,short (0-2km),Total,1068577.625,11.19424724578857,0.9808188080787659
+SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Internal traffic,short (0-2km),Walk,696362.6875,14.57700347900391,0.9718001484870912
+SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Internal traffic,short (0-2km),Total,1068577.625,11.19424724578857,0.980818808078766
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Origin & destination traffic,long (>10),Bike,42165.7578125,525.1349487304688,116.5617294311523
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Origin & destination traffic,long (>10),Car,703247.625,65.28083801269531,82.40860748291016
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Origin & destination traffic,long (>10),CarP,81159.1953125,67.137451171875,88.31322479248047
@@ -323,7 +287,7 @@ SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Or
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Origin & destination traffic,short (0-2km),PT,0.0,,
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Origin & destination traffic,short (0-2km),Walk,0.0,,
 SWF,2040,5,public_transport_optimization,2040_5_public_transport_optimization,Origin & destination traffic,short (0-2km),Total,0.0,,
-SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,long (>10),Bike,4722.478515625,95.11689758300781,22.21268463134766
+SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,long (>10),Bike,4722.478515625,95.1168975830078,22.21268463134766
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,long (>10),Car,446050.125,25.00761032104492,23.72944831848145
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,long (>10),CarP,22539.30859375,20.3033561706543,20.10321807861328
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,long (>10),PT,18492.1171875,90.7834701538086,25.50323295593262
@@ -334,22 +298,22 @@ SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,medium (2-10km),Car,156
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,medium (2-10km),CarP,399960.3125,3.797156810760498,4.061522483825684
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,medium (2-10km),PT,669789.9375,26.92107391357422,3.871402263641357
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,medium (2-10km),Walk,8.745899200439453,30.91106796264648,9.784588813781738
-SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,medium (2-10km),Total,2638629.0,9.890039443969727,4.153537273406982
-SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),Bike,371489.75,4.899736404418945,0.9799472093582153
+SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,medium (2-10km),Total,2638629.0,9.890039443969728,4.153537273406982
+SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),Bike,371489.75,4.899736404418945,0.9799472093582152
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),Car,4869.08203125,2.776568174362183,1.984487771987915
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),CarP,1384.879516601562,2.772070646286011,1.983778357505798
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),PT,0.0,,
 SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),Walk,811593.625,14.586012840271,0.9724009037017822
-SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),Total,1189337.375,11.49839878082275,0.9800790548324585
+SWF,2040,6,15min_city,2040_6_15min_city,Internal traffic,short (0-2km),Total,1189337.375,11.49839878082275,0.9800790548324584
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,long (>10),Bike,43551.515625,523.1079711914062,116.423942565918
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,long (>10),Car,708796.875,66.12049102783203,83.1314468383789
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,long (>10),CarP,99585.046875,70.68006896972656,93.37269592285156
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,long (>10),PT,107283.1640625,215.3240051269531,162.9654388427734
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,long (>10),Walk,22.59658622741699,49.00860977172852,16.32966613769531
-SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,long (>10),Total,959239.25,104.0288619995117,94.63341522216797
+SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,long (>10),Total,959239.25,104.0288619995117,94.63341522216795
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,medium (2-10km),Bike,274.092041015625,25.30109596252441,7.371626853942871
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,medium (2-10km),Car,8934.9130859375,9.654325485229492,8.060376167297363
-SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,medium (2-10km),CarP,1121.458374023438,9.496907234191895,8.163238525390625
+SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,medium (2-10km),CarP,1121.458374023438,9.496907234191896,8.163238525390625
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,medium (2-10km),PT,1862.0068359375,51.76211166381836,8.486773490905762
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,medium (2-10km),Walk,0.0,,
 SWF,2040,6,15min_city,2040_6_15min_city,Origin & destination traffic,medium (2-10km),Total,12192.4697265625,16.42220115661621,8.119473457336426
@@ -371,12 +335,12 @@ SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,mediu
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,medium (2-10km),PT,693065.4375,26.97469902038574,3.872118234634399
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,medium (2-10km),Walk,0.0,,
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,medium (2-10km),Total,2726910.25,9.928312301635742,4.170519828796387
-SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),Bike,369461.8125,4.902596950531006,0.9805192947387695
+SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),Bike,369461.8125,4.902596950531006,0.9805192947387696
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),Car,4975.52880859375,2.777079820632935,1.984470129013062
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),CarP,1461.265747070312,2.772814273834229,1.983799934387207
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),PT,0.0,,
-SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),Walk,705629.0,14.57988357543945,0.9719922542572021
-SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),Total,1081527.625,11.20376491546631,0.9809300899505615
+SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),Walk,705629.0,14.57988357543945,0.971992254257202
+SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Internal traffic,short (0-2km),Total,1081527.625,11.20376491546631,0.9809300899505616
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Origin & destination traffic,long (>10),Bike,42931.3828125,527.5245971679688,117.0766525268555
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Origin & destination traffic,long (>10),Car,706881.0625,65.49957275390625,82.4740982055664
 SWF,2040,7,car_occupancy_bonus,2040_7_car_occupancy_bonus,Origin & destination traffic,long (>10),CarP,112579.9375,76.1490707397461,101.1499328613281
@@ -406,19 +370,19 @@ SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,med
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,medium (2-10km),CarP,426447.15625,3.824356555938721,4.085943698883057
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,medium (2-10km),PT,687707.25,26.96748352050781,3.870415687561035
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,medium (2-10km),Walk,0.0,,
-SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,medium (2-10km),Total,2745074.0,9.848607063293457,4.173081398010254
+SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,medium (2-10km),Total,2745074.0,9.848607063293455,4.173081398010254
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,short (0-2km),Bike,366209.6875,4.902465343475342,0.9804930090904236
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,short (0-2km),Car,4998.87548828125,2.777014017105103,1.984466195106506
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,short (0-2km),CarP,1459.62109375,2.772721290588379,1.983792066574097
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,short (0-2km),PT,0.0,,
-SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,short (0-2km),Walk,699320.5,14.57915115356445,0.9719434976577759
+SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,short (0-2km),Walk,699320.5,14.57915115356445,0.971943497657776
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Internal traffic,short (0-2km),Total,1071988.75,11.202317237854,0.980963408946991
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,long (>10),Bike,40366.73828125,517.1177368164062,114.8113784790039
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,long (>10),Car,699936.6875,64.76667785644531,81.98201751708984
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,long (>10),CarP,111279.421875,75.80801391601562,101.9381713867188
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,long (>10),PT,77061.2890625,207.7632751464844,151.4014587402344
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,long (>10),Walk,19.7839298248291,49.21047210693359,16.39692878723145
-SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,long (>10),Total,928664.0,97.61795806884766,91.55940246582031
+SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,long (>10),Total,928664.0,97.61795806884766,91.55940246582033
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,medium (2-10km),Bike,253.8973236083984,25.9814510345459,7.466279983520508
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,medium (2-10km),Car,8734.5185546875,9.725882530212402,8.084589004516602
 SWF,2040,8,fleet_transformation,2040_8_fleet_transformation,Origin & destination traffic,medium (2-10km),CarP,1096.455932617188,9.581963539123535,8.202796936035156
@@ -435,7 +399,7 @@ SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,long (>10),Bike,510
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,long (>10),Car,429701.78125,25.2829761505127,23.97994995117188
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,long (>10),CarP,18136.720703125,17.85422515869141,17.74344825744629
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,long (>10),PT,29078.45703125,81.64385223388672,26.87826156616211
-SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,long (>10),Walk,924.3739013671875,39.4730224609375,12.11191082000732
+SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,long (>10),Walk,924.3739013671876,39.4730224609375,12.11191082000732
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,long (>10),Total,482946.71875,29.18731307983398,23.88423156738281
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,medium (2-10km),Bike,8016.2939453125,22.53810691833496,6.686694622039795
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,medium (2-10km),Car,1342718.5,4.143781185150146,4.312174797058105
@@ -447,7 +411,7 @@ SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,short (0-2km),Bike,
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,short (0-2km),Car,4523.548828125,2.788076877593994,1.984420537948608
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,short (0-2km),CarP,1299.766357421875,2.783597230911255,1.9837726354599
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,short (0-2km),PT,0.0,,
-SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,short (0-2km),Walk,958840.75,14.61381244659424,0.9742541313171387
+SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,short (0-2km),Walk,958840.75,14.61381244659424,0.9742541313171388
 SWF,2040,9,all_measures,2040_9_all_measures,Internal traffic,short (0-2km),Total,1422895.5,11.43938827514648,0.9806839227676392
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,long (>10),Bike,57052.03125,534.5327758789062,118.9407272338867
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,long (>10),Car,701689.75,66.75061798095703,84.15999603271484
@@ -457,7 +421,7 @@ SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,long (>
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,long (>10),Total,1009071.4375,119.3351440429688,99.42529296875
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,medium (2-10km),Bike,323.6674194335938,24.03838729858398,7.197171688079834
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,medium (2-10km),Car,7730.14501953125,9.646135330200195,7.998047828674316
-SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,medium (2-10km),CarP,981.2811889648438,9.209817886352539,8.0772123336792
+SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,medium (2-10km),CarP,981.2811889648438,9.20981788635254,8.0772123336792
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,medium (2-10km),PT,2592.036376953125,46.23460006713867,8.54508113861084
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,medium (2-10km),Walk,0.0,,
 SWF,2040,9,all_measures,2040_9_all_measures,Origin & destination traffic,medium (2-10km),Total,11627.1298828125,18.1666202545166,8.104385375976562
@@ -479,12 +443,12 @@ SWF,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),CarP,4092
 SWF,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),PT,676115.0625,26.98002243041992,3.870117902755737
 SWF,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Walk,0.0,,
 SWF,2050,0,reference,2050_0_reference,Internal traffic,medium (2-10km),Total,2668898.75,9.90321159362793,4.161534309387207
-SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Bike,361075.1875,4.901676177978516,0.9803352355957031
+SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Bike,361075.1875,4.901676177978516,0.9803352355957032
 SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Car,4916.57861328125,2.774609327316284,1.984151840209961
 SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),CarP,1398.6572265625,2.768880367279053,1.983249187469482
 SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),PT,0.0,,
-SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Walk,698761.375,14.57758617401123,0.9718388915061951
-SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Total,1066151.75,11.23071098327637,0.9807115793228149
+SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Walk,698761.375,14.57758617401123,0.9718388915061952
+SWF,2050,0,reference,2050_0_reference,Internal traffic,short (0-2km),Total,1066151.75,11.23071098327637,0.9807115793228148
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Bike,45969.9453125,563.5697021484375,124.8527450561523
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Car,709598.0625,66.60682678222656,83.44435119628906
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),CarP,91235.203125,72.92008209228516,95.1893539428711
@@ -492,7 +456,7 @@ SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),PT
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Walk,19.63929748535156,49.1898193359375,16.39005088806152
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,long (>10),Total,959531.0,109.0043258666992,95.934326171875
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Bike,244.7447204589844,25.47031402587891,7.464165210723877
-SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Car,7940.2421875,9.746739387512207,8.057656288146973
+SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Car,7940.2421875,9.746739387512209,8.057656288146973
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),CarP,974.8086547851562,9.368926048278809,8.1579008102417
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),PT,1750.238159179688,51.58169555664062,8.493678092956543
 SWF,2050,0,reference,2050_0_reference,Origin & destination traffic,medium (2-10km),Walk,0.0,,
@@ -528,8 +492,8 @@ SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,long (>
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,long (>10),Walk,25.71272468566895,48.97350692749023,16.04438781738281
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,long (>10),Total,1010709.9375,120.387092590332,101.9447402954102
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),Bike,309.8497924804688,23.58147239685059,7.131439685821533
-SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),Car,7212.01708984375,9.660637855529785,7.966856479644775
-SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),CarP,940.7539672851562,9.192028999328613,8.082341194152832
+SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),Car,7212.01708984375,9.660637855529783,7.966856479644775
+SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),CarP,940.7539672851562,9.192028999328612,8.082341194152832
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),PT,2836.216796875,41.83086013793945,8.505980491638184
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),Walk,0.0,,
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,medium (2-10km),Total,11298.837890625,18.07869338989258,8.088891983032227
@@ -539,3 +503,33 @@ SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,short (
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,short (0-2km),PT,0.0,,
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,short (0-2km),Walk,0.0,,
 SWF,2050,9,all_measures,2050_9_all_measures,Origin & destination traffic,short (0-2km),Total,0.0,,
+SWF,base,0,baseyear,Baseyear,Internal traffic,long (>10),Bike,4591.38671875,93.73106384277344,21.80851745605469
+SWF,base,0,baseyear,Baseyear,Internal traffic,long (>10),Car,473160.875,24.24256706237793,23.08342933654785
+SWF,base,0,baseyear,Baseyear,Internal traffic,long (>10),CarP,25289.12109375,19.16830635070801,18.95568656921387
+SWF,base,0,baseyear,Baseyear,Internal traffic,long (>10),PT,21265.119140625,87.42112731933594,22.85080337524414
+SWF,base,0,baseyear,Baseyear,Internal traffic,long (>10),Walk,929.358154296875,39.24214935302734,13.07550811767578
+SWF,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Bike,8454.2880859375,21.94088935852051,6.543651580810547
+SWF,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Car,1723897.0,4.15147590637207,4.33651876449585
+SWF,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),CarP,454570.6875,3.841793537139893,4.102469444274902
+SWF,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),PT,760313.1875,27.04872131347656,3.885743379592896
+SWF,base,0,baseyear,Baseyear,Internal traffic,medium (2-10km),Walk,0.0,,
+SWF,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Bike,404981.125,4.902711868286133,0.9805424809455872
+SWF,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Car,5331.3974609375,2.785888195037842,1.985208630561829
+SWF,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),CarP,1598.746337890625,2.784043788909912,1.984927296638489
+SWF,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),PT,0.0,,
+SWF,base,0,baseyear,Baseyear,Internal traffic,short (0-2km),Walk,757636.375,14.58065509796143,0.9720437526702881
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Bike,41199.7421875,496.3063049316406,110.1328964233398
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Car,705027.4375,63.58578109741211,80.61614227294922
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),CarP,111815.0546875,70.84386444091797,94.87334442138672
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),PT,88493.234375,209.7737121582031,152.1155242919922
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,long (>10),Walk,25.1144905090332,49.21015548706055,16.39682197570801
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Bike,287.094482421875,24.69266319274902,7.167219638824463
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Car,9992.333984375,9.621826171875,8.073067665100098
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),CarP,1273.050903320312,9.574246406555176,8.15722370147705
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),PT,2094.14208984375,51.731689453125,8.492668151855469
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,medium (2-10km),Walk,0.0,,
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Bike,0.0,,
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Car,0.0,,
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),CarP,0.0,,
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),PT,0.0,,
+SWF,base,0,baseyear,Baseyear,Origin & destination traffic,short (0-2km),Walk,0.0,,

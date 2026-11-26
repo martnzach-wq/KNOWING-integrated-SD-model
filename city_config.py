@@ -1065,4 +1065,4 @@ _ABM_LOGIT = dict(mode_choice="logit", logit_scale=0.25, logit_adjustment=0.67, 
 _apply_abm(NAPLES, "naples.json", "naples", road_pricing_od_km=8.4, value_of_time_base=14.0,
            **{**_ABM_LOGIT, "logit_scale": 0.0050, "logit_adjustment": 1.0000},
            lever_calibration={"capacity": 1.538, "parking": 85.893, "area_toll": 2.035, "road_pricing": 29.968, "cycling": 93.280, "pt_traveltime": 8.729, "distance": 0.378, "car_passenger": 41.143})
-_apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", road_pricing_od_km=6.3, value_of_time_base=14.0, **_ABM_LOGIT)
+_apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", road_pricing_od_km=8.4, value_of_time_base=14.0, **_ABM_LOGIT)

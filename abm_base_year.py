@@ -51,8 +51,8 @@ def read_abm_base_year(path: str, pop_internal: float, pop_od: float, min_trips:
         if zone is None or cls not in CLASSES:
             continue
         trips = np.array([float(r[cols["trips"][m]] or 0.0) for m in ABM_MODES])
-        time_h = np.array([float(r[cols["time"][m]] or 0.0) / 60 for m in ABM_MODES])
-        dist = np.array([float(r[cols["dist"][m]] or 0.0) for m in ABM_MODES])
+        time_h = np.array([np.nan if r[cols["time"][m]] is None else float(r[cols["time"][m]]) / 60 for m in ABM_MODES])
+        dist = np.array([np.nan if r[cols["dist"][m]] is None else float(r[cols["dist"][m]]) for m in ABM_MODES])
         out["trips"][zone][cls] = trips
         out["time_h"][zone][cls] = time_h
         out["length_km"][zone][cls] = dist
