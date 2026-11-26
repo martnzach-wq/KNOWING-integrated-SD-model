@@ -150,6 +150,8 @@ class MobilityConfig:
     # trips shortened by the 15-minute city choose their mode anew with the mode split of the
     # shorter class (zone and coping type); False keeps their mode
     shorter_trips_rechoose_mode: bool = False
+    # street greening acts with the PI and the factor "street_green" (D55); False keeps it in the reference
+    street_green_by_pi: bool = False
     # scale of the coping-type value-of-time profile (1 = +/-3 of 15 EUR/h, i.e. up to +/-20 %)
     value_of_time_profile_scale: float = 1.0
     travel_time_by_mode: Optional[dict] = None
@@ -1073,3 +1075,40 @@ _apply_abm(NAPLES, "naples.json", "naples", road_pricing_od_km=8.4, road_pricing
 _apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", road_pricing_od_km=8.4, road_pricing_km_scale=8.909 / 8.37, value_of_time_base=14.0,
            **{**_ABM_LOGIT, "logit_scale": 0.0087, "logit_adjustment": 1.0000},
            lever_calibration={"capacity": 0.743, "parking": 100.000, "road_pricing": 0.009, "cycling": 0.010, "pt_traveltime": 7.356, "distance": 0.813, "car_passenger": 0.010})
+
+
+def _granollers_tables(m: "MobilityConfig") -> tuple[dict, dict]:
+    """Length and door-to-door time per zone, class and mode for Granollers (no ABM light export): the class
+    centroids scaled per mode to its mode-specific mean length, time = length / speed + access time (D55)."""
+    classes = ("short", "medium", "long")
+    length, time = {}, {}
+    for z, cen in (("internal", m.initial_trip_length_internal), ("origin destination", m.initial_trip_length_od)):
+        zi = 0 if z == "internal" else 1
+        length[z] = {c: [0.0] * 5 for c in classes}
+        time[z] = {c: [0.0] * 5 for c in classes}
+        for k, mode in enumerate(MODES):
+            w = [m.initial_trip_rate[z][c][k] for c in classes]
+            mean = sum(wi * ci for wi, ci in zip(w, cen)) / sum(w)
+            ratio = m.mode_specific_trip_length[z][mode] / mean
+            for i, c in enumerate(classes):
+                length[z][c][k] = cen[i] * ratio
+                time[z][c][k] = length[z][c][k] / m.initial_travel_speed[z][c][k] + m.access_time_by_mode[mode][zi]
+    return length, time
+
+
+_g = GRANOLLERS.mobility
+_g.trip_length_by_mode, _g.travel_time_by_mode = _granollers_tables(_g)
+for _k, _v in dict(
+    _ABM_LOGIT,
+    initial_split_by_coping_type=True,
+    value_of_time_base=13.5,  # HEATCO D5, Spain, updated to 2019 (D55)
+    road_pricing_od_km=3.8,  # mean internal car trip
+    street_green_by_pi=True,
+    # perceived-time levers as in the ABM light cities (D41); cycling: mean of the three measure tables
+    cycling_resistance_reduction={2019: 0.0, 2030: 0.117, 2040: 0.35, 2050: 0.467},
+    traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075},
+                                "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
+).items():
+    setattr(_g, _k, _v)
+_g.lever_calibration = {"capacity": 1.0, "parking": 1.0, "road_pricing": 1.0, "cycling": 1.0,
+                        "pt_traveltime": 1.0, "car_passenger": 1.0, "street_green": 0.0}

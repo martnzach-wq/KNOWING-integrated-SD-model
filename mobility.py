@@ -602,6 +602,8 @@ class MobilityModel:
             parking_cost_base = m.parking_cost_base
             pt_cost_internal, pt_cost_od = m.pt_cost_by_zone
             street_green_term = self.street_green[t_idx] if hasattr(self, "street_green") else 0.0
+            if m.street_green_by_pi:  # coupled with the capacity measures and scaled by the PI (D55)
+                street_green_term *= self.pi * m.lever_calibration.get("street_green", 1.0)
         else:
             # Tallinn-style: flat per-mode base attractiveness (no zone
             # dimension), attr_distinction implicitly 1.0.
