@@ -440,15 +440,18 @@ TALLINN = CityConfig(
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
-        # 0.0156, effects 0.0141)
+        # 0.0032, effects 0.0022; logit mode choice D51, full ABM light export D50)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
-        attr_distinction=1.500,  # D46: fitted jointly with the stability of the coping types (odds ratio 1.93)
+        attr_distinction=0.0,  # D46/D51: constant type profiles cancel in the pivot-point logit
         push_levers_by_compliance=True,  # D48
         road_pricing_od_km=8.0,  # D49: in-city part of OD car trips = mean internal car trip (ABM light)
         shorter_trips_rechoose_mode=True,  # D49: shortened trips choose their mode anew
         value_of_time_profile_scale=0.25,  # D48: +/-5 % instead of +/-20 %
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
+        mode_choice="logit",  # D51
+        logit_scale=0.2461,
+        logit_adjustment=0.6698,
         mode_change_damping=0.3400,
         attr_offset={"car passenger": -5.435, "public transport": 0.665, "bicycle": -1.646, "walk": 5.793},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.3 Table 1: core network -25/-75/-90 %, citywide -5/-15/-25 %, mean),
@@ -456,7 +459,7 @@ TALLINN = CityConfig(
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 0.565, "parking": 1.604, "area_toll": 0.241, "road_pricing": 0.543, "cycling": 1.063, "pt_traveltime": 0.281, "distance": 0.639, "car_passenger": 3.147},
+        lever_calibration={"capacity": 0.313, "parking": 0.768, "area_toll": 0.143, "road_pricing": 0.262, "cycling": 1.897, "pt_traveltime": 0.146, "distance": 0.413, "car_passenger": 0.795},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
