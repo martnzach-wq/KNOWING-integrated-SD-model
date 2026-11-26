@@ -1113,7 +1113,8 @@ for _k, _v in dict(
                                 "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
 ).items():
     setattr(_g, _k, _v)
-# transferred from Tallinn, Naples and South Westphalia (D55): scale and adjustment as their means, lever
-# factors fitted to the single-measure effects implied by their semi-elasticities at Granollers' intensities
-_g.logit_scale, _g.logit_adjustment = 0.0220, 0.8899
-_g.lever_calibration = {"capacity": 1.988, "parking": 22.265, "road_pricing": 5.718, "cycling": 20.390, "pt_traveltime": 4.387, "car_passenger": 2.742, "street_green": 0.0}
+# transferred (D55, D56): similarity-weighted donors, scale and adjustment as their weighted means, lever factors
+# fitted to the single-measure effects implied by their semi-elasticities at Granollers' intensities; empirical
+# transfer band 0.27-3.5 x: all measures 2040 -3 % to -39 % car trips around -12.5 %
+_g.logit_scale, _g.logit_adjustment = 0.0781, 0.7671  # donor weights Tallinn 0.71, Naples 0.29 (D56)
+_g.lever_calibration = {"capacity": 0.992, "parking": 5.210, "road_pricing": 1.802, "cycling": 3.813, "pt_traveltime": 1.538, "car_passenger": 0.758, "street_green": 0.0}
