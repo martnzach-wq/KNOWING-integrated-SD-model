@@ -152,6 +152,9 @@ class MobilityConfig:
     shorter_trips_rechoose_mode: bool = False
     # street greening acts with the PI and the factor "street_green" (D55); False keeps it in the reference
     street_green_by_pi: bool = False
+    # settlement structure for the choice of transfer donors (D56): "monocentric" (one urban core with its
+    # surroundings) or "polycentric_rural" (rural area with several smaller towns)
+    spatial_structure: str = "monocentric"
     # scale of the coping-type value-of-time profile (1 = +/-3 of 15 EUR/h, i.e. up to +/-20 %)
     value_of_time_profile_scale: float = 1.0
     travel_time_by_mode: Optional[dict] = None
@@ -1072,7 +1075,7 @@ _apply_abm(NAPLES, "naples.json", "naples", road_pricing_od_km=8.4, road_pricing
            lever_calibration={"capacity": 1.538, "parking": 85.893, "area_toll": 2.035, "road_pricing": 35.428, "cycling": 93.280, "pt_traveltime": 8.729, "distance": 0.378, "car_passenger": 41.143})
 # joint fit on the ABM light export with the corrected base year (D52): squared error pathways
 # 0.0199, effects 0.0011; parking, road pricing, cycling and car passenger at their bounds
-_apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", road_pricing_od_km=8.4, road_pricing_km_scale=8.909 / 8.37, value_of_time_base=14.0,
+_apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", spatial_structure="polycentric_rural", road_pricing_od_km=8.4, road_pricing_km_scale=8.909 / 8.37, value_of_time_base=14.0,
            **{**_ABM_LOGIT, "logit_scale": 0.0087, "logit_adjustment": 1.0000},
            lever_calibration={"capacity": 0.743, "parking": 100.000, "road_pricing": 0.009, "cycling": 0.010, "pt_traveltime": 7.356, "distance": 0.813, "car_passenger": 0.010})
 
