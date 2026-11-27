@@ -534,7 +534,10 @@ TALLINN = CityConfig(
         fuel_ef_transport_t_per_gwh=258.0,  # weighted over the fuels of D3.3 Table 3
         fuel_ef_other_t_per_gwh=211.0,
     ),
-    microclimate=MicroclimateConfig(calibration_csv=_resolve_data_path("mc4_cal_tallinn.csv"), city_area_km2=159.2),
+    # demonstrator runs keep the pathway-design coupling of D2.4 Table 14 (D60)
+    microclimate=MicroclimateConfig(
+        calibration_csv=_resolve_data_path("mc4_cal_tallinn.csv"), city_area_km2=159.2, coupling="traffic_calming"
+    ),
     # Estonian fleet 0.749 kWh/vkm (energy_demand.TallinnConversionFactors); load factor 1.23 (D3.3 MAED-City key measures)
     transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.749, car_electric_kwh_per_vkm=0.222, load_factor=1.23, od_energy_share=0.5),
 )
