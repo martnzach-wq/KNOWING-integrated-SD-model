@@ -466,7 +466,7 @@ TALLINN = CityConfig(
         ev_bau_damping_pivot_year=2026,  # last shared historical anchor; BAU damps to ~half PI=1 by 2050
         # class R and TR Cal per intervention, fitted jointly to the ABM light pathway pkm shares
         # and single-measure effects (regsim sd_knowing.recalibrate_joint, D38; squared error pathways
-        # 0.0032, effects 0.0022; logit mode choice D51, full ABM light export D50)
+        # 0.0036, effects 0.0023; logit mode choice D51, full ABM light export D50, BAU EV D59)
         mode_change_destination_weighting=True,  # D43
         initial_split_by_coping_type=True,  # D45
         attr_distinction=0.0,  # D46/D51: constant type profiles cancel in the pivot-point logit
@@ -476,8 +476,8 @@ TALLINN = CityConfig(
         value_of_time_profile_scale=0.25,  # D48: +/-5 % instead of +/-20 %
         mode_change_destination_blend=0.25,  # Tallinn's bicycle share is close to 0 in the base year
         mode_choice="logit",  # D51
-        logit_scale=0.2461,
-        logit_adjustment=0.6698,
+        logit_scale=0.2375,
+        logit_adjustment=0.6973,
         mode_change_damping=0.3400,
         attr_offset={"car passenger": -5.435, "public transport": 0.665, "bicycle": -1.646, "walk": 5.793},
         # perceived-time levers of the ABM light measure tables (D41): cycling resistance (D3.3 Table 1: core network -25/-75/-90 %, citywide -5/-15/-25 %, mean),
@@ -485,7 +485,7 @@ TALLINN = CityConfig(
         cycling_resistance_reduction={2019: 0.0, 2030: 0.15, 2040: 0.45, 2050: 0.575},
         traffic_calming_time_bonus={"walk": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}, "bicycle": {2019: 0.0, 2030: 0.0125, 2040: 0.025, 2050: 0.0375}},
         fifteen_minute_time_bonus={"walk": {2019: 0.0, 2030: 0.05, 2040: 0.10, 2050: 0.15}, "bicycle": {2019: 0.0, 2030: 0.025, 2040: 0.05, 2050: 0.075}},
-        lever_calibration={"capacity": 0.313, "parking": 0.768, "area_toll": 0.143, "road_pricing": 0.252, "cycling": 1.897, "pt_traveltime": 0.146, "distance": 0.413, "car_passenger": 0.795},
+        lever_calibration={"capacity": 0.321, "parking": 0.791, "area_toll": 0.148, "road_pricing": 0.259, "cycling": 1.951, "pt_traveltime": 0.145, "distance": 0.417, "car_passenger": 0.826},
         mode_specific_trip_length=None,  # derived empirically in mobility.py for comparison
     ),
     energy_demand=EnergyDemandConfig(
@@ -1089,13 +1089,13 @@ _ABM_LOGIT = dict(mode_choice="logit", logit_scale=0.25, logit_adjustment=0.67, 
 # joint fit on the ABM light export (D52): squared error pathways 0.0072, effects 0.0007;
 # the logit scale goes to its lower bound, so scale and factors act only as products
 _apply_abm(NAPLES, "naples.json", "naples", road_pricing_od_km=8.4, road_pricing_km_scale=6.987 / 8.26, value_of_time_base=14.0,
-           **{**_ABM_LOGIT, "logit_scale": 0.0050, "logit_adjustment": 1.0000},
-           lever_calibration={"capacity": 1.538, "parking": 85.893, "area_toll": 2.035, "road_pricing": 35.428, "cycling": 93.280, "pt_traveltime": 8.729, "distance": 0.378, "car_passenger": 41.143})
+           **{**_ABM_LOGIT, "logit_scale": 0.0394, "logit_adjustment": 1.0000},
+           lever_calibration={"capacity": 0.526, "parking": 10.793, "area_toll": 0.257, "road_pricing": 4.522, "cycling": 100.000, "pt_traveltime": 1.193, "distance": 0.319, "car_passenger": 5.158})
 # joint fit on the ABM light export with the corrected base year (D52): squared error pathways
-# 0.0199, effects 0.0011; parking, road pricing, cycling and car passenger at their bounds
+# 0.0197, effects 0.0011; parking, road pricing, cycling and car passenger at their bounds
 _apply_abm(SOUTH_WESTPHALIA, "swf.json", "SWF", spatial_structure="polycentric_rural", road_pricing_od_km=8.4, road_pricing_km_scale=8.909 / 8.37, value_of_time_base=14.0,
-           **{**_ABM_LOGIT, "logit_scale": 0.0087, "logit_adjustment": 1.0000},
-           lever_calibration={"capacity": 0.743, "parking": 100.000, "road_pricing": 0.009, "cycling": 0.010, "pt_traveltime": 7.356, "distance": 0.813, "car_passenger": 0.010})
+           **{**_ABM_LOGIT, "logit_scale": 0.0089, "logit_adjustment": 1.0000},
+           lever_calibration={"capacity": 0.700, "parking": 100.000, "road_pricing": 0.010, "cycling": 0.010, "pt_traveltime": 7.088, "distance": 0.811, "car_passenger": 0.010})
 
 
 def _granollers_tables(m: "MobilityConfig") -> tuple[dict, dict]:
