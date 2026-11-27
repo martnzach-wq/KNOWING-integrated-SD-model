@@ -119,6 +119,8 @@ class MobilityConfig:
 
     # EV adoption ceiling trajectory override {year: percent}, PI=1 scenario
     ev_pi_trajectory: Optional[dict] = None
+    # reference (BAU) EV fleet share in percent, {year: value}; replaces the damped BAU curve (D59)
+    ev_bau_trajectory: Optional[dict] = None
 
     # If set, BAU follows a damped version of the PI=1 EV curve from this
     # pivot year onward (see mobility.py run() docstring). None = same EV
@@ -1147,3 +1149,10 @@ NAPLES.energy_demand.bau_growth = {"households": -0.010, "services": 0.008, "ind
                                    "freight": -0.004, "transport_other": -0.004}
 SOUTH_WESTPHALIA.energy_demand.bau_growth = {"households": -0.00347, "services": -0.00347, "industry": 0.00709,
                                              "freight": -0.00151, "transport_other": -0.00151}
+
+# reference EV fleet share of the MAED-City BAU (D59): share of e-cars in passenger transport stays at its base
+# value (Tallinn D3.3 Table 5: 0.4 % intracity, 0.3 % intercity in 2050; Naples D3.4a Table A-15: 0.71 % / 1.46 %;
+# South Westphalia D3.5 Table 11: 0.2 % / 0.2 %); the model's 2019 value is kept
+TALLINN.mobility.ev_bau_trajectory = {2019: 0.03, 2050: 0.4}
+NAPLES.mobility.ev_bau_trajectory = {2019: 0.3, 2050: 1.0}
+SOUTH_WESTPHALIA.mobility.ev_bau_trajectory = {2019: 0.2, 2050: 0.2}

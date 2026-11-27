@@ -451,6 +451,9 @@ class MobilityModel:
             ev_target_bau = ev_target_pi1
         # behaviour model: EV gap (full policy - BAU) scaled by the compliance with the combustion-car
         # sales ban, relative to the 2019 coping-type distribution (1 without a coping scenario)
+        if m.ev_bau_trajectory:  # reference EV fleet share of the MAED-City BAU (D59)
+            pts = sorted(m.ev_bau_trajectory.items())
+            ev_target_bau = np.interp(self.years, [y for y, _ in pts], [v for _, v in pts])
         ev_gap_factor = np.ones(n)
         if m.ev_ban_compliance_by_type is not None:
             comp = np.asarray(m.ev_ban_compliance_by_type)
