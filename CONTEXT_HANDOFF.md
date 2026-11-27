@@ -12,6 +12,13 @@ standalone script).
   `GRANOLLERS` instances are fully populated. **Naples is not migrated.**
 - `mobility.py`, `energy_demand.py`, `energy_supply.py` — the three
   submodels, generic across cities via `CityConfig`.
+- `heat_health.py` — optional heat-health submodel (`CityConfig.heat_health`,
+  `HeatHealthConfig`): climate driver (weekly temperature histogram per
+  year) → canopy microclimate per land-cover class → age-specific DLNM →
+  AC diffusion, district cooling, heat-action plan and passive cooling →
+  heat-attributable deaths per year (`run_heat_health(city)`). The city
+  supplies data files and coefficients; no demonstrator city sets it, so
+  their runs are unchanged. Test: `python -m pytest tests/test_heat_health.py`.
 - `granollers_integrated_model.py` — the ORIGINAL standalone Granollers
   script, kept for audit/reference (this is what `GRANOLLERS` was migrated
   from; its embedded `REF_MOB`/`V4_EM` checkpoints are the validation

@@ -386,6 +386,69 @@ class MicroclimateConfig:
 
 
 @dataclass
+class HeatHealthConfig:
+    """Heat-health submodel (heat_health.py): climate driver -> canopy microclimate per land-cover class ->
+    age-specific DLNM -> AC, heat-action plan and passive cooling -> heat-attributable deaths per year.
+    The data files and the city parameters come from the city configuration; the defaults are structural
+    (column labels) or literature values."""
+    rr_csv: str  # DLNM lookup: columns age, T, logRR (+ draws s1..sN)
+    week_profile_csv: str  # share of annual deaths per ISO week, one column per age group
+    rates_csv: str  # annual death rate per person by age group (index = age group, column rate_per_person)
+    population_csv: str  # population by age group and year (index = year)
+    climate_file: str  # climate driver (csv or parquet): gcm, ssp, year, heat_days, tropical_nights,
+    # jja_tmax_mean, jja_tmin_mean, wk_<T> (expected weeks per year with weekly mean T in [T, T + 0.5))
+    class_state_csv: str  # per land-cover class: area_km2, pct_area, sealed_pct, bldg_area_pct, bldg_height,
+    # young_trees_raw, mature_trees_raw and the population columns of `class_population`
+    lambda_json: str  # microclimate coefficients {"posterior_mean": {tmax|tmin: {sealed, height, canopy}}}
+    ac0: float  # AC household share in the base year
+    ac_r0: float  # logistic AC diffusion rate at hd_ref heat days
+    hd_ref: float  # heat days of the diffusion fit period
+    crown_m2: dict  # crown area of existing trees {"young": m2, "mature": m2}
+    crown_growth: tuple  # planted trees: crown diameter d0 (m), growth (m/yr), maximum crown area (m2)
+    climate_gcm: str = ""  # driver member, e.g. a GCM name of the climate file
+    climate_ssp: str = "ssp370"
+    climate_station: Optional[str] = None  # filter on a column "station" when given
+    base_year: int = 2025  # calibration state of the DLNM and the class temperatures
+    end_year: int = 2050
+    # age group -> (DLNM curve label in rr_csv, column of week_profile_csv)
+    age_curves: dict = field(default_factory=lambda: {"0-64": ("d0", "sh0"), "65-74": ("d6574", "sh6574"), "75+": ("d75", "sh75")})
+    # age group -> population columns of class_state_csv (exposure weights per class)
+    class_population: dict = field(default_factory=lambda: {"0-64": ("pop_0_14", "pop_15_64"), "65-74": ("pop_65p",), "75+": ("pop_65p",)})
+    warm_weeks: tuple = (22, 35)  # ISO weeks of the mean weekly baseline deaths
+    street_classes: tuple = ()  # classes receiving street trees and street unsealing
+    dense_classes: tuple = ()  # classes receiving courtyard trees and courtyard unsealing (split by area)
+    street_exposure_share: float = 0.3  # share of residents' outdoor exposure in the adjacent street space
+    population_from_city: bool = False  # True: age groups scaled to the model population of the city
+    # response parameters
+    beta_ac: float = 0.0040  # fractional reduction of attributable deaths per pp of cooled households (Sera et al. 2020)
+    hap_eff: float = 0.252  # reduction by a fully implemented heat-prevention plan (meta-analysis, 25.2 %)
+    hap0: float = 0.5  # heat-action-plan implementation in the calibration period
+    hap_tau: float = 3.0  # years to implement a new target
+    shade_dT: float = 0.5  # K lower effective exposure for a fully shaded stock
+    green_phi: float = 0.5  # effectiveness of building greening relative to external shading
+    shading_base_rate: float = 0.003  # share of dwellings shaded or retrofitted per year without measures
+    ac_max: float = 0.60  # AC saturation
+    adapt_alpha: float = 0.0  # share of the summer warming against adapt_ref_year absorbed by acclimatisation
+    adapt_ref_year: int = 2020
+    mortality_trend: float = 0.0  # annual change of the age-specific death rates
+    tree_mortality: float = 0.0  # annual loss of planted trees
+    ages_scale: float = 1.0  # level factor on all heat deaths
+    climate_shift_k: float = 0.0  # K added to every weekly temperature (observation-anchored variant)
+    heat_days_shift: float = 0.0  # heat days added with climate_shift_k
+    draw: Optional[int] = None  # DLNM coefficient draw (None: central curve)
+    # levers: yearly series {year: value}, linear between keyframes, flat outside; empty = neutral
+    street_trees: dict = field(default_factory=dict)  # trees planted per year in street space
+    courtyard_trees: dict = field(default_factory=dict)  # trees planted per year in the dense classes
+    unseal_street_pp: dict = field(default_factory=dict)  # pp of street-class area unsealed per year
+    unseal_dense_pp: dict = field(default_factory=dict)  # pp of dense-class area unsealed per year
+    hap_target: dict = field(default_factory=dict)  # heat-action-plan implementation target (0..1)
+    shading_rate: dict = field(default_factory=dict)  # share of dwellings shaded per year (incl. the base rate)
+    greening_rate: dict = field(default_factory=dict)  # share of dwellings with roof/facade greening per year
+    ac_growth_mult: dict = field(default_factory=dict)  # multiplier on AC diffusion (restraint < 1)
+    dc_share: dict = field(default_factory=dict)  # share of dwellings connected to district cooling
+
+
+@dataclass
 class CityConfig:
     name: str
     country: str
@@ -394,6 +457,7 @@ class CityConfig:
     energy_supply: EnergySupplyConfig
     transport_energy: Optional[TransportEnergyConfig] = None  # None: Tallinn factors per pkm (legacy)
     microclimate: Optional[MicroclimateConfig] = None
+    heat_health: Optional[HeatHealthConfig] = None
 
 
 # ---------------------------------------------------------------------------
