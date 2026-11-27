@@ -187,3 +187,26 @@ def run_heat_health(city, population: dict | None = None, inputs: dict | None = 
         shade = min(1.0, shade + series_value(hh.shading_rate, nxt, hh.shading_base_rate)
                     + hh.green_phi * series_value(hh.greening_rate, nxt, 0.0))
     return pd.DataFrame(rows).set_index("year")
+
+
+def cooling_electricity(city, years, population, cdd, result: pd.DataFrame | None = None) -> np.ndarray:
+    """Household cooling electricity (GWh per year): cooled share x households x kWh per AC household x
+    CDD / cdd_ref, with district-cooled dwellings at dc_elec_factor. AC share from the submodel from its base
+    year; before it the logistic diffusion backwards from ac0 at rate ac_r0 (no measures act before the base year).
+    population and cdd: arrays over `years`."""
+    hh = city.heat_health
+    res = result if result is not None else run_heat_health(city, population=dict(zip(years, population)))
+    years = np.asarray(years, int)
+    ac = np.empty(len(years))
+    dc = np.zeros(len(years))
+    for i, y in enumerate(years):
+        if y in res.index:
+            ac[i], dc[i] = res.loc[y, "ac_share"], res.loc[y, "dc_share"]
+        elif y < hh.base_year:
+            k = hh.ac_max
+            ac[i] = k / (1 + (k - hh.ac0) / hh.ac0 * np.exp(hh.ac_r0 * (hh.base_year - y)))
+        else:
+            ac[i], dc[i] = res.ac_share.iloc[-1], res.dc_share.iloc[-1]
+    cooled = ac * (1 - dc) + hh.dc_elec_factor * dc
+    households = np.asarray(population, float) * hh.households_per_person
+    return cooled * households * hh.ac_kwh_per_household * np.asarray(cdd, float) / hh.cdd_ref / 1e6

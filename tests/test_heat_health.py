@@ -93,3 +93,16 @@ def test_demonstrators_have_no_heat_health():
         city = getattr(cc, name, None)
         if city is not None:
             assert city.heat_health is None
+
+
+def test_cooling_electricity_follows_ac_share_and_cdd(tmp_path):
+    hh = _config(tmp_path, ac_kwh_per_household=300.0, cdd_ref=200.0)
+    city = _City("x", hh)
+    years = np.arange(2019, 2036)
+    pop = np.full(len(years), 1.4e5)
+    cool = H.cooling_electricity(city, years, pop, np.full(len(years), 200.0))
+    i25 = int(np.where(years == 2025)[0][0])
+    assert abs(cool[i25] - hh.ac0 * 1.4e5 * 0.5 * 300.0 / 1e6) < 1e-12  # base year: ac0 x households x kWh
+    assert np.all(np.diff(cool) > 0)  # logistic backcast before, diffusion after the base year
+    hot = H.cooling_electricity(city, years, pop, np.full(len(years), 300.0))
+    assert np.allclose(hot, cool * 1.5)

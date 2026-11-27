@@ -446,6 +446,16 @@ class HeatHealthConfig:
     greening_rate: dict = field(default_factory=dict)  # share of dwellings with roof/facade greening per year
     ac_growth_mult: dict = field(default_factory=dict)  # multiplier on AC diffusion (restraint < 1)
     dc_share: dict = field(default_factory=dict)  # share of dwellings connected to district cooling
+    # household cooling electricity from the AC share (energy demand row hh_cooling_electric); 0: the row of the
+    # energy-demand table is kept
+    ac_kwh_per_household: float = 0.0  # electricity per AC household and year at cdd_ref
+    households_per_person: float = 0.5
+    cdd_ref: Optional[float] = None  # cooling degree days of ac_kwh_per_household
+    dc_elec_factor: float = 0.5  # electricity per district-cooled dwelling relative to split AC
+    # energy-demand row that already books AC electricity in the observed years (e.g. space heating in a useful-
+    # energy analysis): the AC part is moved out of it, as observed up to cooling_anchor_year and per capita after
+    cooling_booked_in: Optional[str] = None
+    cooling_anchor_year: Optional[int] = None
 
 
 @dataclass

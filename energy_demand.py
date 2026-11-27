@@ -258,6 +258,20 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
 
     out["transport_active_km_cap"] = active_km_cap  # informational, zero energy
 
+    # --- household cooling from the AC share of the heat-health submodel, where the city sets it ---
+    hhc = getattr(city, "heat_health", None)
+    if hhc is not None and hhc.ac_kwh_per_household > 0:
+        import heat_health
+
+        cdd = mc["cdd"] if mc is not None else np.full(len(YEARS), city.mobility.cooling_degree_days)
+        pop = np.asarray(out["population"], float)
+        cool = heat_health.cooling_electricity(city, years, pop, cdd)
+        if hhc.cooling_booked_in:
+            ia = int(np.where(years == hhc.cooling_anchor_year)[0][0])
+            booked = np.where(years <= hhc.cooling_anchor_year, cool, cool[ia] * pop / pop[ia])
+            out[hhc.cooling_booked_in] = out[hhc.cooling_booked_in] - booked
+        out["hh_cooling_electric"] = cool
+
     # --- Totals ---
     out["total_hh_heating"] = (out["hh_heating_biomass"] + out["hh_heating_solar"]
                                 + out["hh_heating_dh"] + out["hh_heating_electric"]
