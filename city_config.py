@@ -370,6 +370,16 @@ class MicroclimateConfig:
     """Microclimate submodel (Submodel_MicroClimate_v4.mdl), see microclimate.py."""
     calibration_csv: Optional[str] = None  # PALM-4U class table; None: CDD from MAED-City only
     beta: Optional[float] = None  # relative CDD change per K; None: cross-calibrated (Tallinn)
+    # levers (D2.4 Table 15: PI LU PlantTrees, PI LU Unseal; D60), decoupled from traffic calming by default:
+    # share of the PALM-4U pathway per year, or natural units; empty: full pathway
+    policy_plant_trees: dict = field(default_factory=dict)
+    policy_unseal: dict = field(default_factory=dict)
+    plant_trees: dict = field(default_factory=dict)  # trees planted against 2019 (cumulative count)
+    unseal_ha: dict = field(default_factory=dict)  # sealed area removed against 2019, ha (needs city_area_km2)
+    city_area_km2: Optional[float] = None
+    # "traffic_calming": all features follow the PI and drop out with the traffic-calming lever (pathway
+    # coupling of D2.4 Table 14, the behaviour before D60); None: decoupled
+    coupling: Optional[str] = None
 
 
 @dataclass
@@ -524,7 +534,7 @@ TALLINN = CityConfig(
         fuel_ef_transport_t_per_gwh=258.0,  # weighted over the fuels of D3.3 Table 3
         fuel_ef_other_t_per_gwh=211.0,
     ),
-    microclimate=MicroclimateConfig(calibration_csv=_resolve_data_path("mc4_cal_tallinn.csv")),
+    microclimate=MicroclimateConfig(calibration_csv=_resolve_data_path("mc4_cal_tallinn.csv"), city_area_km2=159.2),
     # Estonian fleet 0.749 kWh/vkm (energy_demand.TallinnConversionFactors); load factor 1.23 (D3.3 MAED-City key measures)
     transport_energy=TransportEnergyConfig(car_fossil_kwh_per_vkm=0.749, car_electric_kwh_per_vkm=0.222, load_factor=1.23, od_energy_share=0.5),
 )

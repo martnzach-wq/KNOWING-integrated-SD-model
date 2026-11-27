@@ -37,12 +37,18 @@ This translation runs on the annual YEARS grid of the integrated model.
 Meteorological trend: CL PeakSummerTemp rises by 1.6 K over the 492 months
 (mdl); applied to both outputs.
 
-Coupling to the pathway (decision of the KNOWING pathway design): urban
-greening and unsealing are coupled with the capacity reduction and the
-active-mode attractiveness of the mobility submodel (D2.4 Table 14), so the
-feature trajectories are scaled with the same policy intensity:
+Levers (D60): tree planting (young and mature trees) and unsealing (sealed
+area) are levers of their own, D2.4 Table 15 "PI LU PlantTrees" and
+"PI LU Unseal"; building heights follow the PI. Each lever scales the PALM-4U
+pathway with its own intensity s_f(t):
 
-    UF[f, c, t] = UF[f, c, 2019] + PI * (UF_pathway[f, c, t] - UF[f, c, 2019])
+    UF[f, c, t] = UF[f, c, 2019] + PI * s_f(t) * (UF_pathway[f, c, t] - UF[f, c, 2019])
+
+or is given in natural units (trees planted, ha unsealed), placed on the
+classes in the proportions of the pathway. The pathway design of D2.4
+Table 14 links greening and unsealing to traffic calming; this coupling is
+available as coupling="traffic_calming" (all features follow the PI and drop
+out when the traffic-calming lever is removed or held).
 
 The mobility effect of greening is already contained in those mobility
 levers; the microclimate submodel therefore acts on mobility only through
@@ -135,20 +141,104 @@ def calibrate(data: MicroclimateData) -> MicroclimateFit:
     return MicroclimateFit(data, lam, shift)
 
 
-def _feature_path(data: MicroclimateData, intensity: float, years=YEARS) -> np.ndarray:
-    """UF[class, feature, year] on the annual grid, scaled by the policy intensity."""
+def _feature_path(data: MicroclimateData, intensity, years=YEARS, delta=None) -> np.ndarray:
+    """UF[class, feature, year] on the annual grid: the PALM-4U pathway scaled by the policy intensity (a number,
+    or an array [feature, year]), plus ``delta`` [class, feature, year] for interventions given in natural
+    units (D60)."""
+    inten = np.broadcast_to(np.asarray(intensity, dtype=float), (len(FEATURES), len(years)))
     out = np.empty((len(data.classes), len(FEATURES), len(years)))
     for i in range(len(data.classes)):
         for f in range(len(FEATURES)):
             path = np.interp(years, CAL_YEARS, data.uf[i, f])
-            out[i, f] = data.uf[i, f, 0] + intensity * (path - data.uf[i, f, 0])
+            out[i, f] = data.uf[i, f, 0] + inten[f] * (path - data.uf[i, f, 0])
+    return out if delta is None else out + delta
+
+
+SEALED, YOUNG, MATURE = (FEATURES.index(f) for f in ("Sealed area percentage", "Young Trees", "Mature Trees"))
+TREE_MATURITY_YEARS = 10  # young trees of the PALM-4U 2030 run appear as mature trees in 2040
+
+
+def pathway_quantities(data: MicroclimateData, city_area_km2: float | None = None) -> dict:
+    """Interventions of the PALM-4U pathway against 2019 at the calibration years: trees planted (cumulative
+    count, young plus additional mature trees), unsealed area in ha (needs ``city_area_km2``), and the class
+    distribution of both in 2050, used to place interventions given in natural units (D60)."""
+    young = data.uf[:, YOUNG, :] * data.area[:, None]
+    mature = data.uf[:, MATURE, :] * data.area[:, None] * 100
+    planted = young + mature - mature[:, :1]
+    out = {"years": CAL_YEARS, "trees_planted": planted.sum(axis=0)}
+    out["tree_weights"] = np.clip(planted[:, -1], 0, None) / np.clip(planted[:, -1], 0, None).sum()
+    if city_area_km2:
+        class_ha = city_area_km2 * 100 * data.area / 100
+        unsealed = class_ha[:, None] * (data.uf[:, SEALED, :1] - data.uf[:, SEALED, :]) / 100
+        out["unsealed_ha"] = unsealed.sum(axis=0)
+        out["unseal_weights"] = np.clip(unsealed[:, -1], 0, None) / np.clip(unsealed[:, -1], 0, None).sum()
     return out
 
 
-def city_temperatures(fit: MicroclimateFit, intensity: float, years=YEARS) -> dict:
+def _series(points: dict, years=YEARS) -> np.ndarray:
+    pts = sorted(points.items())
+    return np.interp(years, [a for a, _ in pts], [b for _, b in pts])
+
+
+def natural_unit_delta(data: MicroclimateData, mc, pi_scenario: float, removed=(), years=YEARS) -> np.ndarray:
+    """Feature changes [class, feature, year] of interventions in natural units: ``unseal_ha`` (sealed area
+    removed against 2019) and ``plant_trees`` (cumulative trees planted against 2019), placed on the classes
+    in the proportions of the PALM-4U pathway in 2050; planted trees count as young trees for
+    TREE_MATURITY_YEARS and as mature trees afterwards."""
+    years = np.asarray(years)
+    delta = np.zeros((len(data.classes), len(FEATURES), len(years)))
+    q = pathway_quantities(data, mc.city_area_km2)
+    if mc.unseal_ha and "policy_unseal" not in removed:
+        if not mc.city_area_km2:
+            raise ValueError("city_area_km2 is needed for unseal_ha")
+        class_ha = mc.city_area_km2 * data.area  # km2 x % = ha
+        u = pi_scenario * _series(mc.unseal_ha, years)
+        share = np.divide(q["unseal_weights"], class_ha, out=np.zeros(len(class_ha)), where=class_ha > 0)
+        delta[:, SEALED] = -100 * share[:, None] * u[None, :]
+    if mc.plant_trees and "policy_plant_trees" not in removed:
+        n = pi_scenario * _series(mc.plant_trees, years)
+        lagged = pi_scenario * _series(mc.plant_trees, years - TREE_MATURITY_YEARS)
+        lagged[years - TREE_MATURITY_YEARS < min(mc.plant_trees)] = 0.0
+        w = np.divide(q["tree_weights"], data.area, out=np.zeros(len(data.area)), where=data.area > 0)
+        delta[:, YOUNG] = w[:, None] * (n - lagged)[None, :]
+        delta[:, MATURE] = w[:, None] * lagged[None, :] / 100
+    return delta
+
+
+def lever_intensity(city, pi_scenario: float, removed=(), years=YEARS) -> np.ndarray:
+    """Intensity [feature, year] of the microclimate levers on the PALM-4U pathway (D60).
+
+    Decoupled (default): tree planting and unsealing follow their own series as share of the pathway
+    (policy_plant_trees, policy_unseal; empty: full pathway, given in natural units: none), building heights
+    follow the PI. Coupled (coupling="traffic_calming"): all features follow the PI and drop out with the
+    traffic-calming lever and its companions."""
+    mc = city.microclimate
+    n = len(years)
+    inten = np.full((len(FEATURES), n), float(pi_scenario))
+    if mc.coupling == "traffic_calming":
+        coupled = {"policy_capacity_adaptation", "policy_cycling_attractiveness", "policy_street_green"}
+        capacity = city.mobility.policy_capacity_adaptation
+        if coupled & set(removed) or len(set(capacity.values())) <= 1:
+            inten[:] = 0.0
+        return inten
+    if mc.coupling is not None:
+        raise ValueError(f"unknown microclimate coupling {mc.coupling!r}")
+
+    def share(points: dict, natural: dict, lever: str) -> np.ndarray:
+        if lever in removed or natural:
+            return np.zeros(n)
+        return _series(points, years) if points else np.ones(n)
+
+    trees = share(mc.policy_plant_trees, mc.plant_trees, "policy_plant_trees")
+    inten[YOUNG] = inten[MATURE] = pi_scenario * trees
+    inten[SEALED] = pi_scenario * share(mc.policy_unseal, mc.unseal_ha, "policy_unseal")
+    return inten
+
+
+def city_temperatures(fit: MicroclimateFit, intensity, years=YEARS, delta=None) -> dict:
     """Area-weighted city temperatures of a hot day per year, without the
     meteorological trend (feature effect only) and with it."""
-    uf = _feature_path(fit.data, intensity, years)
+    uf = _feature_path(fit.data, intensity, years, delta)
     met = PEAK_TREND_K * (np.asarray(years) - 2019) / 41.0
     out = {}
     for o in OUTPUTS:
@@ -171,13 +261,13 @@ def cross_calibrate_beta(fit: MicroclimateFit, reductions: dict = TALLINN_CDD_RE
     return float((x * y).sum() / (x * x).sum())
 
 
-def cdd_series(cdd_cets: dict, fit: MicroclimateFit | None, intensity: float, beta: float, years=YEARS) -> dict:
+def cdd_series(cdd_cets: dict, fit: MicroclimateFit | None, intensity, beta: float, years=YEARS, delta=None) -> dict:
     """CDD per year for a policy intensity; CDD_CETS contains the full pathway."""
     ys = sorted(cdd_cets)
     base = np.interp(years, ys, [cdd_cets[y] for y in ys])
     if fit is None:
         return {"cdd": base, "cdd_cets": base, "dT_mean": np.zeros(len(years))}
-    d_pi = city_temperatures(fit, intensity, years)["dT_mean"]
+    d_pi = city_temperatures(fit, intensity, years, delta)["dT_mean"]
     d_1 = city_temperatures(fit, 1.0, years)["dT_mean"]
     return {"cdd": base * (1 + beta * d_pi) / (1 + beta * d_1), "cdd_cets": base, "dT_mean": d_pi}
 
@@ -185,22 +275,20 @@ def cdd_series(cdd_cets: dict, fit: MicroclimateFit | None, intensity: float, be
 def run_microclimate(city, pi_scenario: float = 1.0, removed=()) -> dict:
     """Microclimate outputs for a city: CDD per year and, where calibrated,
     city-average hot-day temperatures. The coupled levers (capacity
-    adaptation, cycling attractiveness, street green) set the intensity;
-    removing one of them removes the greening and unsealing."""
+    tree-planting and unsealing levers set the intensity (D60); with
+    coupling="traffic_calming" the traffic-calming levers do."""
     mc = getattr(city, "microclimate", None)
     cdd_cets = city.mobility.cooling_degree_days_trajectory or {2019: city.mobility.cooling_degree_days}
-    coupled = {"policy_capacity_adaptation", "policy_cycling_attractiveness", "policy_street_green"}
-    capacity = city.mobility.policy_capacity_adaptation
-    held = len(set(capacity.values())) <= 1  # lever removed (held at its 2019 value) or not configured
-    intensity = 0.0 if (coupled & set(removed) or held) else pi_scenario
     if mc is None or mc.calibration_csv is None:
-        out = cdd_series(cdd_cets, None, intensity, 0.0)
+        out = cdd_series(cdd_cets, None, 0.0, 0.0)
         out["years"] = np.array(YEARS)
         return out
     fit = calibrate(load_calibration(mc.calibration_csv))
+    intensity = lever_intensity(city, pi_scenario, removed)
+    delta = natural_unit_delta(fit.data, mc, pi_scenario, removed) if mc.coupling is None else None
     beta = mc.beta if mc.beta is not None else cross_calibrate_beta(fit)
-    out = cdd_series(cdd_cets, fit, intensity, beta)
-    out.update({k: v for k, v in city_temperatures(fit, intensity).items() if k in OUTPUTS})
+    out = cdd_series(cdd_cets, fit, intensity, beta, delta=delta)
+    out.update({k: v for k, v in city_temperatures(fit, intensity, delta=delta).items() if k in OUTPUTS})
     out.update(years=np.array(YEARS), beta=beta, lam=fit.lam, intensity=intensity)
     return out
 
