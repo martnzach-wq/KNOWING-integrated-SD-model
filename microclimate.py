@@ -66,6 +66,7 @@ reductions from the modelled city-average cooling (beta = 0.09, i.e. 9 % per K).
 
 from __future__ import annotations
 
+import dataclasses
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -272,6 +273,18 @@ def cdd_series(cdd_cets: dict, fit: MicroclimateFit | None, intensity, beta: flo
     return {"cdd": base * (1 + beta * d_pi) / (1 + beta * d_1), "cdd_cets": base, "dT_mean": d_pi}
 
 
+def with_class_areas(fit: MicroclimateFit, class_area_pct: dict) -> MicroclimateFit:
+    """The fit with other shares of the city area per class (transfer to another city): lambda and class shifts
+    are kept, city averages and the placement of natural-unit interventions use the new shares."""
+    names = {" ".join(k.split()).lower(): v for k, v in class_area_pct.items()}
+    unknown = set(names) - set(fit.data.classes)
+    if unknown:
+        raise ValueError(f"unknown land-cover classes {sorted(unknown)}")
+    area = np.array([float(names.get(c, 0.0)) for c in fit.data.classes])
+    area = 100 * area / area.sum()
+    return MicroclimateFit(dataclasses.replace(fit.data, area=area), fit.lam, fit.shift)
+
+
 def run_microclimate(city, pi_scenario: float = 1.0, removed=()) -> dict:
     """Microclimate outputs for a city: CDD per year and, where calibrated,
     city-average hot-day temperatures. The coupled levers (capacity
@@ -284,9 +297,11 @@ def run_microclimate(city, pi_scenario: float = 1.0, removed=()) -> dict:
         out["years"] = np.array(YEARS)
         return out
     fit = calibrate(load_calibration(mc.calibration_csv))
+    beta = mc.beta if mc.beta is not None else cross_calibrate_beta(fit)
+    if mc.class_area_pct:
+        fit = with_class_areas(fit, mc.class_area_pct)
     intensity = lever_intensity(city, pi_scenario, removed)
     delta = natural_unit_delta(fit.data, mc, pi_scenario, removed) if mc.coupling is None else None
-    beta = mc.beta if mc.beta is not None else cross_calibrate_beta(fit)
     out = cdd_series(cdd_cets, fit, intensity, beta, delta=delta)
     out.update({k: v for k, v in city_temperatures(fit, intensity, delta=delta).items() if k in OUTPUTS})
     out.update(years=np.array(YEARS), beta=beta, lam=fit.lam, intensity=intensity)

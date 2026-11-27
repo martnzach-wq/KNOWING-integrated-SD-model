@@ -380,6 +380,9 @@ class MicroclimateConfig:
     # "traffic_calming": all features follow the PI and drop out with the traffic-calming lever (pathway
     # coupling of D2.4 Table 14, the behaviour before D60); None: decoupled
     coupling: Optional[str] = None
+    # share of the city area per land-cover class (class name as in the calibration table, % of city area): the
+    # calibration (lambda, class shifts, beta) stays that of the table, city averages use these shares (transfer)
+    class_area_pct: dict = field(default_factory=dict)
 
 
 @dataclass
