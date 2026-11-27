@@ -685,7 +685,7 @@ class MobilityModel:
                 tli = TL_IDX[tl_name]
                 centroid_dist = self.trip_length_centroid[tt_name][tl_name]
                 road_pricing_adapted = self.PI_RoadPricing * self.road_pricing[t_idx] * cal_roadpricing
-                area_toll_adapted = self.PI_AreaToll * self.area_toll[t_idx] * cal_areatoll
+                area_toll_adapted = self.PI_AreaToll * self.area_toll[t_idx] * cal_areatoll * m.area_toll_affected_share
 
                 for mode in MODES:
                     mi = MODE_IDX[mode]

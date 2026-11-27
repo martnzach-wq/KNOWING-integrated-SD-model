@@ -129,8 +129,13 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
     """
     raw = _read_cets_sheet(city.energy_demand.xlsx_path, city.energy_demand.sheet_name)
 
+    overrides = getattr(city.energy_demand, "overrides", {}) or {}
+
     def series(key):
         label = CETS_ROWS[key]
+        if label in overrides:
+            pts = sorted(overrides[label].items())
+            return np.interp(YEARS, [y for y, _ in pts], [v for _, v in pts])
         if label not in raw:
             return np.zeros(len(YEARS))
         return _interp_to_annual(raw[label])

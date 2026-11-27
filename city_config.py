@@ -147,6 +147,9 @@ class MobilityConfig:
     # scale of the charged km so that the mean charged km per car trip equals ABM light's in-area car
     # vkm per car trip (abm_base_year/abm_light_pricing_proxies.csv, reference 2040; D53)
     road_pricing_km_scale: float = 1.0
+    # share of car trips entering the area-toll zone (exposure, D57); 1 keeps the calibrated factors of the
+    # demonstrators, which contain their own exposure
+    area_toll_affected_share: float = 1.0
     # trips shortened by the 15-minute city choose their mode anew with the mode split of the
     # shorter class (zone and coping type); False keeps their mode
     shorter_trips_rechoose_mode: bool = False
@@ -278,6 +281,9 @@ class EnergyDemandConfig:
     # whether household space heating is broken out by Biomass/Solar/DH/
     # electric/fossil (Tallinn CETS layout) vs. an aggregate format
     detailed_heating_breakdown: bool = True
+    # rows of the CETS sheet replaced by external pathways (e.g. a local strategy), {label: {year: GWh}};
+    # years between the given ones are interpolated (D57)
+    overrides: dict = field(default_factory=dict)
 
 
 @dataclass
