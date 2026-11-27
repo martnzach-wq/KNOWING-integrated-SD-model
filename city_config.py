@@ -1169,3 +1169,31 @@ SOUTH_WESTPHALIA.energy_demand.bau_growth = {"households": -0.00347, "services":
 TALLINN.mobility.ev_bau_trajectory = {2019: 0.03, 2050: 0.4}
 NAPLES.mobility.ev_bau_trajectory = {2019: 0.3, 2050: 1.0}
 SOUTH_WESTPHALIA.mobility.ev_bau_trajectory = {2019: 0.2, 2050: 0.2}
+
+
+# external city configurations: KNOWING_CITY_CONFIGS lists Python files (separated by os.pathsep) that build
+# CityConfig objects from the classes above; their upper-case CityConfig names are added to this module, so that
+# runners and regsim find them like the demonstrators. Cities with non-public data live in their own repositories.
+def _load_external_cities() -> list[str]:
+    import importlib.util
+    import os
+    import sys
+
+    added = []
+    for i, path in enumerate(p for p in os.environ.get("KNOWING_CITY_CONFIGS", "").split(os.pathsep) if p):
+        spec = importlib.util.spec_from_file_location(f"_external_city_config_{i}", path)
+        if spec is None or spec.loader is None:
+            raise ImportError(f"cannot load city configuration {path}")
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[spec.name] = module
+        spec.loader.exec_module(module)
+        for name, value in vars(module).items():
+            if name.isupper() and isinstance(value, CityConfig):
+                if name in globals():
+                    raise ValueError(f"{path}: {name} already defined")
+                globals()[name] = value
+                added.append(name)
+    return added
+
+
+EXTERNAL_CITIES = _load_external_cities()
