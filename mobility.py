@@ -863,7 +863,7 @@ class MobilityModel:
     def _summarise(self):
         """Compute distance outputs under BOTH pkm methods for comparison."""
         n = self.n_years
-        out = {"years": self.years, "ev_share": self.ev_share, "microclimate": self.microclimate}
+        out = {"years": self.years, "ev_share": self.ev_share, "microclimate": self.microclimate, "pi": self.pi}
 
         for method in ("centroid", "mode_specific"):
             if method == "mode_specific" and self.trip_length_mode_specific is None:

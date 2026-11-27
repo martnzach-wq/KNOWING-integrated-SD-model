@@ -130,6 +130,27 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
     raw = _read_cets_sheet(city.energy_demand.xlsx_path, city.energy_demand.sheet_name)
 
     overrides = getattr(city.energy_demand, "overrides", {}) or {}
+    edc = city.energy_demand
+    pi = float(mobility_results.get("pi", 1.0))
+    years = np.asarray(YEARS)
+
+    def group_of(key):
+        if key.startswith("hh_"):
+            return "households"
+        if key.startswith("service"):
+            return "services"
+        if key in ("manufacturing", "agriculture", "construction") or key.startswith("industry"):
+            return "industry"
+        if key.startswith("freight"):
+            return "freight"
+        return "transport_other" if key == "transport_other" else None
+
+    def intensity(group):
+        series_ = (getattr(edc, "policy_energy", {}) or {}).get(group)
+        if not series_:
+            return np.full(len(YEARS), pi)
+        pts = sorted(series_.items())
+        return pi * np.interp(years, [y for y, _ in pts], [v for _, v in pts])
 
     def series(key):
         label = CETS_ROWS[key]
@@ -138,9 +159,17 @@ def run_energy_demand(city: CityConfig, mobility_results: dict,
             return np.interp(YEARS, [y for y, _ in pts], [v for _, v in pts])
         if label not in raw:
             return np.zeros(len(YEARS))
-        return _interp_to_annual(raw[label])
+        cets = _interp_to_annual(raw[label])
+        group = group_of(key)
+        growth = (getattr(edc, "bau_growth", {}) or {}).get(group)
+        if growth is None:
+            return cets
+        # energy lever (D2.4 Table 14, D58): reference trajectory with the 2019 carrier shares, moved towards
+        # the CETS row by the policy intensity
+        bau = cets[0] * (1 + growth) ** (years - YEARS[0])
+        return bau + intensity(group) * (cets - bau)
 
-    out = {"years": np.array(YEARS)}
+    out = {"years": np.array(YEARS), "pi": pi}
 
     # --- Non-transport sectors: read as-is from XLSX ---
     out["hh_heating_biomass"] = series("hh_heating_biomass")

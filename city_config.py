@@ -284,6 +284,12 @@ class EnergyDemandConfig:
     # rows of the CETS sheet replaced by external pathways (e.g. a local strategy), {label: {year: GWh}};
     # years between the given ones are interpolated (D57)
     overrides: dict = field(default_factory=dict)
+    # energy levers (D2.4 Table 14, D58): each sector group moves between its reference (BAU) trajectory and
+    # the CETS row by PI x policy_energy[group](t); the BAU trajectory is the 2019 row grown at bau_growth[group]
+    # per year with the 2019 carrier shares (MAED-City BAU results of D3.x). Groups: households, services,
+    # industry, freight, transport_other. Without bau_growth a group follows the CETS row in every pathway.
+    bau_growth: dict = field(default_factory=dict)
+    policy_energy: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -292,6 +298,10 @@ class EnergySupplyConfig:
 
     xlsx_path: Optional[str] = None
     has_district_heating: bool = True
+    # supply levers (D2.4 Table 14: ES PV increase, ES new wind/hydro/heatpumps/electrboilers; D58): capacities
+    # and supplies move from their 2019 value towards the IESopt 2050 value by PI x policy_supply[group](t);
+    # groups: pv, wind, hydro, district_heating, electrolysis, other. Empty: every group at full intensity.
+    policy_supply: dict = field(default_factory=dict)
     # Grid emission factor trajectory, kg CO2/kWh, {year: value}
     grid_emission_factor: dict = field(default_factory=dict)
     # PLATER-style planning-grounded PV target by 2050 (MWp), None = not applicable
@@ -1124,3 +1134,16 @@ for _k, _v in dict(
 # transfer band 0.27-3.5 x: all measures 2040 -3 % to -39 % car trips around -12.5 %
 _g.logit_scale, _g.logit_adjustment = 0.0781, 0.7671  # donor weights Tallinn 0.71, Naples 0.29 (D56)
 _g.lever_calibration = {"capacity": 0.992, "parking": 5.210, "road_pricing": 1.802, "cycling": 3.813, "pt_traveltime": 1.538, "car_passenger": 0.758, "street_green": 0.0}
+
+# MAED-City BAU of D3.x as reference trajectories of the energy levers (D58): annual growth per sector group from
+# the BAU results (Tallinn D3.3 5.3.3.2: households 2,893 -> 3,044 GWh, services 2,028 -> 2,723 GWh,
+# manufacturing 20 % and passenger transport 15 % of 9,770 GWh in 2050; Naples D3.4a: households -1 %/a, services
+# +0.8 %/a, industry +0.9 %/a, transport -0.4 %/a; South Westphalia D3.5 5.3.3.2: manufacturing 15.1 -> 18.8 TWh,
+# buildings 29 % and passenger transport 12.6 TWh of 50.2 TWh in 2050); freight and other passenger fuels as the
+# remainder of the stated total. Granollers has no MAED-City results and keeps the CETS rows.
+TALLINN.energy_demand.bau_growth = {"households": 0.00164, "services": 0.00955, "industry": 0.01367,
+                                    "freight": -0.00483, "transport_other": -0.00483}
+NAPLES.energy_demand.bau_growth = {"households": -0.010, "services": 0.008, "industry": 0.009,
+                                   "freight": -0.004, "transport_other": -0.004}
+SOUTH_WESTPHALIA.energy_demand.bau_growth = {"households": -0.00347, "services": -0.00347, "industry": 0.00709,
+                                             "freight": -0.00151, "transport_other": -0.00151}

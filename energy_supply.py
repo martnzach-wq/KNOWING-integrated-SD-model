@@ -74,20 +74,44 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
     n = len(YEARS)
     years = np.array(YEARS)
 
+    # --- supply levers (D2.4 Table 14, D58): 2019 value + PI x intensity x (2050 value - 2019 value) ---
+    pi = float(energy_demand_results.get("pi", 1.0))
+    policy = getattr(esc, "policy_supply", {}) or {}
+
+    def group_of(category, item):
+        if category.startswith("ES Heat"):
+            return "district_heating"
+        name = str(item).lower()
+        if "pv" in name:
+            return "pv"
+        if "wind" in name:
+            return "wind"
+        if "hydro" in name:
+            return "hydro"
+        return "other"
+
+    def lever(group):
+        pts = sorted((policy.get(group) or {2019: 1.0, 2050: 1.0}).items())
+        return pi * np.interp(years, [y for y, _ in pts], [v for _, v in pts])
+
+    def interp_lever(v2019, v2050, group):
+        full = np.interp(years, [2019, 2050], [v2019, v2050])
+        return v2019 + lever(group) * (full - v2019)
+
     # --- Capacity & supply trajectories (linear interpolation 2019->2050) ---
     elec_capacity = {}
     elec_supply = {}
     for item, (v19, v50) in raw.get("ES ElectricityCapacity", {}).items():
-        elec_capacity[item] = _lin_interp_2pt(v19, v50)
+        elec_capacity[item] = interp_lever(v19, v50, group_of("ES ElectricityCapacity", item))
     for item, (v19, v50) in raw.get("ES ElectrictitySupply", {}).items():
-        elec_supply[item] = _lin_interp_2pt(v19, v50)
+        elec_supply[item] = interp_lever(v19, v50, group_of("ES ElectrictitySupply", item))
 
     heat_capacity = {}
     heat_supply = {}
     for item, (v19, v50) in raw.get("ES HeatCapacity", {}).items():
-        heat_capacity[item] = _lin_interp_2pt(v19, v50)
+        heat_capacity[item] = interp_lever(v19, v50, "district_heating")
     for item, (v19, v50) in raw.get("ES HeatSupply", {}).items():
-        heat_supply[item] = _lin_interp_2pt(v19, v50)
+        heat_supply[item] = interp_lever(v19, v50, "district_heating")
 
     # --- Electricity demand from the energy demand submodel ---
     ed_core_elec = energy_demand_results["ED_CoreElectricityDemand"]
@@ -165,7 +189,7 @@ def run_energy_supply(city: CityConfig, energy_demand_results: dict):
     )
 
     # electrolysers for the hydrogen demand (IESopt; zero where a city table has no such row)
-    el_demand_electrolyser = _lin_interp_2pt(*raw.get("ES ElDemand Electrolyser", {}).get("_scalar", (0, 0)))
+    el_demand_electrolyser = interp_lever(*raw.get("ES ElDemand Electrolyser", {}).get("_scalar", (0, 0)), "electrolysis")
     total_elec_demand = ed_core_elec + dh_elec_demand + el_demand_electrolyser
 
     # --- Electricity production ---
