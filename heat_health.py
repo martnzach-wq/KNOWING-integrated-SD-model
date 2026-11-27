@@ -8,7 +8,8 @@ Chain (annual step, base_year to end_year):
   -> exposure per age group: class temperatures weighted by the residents of each class, with a share
       of the outdoor exposure in the adjacent street space
   -> age-specific DLNM (log-RR per weekly mean temperature), linear extrapolation in log-RR beyond the grid
-  -> modifiers: cooled households (AC diffusion driven by heat days, district cooling), heat-action plan,
+  -> modifiers: cooled households (AC diffusion driven by heat days, district cooling), heat-action plan
+      (explicit parts: cooled care and health facilities, cool zones; the rest as one implementation level),
       passive cooling (shading, building greening) as lower effective temperature, acclimatisation
   -> attributable deaths = baseline weekly deaths x (1 - exp(-modifier x logRR)) x weeks per bin.
 
@@ -160,6 +161,19 @@ def run_heat_health(city, population: dict | None = None, inputs: dict | None = 
         m_ac = max(0.0, 1.0 - hh.beta_ac * 100.0 * (cooled - hh.ac0))
         m_hap = (1.0 - hh.hap_eff * hap) / (1.0 - hh.hap_eff * hh.hap0)
         mod = m_ac * m_hap
+        # explicit parts of a heat-action plan: cooled care and health facilities (residents' share of the group's
+        # baseline deaths), cool zones (places x share of a hot day spent there / target population)
+        eps = hh.beta_ac * 100.0  # heat-risk reduction of a cooled person
+        care = series_value(hh.care_cooled, y, hh.care_cooled0)
+        places = series_value(hh.cool_zone_places, y, hh.cool_zone_places0)
+        target = sum(popy[g] for g in hh.cool_zone_groups) or 1.0
+        u, u0 = places * hh.cool_zone_hours_share / target, hh.cool_zone_places0 * hh.cool_zone_hours_share / target
+        mod_g = {}
+        for g in groups:
+            dg = hh.care_share.get(g, 0.0)
+            m_care = (1.0 - eps * dg * care) / (1.0 - eps * dg * hh.care_cooled0)
+            m_cz = (1.0 - eps * u) / (1.0 - eps * u0) if g in hh.cool_zone_groups else 1.0
+            mod_g[g] = mod * m_care * m_cz
         shift = -hh.shade_dT * shade
         if hh.adapt_alpha:
             shift -= hh.adapt_alpha * float(jja.loc[y] - jja.loc[hh.adapt_ref_year])
@@ -171,13 +185,14 @@ def run_heat_health(city, population: dict | None = None, inputs: dict | None = 
             Teff = Tb[None, :] + shift + d[:, None]
             curve, draws = inp["curves"][g]
             yv = curve if hh.draw is None else draws[:, hh.draw]
-            af = 1.0 - np.exp(-mod * _logrr(inp["T"], yv, Teff))
+            af = 1.0 - np.exp(-mod_g[g] * _logrr(inp["T"], yv, Teff))
             out[g] = float(hh.ages_scale * base * (W[g][:, None] * af * nw[None, :]).sum())
         hd = float(clim.loc[y, "heat_days"]) + hh.heat_days_shift
         rows.append({"year": y, "heat_deaths": sum(out.values()),
                      **{f"heat_deaths_{g}": v for g, v in out.items()},
                      "heat_days": hd, "tropical_nights": float(clim.loc[y, "tropical_nights"]),
                      "ac_share": ac, "dc_share": dc, "cooled_share": cooled, "hap_level": hap,
+                     "care_cooled_share": care, "cool_zone_places": places,
                      "shaded_share": shade, "population_heat": sum(popy.values()),
                      **{f"dT_exposure_{g}": float(W[g] @ d) for g in groups}})
         nxt = y + 1

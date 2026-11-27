@@ -106,3 +106,17 @@ def test_cooling_electricity_follows_ac_share_and_cdd(tmp_path):
     assert np.all(np.diff(cool) > 0)  # logistic backcast before, diffusion after the base year
     hot = H.cooling_electricity(city, years, pop, np.full(len(years), 300.0))
     assert np.allclose(hot, cool * 1.5)
+
+
+def test_care_facilities_and_cool_zones_act_on_their_groups_only(tmp_path):
+    hh = _config(tmp_path, care_share={"75+": 0.4}, care_cooled0=0.5, cool_zone_places0=100.0,
+                 cool_zone_groups=("65-74", "75+"))
+    inp = H.load_inputs(hh)
+    ref = H.run_heat_health(_City("x", hh), inputs=inp)
+    care = H.run_heat_health(_City("x", dataclasses.replace(hh, care_cooled={2025: 0.5, 2026: 1.0})), inputs=inp)
+    cz = H.run_heat_health(_City("x", dataclasses.replace(hh, cool_zone_places={2025: 100.0, 2026: 5000.0})), inputs=inp)
+    assert np.allclose(ref.loc[2025].heat_deaths, care.loc[2025].heat_deaths)  # calibration state kept
+    assert care.loc[2030, "heat_deaths_75+"] < ref.loc[2030, "heat_deaths_75+"]
+    assert care.loc[2030, "heat_deaths_65-74"] == ref.loc[2030, "heat_deaths_65-74"]
+    assert cz.loc[2030, "heat_deaths_65-74"] < ref.loc[2030, "heat_deaths_65-74"]
+    assert cz.loc[2030, "heat_deaths_0-64"] == ref.loc[2030, "heat_deaths_0-64"]

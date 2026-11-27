@@ -421,7 +421,13 @@ class HeatHealthConfig:
     population_from_city: bool = False  # True: age groups scaled to the model population of the city
     # response parameters
     beta_ac: float = 0.0040  # fractional reduction of attributable deaths per pp of cooled households (Sera et al. 2020)
-    hap_eff: float = 0.252  # reduction by a fully implemented heat-prevention plan (meta-analysis, 25.2 %)
+    hap_eff: float = 0.252  # reduction by a fully implemented heat-prevention plan (meta-analysis, 25.2 %); with
+    # explicit parts (care facilities, cool zones) the effect of the rest of the plan
+    care_share: dict = field(default_factory=dict)  # age group -> share of its baseline deaths in care facilities
+    care_cooled0: float = 0.0  # share of care-facility residents in cooled rooms in the base year
+    cool_zone_places0: float = 0.0  # cool-zone places per hot day in the base year
+    cool_zone_hours_share: float = 0.25  # share of a hot day a visitor spends in a cool zone
+    cool_zone_groups: tuple = ()  # age groups using the cool zones
     hap0: float = 0.5  # heat-action-plan implementation in the calibration period
     hap_tau: float = 3.0  # years to implement a new target
     shade_dT: float = 0.5  # K lower effective exposure for a fully shaded stock
@@ -446,6 +452,8 @@ class HeatHealthConfig:
     greening_rate: dict = field(default_factory=dict)  # share of dwellings with roof/facade greening per year
     ac_growth_mult: dict = field(default_factory=dict)  # multiplier on AC diffusion (restraint < 1)
     dc_share: dict = field(default_factory=dict)  # share of dwellings connected to district cooling
+    care_cooled: dict = field(default_factory=dict)  # share of care-facility residents in cooled rooms
+    cool_zone_places: dict = field(default_factory=dict)  # cool-zone places per hot day
     # household cooling electricity from the AC share (energy demand row hh_cooling_electric); 0: the row of the
     # energy-demand table is kept
     ac_kwh_per_household: float = 0.0  # electricity per AC household and year at cdd_ref
